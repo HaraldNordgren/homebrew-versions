@@ -4,6 +4,7 @@ class Node < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v0.10.38/node-v0.10.38.tar.gz"
   sha256 "513da8ed5e48abefdfab664f1cabc160238d314a0481148804aff8fc6552b78b"
+  revision 1
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
@@ -26,8 +27,8 @@ class Node < Formula
   end
 
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-2.7.3.tgz"
-    sha256 "8cc5c6e8304b0b934027a8211173147911dac623f2f84bb6477ea3121f1a839d"
+    url "https://registry.npmjs.org/npm/-/npm-2.7.5.tgz"
+    sha256 "44f236437777bcb27d8be887674754899437685303cc7d666427053e74c51f6f"
   end
 
   def install
