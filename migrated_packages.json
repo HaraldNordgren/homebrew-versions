@@ -1041,5 +1041,12 @@
     "file_without_extension": "elasticsearch090",
     "original_filename": "elasticsearch090.rb",
     "migrated_filename": "elasticsearch.rb"
+  },
+  {
+    "classname_with_version": "Varnish3",
+    "package_at_version": "varnish@3",
+    "file_without_extension": "varnish3",
+    "original_filename": "varnish3.rb",
+    "migrated_filename": "varnish.rb"
   }
 ]
