@@ -6,6 +6,14 @@ class Isl < Formula
   mirror "ftp://gcc.gnu.org/pub/gcc/infrastructure/isl-0.12.2.tar.bz2"
   sha256 "f4b3dbee9712850006e44f0db2103441ab3d13b406f77996d1df19ee89d11fb4"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    cellar :any
+    sha256 "e043247dc75edb9579104e307039da57e6c1f0945567450224282604251b7235" => :yosemite
+    sha256 "83301cbde866fb443dabf5836a74f8d568a14347d8db1c97aca3c0894db9bbef" => :mavericks
+    sha256 "aa455b386914a1fd3ef15982cff46404eca9b9ce540e913a68d427d49f82085e" => :mountain_lion
+  end
+
   keg_only "Conflicts with isl in main repository."
 
   depends_on "gmp@4"
