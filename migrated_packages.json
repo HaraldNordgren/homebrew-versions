@@ -1699,5 +1699,12 @@
     "file_without_extension": "mono3",
     "original_filename": "mono3.rb",
     "migrated_filename": "mono.rb"
+  },
+  {
+    "classname_with_version": "Gdal111",
+    "package_at_version": "gdal@111",
+    "file_without_extension": "gdal111",
+    "original_filename": "gdal111.rb",
+    "migrated_filename": "gdal.rb"
   }
 ]
