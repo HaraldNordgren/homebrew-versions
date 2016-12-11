@@ -37,8 +37,8 @@ class Gcc < Formula
   option 'enable-profiled-build', 'Make use of profile guided optimization when bootstrapping GCC'
   option 'enable-multilib', 'Build with multilib support'
 
-  depends_on 'gmp'
-  depends_on 'mpfr'
+  depends_on 'gmp@4'
+  depends_on 'mpfr@2'
   depends_on 'ecj' if build.include? 'enable-java' or build.include? 'enable-all-languages'
 
   # Patches adapted from macports:
@@ -48,9 +48,6 @@ class Gcc < Formula
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete 'LD'
-
-    gmp = Formula.factory 'gmp'
-    mpfr = Formula.factory 'mpfr'
 
     if build.include? 'enable-all-languages'
       # Everything but Ada, which requires a pre-existing GCC Ada compiler
@@ -87,17 +84,19 @@ class Gcc < Formula
       # ...which are tagged with a suffix to distinguish them.
       "--enable-languages=#{languages.join(',')}",
       "--program-suffix=-#{version.to_s.slice(/\d\.\d/)}",
-      "--with-gmp=#{gmp.opt_prefix}",
-      "--with-mpfr=#{mpfr.opt_prefix}",
+      "--with-gmp=#{Formula.factory('gmp4').opt_prefix}",
+      "--with-mpfr=#{Formula.factory('mpfr2').opt_prefix}",
       "--with-system-zlib",
-      "--enable-stage1-checking"
+      "--enable-stage1-checking",
+      "--enable-checking=release",
+      # a no-op unless --HEAD is built because in head warnings will raise errs.
+      "--disable-werror"
     ]
 
     args << '--disable-nls' unless build.include? 'enable-nls'
 
     if build.include? 'enable-java' or build.include? 'enable-all-languages'
-      ecj = Formula.factory 'ecj'
-      args << "--with-ecj-jar=#{ecj.opt_prefix}/share/java/ecj.jar"
+      args << "--with-ecj-jar=#{Formula.factory('ecj').opt_prefix}/share/java/ecj.jar"
     end
 
     if build.include? 'enable-multilib'
