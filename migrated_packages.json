@@ -1468,5 +1468,12 @@
     "file_without_extension": "solr4",
     "original_filename": "solr4.rb",
     "migrated_filename": "solr.rb"
+  },
+  {
+    "classname_with_version": "Boost155",
+    "package_at_version": "boost@155",
+    "file_without_extension": "boost155",
+    "original_filename": "boost155.rb",
+    "migrated_filename": "boost.rb"
   }
 ]
