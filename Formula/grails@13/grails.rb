@@ -3,8 +3,8 @@ require 'formula'
 class Grails < Formula
   version "13"
   homepage 'http://grails.org'
-  url 'http://dist.springframework.org.s3.amazonaws.com/release/GRAILS/grails-1.3.8.zip'
-  md5 'd28ac73ae160ce512f7f0c957f895995'
+  url 'http://dist.springframework.org.s3.amazonaws.com/release/GRAILS/grails-1.3.9.zip'
+  md5 '628eaab10d033c02e6c2d97bcd7d2464'
 
   def install
     rm_f Dir["bin/*.bat", "bin/cygrails", "*.bat"]
