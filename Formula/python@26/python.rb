@@ -32,15 +32,6 @@ to get the appropriate site-packages path.
 
 COMMENTS
 
-
-# Was a Framework build requested?
-def build_framework?; build.include? 'framework'; end
-
-# Are we installed or installing as a Framework?
-def as_framework?
-  (self.installed? and File.exists? prefix+"Frameworks/Python.framework") or build_framework?
-end
-
 class Python < Formula
   version "26"
   homepage 'http://www.python.org/'
@@ -57,6 +48,14 @@ class Python < Formula
 
   # Skip binaries so modules will load; skip lib because it is mostly Python files
   skip_clean ['bin', 'lib']
+
+  # Was a Framework build requested?
+  def build_framework?; build.include? 'framework'; end
+
+  # Are we installed or installing as a Framework?
+  def as_framework?
+    (self.installed? and File.exists? prefix+"Frameworks/Python.framework") or build_framework?
+  end
 
   def site_packages
     # The Cellar location of site-packages

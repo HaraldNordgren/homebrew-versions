@@ -1,12 +1,5 @@
 require 'formula'
 
-def build_java?; build.include? "java"; end
-def build_perl?; build.include? "perl"; end
-def build_python?; build.include? "python"; end
-def build_ruby?; build.include? "ruby"; end
-def build_universal?; build.universal?; end
-def with_unicode_path?; build.include? 'unicode-path'; end
-
 # On 10.5 we need newer versions of apr, neon etc.
 # On 10.6 we only need a newer version of neon
 class SubversionDeps < Formula
@@ -31,6 +24,13 @@ class Subversion < Formula
   option 'python', 'Build Python bindings'
   option 'ruby', 'Build Ruby bindings'
   option 'unicode-path', 'Include support for OS X unicode (see caveats)'
+
+  def build_java?; build.include? "java"; end
+  def build_perl?; build.include? "perl"; end
+  def build_python?; build.include? "python"; end
+  def build_ruby?; build.include? "ruby"; end
+  def build_universal?; build.universal?; end
+  def with_unicode_path?; build.include? 'unicode-path'; end
 
   def patches
     # Patch to find Java headers

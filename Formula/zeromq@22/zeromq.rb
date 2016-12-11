@@ -1,9 +1,5 @@
 require 'formula'
 
-def pgm_flags
-  build.with?('pgm') ? '--with-system-pgm' : ''
-end
-
 class Zeromq < Formula
   version "22"
   homepage 'http://www.zeromq.org/'
@@ -22,6 +18,10 @@ class Zeromq < Formula
 
   option :universal
   option 'with-pgm', 'Build with PGM extension'
+
+  def pgm_flags
+    build.with?('pgm') ? '--with-system-pgm' : ''
+  end
 
   def build_fat
     # make 32-bit

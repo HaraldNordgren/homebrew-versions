@@ -1,13 +1,5 @@
 require 'formula'
 
-# Was a Framework build requested?
-def build_framework?; build.include? 'framework'; end
-
-# Are we installed or installing as a Framework?
-def as_framework?
-  (self.installed? and File.exists? prefix+"Frameworks/Python.framework") or build_framework?
-end
-
 class Python < Formula
   version "31"
   homepage 'http://www.python.org/'
@@ -23,6 +15,14 @@ class Python < Formula
   depends_on 'gdbm' => :recommended
 
   skip_clean ['bin', 'lib']
+
+  # Was a Framework build requested?
+  def build_framework?; build.include? 'framework'; end
+
+  # Are we installed or installing as a Framework?
+  def as_framework?
+    (self.installed? and File.exists? prefix+"Frameworks/Python.framework") or build_framework?
+  end
 
   def site_packages
     # The Cellar location of site-packages

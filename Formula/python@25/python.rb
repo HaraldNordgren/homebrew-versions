@@ -32,15 +32,6 @@ to get the appropriate site-packages path.
 
 COMMENTS
 
-
-# Was a Framework build requested?
-def build_framework?; build.include? 'framework'; end
-
-# Are we installed or installing as a Framework?
-def as_framework?
-  (self.installed? and File.exists? prefix+"Frameworks/Python.framework") or build_framework?
-end
-
 class Python < Formula
   version "25"
   homepage 'http://www.python.org/'
@@ -63,6 +54,14 @@ class Python < Formula
     {:p0 => %W[
       https://raw.github.com/collective/buildout.python/f38feb898691669d66b225fabda29b8f8f7c714f/src/python-2.5-darwin-10.6.patch
     ]}
+  end
+
+  # Was a Framework build requested?
+  def build_framework?; build.include? 'framework'; end
+
+  # Are we installed or installing as a Framework?
+  def as_framework?
+    (self.installed? and File.exists? prefix+"Frameworks/Python.framework") or build_framework?
   end
 
   def site_packages
