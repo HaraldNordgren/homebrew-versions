@@ -10,6 +10,8 @@ class AndroidNdk < Formula
     sha256 "82ee78e79fb049f099dcee6680e229339f4c5507308d67c9e145e0964d0b40af"
   end
 
+  bottle :unneeded
+
   depends_on "android-sdk"
 
   def install
