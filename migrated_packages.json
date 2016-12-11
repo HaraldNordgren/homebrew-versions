@@ -901,5 +901,12 @@
     "file_without_extension": "vtk5",
     "original_filename": "vtk5.rb",
     "migrated_filename": "vtk.rb"
+  },
+  {
+    "classname_with_version": "Valgrind38",
+    "package_at_version": "valgrind@38",
+    "file_without_extension": "valgrind38",
+    "original_filename": "valgrind38.rb",
+    "migrated_filename": "valgrind.rb"
   }
 ]
