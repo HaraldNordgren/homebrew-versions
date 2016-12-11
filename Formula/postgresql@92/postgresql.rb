@@ -1,9 +1,8 @@
 class Postgresql < Formula
   version "92"
   homepage "http://www.postgresql.org/"
-  url "http://ftp.postgresql.org/pub/source/v9.2.8/postgresql-9.2.8.tar.bz2"
-  sha256 "568ba482340219097475cce9ab744766889692ee7c9df886563e8292d66ed87c"
-  revision 1
+  url "http://ftp.postgresql.org/pub/source/v9.2.12/postgresql-9.2.12.tar.bz2"
+  sha256 "5f381b15fb63f7aa6b221ee56677b6029db0ae4f84bc78768ff9e753063b6d03"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
@@ -173,23 +172,12 @@ class Postgresql < Formula
   end
 
   test do
-    system "#{bin}/initdb", testpath
+    system "#{bin}/initdb", testpath/"test"
   end
 end
 
 
 __END__
---- a/src/pl/plpython/Makefile	2011-09-23 08:03:52.000000000 +1000
-+++ b/src/pl/plpython/Makefile	2011-10-26 21:43:40.000000000 +1100
-@@ -24,8 +24,6 @@
- # Darwin (OS X) has its own ideas about how to do this.
- ifeq ($(PORTNAME), darwin)
- shared_libpython = yes
--override python_libspec = -framework Python
--override python_additional_libs =
- endif
-
- # If we don't have a shared library and the platform doesn't allow it
 --- a/contrib/uuid-ossp/uuid-ossp.c	2012-07-30 18:34:53.000000000 -0700
 +++ b/contrib/uuid-ossp/uuid-ossp.c	2012-07-30 18:35:03.000000000 -0700
 @@ -9,6 +9,8 @@
