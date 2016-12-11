@@ -38,11 +38,11 @@ class Gcc < Formula
   option 'enable-profiled-build', 'Make use of profile guided optimization when bootstrapping GCC'
   option 'enable-multilib', 'Build with multilib support'
 
-  depends_on 'gmp'
-  depends_on 'libmpc'
-  depends_on 'mpfr'
-  depends_on 'cloog'
-  depends_on 'isl'
+  depends_on 'gmp@4'
+  depends_on 'libmpc@08'
+  depends_on 'mpfr@2'
+  depends_on 'cloog@018'
+  depends_on 'isl@011'
   depends_on 'ecj' if build.include? 'enable-java' or build.include? 'enable-all-languages'
 
   fails_with :gcc_4_0
@@ -86,11 +86,11 @@ class Gcc < Formula
       # ...which are tagged with a suffix to distinguish them.
       "--enable-languages=#{languages.join(',')}",
       "--program-suffix=-#{version.to_s.slice(/\d\.\d/)}",
-      "--with-gmp=#{Formula.factory('gmp').opt_prefix}",
-      "--with-mpfr=#{Formula.factory('mpfr').opt_prefix}",
-      "--with-mpc=#{Formula.factory('libmpc').opt_prefix}",
-      "--with-cloog=#{Formula.factory('cloog').opt_prefix}",
-      "--with-isl=#{Formula.factory('isl').opt_prefix}",
+      "--with-gmp=#{Formula.factory('gmp4').opt_prefix}",
+      "--with-mpfr=#{Formula.factory('mpfr2').opt_prefix}",
+      "--with-mpc=#{Formula.factory('libmpc08').opt_prefix}",
+      "--with-cloog=#{Formula.factory('cloog018').opt_prefix}",
+      "--with-isl=#{Formula.factory('isl011').opt_prefix}",
       "--with-system-zlib",
       "--enable-libstdcxx-time=yes",
       "--enable-stage1-checking",

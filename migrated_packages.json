@@ -747,5 +747,19 @@
     "file_without_extension": "libcouchbase1",
     "original_filename": "libcouchbase1.rb",
     "migrated_filename": "libcouchbase.rb"
+  },
+  {
+    "classname_with_version": "Isl011",
+    "package_at_version": "isl@011",
+    "file_without_extension": "isl011",
+    "original_filename": "isl011.rb",
+    "migrated_filename": "isl.rb"
+  },
+  {
+    "classname_with_version": "Cloog018",
+    "package_at_version": "cloog@018",
+    "file_without_extension": "cloog018",
+    "original_filename": "cloog018.rb",
+    "migrated_filename": "cloog.rb"
   }
 ]
