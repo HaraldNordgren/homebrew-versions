@@ -411,5 +411,12 @@
     "file_without_extension": "phantomjs17",
     "original_filename": "phantomjs17.rb",
     "migrated_filename": "phantomjs.rb"
+  },
+  {
+    "classname_with_version": "Coq83",
+    "package_at_version": "coq@83",
+    "file_without_extension": "coq83",
+    "original_filename": "coq83.rb",
+    "migrated_filename": "coq.rb"
   }
 ]
