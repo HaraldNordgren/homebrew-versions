@@ -656,5 +656,12 @@
     "file_without_extension": "libotr4",
     "original_filename": "libotr4.rb",
     "migrated_filename": "libotr.rb"
+  },
+  {
+    "classname_with_version": "Ppl10",
+    "package_at_version": "ppl@10",
+    "file_without_extension": "ppl10",
+    "original_filename": "ppl10.rb",
+    "migrated_filename": "ppl.rb"
   }
 ]
