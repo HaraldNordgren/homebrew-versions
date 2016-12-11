@@ -3,7 +3,7 @@ require 'formula'
 class Subversion < Formula
   version "16"
   homepage 'http://subversion.apache.org/'
-  url 'http://subversion.tigris.org/downloads/subversion-1.6.23.tar.bz2'
+  url 'http://archive.apache.org/dist/subversion/subversion-1.6.23.tar.bz2'
   sha1 '578c0ec69227db041e67ade40ac4cf2ebe2cf54a'
 
   depends_on 'pkg-config' => :build
@@ -21,7 +21,7 @@ class Subversion < Formula
   # On 10.5 we need newer versions of apr, neon etc.
   # On 10.6 we only need a newer version of neon
   resource 'deps' do
-    url 'http://subversion.tigris.org/downloads/subversion-deps-1.6.23.tar.bz2'
+    url 'http://archive.apache.org/dist/subversion/subversion-deps-1.6.23.tar.bz2'
     sha1 '6fe844c2bdc3c139a97f70b146e6a1e5ae2c26f0'
   end
 
