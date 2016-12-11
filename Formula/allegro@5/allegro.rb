@@ -3,8 +3,9 @@ require 'formula'
 class Allegro < Formula
   version "5"
   homepage 'http://www.allegro.cc'
-  url 'http://downloads.sourceforge.net/project/alleg/allegro/5.0.8/allegro-5.0.8.tar.gz'
-  sha1 '87249aa8dcc6070a425dcaa1aabdd0bbe0a881b3'
+  url 'http://downloads.sourceforge.net/project/alleg/allegro/5.0.9/allegro-5.0.9.tar.gz'
+  sha1 '7d05bc3d59b60a22796e9938f0b9a463c33d4b30'
+
   head 'git://git.code.sf.net/p/alleg/allegro', :branch => '5.1'
 
   depends_on 'cmake' => :build
