@@ -1265,5 +1265,12 @@
     "file_without_extension": "cassandra20",
     "original_filename": "cassandra20.rb",
     "migrated_filename": "cassandra.rb"
+  },
+  {
+    "classname_with_version": "Qt52",
+    "package_at_version": "qt@52",
+    "file_without_extension": "qt52",
+    "original_filename": "qt52.rb",
+    "migrated_filename": "qt.rb"
   }
 ]
