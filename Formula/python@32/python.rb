@@ -20,16 +20,6 @@ class TkCheck < Requirement
   end
 end
 
-class Setuptools < Formula
-  url 'https://pypi.python.org/packages/source/s/setuptools/setuptools-1.1.6.tar.gz'
-  sha1 '4a8863e8196704759a5800afbcf33a94b802ac88'
-end
-
-class Pip < Formula
-  url 'https://pypi.python.org/packages/source/p/pip/pip-1.4.1.tar.gz'
-  sha1 '9766254c7909af6d04739b4a7732cc29e9a48cb0'
-end
-
 class Python < Formula
   version "32"
   homepage 'http://www.python.org/'
@@ -47,6 +37,16 @@ class Python < Formula
   option :universal
   option 'quicktest', 'Run `make quicktest` after the build'
   option 'with-brewed-openssl', "Use Homebrew's openSSL instead of the one from OS X"
+
+  resource 'setuptools' do
+    url 'https://pypi.python.org/packages/source/s/setuptools/setuptools-2.2.tar.gz'
+    sha1 '547eff11ea46613e8a9ba5b12a89c1010ecc4e51'
+  end
+
+  resource 'pip' do
+    url 'https://pypi.python.org/packages/source/p/pip/pip-1.5.4.tar.gz'
+    sha1 '35ccb7430356186cf253615b70f8ee580610f734'
+  end
 
   def site_packages_cellar
     prefix/"Frameworks/Python.framework/Versions/#{VER}/lib/python#{VER}/site-packages"
@@ -140,9 +140,10 @@ class Python < Formula
     # with what the python (2.x) formula installs.
     scripts_folder.mkpath
     setup_args = ["-s", "setup.py", "install", "--force", "--verbose", "--install-lib=#{site_packages_cellar}", "--install-scripts=#{bin}" ]
-    Setuptools.new.brew { system "#{bin}/python#{VER}", *setup_args }
+
+    resource('setuptools').stage { system "#{bin}/python", *setup_args }
     rm bin/'easy_install'
-    Pip.new.brew { system "#{bin}/python#{VER}", *setup_args }
+    resource('pip').stage { system "#{bin}/python", *setup_args }
     rm bin/'pip'
 
     # Tell distutils-based installers where to put scripts
