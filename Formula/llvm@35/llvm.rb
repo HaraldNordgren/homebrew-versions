@@ -196,46 +196,44 @@ class Llvm < Formula
 
       cd libcxxabi_buildpath/'lib' do
         # Set rpath to save user from setting DYLD_LIBRARY_PATH
-        inreplace libcxxabi_buildpath/'lib/buildit', '-install_name /usr/lib/libc++abi.dylib', "-install_name #{install_prefix}/usr/lib/libc++abi.dylib"
+        inreplace "buildit", "-install_name /usr/lib/libc++abi.dylib", "-install_name #{install_prefix}/usr/lib/libc++abi.dylib"
 
         ENV['CC'] = "#{install_prefix}/bin/clang"
         ENV['CXX'] = "#{install_prefix}/bin/clang++"
         ENV['TRIPLE'] = "*-apple-*"
         system "./buildit"
-        (install_prefix/'usr/lib/').install libcxxabi_buildpath/'lib/libc++abi.dylib'
-        cp libcxxabi_buildpath/'include/cxxabi.h', install_prefix/'lib/c++/v1/'
-      end
-    end
-
-    # Putting libcxx in projects only ensures that headers are installed.
-    # Manually "make install" to actually install the shared libs.
-    cd libcxx_buildpath do
-      if MacOS.version <= :snow_leopard
-        # Snow Leopard make rules hardcode libc++ and libc++abi path.
-        # Change to Cellar path here.
-        inreplace libcxx_buildpath/'lib/buildit', '-install_name /usr/lib/libc++.1.dylib', "-install_name #{install_prefix}/usr/lib/libc++.1.dylib"
-        inreplace libcxx_buildpath/'lib/buildit', '-Wl,-reexport_library,/usr/lib/libc++abi.dylib', "-Wl,-reexport_library,#{install_prefix}/usr/lib/libc++abi.dylib"
+        (install_prefix/"usr/lib").install "libc++abi.dylib"
+        cp libcxxabi_buildpath/"include/cxxabi.h", install_prefix/"lib/c++/v1"
       end
 
-      libcxx_make_args = [
-        # Use the built clang for building
-        "CC=#{install_prefix}/bin/clang",
-        "CXX=#{install_prefix}/bin/clang++",
-        # Properly set deployment target, which is needed for Snow Leopard
-        "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
-        # The following flags are needed so it can be installed correctly.
-        "DSTROOT=#{install_prefix}",
-        "SYMROOT=#{libcxx_buildpath}"
-      ]
+      # Snow Leopard make rules hardcode libc++ and libc++abi path.
+      # Change to Cellar path here.
+      inreplace "#{libcxx_buildpath}/lib/buildit" do |s|
+        s.gsub! "-install_name /usr/lib/libc++.1.dylib", "-install_name #{install_prefix}/usr/lib/libc++.1.dylib"
+        s.gsub! "-Wl,-reexport_library,/usr/lib/libc++abi.dylib", "-Wl,-reexport_library,#{install_prefix}/usr/lib/libc++abi.dylib"
+      end
 
       # On Snow Leopard and older system libc++abi is not shipped but
       # needed here. It is hard to tweak environment settings to change
       # include path as libc++ uses a custom build script, so just
       # symlink the needed header here.
-      ln_s libcxxabi_buildpath/'include/cxxabi.h', libcxx_buildpath/'include' if MacOS.version <= :snow_leopard
-
-      system 'make', 'install', *libcxx_make_args
+      ln_s libcxxabi_buildpath/"include/cxxabi.h", libcxx_buildpath/"include"
     end
+
+    # Putting libcxx in projects only ensures that headers are installed.
+    # Manually "make install" to actually install the shared libs.
+    libcxx_make_args = [
+      # Use the built clang for building
+      "CC=#{install_prefix}/bin/clang",
+      "CXX=#{install_prefix}/bin/clang++",
+      # Properly set deployment target, which is needed for Snow Leopard
+      "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
+      # The following flags are needed so it can be installed correctly.
+      "DSTROOT=#{install_prefix}",
+      "SYMROOT=#{libcxx_buildpath}"
+    ]
+
+    system "make", "-C", libcxx_buildpath, "install", *libcxx_make_args
 
     (share/"clang-#{ver}/tools").install Dir["tools/clang/tools/scan-{build,view}"]
 
