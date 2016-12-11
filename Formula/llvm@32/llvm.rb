@@ -4,16 +4,18 @@ class Clang < Formula
   homepage  'http://llvm.org/'
   url       'http://llvm.org/releases/3.2/clang-3.2.src.tar.gz'
   sha1      'b0515298c4088aa294edc08806bd671f8819f870'
-
-  head      'http://llvm.org/git/clang.git'
 end
 
 class CompilerRt < Formula
   homepage  'http://llvm.org/'
   url       'http://llvm.org/releases/3.2/compiler-rt-3.2.src.tar.gz'
   sha1      '718c0249a00e928f8bba32c84771da998ea4d42f'
+end
 
-  head      'http://llvm.org/git/compiler-rt.git'
+class Polly < Formula
+  homepage  'http://llvm.org'
+  url       'http://llvm.org/releases/3.2/polly-3.2.src.tar.gz'
+  sha1      'b82b3650db710642dfce0c98a49fc0b866b6f152'
 end
 
 class Llvm < Formula
@@ -21,17 +23,6 @@ class Llvm < Formula
   homepage  'http://llvm.org/'
   url       'http://llvm.org/releases/3.2/llvm-3.2.src.tar.gz'
   sha1      '42d139ab4c9f0c539c60f5ac07486e9d30fc1280'
-
-  head      'http://llvm.org/git/llvm.git'
-
-  keg_only "Conflicts with llvm in mainline homebrew"
-
-  bottle do
-    revision 2
-    sha1 'beec50e270e10df5a8286919d1a7a18e7e21146b' => :lion
-    sha1 'e1570f49b4c31efbc8dbaac0134a84677ee47a1c' => :snow_leopard
-    sha1 '5f61eb469603f59d354d0eb1a95990fb44f12f56' => :mountain_lion
-  end
 
   option :universal
   option 'with-clang', 'Build Clang C/ObjC/C++ frontend'
@@ -42,21 +33,28 @@ class Llvm < Formula
   option 'disable-assertions', 'Speeds up LLVM, but provides less debug information'
 
   depends_on :python => :recommended
+  depends_on 'gmp@4'
+  depends_on 'isl@011'
+  depends_on 'cloog@018'
 
   env :std if build.universal?
 
   def install
-    if build.with? 'python' and build.include? 'disable-shared'
+    if python and build.include? 'disable-shared'
       raise 'The Python bindings need the shared library.'
     end
 
-    Clang.new("clang").brew do
-      clang_dir.install Dir['*']
-    end if build.include? 'with-clang'
+    Clang.new('clang').brew do
+      (buildpath/'tools/clang').install Dir['*']
+    end if build.with? 'clang'
 
     CompilerRt.new("compiler-rt").brew do
       (buildpath/'projects/compiler-rt').install Dir['*']
-    end if build.include? 'with-asan'
+    end if build.with? 'asan'
+
+    Polly.new('polly').brew do
+      (buildpath/'tools/polly').install Dir['*']
+    end
 
     if build.universal?
       ENV['UNIVERSAL'] = '1'
@@ -65,12 +63,17 @@ class Llvm < Formula
 
     ENV['REQUIRES_RTTI'] = '1' if build.include? 'rtti'
 
+    install_prefix = lib/"llvm-#{version}"
+
     args = [
-      "--prefix=#{prefix}",
+      "--prefix=#{install_prefix}",
       "--enable-optimized",
       # As of LLVM 3.1, attempting to build ocaml bindings with Homebrew's
       # OCaml 3.12.1 results in errors.
       "--disable-bindings",
+      "--with-gmp=#{Formula.factory('gmp4').opt_prefix}",
+      "--with-isl=#{Formula.factory('isl011').opt_prefix}",
+      "--with-cloog=#{Formula.factory('cloog018').opt_prefix}"
     ]
 
     if build.include? 'all-targets'
@@ -82,38 +85,55 @@ class Llvm < Formula
 
     args << "--disable-assertions" if build.include? 'disable-assertions'
 
-    system "./configure", *args
-    system "make install"
+    system './configure', *args
+    system 'make', 'VERBOSE=1'
+    system 'make', 'VERBOSE=1', 'install'
 
-    # install llvm python bindings
+    # Install Clang tools
+    (share/"clang-#{version}/tools").install buildpath/'tools/clang/tools/scan-build', buildpath/'tools/clang/tools/scan-view'
+
     if python
-      unless build.head?
-        inreplace buildpath/'bindings/python/llvm/common.py', 'LLVM-3.1svn', "libLLVM-#{version}svn"
+      # Install llvm python bindings.
+      mv buildpath/'bindings/python/llvm', buildpath/"bindings/python/llvm-#{version}"
+      python.site_packages.install buildpath/"bindings/python/llvm-#{version}"
+      # Install clang tools and bindings if requested.
+      if build.with? 'clang'
+        mv buildpath/'tools/clang/bindings/python/clang', buildpath/"tools/clang/bindings/python/clang-#{version}"
+        python.site_packages.install buildpath/"tools/clang/bindings/python/clang-#{version}"
       end
-      python.site_packages.install buildpath/'bindings/python/llvm'
     end
 
-    # install clang tools and bindings
-    cd clang_dir do
-      system 'make install'
-      (share/'clang/tools').install 'tools/scan-build', 'tools/scan-view'
-      python.site_packages.install 'bindings/python/clang' if python
-    end if build.include? 'with-clang'
+    # Link executables to bin and add suffix to avoid conflicts
+    mkdir_p bin
+    Dir.glob(install_prefix/'bin/*') do |exec_path|
+      exec_file = File.basename(exec_path)
+      ln_s exec_path, bin/"#{exec_file}-#{version}"
+    end
+
+    # Also link man pages
+    mkdir_p share/'man/man1'
+    Dir.glob(install_prefix/'share/man/man1/*') do |manpage|
+      manpage_base = File.basename(manpage, '.1')
+      ln_s manpage, share/"man/man1/#{manpage_base}-#{version}.1"
+    end
   end
 
   def test
-    system "#{bin}/llvm-config", "--version"
+    system "#{bin}/llvm-config-#{version}", "--version"
   end
 
   def caveats
     s = ''
     s += python.standard_caveats if python
-    s += <<-EOS.undent
-      Extra tools are installed in #{share}/llvm and #{share}/clang.
-    EOS
+
+    if build.with? 'clang'
+      clang_tools_path = HOMEBREW_PREFIX/"share/clang-#{version}"
+      s += <<-EOS.undent
+
+      Extra tools are installed in #{clang_tools_path}.
+      EOS
+    end
+    s
   end
 
-  def clang_dir
-    buildpath/'tools/clang'
-  end
 end
