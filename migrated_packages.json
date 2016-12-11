@@ -1783,5 +1783,12 @@
     "file_without_extension": "apache-spark131",
     "original_filename": "apache-spark131.rb",
     "migrated_filename": "apache-spark.rb"
+  },
+  {
+    "classname_with_version": "Gradle24",
+    "package_at_version": "gradle@24",
+    "file_without_extension": "gradle24",
+    "original_filename": "gradle24.rb",
+    "migrated_filename": "gradle.rb"
   }
 ]
