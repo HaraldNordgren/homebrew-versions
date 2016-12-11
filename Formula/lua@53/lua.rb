@@ -3,7 +3,6 @@ class Lua < Formula
   desc "Powerful, lightweight programming language"
   homepage "http://www.lua.org/"
   url "http://www.lua.org/ftp/lua-5.3.1.tar.gz"
-  mirror "https://raw.githubusercontent.com/DomT4/LibreMirror/master/Lua/lua-5.3.1.tar.gz"
   sha256 "072767aad6cc2e62044a66e8562f51770d941e972dc1e4068ba719cd8bffac17"
   revision 1
 
