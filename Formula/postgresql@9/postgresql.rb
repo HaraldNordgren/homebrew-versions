@@ -22,24 +22,26 @@ class Postgresql < Formula
   def install
     ENV.libxml2 if MacOS.version >= :snow_leopard
 
-    args = ["--disable-debug",
-            "--prefix=#{prefix}",
-            "--enable-thread-safety",
-            "--with-bonjour",
-            "--with-gssapi",
-            "--with-krb5",
-            "--with-openssl",
-            "--with-libxml", "--with-libxslt"]
+    args = %W[
+      --disable-debug
+      --prefix=#{prefix}
+      --datadir=#{share}/#{name}
+      --docdir=#{doc}
+      --enable-thread-safety
+      --with-bonjour
+      --with-gssapi
+      --with-krb5
+      --with-openssl
+      --with-libxml
+      --with-libxslt
+    ]
 
-    args << "--with-ossp-uuid" unless build.without? 'ossp-uuid'
+    args << "--with-ossp-uuid" if build.with? 'ossp-uuid'
     args << "--with-python" unless build.include? 'no-python'
     args << "--with-perl" unless build.include? 'no-perl'
     args << "--enable-dtrace" if build.include? 'enable-dtrace'
 
-    args << "--datadir=#{share}/#{name}"
-    args << "--docdir=#{doc}"
-
-    unless build.include? 'without-ossp-uuid'
+    if build.with? 'ossp-uuid'
       ENV.append 'CFLAGS', `uuid-config --cflags`.strip
       ENV.append 'LDFLAGS', `uuid-config --ldflags`.strip
       ENV.append 'LIBS', `uuid-config --libs`.strip
@@ -51,16 +53,7 @@ class Postgresql < Formula
     end
 
     system "./configure", *args
-    system "make install"
-    system "make install-docs"
-
-    contribs = Dir.glob("contrib/*").select{ |path| File.directory?(path) }
-    contribs.delete('contrib/start-scripts')
-    contribs.delete('contrib/uuid-ossp') if build.include? 'without-ossp-uuid'
-
-    contribs.each do |dir|
-      system "cd #{dir}; make install"
-    end
+    system "make install-world"
   end
 
   def check_python_arch
@@ -89,35 +82,33 @@ class Postgresql < Formula
   end
 
   def caveats
-    s = <<-EOS
-If builds of PostgreSQL 9 are failing and you have version 8.x installed,
-you may need to remove the previous version first. See:
-  https://github.com/mxcl/homebrew/issues/issue/2510
+    s = <<-EOS.undent
+      If builds of PostgreSQL 9 are failing and you have version 8.x installed,
+      you may need to remove the previous version first. See:
+        https://github.com/mxcl/homebrew/issues/issue/2510
 
-To build plpython against a specific Python, set PYTHON prior to brewing:
-  PYTHON=/usr/local/bin/python  brew install postgresql
-See:
-  http://www.postgresql.org/docs/9.0/static/install-procedure.html
+      To build plpython against a specific Python, set PYTHON prior to brewing:
+        PYTHON=/usr/local/bin/python brew install postgresql
+      See:
+        http://www.postgresql.org/docs/9.0/static/install-procedure.html
 
+      If this is your first install, create a database with:
+        initdb #{var}/postgres9
 
-If this is your first install, create a database with:
-  initdb #{var}/postgres9
+      Some machines may require provisioning of shared memory:
+        http://www.postgresql.org/docs/current/static/kernel-resources.html#SYSVIPC
+    EOS
 
-Some machines may require provisioning of shared memory:
-  http://www.postgresql.org/docs/current/static/kernel-resources.html#SYSVIPC
-EOS
-
-    if MacOS.prefer_64_bit? then
-      s << <<-EOS
-
-If you want to install the postgres gem, including ARCHFLAGS is recommended:
-    env ARCHFLAGS="-arch x86_64" gem install pg
-
-To install gems without sudo, see the Homebrew wiki.
-      EOS
-    end
-
+    s << gem_caveats if MacOS.prefer_64_bit?
     return s
+  end
+
+  def gem_caveats; <<-EOS.undent
+    When installing the postgres gem, including ARCHFLAGS is recommended:
+      ARCHFLAGS="-arch x86_64" gem install pg
+
+    To install gems without sudo, see the Homebrew wiki.
+    EOS
   end
 
   plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgres -l #{HOMEBREW_PREFIX}/var/postgres/server.log start"
@@ -142,8 +133,6 @@ To install gems without sudo, see the Homebrew wiki.
       </array>
       <key>RunAtLoad</key>
       <true/>
-      <key>UserName</key>
-      <string>#{`whoami`.chomp}</string>
       <key>WorkingDirectory</key>
       <string>#{HOMEBREW_PREFIX}</string>
     </dict>
