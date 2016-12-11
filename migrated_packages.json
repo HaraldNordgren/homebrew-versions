@@ -1202,5 +1202,12 @@
     "file_without_extension": "kafka080",
     "original_filename": "kafka080.rb",
     "migrated_filename": "kafka.rb"
+  },
+  {
+    "classname_with_version": "Go12",
+    "package_at_version": "go@12",
+    "file_without_extension": "go12",
+    "original_filename": "go12.rb",
+    "migrated_filename": "go.rb"
   }
 ]
