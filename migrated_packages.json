@@ -705,5 +705,12 @@
     "file_without_extension": "llvm31",
     "original_filename": "llvm31.rb",
     "migrated_filename": "llvm.rb"
+  },
+  {
+    "classname_with_version": "Perl514",
+    "package_at_version": "perl@514",
+    "file_without_extension": "perl514",
+    "original_filename": "perl514.rb",
+    "migrated_filename": "perl.rb"
   }
 ]
