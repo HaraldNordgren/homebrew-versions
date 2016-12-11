@@ -10,10 +10,10 @@ class Gmp < Formula
   sha1 'c011e8feaf1bb89158bd55eaabd7ef8fdd101a2c'
 
   bottle do
-    url 'ac18cca84840aac6d004d829bc1cea398ec09487' => :tiger_g3
-    url '33780b658a5f64d220fb64c07d4f6e859ddd94c5' => :tiger_altivec
-    url '71bf67992e28a0b48606db40df70f22d3414c5fd' => :leopard_g3
-    url '480b7c3848b069e0da3bb33331beacf9122baec3' => :leopard_altivec
+    sha1 'ac18cca84840aac6d004d829bc1cea398ec09487' => :tiger_g3
+    sha1 '33780b658a5f64d220fb64c07d4f6e859ddd94c5' => :tiger_altivec
+    sha1 '71bf67992e28a0b48606db40df70f22d3414c5fd' => :leopard_g3
+    sha1 '480b7c3848b069e0da3bb33331beacf9122baec3' => :leopard_altivec
   end
 
   keg_only "Conflicts with gmp in main repository."

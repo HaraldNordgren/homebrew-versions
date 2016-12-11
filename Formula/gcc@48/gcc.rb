@@ -30,8 +30,8 @@ class Gcc < Formula
   head 'svn://gcc.gnu.org/svn/gcc/branches/gcc-4_8-branch'
 
   bottle do
-    url '063016966578350a6048e22b45e468c3dc991619' => :leopard_g3
-    url '16a24c342514a4917533c172cddbfb3156153adc' => :leopard_altivec
+    sha1 '063016966578350a6048e22b45e468c3dc991619' => :leopard_g3
+    sha1 '16a24c342514a4917533c172cddbfb3156153adc' => :leopard_altivec
   end
 
   option 'enable-fortran', 'Build the gfortran compiler'
