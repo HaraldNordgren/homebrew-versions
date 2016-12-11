@@ -6,9 +6,9 @@ class Node < Formula
   sha256 "50e9a4282a741c923bd41c3ebb76698edbd7b1324024fe70cedc1e34b782d44f"
 
   bottle do
-    sha256 "1c6f050a5a431e52f9734b081cf1986495a667e4e42d9d6813b2bc105564ee9f" => :yosemite
-    sha256 "0408da3d54dc20c365c3c018d040e9aac208fa96e3f58038188bcb9793a0430d" => :mavericks
-    sha256 "e9eeda21f549315674d327c595a356bd4ae06446d4cc94d0edc77aefb640e570" => :mountain_lion
+    sha256 "f6bd80020b36c6558891c3046978b863e4252f5308d006e697e040a2827a7757" => :el_capitan
+    sha256 "3f6e33df20eece207138af79b7fb323c41ef91d38d97f096f749fafa557cd8af" => :yosemite
+    sha256 "e4fa19c0d05ba11914f8faac32bf5b990f015e55e5ee60be7fb4145c96798b36" => :mavericks
   end
 
   option "with-debug", "Build with debugger hooks"
