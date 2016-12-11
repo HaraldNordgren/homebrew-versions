@@ -1125,5 +1125,12 @@
     "file_without_extension": "openjpeg21",
     "original_filename": "openjpeg21.rb",
     "migrated_filename": "openjpeg.rb"
+  },
+  {
+    "classname_with_version": "Play22",
+    "package_at_version": "play@22",
+    "file_without_extension": "play22",
+    "original_filename": "play22.rb",
+    "migrated_filename": "play.rb"
   }
 ]
