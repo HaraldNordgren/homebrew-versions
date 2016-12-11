@@ -11,6 +11,7 @@ class Subversion < Formula
   option 'perl', 'Build Perl bindings'
   option 'ruby', 'Build Ruby bindings'
   option 'unicode-path', 'Include support for OS X UTF-8-MAC filename'
+  option 'with-homebrew-openssl', 'Include OpenSSL support via Homebrew'
 
   depends_on 'pkg-config' => :build
 
@@ -19,6 +20,7 @@ class Subversion < Formula
   depends_on 'serf'
   depends_on 'sqlite'
   depends_on :python => :optional
+  depends_on 'openssl' if build.include? 'with-homebrew-openssl'
 
   # Building Ruby bindings requires libtool
   depends_on :libtool if build.include? 'ruby'
@@ -81,7 +83,6 @@ class Subversion < Formula
     args = ["--disable-debug",
             "--prefix=#{prefix}",
             "--with-apr=#{apr_bin}",
-            "--with-ssl",
             "--with-zlib=/usr",
             "--with-sqlite=#{Formula.factory('sqlite').opt_prefix}",
             "--with-serf=#{Formula.factory('serf').opt_prefix}",
@@ -90,6 +91,12 @@ class Subversion < Formula
             "--disable-nls",
             "--without-apache-libexecdir",
             "--without-berkeley-db"]
+
+    if build.include? 'with-homebrew-openssl'
+      args << "--with-ssl=#{Formula.factory('openssl').opt_prefix}"
+    else
+      args << "--with-ssl"
+    end
 
     args << "--enable-javahl" << "--without-jikes" if build.include? 'java'
 
