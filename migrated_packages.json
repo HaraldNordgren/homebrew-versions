@@ -1825,5 +1825,12 @@
     "file_without_extension": "mapnik2",
     "original_filename": "mapnik2.rb",
     "migrated_filename": "mapnik.rb"
+  },
+  {
+    "classname_with_version": "SeleniumServerStandalone245",
+    "package_at_version": "selenium-server-standalone@245",
+    "file_without_extension": "selenium-server-standalone245",
+    "original_filename": "selenium-server-standalone245.rb",
+    "migrated_filename": "selenium-server-standalone.rb"
   }
 ]
