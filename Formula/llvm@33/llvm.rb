@@ -122,7 +122,7 @@ class Llvm < Formula
     end if build.with? 'libcxx'
 
     # Install Clang tools
-    (share/"clang-#{version}/tools").install buildpath/'tools/clang/tools/scan-build', buildpath/'tools/clang/tools/scan-view'
+    (share/"clang-#{version}/tools").install buildpath/'tools/clang/tools/scan-build', buildpath/'tools/clang/tools/scan-view' if build.with? 'clang'
 
     if python
       # Install llvm python bindings.
