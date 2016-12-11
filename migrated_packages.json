@@ -369,5 +369,12 @@
     "file_without_extension": "grails20",
     "original_filename": "grails20.rb",
     "migrated_filename": "grails.rb"
+  },
+  {
+    "classname_with_version": "Jetty8",
+    "package_at_version": "jetty@8",
+    "file_without_extension": "jetty8",
+    "original_filename": "jetty8.rb",
+    "migrated_filename": "jetty.rb"
   }
 ]
