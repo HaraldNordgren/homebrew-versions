@@ -3,8 +3,8 @@ require 'formula'
 class Libpng < Formula
   version "12"
   homepage 'http://www.libpng.org/pub/png/libpng.html'
-  url 'http://sourceforge.net/projects/libpng/files/libpng12/1.2.49/libpng-1.2.49.tar.gz'
-  md5 '39a35257cd888d29f1d000c2ffcc79eb'
+  url 'http://sourceforge.net/projects/libpng/files/libpng12/1.2.50/libpng-1.2.50.tar.gz'
+  md5 'fedd8c66d106c28f8d527f9397c265a2'
 
   keg_only :provided_by_osx
 
