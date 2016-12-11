@@ -5,7 +5,7 @@ class Erlang < Formula
   homepage "http://www.erlang.org"
   url "http://www.erlang.org/download/otp_src_R16B03-1.tar.gz"
   sha1 "c2634ea0c078500f1c6a1369f4be59a6d14673e0"
-  revision 1
+  revision 2
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
@@ -37,13 +37,16 @@ class Erlang < Formula
     # Do this if building from a checkout to generate configure
     system "./otp_build autoconf" if File.exist? "otp_build"
 
-    args = ["--disable-debug",
-            "--prefix=#{prefix}",
-            "--enable-kernel-poll",
-            "--enable-threads",
-            "--enable-dynamic-ssl-lib",
-            "--enable-shared-zlib",
-            "--enable-smp-support"]
+    args = %W[
+        --disable-debug
+        --prefix=#{prefix}
+        --enable-kernel-poll
+        --enable-threads
+        --enable-dynamic-ssl-lib
+        --with-ssl=#{Formula["openssl"].opt_prefix}
+        --enable-shared-zlib
+        --enable-smp-support
+    ]
 
     args << "--with-dynamic-trace=dtrace" unless MacOS.version == :leopard or not MacOS::CLT.installed?
 
