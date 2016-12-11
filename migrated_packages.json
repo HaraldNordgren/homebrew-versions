@@ -110,5 +110,12 @@
     "file_without_extension": "gcc45",
     "original_filename": "gcc45.rb",
     "migrated_filename": "gcc.rb"
+  },
+  {
+    "classname_with_version": "Solr14",
+    "package_at_version": "solr@14",
+    "file_without_extension": "solr14",
+    "original_filename": "solr14.rb",
+    "migrated_filename": "solr.rb"
   }
 ]
