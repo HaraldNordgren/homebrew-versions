@@ -579,5 +579,12 @@
     "file_without_extension": "elasticsearch-0.20",
     "original_filename": "elasticsearch-0.20.rb",
     "migrated_filename": "elasticsearch.rb"
+  },
+  {
+    "classname_with_version": "Gcc49",
+    "package_at_version": "gcc@49",
+    "file_without_extension": "gcc49",
+    "original_filename": "gcc49.rb",
+    "migrated_filename": "gcc.rb"
   }
 ]
