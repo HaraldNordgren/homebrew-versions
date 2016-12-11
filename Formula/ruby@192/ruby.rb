@@ -3,8 +3,8 @@ require 'formula'
 class Ruby < Formula
   version "192"
   homepage 'http://www.ruby-lang.org/en/'
-  url 'http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-p290.tar.bz2'
-  sha256 '403b3093fbe8a08dc69c269753b8c6e7bd8f87fb79a7dd7d676913efe7642487'
+  url 'http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-p320.tar.bz2'
+  sha256 '6777f865cfa21ffdc167fcc4a7da05cb13aab1bd9e59bfcda82c4b32f75e6b51'
 
   depends_on 'pkg-config' => :build
   depends_on 'readline'
