@@ -4,6 +4,14 @@ class Boost < Formula
   url "https://downloads.sourceforge.net/project/boost/boost/1.50.0/boost_1_50_0.tar.bz2"
   sha256 "c9ace2b8c81fa6703d1d17c7e478de3bc51101c5adbdeb3f6cb72cf3045a8529"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    cellar :any
+    sha256 "a598ebe3edd2c549bc29f5992e6b5892b3ad92487df6f35b6f79f525ed86f7ee" => :yosemite
+    sha256 "2632b8727a17f65d28290c6a6d35efd3dd547a924ea3cda6ddcb40ca06ba4899" => :mavericks
+    sha256 "0927666451be2e618e4a6ddda3415dc8d7843241eefe37785aa0659ebdd12d53" => :mountain_lion
+  end
+
   keg_only "Conflicts with boost in main repository."
 
   env :userpaths
