@@ -33,6 +33,7 @@ class Gcc < Formula
   option 'enable-nls', 'Build with native language support (localization)'
   option 'enable-profiled-build', 'Make use of profile guided optimization when bootstrapping GCC'
 
+  depends_on MaximumMacOSRequirement => :mavericks
   depends_on 'gmp@4'
   depends_on 'mpfr@2'
   depends_on 'ecj' if build.include? 'enable-java' or build.include? 'enable-all-languages'
