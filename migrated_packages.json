@@ -1314,5 +1314,12 @@
     "file_without_extension": "gnupg21",
     "original_filename": "gnupg21.rb",
     "migrated_filename": "gnupg.rb"
+  },
+  {
+    "classname_with_version": "Postgresql93",
+    "package_at_version": "postgresql@93",
+    "file_without_extension": "postgresql93",
+    "original_filename": "postgresql93.rb",
+    "migrated_filename": "postgresql.rb"
   }
 ]
