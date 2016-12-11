@@ -1307,5 +1307,12 @@
     "file_without_extension": "libuv0",
     "original_filename": "libuv0.rb",
     "migrated_filename": "libuv.rb"
+  },
+  {
+    "classname_with_version": "Gnupg21",
+    "package_at_version": "gnupg@21",
+    "file_without_extension": "gnupg21",
+    "original_filename": "gnupg21.rb",
+    "migrated_filename": "gnupg.rb"
   }
 ]
