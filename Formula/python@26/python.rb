@@ -41,7 +41,7 @@ def as_framework?
   (self.installed? and File.exists? prefix+"Frameworks/Python.framework") or build_framework?
 end
 
-class Python <Formula
+class Python < Formula
   version "26"
   url 'http://www.python.org/ftp/python/2.6.7/Python-2.6.7.tgz'
   homepage 'http://www.python.org/'
