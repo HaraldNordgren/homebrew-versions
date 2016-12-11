@@ -8,6 +8,13 @@ class Mpfr < Formula
   mirror 'ftp://gcc.gnu.org/pub/gcc/infrastructure/mpfr-2.4.2.tar.bz2'
   sha1 '7ca93006e38ae6e53a995af836173cf10ee7c18c'
 
+  bottle do
+    sha1 'd146a7ec89d73a64906ed3fa930d1062b0cb5479' => :tiger_g3
+    sha1 '87ea4788e631dd447a92e78cc183093ecf4157be' => :tiger_altivec
+    sha1 '6ffec69dca10ac3cb40a6dc7d1221200eb7d888a' => :leopard_g3
+    sha1 '39c667af86e969336c904afb55ad7b25f81a4140' => :leopard_altivec
+  end
+
   depends_on 'gmp@4'
 
   keg_only 'Conflicts with mpfr in main repository.'
