@@ -3,8 +3,8 @@ require 'formula'
 class Cassandra < Formula
   version "20"
   homepage 'http://cassandra.apache.org'
-  url 'http://www.apache.org/dyn/closer.cgi?path=/cassandra/2.0.9/apache-cassandra-2.0.9-bin.tar.gz'
-  sha1 '49eeb4c1dd518bd9440280a758ad4b129769a78d'
+  url 'http://www.apache.org/dyn/closer.cgi?path=/cassandra/2.0.11/apache-cassandra-2.0.11-bin.tar.gz'
+  sha1 'f31d71797e1ffeeacb3c71ad35e900d11580bfc3'
 
   conflicts_with 'cassandra',
     :because => "cassandra20 and cassandra install different versions of the same binaries."
