@@ -2,9 +2,9 @@ class Gnupg < Formula
   version "21"
   desc "GNU Privacy Guard: a free PGP replacement"
   homepage "https://www.gnupg.org/"
-  url "ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.5.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.5.tar.bz2"
-  sha256 "b5105a7160c39ba6e3aa53789b09f1bfac6e3422d15cc9f3a2f71f82320aa84c"
+  url "ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.6.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.6.tar.bz2"
+  sha256 "5e599ad542199f3bd733eed2b88a539d1b4c3beda2dbab0ff69f1896f52e92fd"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
