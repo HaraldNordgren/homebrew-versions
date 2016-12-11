@@ -38,7 +38,7 @@ class Mysql < Formula
   end
 
   def datadir
-    var/"mysql"
+    var/name
   end
 
   def install
