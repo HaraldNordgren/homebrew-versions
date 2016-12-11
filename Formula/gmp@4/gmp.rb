@@ -25,6 +25,11 @@ class Gmp < Formula
     cause "Reports of problems using gcc 4.0 on Leopard: https://github.com/mxcl/homebrew/issues/issue/2302"
   end
 
+  # Patches gmp.h to remove the __need_size_t define, which
+  # was preventing libc++ builds from getting the ptrdiff_t type
+  # Applied upstream in http://gmplib.org:8000/gmp/raw-rev/6cd3658f5621
+  patch :DATA
+
   def install
     args = ["--prefix=#{prefix}", "--enable-cxx"]
 
@@ -45,13 +50,6 @@ class Gmp < Formula
     # Different compilers and options can cause tests to fail even
     # if everything compiles, so yes, we want to do this step.
     system "make check" unless build.include? "skip-check"
-  end
-
-  # Patches gmp.h to remove the __need_size_t define, which
-  # was preventing libc++ builds from getting the ptrdiff_t type
-  # Applied upstream in http://gmplib.org:8000/gmp/raw-rev/6cd3658f5621
-  def patches
-    DATA
   end
 end
 

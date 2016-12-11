@@ -35,9 +35,10 @@ class Boost < Formula
     cause "Dropped arguments to functions when linking with boost"
   end
 
-  def patches
-    # Security fix for Boost.Locale. For details: http://www.boost.org/users/news/boost_locale_security_notice.html
-    {:p0 => "http://cppcms.com/files/locale/boost_locale_utf.patch"}
+  # Security fix for Boost.Locale. For details: http://www.boost.org/users/news/boost_locale_security_notice.html
+  patch :p0 do
+    url "http://cppcms.com/files/locale/boost_locale_utf.patch"
+    sha1 "f9f1e5fc2e4d65fa592c72df6e807ba6b02fad21"
   end
 
   def install

@@ -13,10 +13,8 @@ class Glfw < Formula
   option :'build-examples', 'Build examples'
   option :'build-tests', 'Build test programs'
 
-  def patches
-    # make library name consistent
-    DATA
-  end
+  # make library name consistent
+  patch :DATA
 
   def install
     ENV.universal_binary if build.universal?

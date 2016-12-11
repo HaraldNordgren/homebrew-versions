@@ -16,9 +16,7 @@ class Postgresql < Formula
 
   # Fix build on 10.8 Mountain Lion
   # https://github.com/mxcl/homebrew/commit/cd77baf2e2f75b4ae141414bf8ff6d5c732e2b9a
-  def patches
-    DATA
-  end
+  patch :DATA
 
   def install
     ENV.libxml2 if MacOS.version >= :snow_leopard

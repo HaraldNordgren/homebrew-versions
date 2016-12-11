@@ -29,7 +29,7 @@ class Postgis < Formula
   # http://trac.osgeo.org/postgis/ticket/1694
   # Fix linking aganist json-c, upstream in:
   # https://github.com/postgis/postgis/commit/1c988618c9448dcdc43bc8ffe4ef8ff1d4dae838
-  def patches; DATA end
+  patch :DATA
 
   def install
     # Follow the PostgreSQL linked keg back to the active Postgres installation

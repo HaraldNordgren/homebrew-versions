@@ -14,12 +14,10 @@ class Hdf < Formula
   depends_on 'jpeg'
   depends_on :fortran if build.include? 'enable-fortran'
 
-  def patches
-    # redefine library name to "df" from "hdf".  this seems to be an artifact
-    # of using cmake that needs to be corrected for compatibility with
-    # anything depending on hdf4.
-    DATA
-  end
+  # redefine library name to "df" from "hdf".  this seems to be an artifact
+  # of using cmake that needs to be corrected for compatibility with
+  # anything depending on hdf4.
+  patch :DATA
 
   def install
     ENV['SZIP_INSTALL'] = HOMEBREW_PREFIX

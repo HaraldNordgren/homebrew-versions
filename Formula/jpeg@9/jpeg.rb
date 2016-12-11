@@ -9,9 +9,7 @@ class Jpeg < Formula
   option :universal
 
   # http://trac.macports.org/ticket/37984
-  def patches
-    DATA
-  end
+  patch :DATA
 
   def install
     ENV.universal_binary if build.universal?

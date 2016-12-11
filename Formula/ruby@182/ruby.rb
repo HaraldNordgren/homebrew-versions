@@ -29,7 +29,7 @@ class Ruby < Formula
   # ossl_x509stctx_set_time() definition taken from 1.8.6
   # Second patch backports a compatibility fix from Ruby 1.8.7 for newer OpenSSL versions
   # Third patch fixes the type of a macro, also taken from 1.8.7
-  def patches; DATA; end
+  patch :DATA
 
   def install
     # Otherwise it will try to link against some other libruby,

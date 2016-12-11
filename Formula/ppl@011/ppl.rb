@@ -18,8 +18,9 @@ class Ppl < Formula
   #
   # Using a slightly different patch other than the one in upstream bug report
   # to avoid autoreconf.
-  def patches
-    "https://gist.githubusercontent.com/manphiz/9507743/raw/45081e12c2f1faf81e8536f365af05173c6dab5c/patch-ppl-flexible-array-clang_v2.patch"
+  patch do
+    url "https://gist.githubusercontent.com/manphiz/9507743/raw/45081e12c2f1faf81e8536f365af05173c6dab5c/patch-ppl-flexible-array-clang_v2.patch"
+    sha1 "b60eaa2d5c5c0bef1be20ac9bee126e8af1c182e"
   end
 
   def install

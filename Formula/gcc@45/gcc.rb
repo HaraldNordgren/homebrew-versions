@@ -45,13 +45,10 @@ class Gcc < Formula
   depends_on 'cloog-ppl@015'
   depends_on 'ecj' if build.include? 'enable-java' or build.include? 'enable-all-languages'
 
-  def patches
-    { # Patches from macports
-      :p0 => [
-        # Fix libffi for ppc
-        'http://trac.macports.org/export/110576/trunk/dports/lang/gcc45/files/ppc_fde_encoding.diff',
-      ]
-    }
+  # Fix libffi for ppc, from MacPorts
+  patch :p0 do
+    url "http://trac.macports.org/export/110576/trunk/dports/lang/gcc45/files/ppc_fde_encoding.diff"
+    sha1 "49e335d085567467155ea6512ffa959a18eab0ef"
   end
 
   def install

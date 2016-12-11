@@ -13,9 +13,7 @@ class Gstreamer < Formula
   # Fix sed version detection for 10.8
   # Reported and fixed upstream:
   # https://bugzilla.gnome.org/show_bug.cgi?id=680428
-  def patches
-    DATA
-  end
+  patch :DATA
 
   def install
     # Look for plugins in HOMEBREW_PREFIX/lib/gstreamer-0.10 instead of

@@ -33,19 +33,18 @@ class Subversion < Formula
   def build_universal?; build.universal?; end
   def with_unicode_path?; build.include? 'unicode-path'; end
 
-  def patches
-    # Patch to find Java headers
-    p = { :p0 =>
-      "http://trac.macports.org/export/73004/trunk/dports/devel/subversion-javahlbindings/files/patch-configure.diff"
-    }
-
-    # Patch for subversion handling of OS X Unicode paths (see caveats)
-    if with_unicode_path?
-      p[:p1] = "https://gist.github.com/raw/434424/subversion-unicode-path.patch"
-    end
-
-    return p
+  # Patch to find Java headers
+  patch :p0 do
+    url "http://trac.macports.org/export/73004/trunk/dports/devel/subversion-javahlbindings/files/patch-configure.diff"
+    sha1 "6c621f0fda9328cb4bdfaeef273376668d62c644"
   end
+
+  # Patch for subversion handling of OS X Unicode paths (see caveats)
+  patch do
+    url "https://gist.githubusercontent.com/simonc/434424/raw/0d22bfa9be3e7f924c97de521c24c66b99a8cf0a/subversion-unicode-path.patch"
+    sha1 "c275284aec2a378b3709cf91edbc001a3405d7a3"
+  end if build.include? "unicode-path"
+
 
   def setup_leopard
     # Slot dependencies into place

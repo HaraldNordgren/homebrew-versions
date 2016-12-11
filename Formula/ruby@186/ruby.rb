@@ -31,7 +31,7 @@ class Ruby < Formula
 
   # First patch backports a compatibility fix from Ruby 1.8.7 for newer OpenSSL versions
   # Second patch fixes the type of a macro, also taken from 1.8.7
-  def patches; DATA; end
+  patch :DATA
 
   def install
     args = %W[--prefix=#{prefix} --enable-shared]

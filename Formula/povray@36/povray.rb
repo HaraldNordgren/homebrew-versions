@@ -16,10 +16,9 @@ class Povray < Formula
 
   # povray has issues determining libpng version; can't get it to compile
   # against system libpng, but it works with its internal libpng.
-  def patches
-    {:p0 =>
-      "https://trac.macports.org/export/97719/trunk/dports/graphics/povray/files/patch-configure"
-    }
+  patch :p0 do
+    url "https://trac.macports.org/export/97719/trunk/dports/graphics/povray/files/patch-configure"
+    sha1 "7e59f629e16dde0aea1ff0889dae4e0151526fe7"
   end
 
   def install

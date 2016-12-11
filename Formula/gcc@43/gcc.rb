@@ -37,19 +37,28 @@ class Gcc < Formula
   depends_on 'mpfr@2'
   depends_on 'ecj' if build.include? 'enable-java' or build.include? 'enable-all-languages'
 
-  def patches
-    { # Patches from macports
-      :p0 => [
-        # Fix building on darwin10
-        'http://trac.macports.org/export/110576/trunk/dports/lang/gcc43/files/darwin10.diff',
-        # Fix multilib
-        'http://trac.macports.org/export/110576/trunk/dports/lang/gcc43/files/i386_multilib.diff',
-        # Build fix for Snow Leopard
-        'http://trac.macports.org/export/110576/trunk/dports/lang/gcc43/files/Make-lang.in.diff',
-        # Fix libffi fix for ppc
-        'http://trac.macports.org/export/110576/trunk/dports/lang/gcc43/files/ppc_fde_encoding.diff'
-      ]
-    }
+  # Fix building on darwin10
+  patch :p0 do
+    url "http://trac.macports.org/export/110576/trunk/dports/lang/gcc43/files/darwin10.diff"
+    sha1 "4119006a1fa18086431d3204db440750af668783"
+  end
+
+  # Fix multilib
+  patch :p0 do
+    url "http://trac.macports.org/export/110576/trunk/dports/lang/gcc43/files/i386_multilib.diff"
+    sha1 "040520aa92bc25c99f2daf85d81c10118363c8dd"
+  end
+
+  # Build fix for Snow Leopard
+  patch :p0 do
+    url "http://trac.macports.org/export/110576/trunk/dports/lang/gcc43/files/Make-lang.in.diff"
+    sha1 "d2420ea96789dcf8c3a6899dd3ad2a75876fd8e0"
+  end
+
+  # Fix libffi fix for ppc
+  patch :p0 do
+    url "http://trac.macports.org/export/110576/trunk/dports/lang/gcc43/files/ppc_fde_encoding.diff"
+    sha1 "49e335d085567467155ea6512ffa959a18eab0ef"
   end
 
   def install
