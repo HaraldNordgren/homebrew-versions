@@ -20,14 +20,14 @@ class TkCheck < Requirement
   end
 end
 
-class Distribute < Formula
-  url 'http://pypi.python.org/packages/source/d/distribute/distribute-0.6.28.tar.gz'
-  sha1 '709bd97d46050d69865d4b588c7707768dfe6711'
+class Setuptools < Formula
+  url 'https://pypi.python.org/packages/source/s/setuptools/setuptools-0.9.7.tar.gz'
+  sha1 'c56c5cc55b678c25a0a06f25a122f6492d62e2d3'
 end
 
 class Pip < Formula
-  url 'http://pypi.python.org/packages/source/p/pip/pip-1.2.1.tar.gz'
-  sha1 '35db84983ef3f66a8a161d320e61d192afc233d9'
+  url 'https://pypi.python.org/packages/source/p/pip/pip-1.4.tar.gz'
+  sha1 '3149dc77c66b77d02497205fca5df56ae9d3e753'
 end
 
 class Python < Formula
@@ -136,7 +136,7 @@ class Python < Formula
     # with what the python (2.x) formula installs.
     scripts_folder.mkpath
     setup_args = ["-s", "setup.py", "install", "--force", "--verbose", "--install-lib=#{site_packages_cellar}", "--install-scripts=#{bin}" ]
-    Distribute.new.brew { system "#{bin}/python#{VER}", *setup_args }
+    Setuptools.new.brew { system "#{bin}/python#{VER}", *setup_args }
     rm bin/'easy_install'
     Pip.new.brew { system "#{bin}/python#{VER}", *setup_args }
     rm bin/'pip'
@@ -243,8 +243,8 @@ class Python < Formula
       Homebrew's Python3 framework
         #{prefix}/Frameworks/Python.framework
 
-      Distribute and Pip have been installed. To update them
-        pip-#{VER} install --upgrade distribute
+      Setuptools and Pip have been installed. To update them
+        pip-#{VER} install --upgrade setuptools
         pip-#{VER} install --upgrade pip
 
       To symlink "Idle #{VER}" and the "Python Launcher #{VER}" to ~/Applications
