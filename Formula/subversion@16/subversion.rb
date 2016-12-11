@@ -4,6 +4,13 @@ class Subversion < Formula
   url "https://archive.apache.org/dist/subversion/subversion-1.6.23.tar.bz2"
   sha256 "214abc6b9359ea3a5fda2dee87dad110d1b33dcf888c1f8e361d69fbfa053943"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "c806c6beb4f15eff323f2b62a37b10af0cae3fc7f1b96b0098c57c8c2d35a1e3" => :yosemite
+    sha256 "a4b0e755fb044608a8ead1b87ccef236ab170b56bbe966e11de1519da74de68f" => :mavericks
+    sha256 "06dec239d540fa516629a30832cbb596f44bf2471ff275914029f73ddcb7eff6" => :mountain_lion
+  end
+
   option :universal
   option "with-java", "Build Java bindings"
   option "with-perl", "Build Perl bindings"
