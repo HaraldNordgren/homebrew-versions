@@ -1,7 +1,6 @@
-require 'formula'
-
 class Tomcat < Formula
   version "6"
+  desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-6/v6.0.44/bin/apache-tomcat-6.0.44.tar.gz"
   sha256 "aab792322e75c6502675120933cbc519cfb59ac8d192f4fa103371a335708224"
@@ -17,12 +16,12 @@ class Tomcat < Formula
   end
 
   def install
-    rm_rf Dir['bin/*.{cmd,bat]}']
-    libexec.install Dir['*']
-    (libexec+'logs').mkpath
+    rm_rf Dir["bin/*.{cmd,bat]}"]
+    libexec.install Dir["*"]
+    (libexec+"logs").mkpath
     bin.mkpath
     Dir["#{libexec}/bin/*.sh"].each { |f| ln_s f, bin }
-    (share/'fulldocs').install resource('fulldocs') if build.with? 'fulldocs'
+    (share/"fulldocs").install resource("fulldocs") if build.with? "fulldocs"
   end
 
   def caveats; <<-EOS.undent
