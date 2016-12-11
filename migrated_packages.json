@@ -1181,5 +1181,12 @@
     "file_without_extension": "grails223",
     "original_filename": "grails223.rb",
     "migrated_filename": "grails.rb"
+  },
+  {
+    "classname_with_version": "Grails224",
+    "package_at_version": "grails@224",
+    "file_without_extension": "grails224",
+    "original_filename": "grails224.rb",
+    "migrated_filename": "grails.rb"
   }
 ]
