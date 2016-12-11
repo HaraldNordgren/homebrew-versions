@@ -23,11 +23,14 @@ class Ruby < Formula
   end
 
   def install
-    args = ["--prefix=#{prefix}",
-            "--enable-shared"]
+    args = ["--prefix=#{prefix}", "--enable-shared"]
+
+    if build.universal?
+      ENV.universal_binary
+      args << "--with-arch=#{Hardware::CPU.universal_archs.join(",")}"
+    end
 
     args << "--program-suffix=193" if build.with? "suffix"
-    args << "--with-arch=x86_64,i386" if build.universal?
     args << "--disable-tcltk-framework" <<  "--with-out-ext=tcl" <<  "--with-out-ext=tk" if build.without? "tcltk"
     args << "--disable-install-doc" if build.without? "doc"
 
