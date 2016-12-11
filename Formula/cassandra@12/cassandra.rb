@@ -3,8 +3,8 @@ require 'formula'
 class Cassandra < Formula
   version "12"
   homepage 'http://cassandra.apache.org'
-  url 'http://www.apache.org/dyn/closer.cgi?path=/cassandra/1.2.11/apache-cassandra-1.2.11-bin.tar.gz'
-  sha1 'fe6f81d2328b2693f6ca86f52d84a7fec5ce44da'
+  url 'http://www.apache.org/dyn/closer.cgi?path=/cassandra/1.2.13/apache-cassandra-1.2.13-bin.tar.gz'
+  sha1 '6b8dba5ae3d7ac57c9d522aaabc116216c606435'
 
   conflicts_with 'cassandra',
     :because => "cassandra12 and cassandra install the same binaries."
@@ -23,7 +23,7 @@ class Cassandra < Formula
       # Store configs in etc, outside of keg
       s.gsub! "CASSANDRA_CONF=\"$CASSANDRA_HOME/conf\"", "CASSANDRA_CONF=\"#{etc}/cassandra\""
       # Jars installed to prefix, no longer in a lib folder
-      s.gsub! "\"$CASSANDRA_HOME\"/lib/*.jar", "\"$CASSANDRA_HOME\"/*.jar"
+      s.gsub! "/lib/", "/"
     end
 
     rm Dir["bin/*.bat"]
