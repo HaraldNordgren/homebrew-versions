@@ -10,6 +10,7 @@ class Postgis < Formula
 
   keg_only 'Avoid conflict with main PostGIS package'
 
+  depends_on :autoconf
   depends_on :automake
   depends_on :libtool
 
