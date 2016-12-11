@@ -1,5 +1,6 @@
 class Subversion < Formula
   version "16"
+  desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
   url "https://archive.apache.org/dist/subversion/subversion-1.6.23.tar.bz2"
   sha256 "214abc6b9359ea3a5fda2dee87dad110d1b33dcf888c1f8e361d69fbfa053943"
@@ -27,6 +28,9 @@ class Subversion < Formula
 
   depends_on "pkg-config" => :build
 
+  # Requires system OpenSSL headers to build. >El Capitan no longer ship them.
+  depends_on MaximumMacOSRequirement => :yosemite
+
   # On Snow Leopard, build a new neon. For Leopard, the deps below include this.
   # We don't use our OpenSSL because Neon refuses to support it due to wanting SSLv2
   # and using a more recent Neon via disabling the version check results in segfauls at runtime.
@@ -36,6 +40,9 @@ class Subversion < Formula
     depends_on "scons" => :build
     depends_on :java => :optional
   end
+
+  conflicts_with "openssl",
+                 :because => "You must unlink Homebrew's OpenSSL to install. You should `brew link openssl` after install!"
 
   # Homebrew's Swig is too new, Subversion throws a tantrum.
   resource "swig" do
