@@ -1006,5 +1006,12 @@
     "file_without_extension": "libgee08",
     "original_filename": "libgee08.rb",
     "migrated_filename": "libgee.rb"
+  },
+  {
+    "classname_with_version": "Cassandra10",
+    "package_at_version": "cassandra@10",
+    "file_without_extension": "cassandra10",
+    "original_filename": "cassandra10.rb",
+    "migrated_filename": "cassandra.rb"
   }
 ]
