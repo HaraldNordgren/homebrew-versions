@@ -1,9 +1,9 @@
 class Openssl < Formula
   version "101"
   homepage "https://openssl.org"
-  url "https://www.openssl.org/source/openssl-1.0.1l.tar.gz"
-  mirror "https://raw.githubusercontent.com/DomT4/LibreMirror/master/OpenSSL/openssl-1.0.1l.tar.gz"
-  sha256 "b2cf4d48fe5d49f240c61c9e624193a6f232b5ed0baf010681e725963c40d1d4"
+  url "https://www.openssl.org/source/openssl-1.0.1m.tar.gz"
+  mirror "https://raw.githubusercontent.com/DomT4/LibreMirror/master/OpenSSL/openssl-1.0.1m.tar.gz"
+  sha256 "095f0b7b09116c0c5526422088058dc7e6e000aa14d22acca6a4e2babcdfef74"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
