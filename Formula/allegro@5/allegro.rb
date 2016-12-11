@@ -5,6 +5,7 @@ class Allegro < Formula
   homepage 'http://www.allegro.cc'
   url 'http://downloads.sourceforge.net/project/alleg/allegro/5.0.8/allegro-5.0.8.tar.gz'
   sha1 '87249aa8dcc6070a425dcaa1aabdd0bbe0a881b3'
+  head 'git://git.code.sf.net/p/alleg/allegro', :branch => '5.1'
 
   depends_on 'cmake' => :build
   depends_on 'libvorbis' => :optional
