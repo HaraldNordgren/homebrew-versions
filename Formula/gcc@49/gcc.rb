@@ -23,8 +23,8 @@ class Gcc < Formula
   end
 
   homepage 'http://gcc.gnu.org'
-  url 'ftp://gcc.gnu.org/pub/gcc/snapshots/4.9-20140119/gcc-4.9-20140119.tar.bz2'
-  sha1 'c1db7a1970fe0e9bf695ff6444b71a979b94900b'
+  url 'ftp://gcc.gnu.org/pub/gcc/snapshots/4.9-20140223/gcc-4.9-20140223.tar.bz2'
+  sha1 '4a71975193551fa2fdb373f644704a3643dcecfe'
 
   head 'svn://gcc.gnu.org/svn/gcc/trunk'
 
