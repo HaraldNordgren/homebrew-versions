@@ -1797,5 +1797,12 @@
     "file_without_extension": "antlr3",
     "original_filename": "antlr3.rb",
     "migrated_filename": "antlr.rb"
+  },
+  {
+    "classname_with_version": "Jruby168",
+    "package_at_version": "jruby@168",
+    "file_without_extension": "jruby168",
+    "original_filename": "jruby168.rb",
+    "migrated_filename": "jruby.rb"
   }
 ]
