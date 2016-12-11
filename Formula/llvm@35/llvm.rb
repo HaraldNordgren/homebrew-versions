@@ -3,42 +3,42 @@ class Llvm < Formula
   homepage  'http://llvm.org/'
 
   stable do
-    url 'http://llvm.org/releases/3.5.0/llvm-3.5.0.src.tar.xz'
-    sha1 '58d817ac2ff573386941e7735d30702fe71267d5'
+    url 'http://llvm.org/releases/3.5.1/llvm-3.5.1.src.tar.xz'
+    sha1 '79638cf00584b08fd6eeb1e73ea69b331561e7f6'
 
     resource 'clang' do
-      url 'http://llvm.org/releases/3.5.0/cfe-3.5.0.src.tar.xz'
-      sha1 '834cee2ed8dc6638a486d8d886b6dce3db675ffa'
+      url 'http://llvm.org/releases/3.5.1/cfe-3.5.1.src.tar.xz'
+      sha1 '39d79c0b40cec548a602dcac3adfc594b18149fe'
     end
 
     resource 'clang-tools-extra' do
-      url 'http://llvm.org/releases/3.5.0/clang-tools-extra-3.5.0.src.tar.xz'
-      sha1 '74a84493e3313c180490a4affbb92d61ee4f0d21'
+      url 'http://llvm.org/releases/3.5.1/clang-tools-extra-3.5.1.src.tar.xz'
+      sha1 '7a0dd880d7d8fe48bdf0f841eca318337d27a345'
     end
 
     resource 'compiler-rt' do
-      url 'http://llvm.org/releases/3.5.0/compiler-rt-3.5.0.src.tar.xz'
-      sha1 '61f3e78088ce4a0787835036f2d3c61ede11e928'
+      url 'http://llvm.org/releases/3.5.1/compiler-rt-3.5.1.src.tar.xz'
+      sha1 '620d59dcc375b24c5663f2793b2bcd74f848435d'
     end
 
     resource 'polly' do
-      url 'http://llvm.org/releases/3.5.0/polly-3.5.0.src.tar.xz'
-      sha1 '74a2c80f12dc2645e4e77d330c8b7e0f53a5709c'
+      url 'http://llvm.org/releases/3.5.1/polly-3.5.1.src.tar.xz'
+      sha1 '5f387aa9ceeeb9194459120110fcbd7e3bbb02d2'
     end
 
     resource 'lld' do
-      url 'http://llvm.org/releases/3.5.0/lld-3.5.0.src.tar.xz'
-      sha1 '13c88e1442b482b3ffaff5934f0a2b51cab067e5'
+      url 'http://llvm.org/releases/3.5.1/lld-3.5.1.src.tar.xz'
+      sha1 '9af270a79ae0aeb0628112073167495c43ab836a'
     end
 
     resource 'libcxx' do
-      url 'http://llvm.org/releases/3.5.0/libcxx-3.5.0.src.tar.xz'
-      sha1 'c98beed86ae1adf9ab7132aeae8fd3b0893ea995'
+      url 'http://llvm.org/releases/3.5.1/libcxx-3.5.1.src.tar.xz'
+      sha1 'aa8d221f4db99f5a8faef6b594cbf7742cc55ad2'
     end
 
     resource 'libcxxabi' do
-      url 'http://llvm.org/releases/3.5.0/libcxxabi-3.5.0.src.tar.xz'
-      sha1 '31ffde04899449ae754a39c3b4e331a73a51a831'
+      url 'http://llvm.org/releases/3.5.1/libcxxabi-3.5.1.src.tar.xz'
+      sha1 '9933c07cb8a8fbfd872a302dc033a0887d9c5726'
     end if MacOS.version <= :snow_leopard
   end
 
