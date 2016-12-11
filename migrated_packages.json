@@ -1104,5 +1104,12 @@
     "file_without_extension": "lua51",
     "original_filename": "lua51.rb",
     "migrated_filename": "lua.rb"
+  },
+  {
+    "classname_with_version": "Mongodb24",
+    "package_at_version": "mongodb@24",
+    "file_without_extension": "mongodb24",
+    "original_filename": "mongodb24.rb",
+    "migrated_filename": "mongodb.rb"
   }
 ]
