@@ -19,6 +19,7 @@ class Gnupg < Formula
   end
 
   def install
+    (var+'run').mkpath
     inreplace 'common/homedir.c', '/var/run', '#{var}/run'
 
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
