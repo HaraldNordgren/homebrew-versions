@@ -11,6 +11,9 @@ class Erlang < Formula
   url "https://github.com/erlang/otp.git", :tag => "OTP_R13B04"
   version 'R13B04'
 
+  option 'disable-hipe', 'Disable building hipe; fails on various OS X systems'
+  option 'time', '`brew test --time` to include a time-consuming test'
+
   # We can't strip the beam executables or any plugins, there isn't really
   # anything else worth stripping and it takes a really, long time to run
   # `file` over everything in lib because there is almost 4000 files (and
@@ -21,13 +24,6 @@ class Erlang < Formula
   fails_with :llvm do
     build 2326
     cause "See http://github.com/mxcl/homebrew/issues/issue/120"
-  end
-
-  def options
-    [
-      ['--disable-hipe', "Disable building hipe; fails on various OS X systems."],
-      ['--time', '"brew test --time" to include a time-consuming test.']
-    ]
   end
 
   def install
@@ -42,7 +38,7 @@ class Erlang < Formula
             "--enable-dynamic-ssl-lib",
             "--enable-smp-support"]
 
-    unless ARGV.include? '--disable-hipe'
+    unless build.include? 'disable-hipe'
       # HIPE doesn't strike me as that reliable on OS X
       # http://syntatic.wordpress.com/2008/06/12/macports-erlang-bus-error-due-to-mac-os-x-1053-update/
       # http://www.erlang.org/pipermail/erlang-patches/2008-September/000293.html
@@ -65,7 +61,7 @@ class Erlang < Formula
 
     # This test takes some time to run, but per bug #120 should finish in
     # "less than 20 minutes". It takes a few minutes on a Mac Pro (2009).
-    if ARGV.include? "--time"
+    if build.include? "time"
       `dialyzer --build_plt -r #{lib}/erlang/lib/kernel-2.14.1/ebin/`
     end
   end
