@@ -6,8 +6,8 @@ class Python < Formula
   url 'http://www.python.org/ftp/python/2.4.6/Python-2.4.6.tgz'
   sha1 '4443e7646d622d35942f4e2c3342f251829915eb'
 
-  depends_on 'gdbm' => :optional
-  depends_on 'readline'
+  depends_on 'gdbm' => :recommended
+  depends_on 'readline' => :recommended
 
   # Skip binaries so modules will load;
   # skip lib because it is mostly Python files
