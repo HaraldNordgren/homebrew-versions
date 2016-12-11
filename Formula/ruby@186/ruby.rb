@@ -5,6 +5,13 @@ class Ruby < Formula
   sha256 "5ed3e6b9ebcb51baf59b8263788ec9ec8a65fbb82286d952dd3eb66e22d9a09f"
   revision 1
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "e1c95c51e9e6bded398ddbdf005eb11546a030281bcadf2d921bd816dea96c55" => :yosemite
+    sha256 "ca1bff8acfd1da8f093c2f4bdd0ebe7655ce485c6bffd0b069417497b2f739ae" => :mavericks
+    sha256 "29cb67a3e824144a4e16304c4d84eed4ea4032b0ee24a130ff28a259556f2e81" => :mountain_lion
+  end
+
   # Otherwise it fails when building bigdecimal by trying to load
   # files from the system ruby instead of the one it's building
   env :std
