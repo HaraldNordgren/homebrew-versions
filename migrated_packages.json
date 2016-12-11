@@ -1503,5 +1503,12 @@
     "file_without_extension": "pandoc1131",
     "original_filename": "pandoc1131.rb",
     "migrated_filename": "pandoc.rb"
+  },
+  {
+    "classname_with_version": "Duplicity06",
+    "package_at_version": "duplicity@06",
+    "file_without_extension": "duplicity06",
+    "original_filename": "duplicity06.rb",
+    "migrated_filename": "duplicity.rb"
   }
 ]
