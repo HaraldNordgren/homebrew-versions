@@ -4,6 +4,13 @@ class GstPluginsUgly < Formula
   url "http://gstreamer.freedesktop.org/src/gst-plugins-ugly/gst-plugins-ugly-0.10.19.tar.bz2"
   sha256 "1ca90059275c0f5dca71d4d1601a8f429b7852baed0723e820703b977e2c8df0"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "d31e63e1303fa3a8111cbff9ecbd72eb6cf9ac3607f81a9cd4e6b5f08600ac04" => :yosemite
+    sha256 "d0d519f2b26419bdf5aa8d51dadde2d1f89856e5213aece5399128cb2c798f6b" => :mavericks
+    sha256 "b3cd3c7daa0f5c6759b9cf67b89aa48ddf451c8084565c0d3bf922b9295f4620" => :mountain_lion
+  end
+
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "gst-plugins-base@010"
