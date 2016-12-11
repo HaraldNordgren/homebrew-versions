@@ -635,5 +635,12 @@
     "file_without_extension": "postgresql91",
     "original_filename": "postgresql91.rb",
     "migrated_filename": "postgresql.rb"
+  },
+  {
+    "classname_with_version": "Giflib5",
+    "package_at_version": "giflib@5",
+    "file_without_extension": "giflib5",
+    "original_filename": "giflib5.rb",
+    "migrated_filename": "giflib.rb"
   }
 ]
