@@ -1,6 +1,7 @@
 require 'formula'
 
 class Gcc < Formula
+  version "49"
   def arch
     if Hardware::CPU.type == :intel
       if MacOS.prefer_64_bit?
@@ -22,11 +23,11 @@ class Gcc < Formula
   end
 
   homepage 'http://gcc.gnu.org'
-  url 'ftp://gcc.gnu.org/pub/gcc/snapshots/4.9.0-RC-20140411/gcc-4.9.0-RC-20140411.tar.bz2'
-  version '4.9.0rc1'
-  sha1 '1eb36b1e0a1bed5bd2ef4caeb4d4ffc2aa013b8b'
+  url 'http://ftpmirror.gnu.org/gcc/gcc-4.9.0/gcc-4.9.0.tar.bz2'
+  mirror 'ftp://gcc.gnu.org/pub/gcc/releases/gcc-4.9.0/gcc-4.9.0.tar.bz2'
+  sha1 'fbde8eb49f2b9e6961a870887cf7337d31cd4917'
 
-  head 'svn://gcc.gnu.org/svn/gcc/trunk'
+  head 'svn://gcc.gnu.org/svn/gcc/branches/gcc-4_9-branch'
 
   option 'enable-fortran', 'Build the gfortran compiler'
   option 'enable-java', 'Build the gcj compiler'
