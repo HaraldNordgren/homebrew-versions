@@ -6,9 +6,10 @@ class Go < Formula
   sha256 "fbcfe1fe6dfe660cae1c973811c5e2075e3f7b06feea32b4b91c7f0b48352391"
 
   bottle do
-    sha1 "5e138e15af3a7ac39a0b6afdc238566e25c613f9" => :yosemite
-    sha1 "8ca3c757a2f30fedef50edf521f13440d787545d" => :mavericks
-    sha1 "42add01f13c4a2a561a207ac5d73065759f7d253" => :mountain_lion
+    revision 1
+    sha256 "ee3fbd6b03dd30ad1d6c7ceddb0bdb1996a92e330ce55824e297ab2d28e2c620" => :yosemite
+    sha256 "383187b7db521e111d94a92429e871d83c488160597c5ff4713edd97be9a106b" => :mavericks
+    sha256 "8dcc1ade8167d6eef201149818e670959c324b55a51cfce0a58dbbf7b67b4131" => :mountain_lion
   end
 
   option "with-cc-all", "Build with cross-compilers and runtime support for all supported platforms"
