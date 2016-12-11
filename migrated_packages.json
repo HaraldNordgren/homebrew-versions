@@ -1895,5 +1895,12 @@
     "file_without_extension": "saxon6",
     "original_filename": "saxon6.rb",
     "migrated_filename": "saxon.rb"
+  },
+  {
+    "classname_with_version": "AndroidNdkR10d",
+    "package_at_version": "android-ndk@r10d",
+    "file_without_extension": "android-ndk-r10d",
+    "original_filename": "android-ndk-r10d.rb",
+    "migrated_filename": "android-ndk.rb"
   }
 ]
