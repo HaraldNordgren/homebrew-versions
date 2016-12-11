@@ -3,12 +3,7 @@ require "formula"
 class Isl < Formula
   version "012"
   homepage "http://freecode.com/projects/isl"
-  # Note: Always use tarball instead of git tag for stable version.
-  #
-  # Currently isl detects its version using source code directory name
-  # and update isl_version() function accordingly.  All other names will
-  # result in isl_version() function returning "UNKNOWN" and hence break
-  # package detection.
+  # Track gcc infrastructure releases.
   url "http://isl.gforge.inria.fr/isl-0.12.2.tar.bz2"
   mirror "ftp://gcc.gnu.org/pub/gcc/infrastructure/isl-0.12.2.tar.bz2"
   sha1 "ca98a91e35fb3ded10d080342065919764d6f928"
