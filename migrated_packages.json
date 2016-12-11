@@ -642,5 +642,12 @@
     "file_without_extension": "giflib5",
     "original_filename": "giflib5.rb",
     "migrated_filename": "giflib.rb"
+  },
+  {
+    "classname_with_version": "Mysql55",
+    "package_at_version": "mysql@55",
+    "file_without_extension": "mysql55",
+    "original_filename": "mysql55.rb",
+    "migrated_filename": "mysql.rb"
   }
 ]
