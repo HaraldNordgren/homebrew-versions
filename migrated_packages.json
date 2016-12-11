@@ -1510,5 +1510,12 @@
     "file_without_extension": "duplicity06",
     "original_filename": "duplicity06.rb",
     "migrated_filename": "duplicity.rb"
+  },
+  {
+    "classname_with_version": "PandocCiteproc05",
+    "package_at_version": "pandoc-citeproc@05",
+    "file_without_extension": "pandoc-citeproc05",
+    "original_filename": "pandoc-citeproc05.rb",
+    "migrated_filename": "pandoc-citeproc.rb"
   }
 ]
