@@ -929,5 +929,12 @@
     "file_without_extension": "ruby20",
     "original_filename": "ruby20.rb",
     "migrated_filename": "ruby.rb"
+  },
+  {
+    "classname_with_version": "JsonC010",
+    "package_at_version": "json-c@010",
+    "file_without_extension": "json-c010",
+    "original_filename": "json-c010.rb",
+    "migrated_filename": "json-c.rb"
   }
 ]
