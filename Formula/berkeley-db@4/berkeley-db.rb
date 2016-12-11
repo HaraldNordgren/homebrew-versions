@@ -4,7 +4,7 @@ class BerkeleyDb < Formula
   version "4"
   homepage 'http://www.oracle.com/technology/products/berkeley-db/index.html'
   url 'http://download.oracle.com/berkeley-db/db-4.8.30.tar.gz'
-  md5 'f80022099c5742cd179343556179aa8c'
+  sha1 'ab36c170dda5b2ceaad3915ced96e41c6b7e493c'
 
   def options
     [['--without-java', 'Compile without Java support.']]

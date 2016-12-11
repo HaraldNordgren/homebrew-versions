@@ -4,7 +4,7 @@ class Libpng < Formula
   version "12"
   homepage 'http://www.libpng.org/pub/png/libpng.html'
   url 'http://sourceforge.net/projects/libpng/files/libpng12/1.2.50/libpng-1.2.50.tar.gz'
-  md5 'fedd8c66d106c28f8d527f9397c265a2'
+  sha1 'aeb8afdfed3a8be46c9a7be4aa853bce73f03d9e'
 
   keg_only :provided_by_osx
 

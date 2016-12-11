@@ -4,7 +4,7 @@ class Antlr < Formula
   version "2"
   homepage 'http://www.antlr2.org'
   url 'http://www.antlr2.org/download/antlr-2.7.7.tar.gz'
-  md5 '01cc9a2a454dd33dcd8c856ec89af090'
+  sha1 '802655c343cc7806aaf1ec2177a0e663ff209de1'
 
   def install
     # C Sharp is explicitly disabled because the antlr configure script will

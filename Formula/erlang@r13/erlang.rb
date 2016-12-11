@@ -2,7 +2,7 @@ require 'formula'
 
 class ErlangR13Manuals < Formula
   url 'http://www.erlang.org/download/otp_doc_man_R13B04.tar.gz'
-  md5 '681aaef70affc64743f4e8c0675034af'
+  sha1 '660e52302d270138f8e9f2f2b6a562026998012c'
 end
 
 class Erlang < Formula

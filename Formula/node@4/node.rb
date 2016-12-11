@@ -4,7 +4,7 @@ class Node < Formula
   version "4"
   homepage 'http://nodejs.org/'
   url 'http://nodejs.org/dist/node-v0.4.12.tar.gz'
-  md5 'a6375eaa43db5356bf443e25b828ae16'
+  sha1 '1c6e34b90ad6b989658ee85e0d0cb16797b16460'
 
   head 'https://github.com/joyent/node.git'
 

@@ -12,7 +12,7 @@ class Python < Formula
   version "31"
   homepage 'http://www.python.org/'
   url 'http://www.python.org/ftp/python/3.1.5/Python-3.1.5.tar.bz2'
-  md5 'dc8a7a96c12880d2e61e9f4add9d3dc7'
+  sha1 '48f97250c0482d9672938f5781e66dbd19cd4374'
 
   depends_on 'readline' => :optional  # Prefer over OS X's libedit
   depends_on 'sqlite'   => :optional  # Prefer over OS X's older version

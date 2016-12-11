@@ -8,7 +8,7 @@ class Hdf < Formula
   version "4"
   homepage 'http://www.hdfgroup.org'
   url 'http://www.hdfgroup.org/ftp/HDF/releases/HDF4.2.6/src/hdf-4.2.6.tar.bz2'
-  md5 'eed281ded7f81f6ba1a3b1b1d5109bfe'
+  sha1 '914eedbd8d4714f8bc0cc10bbbad5ad7fe1e375c'
 
   depends_on 'cmake' => :build
   depends_on 'szip'

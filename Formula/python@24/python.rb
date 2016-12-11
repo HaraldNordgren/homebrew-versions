@@ -4,7 +4,7 @@ class Python < Formula
   version "24"
   homepage 'http://www.python.org/download/releases/2.4.6/'
   url 'http://www.python.org/ftp/python/2.4.6/Python-2.4.6.tgz'
-  md5 '7564b2b142b1b8345cd5358b7aaaa482'
+  sha1 '4443e7646d622d35942f4e2c3342f251829915eb'
 
   depends_on 'gdbm' => :optional
   depends_on 'readline'

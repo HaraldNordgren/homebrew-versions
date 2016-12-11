@@ -2,19 +2,19 @@ require 'formula'
 
 class ErlangR14Manuals < Formula
   url 'http://erlang.org/download/otp_doc_man_R14B04.tar.gz'
-  md5 'f31e72518daae4007f595c0b224dd59f'
+  sha1 '41f4ea59c9622e39b30882e173983252b6faca81'
 end
 
 class ErlangR14Htmls < Formula
   url 'http://erlang.org/download/otp_doc_html_R14B04.tar.gz'
-  md5 '2a440aa8c1242dd0c79785d69f0d97ca'
+  sha1 '86f76adee9bf953e5578d7998fda9e7dfc0d43f5'
 end
 
 class Erlang < Formula
   homepage 'http://www.erlang.org'
   # Download tarball from GitHub; it is served faster than the official tarball.
   url 'https://github.com/erlang/otp/tarball/OTP_R14B04'
-  md5 'f6cd1347dfb6436b99cc1313011a3d24'
+  sha1 'fd260c63da0caa0f4b129d052e8305190e30cf33'
   version 'R14B04'
 
   bottle do

@@ -5,7 +5,7 @@ class Autoconf < Formula
   homepage 'http://www.gnu.org/software/autoconf/'
   url 'http://ftpmirror.gnu.org/autoconf/autoconf-2.13.tar.gz'
   mirror 'http://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz'
-  md5 '9de56d4a161a723228220b0f425dc711'
+  sha1 'e4826c8bd85325067818f19b2b2ad2b625da66fc'
 
   def install
     system "./configure", "--disable-debug",

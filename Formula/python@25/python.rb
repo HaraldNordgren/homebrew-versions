@@ -45,7 +45,7 @@ class Python < Formula
   version "25"
   homepage 'http://www.python.org/'
   url 'http://www.python.org/ftp/python/2.5.6/Python-2.5.6.tgz'
-  md5 'd1d9c83928561addf11d00b22a18ca50'
+  sha1 'b9ffc6a07c5d2ef99716290ff0048ce78e184df7'
 
   depends_on 'sqlite' => :optional    # Prefer over OS X's older version
   depends_on 'readline' => :optional  # Prefer over OS X's libedit

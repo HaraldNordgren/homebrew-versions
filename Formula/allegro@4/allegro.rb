@@ -4,7 +4,7 @@ class Allegro < Formula
   version "4"
   homepage 'http://www.allegro.cc'
   url 'http://downloads.sourceforge.net/project/alleg/allegro/4.4.1.1/allegro-4.4.1.1.tar.gz'
-  md5 '0f1cfff8f2cf88e5c91a667d9fd386ec'
+  sha1 '1970570b54c4329c7bd6d103db01624c68f2e9be'
 
   depends_on 'cmake' => :build
   depends_on 'libvorbis' => :optional

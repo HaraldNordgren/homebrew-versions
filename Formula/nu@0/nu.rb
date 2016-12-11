@@ -4,7 +4,7 @@ class Nu < Formula
   version "0"
   homepage 'http://programming.nu'
   url 'http://programming.nu/releases/Nu-0.4.0.tgz'
-  md5 '94d181e94cd661569103290183e89477'
+  sha1 '02e0df424f18a6c6c3c3221699014018cabcd8bc'
 
   depends_on 'pcre'
 

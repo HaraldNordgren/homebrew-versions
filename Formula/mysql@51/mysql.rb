@@ -4,7 +4,7 @@ class Mysql < Formula
   version "51"
   homepage 'http://dev.mysql.com/doc/refman/5.1/en/'
   url 'http://mysql.mirrors.pair.com/Downloads/MySQL-5.1/mysql-5.1.63.tar.gz'
-  md5 '672167c3f03f969febae66c43859d76d'
+  sha1 'ce1743098b53540cb75c144d71299bace7398aef'
 
   depends_on 'readline'
 

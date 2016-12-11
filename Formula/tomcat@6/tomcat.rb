@@ -4,7 +4,7 @@ class Tomcat < Formula
   version "6"
   homepage 'http://tomcat.apache.org/'
   url 'http://archive.apache.org/dist/tomcat/tomcat-6/v6.0.33/bin/apache-tomcat-6.0.33.tar.gz'
-  md5 '0e86af52d7d31503a98beb04a9d5d8dc'
+  sha1 '004bed8b2e231d3913249680a3b40d1f7f612f71'
 
   skip_clean :all
 

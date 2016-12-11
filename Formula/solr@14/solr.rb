@@ -3,8 +3,8 @@ require 'formula'
 class Solr < Formula
   version "14"
   homepage 'http://lucene.apache.org/solr/'
-  url 'ftp://ftp.fu-berlin.de/unix/www/apache/lucene/solr/1.4.1/apache-solr-1.4.1.tgz'
-  md5 '258a020ed8c3f44e13b09e8ae46a1c84'
+  url 'http://archive.apache.org/dist/lucene/solr/1.4.1/apache-solr-1.4.1.tgz'
+  sha1 'cb5d4066634b329bd90649041724a07263eb9655'
 
   def script; <<-EOS.undent
     #!/bin/sh

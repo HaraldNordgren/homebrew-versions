@@ -5,14 +5,14 @@ class Autoconf213 < Formula
   homepage 'http://www.gnu.org/software/autoconf/'
   url 'http://ftpmirror.gnu.org/autoconf/autoconf-2.13.tar.gz'
   mirror 'http://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz'
-  md5 '9de56d4a161a723228220b0f425dc711'
+  sha1 'e4826c8bd85325067818f19b2b2ad2b625da66fc'
 end
 
 class Spidermonkey < Formula
   homepage 'https://developer.mozilla.org/en/SpiderMonkey'
   # Pick a version that's known to work with CouchDB), revision r35345.
   url 'http://hg.mozilla.org/tracemonkey/archive/57a6ad20eae9.tar.gz'
-  md5 '0f2490f78d880ec184d9233df97ab83d'
+  sha1 '4ee889408a6d5c2424b9367ff9a26e4dd91a3084'
   version '1.8.0'
 
   depends_on 'readline'

@@ -36,7 +36,7 @@ class Ecj < Formula
   # Little Known Fact: ecj, Eclipse Java Complier, is required in order to
   # produce a gcj compiler that can actually parse Java source code.
   url 'ftp://sourceware.org/pub/java/ecj-4.5.jar'
-  md5 'd7cd6a27c8801e66cbaa964a039ecfdb'
+  sha1 '58c1d79c64c8cd718550f32a932ccfde8d1e6449'
 end
 
 class Gcc < Formula
@@ -44,7 +44,7 @@ class Gcc < Formula
   homepage 'http://gcc.gnu.org'
   url 'http://ftpmirror.gnu.org/gcc/gcc-4.5.3/gcc-4.5.3.tar.bz2'
   mirror 'http://ftp.gnu.org/gnu/gcc/gcc-4.5.3/gcc-4.5.3.tar.bz2'
-  md5 '8e0b5c12212e185f3e4383106bfa9cc6'
+  sha1 '73c45dfda5eef6b124be53e56828b5925198cc1b'
 
   depends_on 'gmp'
   depends_on 'libmpc'

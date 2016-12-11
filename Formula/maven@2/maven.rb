@@ -4,7 +4,7 @@ class Maven < Formula
   version "2"
   homepage 'http://maven.apache.org/'
   url 'http://www.apache.org/dist/maven/binaries/apache-maven-2.2.1-bin.tar.gz'
-  md5 '3f829ed854cbacdaca8f809e4954c916'
+  sha1 '3ac63025e5860c4d856e172ab556d14b52f9b1f1'
 
   def install
     # Remove windows files
