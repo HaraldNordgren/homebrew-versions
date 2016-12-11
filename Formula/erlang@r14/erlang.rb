@@ -12,9 +12,9 @@ class Erlang < Formula
   option 'time', '`brew test --time` to include a time-consuming test'
   option 'no-docs', 'Do not install documentation'
 
-  depends_on :autoconf
-  depends_on :automake
-  depends_on :libtool
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   fails_with :llvm
 
@@ -27,7 +27,6 @@ class Erlang < Formula
     url 'http://erlang.org/download/otp_doc_html_R14B04.tar.gz'
     sha1 '86f76adee9bf953e5578d7998fda9e7dfc0d43f5'
   end
-
 
   def install
     ohai "Compilation may take a very long time; use `brew install -v erlang` to see progress"

@@ -7,9 +7,9 @@ class Erlang < Formula
   url 'https://github.com/erlang/otp/archive/OTP_R15B03-1.tar.gz'
   sha1 '7843070f5d325f95ef13022fc416b22b6b14120d'
 
-  depends_on :autoconf
-  depends_on :automake
-  depends_on :libtool
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
 
   fails_with :llvm
 
