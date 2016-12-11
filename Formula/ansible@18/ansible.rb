@@ -5,6 +5,12 @@ class Ansible < Formula
   url "http://releases.ansible.com/ansible/ansible-1.8.4.tar.gz"
   sha256 "d37c04b3abce9b036a6c8311fccb360c5cbc3ec895445f805243b0448d239ec1"
 
+  bottle do
+    sha256 "8193496e932476c379fc86054a689e0ac8c9bc67341c3ad1d8b230268b6d5d7c" => :yosemite
+    sha256 "814e48e0ea8f68122ce649f6788dcc91cce9599a59ddab764470cd9e4cd9b24f" => :mavericks
+    sha256 "75fcab04637b1a745f80c0837066ed2417f1df9c6402af6fb9a4bd8df2da1197" => :mountain_lion
+  end
+
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "libyaml"
 
