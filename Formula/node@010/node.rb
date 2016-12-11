@@ -7,9 +7,9 @@ class Node < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
-    sha256 "c4283e012ea6d95c80d748ddfb1720f570502a235fee77c1086a4e93323e5169" => :yosemite
-    sha256 "a0abb3f41a9b91d61aed54c13b8315cec25d2810cf42599a818ab8e26690c3b8" => :mavericks
-    sha256 "731df7b2f39e2bd441223379cf1b18cfdf6ba85ec4900404c94d21fd1aa97476" => :mountain_lion
+    sha256 "7ea15c6168b8403ec3ed3ef0cc4b7861fa62ea334cf732b527fc1e66d26389e7" => :yosemite
+    sha256 "b593877f53e070f4812cf0b1dc9531cb82c2f7665d368adb3b004e4c262016fc" => :mavericks
+    sha256 "f38581cc483a4f379e4e3b75c2fefe33010f4f23d9708fb1633dd195e6888ce9" => :mountain_lion
   end
 
   deprecated_option "enable-debug" => "with-debug"
