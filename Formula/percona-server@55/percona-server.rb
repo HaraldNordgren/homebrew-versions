@@ -6,6 +6,13 @@ class PerconaServer < Formula
   version '5.5.41-37.0'
   sha1 '74610892ba6402e8df04320db444d6dcc7cb2fe8'
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha1 "4c765fa7e77cea212481b9916c140ae7eb7dac9f" => :yosemite
+    sha1 "c03ce1fad24f4aa7574c291ddf28e86695d8c0d5" => :mavericks
+    sha1 "1d2f86b8c062a965a28e246f9d0957855c20b883" => :mountain_lion
+  end
+
   depends_on 'cmake' => :build
   depends_on 'readline'
   depends_on 'pidof'
