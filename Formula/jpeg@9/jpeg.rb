@@ -1,22 +1,25 @@
-require 'formula'
-
 class Jpeg < Formula
-  version "9"
-  homepage 'http://www.ijg.org'
-  url 'http://www.ijg.org/files/jpegsrc.v9.tar.gz'
-  sha1 '724987e7690ca3d74d6ab7c1f1b6854e88ca204b'
+  homepage "http://www.ijg.org"
+  url "http://www.ijg.org/files/jpegsrc.v9.tar.gz"
+  sha256 "c4e29e9375aaf60b4b79db87a58b063fb5b84f923bee97a88280b3d159e7e535"
+  version "9.0"
 
   option :universal
 
-  # http://trac.macports.org/ticket/37984
+  # https://trac.macports.org/ticket/37984
   patch :DATA
 
   def install
     ENV.universal_binary if build.universal?
+
     # Builds static and shared libraries.
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make install"
+    system "make", "install"
+  end
+
+  test do
+    system "#{bin}/djpeg", test_fixtures("test.jpg")
   end
 end
 
