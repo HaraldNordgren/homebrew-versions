@@ -30,6 +30,9 @@ class Gcc < Formula
   head 'svn://gcc.gnu.org/svn/gcc/branches/gcc-4_8-branch'
 
   bottle do
+    sha1 '97867c4e70e4eeaf98d42ad06a23a189abec3cc7' => :tiger_g3
+    sha1 'ddda3f3dae94812ef263a57fd2abe85bf97c3ca0' => :tiger_altivec
+    sha1 '3a01572c16a8bcde4fb53554790b350c31161309' => :tiger_g4e
     sha1 '063016966578350a6048e22b45e468c3dc991619' => :leopard_g3
     sha1 '16a24c342514a4917533c172cddbfb3156153adc' => :leopard_altivec
   end
