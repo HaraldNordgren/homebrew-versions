@@ -1146,5 +1146,26 @@
     "file_without_extension": "elasticsearch11",
     "original_filename": "elasticsearch11.rb",
     "migrated_filename": "elasticsearch.rb"
+  },
+  {
+    "classname_with_version": "Gradle110",
+    "package_at_version": "gradle@110",
+    "file_without_extension": "gradle110",
+    "original_filename": "gradle110.rb",
+    "migrated_filename": "gradle.rb"
+  },
+  {
+    "classname_with_version": "Gradle18",
+    "package_at_version": "gradle@18",
+    "file_without_extension": "gradle18",
+    "original_filename": "gradle18.rb",
+    "migrated_filename": "gradle.rb"
+  },
+  {
+    "classname_with_version": "Gradle16",
+    "package_at_version": "gradle@16",
+    "file_without_extension": "gradle16",
+    "original_filename": "gradle16.rb",
+    "migrated_filename": "gradle.rb"
   }
 ]
