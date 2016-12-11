@@ -1888,5 +1888,12 @@
     "file_without_extension": "zeromq405",
     "original_filename": "zeromq405.rb",
     "migrated_filename": "zeromq.rb"
+  },
+  {
+    "classname_with_version": "Saxon6",
+    "package_at_version": "saxon@6",
+    "file_without_extension": "saxon6",
+    "original_filename": "saxon6.rb",
+    "migrated_filename": "saxon.rb"
   }
 ]
