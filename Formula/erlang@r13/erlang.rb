@@ -8,13 +8,6 @@ class Erlang < Formula
 
   option 'disable-hipe', 'Disable building hipe; fails on various OS X systems'
 
-  # We can't strip the beam executables or any plugins, there isn't really
-  # anything else worth stripping and it takes a really, long time to run
-  # `file` over everything in lib because there is almost 4000 files (and
-  # really erlang guys! what's with that?! Most of them should be in share/erlang!)
-  # may as well skip bin too, everything is just shell scripts
-  skip_clean 'lib', 'bin'
-
   fails_with :llvm do
     build 2326
     cause "See http://github.com/mxcl/homebrew/issues/issue/120"
