@@ -292,5 +292,12 @@
     "file_without_extension": "libpng12",
     "original_filename": "libpng12.rb",
     "migrated_filename": "libpng.rb"
+  },
+  {
+    "classname_with_version": "Antlr2",
+    "package_at_version": "antlr@2",
+    "file_without_extension": "antlr2",
+    "original_filename": "antlr2.rb",
+    "migrated_filename": "antlr.rb"
   }
 ]
