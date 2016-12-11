@@ -1853,5 +1853,12 @@
     "file_without_extension": "erlang-r17",
     "original_filename": "erlang-r17.rb",
     "migrated_filename": "erlang.rb"
+  },
+  {
+    "classname_with_version": "Go14",
+    "package_at_version": "go@14",
+    "file_without_extension": "go14",
+    "original_filename": "go14.rb",
+    "migrated_filename": "go.rb"
   }
 ]
