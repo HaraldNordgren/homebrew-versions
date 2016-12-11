@@ -179,13 +179,13 @@ class Llvm < Formula
     # Link executables to bin and add suffix to avoid conflicts
     Dir.glob(install_prefix/'bin/*') do |exec_path|
       basename = File.basename(exec_path)
-      bin.install_symlink exec_path => "#{basename}-#{version}"
+      bin.install_symlink exec_path => "#{basename}-#{ver}"
     end
 
     # Also link man pages
     Dir.glob(install_prefix/'share/man/man1/*') do |manpage|
       basename = File.basename(manpage, ".1")
-      man1.install_symlink manpage => "#{basename}-#{version}.1"
+      man1.install_symlink manpage => "#{basename}-#{ver}.1"
     end
   end
 
