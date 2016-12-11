@@ -191,7 +191,6 @@ class Llvm < Formula
     system 'make', 'VERBOSE=1'
     system 'make', 'VERBOSE=1', 'install'
 
-    # Snow Leopard is not shipped with libc++abi. Manually build here.
     if MacOS.version <= :snow_leopard
       libcxxabi_buildpath.install resource("libcxxabi")
 
@@ -203,9 +202,7 @@ class Llvm < Formula
         ENV['CXX'] = "#{install_prefix}/bin/clang++"
         ENV['TRIPLE'] = "*-apple-*"
         system "./buildit"
-        # Install libs.
         (install_prefix/'usr/lib/').install libcxxabi_buildpath/'lib/libc++abi.dylib'
-        # Install headers.
         cp libcxxabi_buildpath/'include/cxxabi.h', install_prefix/'lib/c++/v1/'
       end
     end
@@ -240,20 +237,17 @@ class Llvm < Formula
       system 'make', 'install', *libcxx_make_args
     end
 
-    # Install Clang tools
     (share/"clang-#{ver}/tools").install Dir["tools/clang/tools/scan-{build,view}"]
 
     if build.with? "python"
       (lib/"python2.7/site-packages").install "bindings/python/llvm" => "llvm-#{ver}", clang_buildpath/"bindings/python/clang" => "clang-#{ver}"
     end
 
-    # Link executables to bin and add suffix to avoid conflicts
     Dir.glob(install_prefix/'bin/*') do |exec_path|
       basename = File.basename(exec_path)
       bin.install_symlink exec_path => "#{basename}-#{ver}"
     end
 
-    # Also link man pages
     Dir.glob(install_prefix/'share/man/man1/*') do |manpage|
       basename = File.basename(manpage, ".1")
       man1.install_symlink manpage => "#{basename}-#{ver}.1"
