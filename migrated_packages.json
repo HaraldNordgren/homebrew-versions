@@ -1055,5 +1055,12 @@
     "file_without_extension": "maven31",
     "original_filename": "maven31.rb",
     "migrated_filename": "maven.rb"
+  },
+  {
+    "classname_with_version": "Redis1310",
+    "package_at_version": "redis@1310",
+    "file_without_extension": "redis1310",
+    "original_filename": "redis1310.rb",
+    "migrated_filename": "redis.rb"
   }
 ]
