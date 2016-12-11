@@ -20,11 +20,14 @@ class Ruby < Formula
   end
 
   def install
-    args = %W[--prefix=#{prefix}
-              --enable-shared]
+    args = %W[--prefix=#{prefix} --enable-shared]
+
+    if build.universal?
+      ENV.universal_binary
+      args << "--with-arch=#{Hardware::CPU.universal_archs.join(",")}"
+    end
 
     args << "--program-suffix=192" if build.with? 'suffix'
-    args << "--with-arch=x86_64,i386" if build.universal?
 
     system "./configure", *args
     system "make"
