@@ -628,5 +628,12 @@
     "file_without_extension": "gcc46",
     "original_filename": "gcc46.rb",
     "migrated_filename": "gcc.rb"
+  },
+  {
+    "classname_with_version": "Postgresql91",
+    "package_at_version": "postgresql@91",
+    "file_without_extension": "postgresql91",
+    "original_filename": "postgresql91.rb",
+    "migrated_filename": "postgresql.rb"
   }
 ]
