@@ -1237,5 +1237,12 @@
     "file_without_extension": "grails23",
     "original_filename": "grails23.rb",
     "migrated_filename": "grails.rb"
+  },
+  {
+    "classname_with_version": "Protobuf250",
+    "package_at_version": "protobuf@250",
+    "file_without_extension": "protobuf250",
+    "original_filename": "protobuf250.rb",
+    "migrated_filename": "protobuf.rb"
   }
 ]
