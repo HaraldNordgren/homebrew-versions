@@ -1230,5 +1230,12 @@
     "file_without_extension": "libdvdcss12",
     "original_filename": "libdvdcss12.rb",
     "migrated_filename": "libdvdcss.rb"
+  },
+  {
+    "classname_with_version": "Grails23",
+    "package_at_version": "grails@23",
+    "file_without_extension": "grails23",
+    "original_filename": "grails23.rb",
+    "migrated_filename": "grails.rb"
   }
 ]
