@@ -8,7 +8,10 @@ class Libpng < Formula
 
   keg_only :provided_by_osx
 
+  option :universal
+
   def install
+    ENV.universal_binary if build.universal?
     system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
     system "make install"
     system "make test"
