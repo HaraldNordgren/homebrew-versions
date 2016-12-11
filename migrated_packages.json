@@ -1909,5 +1909,12 @@
     "file_without_extension": "gradle26",
     "original_filename": "gradle26.rb",
     "migrated_filename": "gradle.rb"
+  },
+  {
+    "classname_with_version": "Lz4r117",
+    "package_at_version": "lz4r@117",
+    "file_without_extension": "lz4r117",
+    "original_filename": "lz4r117.rb",
+    "migrated_filename": "lz4r.rb"
   }
 ]
