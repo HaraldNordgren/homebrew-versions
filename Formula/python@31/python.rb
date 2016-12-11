@@ -45,6 +45,10 @@ class Python < Formula
     # both gcc and LLVM support this, so switch it on.
     args = ["--prefix=#{prefix}", "--with-computed-gotos"]
 
+    # Otherwise the formula may attempt to use the python3 shim
+    # even though python3 isn't installed yet
+    ENV['PYTHON'] = 'python'
+
     if build.universal?
       args << "--enable-universalsdk=/" << "--with-universal-archs=intel"
     end
