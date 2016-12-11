@@ -145,5 +145,12 @@
     "file_without_extension": "tomcat6",
     "original_filename": "tomcat6.rb",
     "migrated_filename": "tomcat.rb"
+  },
+  {
+    "classname_with_version": "Mapnik071",
+    "package_at_version": "mapnik@071",
+    "file_without_extension": "mapnik071",
+    "original_filename": "mapnik071.rb",
+    "migrated_filename": "mapnik.rb"
   }
 ]
