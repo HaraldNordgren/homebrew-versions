@@ -7,8 +7,8 @@ class Mongodb < Formula
   sha1 'faf1f41d45934bcb30684cfed95f5d3c698663a0'
 
   patch do
-    url 'https://github.com/mongodb/mongo/commit/be4bc7.patch'
-    sha1 '23448cae98f86e65b7248179addb2897fc4ecac5'
+    url 'https://github.com/mongodb/mongo/commit/be4bc7.diff'
+    sha1 '7bbf8f9e48fb55dd418e4a5e9070bf0d19d83ab0'
   end
 
   depends_on 'scons' => :build
