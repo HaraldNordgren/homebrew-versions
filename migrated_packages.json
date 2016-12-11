@@ -810,5 +810,12 @@
     "file_without_extension": "postgresql92",
     "original_filename": "postgresql92.rb",
     "migrated_filename": "postgresql.rb"
+  },
+  {
+    "classname_with_version": "Appledoc21",
+    "package_at_version": "appledoc@21",
+    "file_without_extension": "appledoc21",
+    "original_filename": "appledoc21.rb",
+    "migrated_filename": "appledoc.rb"
   }
 ]
