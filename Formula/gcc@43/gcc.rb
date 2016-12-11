@@ -29,8 +29,7 @@ class Gcc < Formula
   depends_on 'mpfr'
   depends_on 'ecj' if build.include? 'enable-java' or build.include? 'enable-all-languages'
 
-  # Patches for building. The first block is for clang
-  # compatibility. The rest is adapted from macports:
+  # Patches adapted from macports:
   # http://trac.macports.org/browser/trunk/dports/lang/gcc43/files
   def patches; DATA; end
 
@@ -105,12 +104,15 @@ class Gcc < Formula
 
       system '../configure', *args
 
+      # Flags for Clang compatibility
+      make_flags = 'BOOT_CFLAGS="$BOOT_CFLAGS -D_FORTIFY_SOURCE=0" STAGE1_CFLAGS="$STAGE1_CFLAGS -std=gnu89 -D_FORTIFY_SOURCE=0 -fkeep-inline-functions"'
+
       if build.include? 'enable-profiled-build'
         # Takes longer to build, may bug out. Provided for those who want to
         # optimise all the way to 11.
-        system 'make profiledbootstrap'
+        system "make #{make_flags} profiledbootstrap"
       else
-        system 'make bootstrap'
+        system "make #{make_flags} bootstrap"
       end
 
       # At this point `make check` could be invoked to run the testsuite. The
@@ -125,27 +127,6 @@ class Gcc < Formula
 end
 
 __END__
-diff -urN gcc-4.3.6/Makefile.in gcc-4.3.6.new/Makefile.in
---- gcc-4.3.6/Makefile.in	2009-04-24 22:55:24.000000000 -0700
-+++ gcc-4.3.6.new/Makefile.in	2013-04-13 23:42:45.000000000 -0700
-@@ -274,7 +274,7 @@
- 
- # Flags to pass to stage2 and later makes.  They are defined
- # here so that they can be overridden by Makefile fragments.
--BOOT_CFLAGS= -g -O2
-+BOOT_CFLAGS= -g -O2 -D_FORTIFY_SOURCE=0
- BOOT_LDFLAGS=
- BOOT_ADAFLAGS=-gnatpg -gnata
- 
-@@ -328,7 +328,7 @@
- # MAKEINFO and MAKEINFOFLAGS are explicitly passed here to make them
- # overrideable (for a bootstrap build stage1 also builds gcc.info).
- 
--STAGE1_CFLAGS=@stage1_cflags@
-+STAGE1_CFLAGS=@stage1_cflags@ -D_FORTIFY_SOURCE=0 -std=gnu89
- STAGE1_CHECKING=@stage1_checking@
- STAGE1_LANGUAGES=@stage1_languages@
- 
 --- gcc-4.3.6/gcc/config.gcc.orig	2009-10-18 12:07:26.000000000 -0400
 +++ gcc-4.3.6/gcc/config.gcc	2009-10-18 12:07:46.000000000 -0400
 @@ -417,7 +417,7 @@
