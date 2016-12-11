@@ -5,6 +5,14 @@ class CloogPpl < Formula
   mirror "http://gcc.cybermirror.org/infrastructure/cloog-ppl-0.15.11.tar.gz"
   sha256 "7cd634d0b2b401b04096b545915ac67f883556e9a524e8e803a6bf6217a84d5f"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    cellar :any
+    sha256 "e80958bc126358051c2c40ba8b12aae5fa2e55a086dd103241f7469a6812df29" => :yosemite
+    sha256 "e18498773771e61e533c1521212ad4f2be43f62b5c00478c89fc52934850450f" => :mavericks
+    sha256 "ff20e10aa53c2650de8f008d8b6cd803ed1960e6d88282574c2217700ba0a81f" => :mountain_lion
+  end
+
   keg_only "Conflicts with cloog in main repository."
 
   depends_on "gmp@4"
