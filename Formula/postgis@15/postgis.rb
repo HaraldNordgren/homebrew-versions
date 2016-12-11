@@ -7,8 +7,8 @@ end
 class Postgis < Formula
   version "15"
   homepage 'http://postgis.refractions.net'
-  url 'http://postgis.refractions.net/download/postgis-1.5.3.tar.gz'
-  sha1 'e8c572e0258ba760a67b7f717bdc8321b9f6cd58'
+  url 'http://download.osgeo.org/postgis/source/postgis-1.5.8.tar.gz'
+  sha1 'a3637851ba9dd4f29576c9dc60254e9f53abc559'
 
   depends_on 'postgresql@9'
   depends_on 'proj'
