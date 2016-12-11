@@ -1,10 +1,8 @@
-require 'formula'
-
 class Glfw < Formula
   version "3"
-  homepage 'http://www.glfw.org/'
-  url 'https://downloads.sourceforge.net/project/glfw/glfw/3.1/glfw-3.1.tar.bz2'
-  sha1 'bf7e8a7f79cbbfa68978aea2341e7fc7c6eef985'
+  homepage "http://www.glfw.org/"
+  url "https://downloads.sourceforge.net/project/glfw/glfw/3.1/glfw-3.1.tar.bz2"
+  sha1 "bf7e8a7f79cbbfa68978aea2341e7fc7c6eef985"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
@@ -13,7 +11,7 @@ class Glfw < Formula
     sha1 "7b55fda39d57ed1bf8258555ef3e263fae7c7bca" => :mountain_lion
   end
 
-  depends_on 'cmake' => :build
+  depends_on "cmake" => :build
 
   option :universal
   option "static", "Build static library only (defaults to building dylib only)"
@@ -30,14 +28,15 @@ class Glfw < Formula
       -DGLFW_USE_CHDIR=TRUE
       -DGLFW_USE_MENUBAR=TRUE
     ]
-    args << '-DGLFW_BUILD_UNIVERSAL=TRUE' if build.universal?
-    args << '-DBUILD_SHARED_LIBS=TRUE' unless build.include? 'static'
-    args << '-DGLFW_BUILD_EXAMPLES=TRUE' if build.include? 'build-examples'
-    args << '-DGLFW_BUILD_TESTS=TRUE' if build.include? 'build-tests'
-    args << '.'
+    args << "-DGLFW_BUILD_UNIVERSAL=TRUE" if build.universal?
+    args << "-DBUILD_SHARED_LIBS=TRUE" unless build.include? "static"
+    args << "-DGLFW_BUILD_EXAMPLES=TRUE" if build.include? "build-examples"
+    args << "-DGLFW_BUILD_TESTS=TRUE" if build.include? "build-tests"
+    args << "."
 
-    system 'cmake', *args
-    system 'make', 'install'
+    system "cmake", *args
+    system "make", "install"
+    libexec.install Dir["tests/*"] if build.include? "build-tests"
   end
 end
 
