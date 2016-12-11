@@ -6,10 +6,10 @@ class Gnupg < Formula
   sha1 "7e972cb9af47d9b8ce164dcf37fc4f32634d6cd6"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/versions"
-    sha1 "d41f7959c3e464cd5967f5f7ffd407bd8cc6d087" => :yosemite
-    sha1 "7bfd0d59ad50efb6031cee27565b11e9bcaa07e4" => :mavericks
-    sha1 "a2e18e41cc3e8dd318bd932950999c93300f85db" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha1 "11e98150489f0f1b1d258b14c4121aa73140c98c" => :yosemite
+    sha1 "1ea8b6ce35b84b6a51227ba51b1c9b137d19d04b" => :mavericks
+    sha1 "60f2f5cef5068a1c4a1c0ffa79ffe04d74ca5615" => :mountain_lion
   end
 
   head do
