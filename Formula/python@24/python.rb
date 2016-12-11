@@ -32,7 +32,7 @@ class Python < Formula
                  "-L#{Formula.factory('readline').prefix}/lib"].join(" ")
 
     system "./configure", "--prefix=#{prefix}", "--disable-tk",
-      "MACOSX_DEPLOYMENT_TARGET=#{MACOS_VERSION}", "--enable-ipv6",
+      "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}", "--enable-ipv6",
       "--enable-shared"
     ENV.j1
     system "/usr/bin/make"
