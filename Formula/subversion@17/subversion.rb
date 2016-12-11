@@ -5,6 +5,13 @@ class Subversion < Formula
   sha256 "c4ac8f37eb0ebd38901bfa6f1c7e4d7716d32d7460ee0cee520381ca2f5b120d"
   revision 1
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "0255b4142f93bd1352de2301d0eb61ae0745f6526a29e51590dd922fb553feaf" => :yosemite
+    sha256 "b4f01b542916d7db271562df2030ff6297edabd3db9fc5e77f94d48d524e2311" => :mavericks
+    sha256 "6560360363a3c0a4f4722f05b2d897e1f8a8b34acf903c8d5dcf11cbd630d8e4" => :mountain_lion
+  end
+
   option :universal
   option "with-java", "Build with Java bindings"
   option "with-perl", "Build with Perl bindings"
