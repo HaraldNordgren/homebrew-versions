@@ -127,7 +127,7 @@ class Subversion < Formula
       end
 
       # Use version-appropriate system Perl
-     if MacOS.version == :leopard
+      if MacOS.version == :leopard
         perl_version = "5.8.8"
       else
         perl_version = "5.10.0"
