@@ -6,8 +6,6 @@ class Node < Formula
   url 'http://nodejs.org/dist/node-v0.4.12.tar.gz'
   sha1 '1c6e34b90ad6b989658ee85e0d0cb16797b16460'
 
-  head 'https://github.com/joyent/node.git'
-
   option 'enable-debug', 'Build with debugger hooks'
 
   depends_on 'openssl' if MacOS.version == :leopard

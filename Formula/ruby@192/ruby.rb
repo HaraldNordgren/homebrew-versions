@@ -6,9 +6,6 @@ class Ruby < Formula
   url 'http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-p290.tar.bz2'
   sha256 '403b3093fbe8a08dc69c269753b8c6e7bd8f87fb79a7dd7d676913efe7642487'
 
-  head 'http://svn.ruby-lang.org/repos/ruby/trunk/'
-
-  depends_on :autoconf if build.head?
   depends_on 'pkg-config' => :build
   depends_on 'readline'
   depends_on 'gdbm'
@@ -23,8 +20,6 @@ class Ruby < Formula
   end
 
   def install
-    system "autoconf" if build.head?
-
     args = %W[--prefix=#{prefix}
               --enable-shared]
 

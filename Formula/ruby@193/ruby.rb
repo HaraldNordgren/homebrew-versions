@@ -6,8 +6,6 @@ class Ruby < Formula
   url 'http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p385.tar.bz2'
   sha256 'f991ee50414dc795696bad0fc5c7b0b94d93b9b38fed943326d20ce4e9dda42b'
 
-  head 'http://svn.ruby-lang.org/repos/ruby/trunk/'
-
   env :std
 
   option :universal
@@ -17,8 +15,6 @@ class Ruby < Formula
 
   if build.universal?
     depends_on 'autoconf' => :build
-  elsif build.head?
-    depends_on :autoconf
   end
 
   depends_on 'pkg-config' => :build
@@ -32,8 +28,6 @@ class Ruby < Formula
   end
 
   def install
-    system "autoconf" if build.head?
-
     args = ["--prefix=#{prefix}",
             "--enable-shared"]
 

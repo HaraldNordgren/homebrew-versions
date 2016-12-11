@@ -23,8 +23,6 @@ class Coq < Formula
   version '8.3pl5'
   sha1 '16ace63137143f951b696fc779185f82cd2cb77e'
 
-  head 'svn://scm.gforge.inria.fr/svn/coq/trunk'
-
   depends_on TransitionalMode
   depends_on 'objective-caml'
   depends_on 'camlp5'
