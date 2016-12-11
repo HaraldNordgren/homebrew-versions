@@ -66,7 +66,7 @@ class Gcc < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
-  # Fix for libgccjit.so linkage on Darwin
+  # Fix for libgccjit.so linkage on Darwin.
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=64089
   patch :DATA
 
@@ -197,6 +197,7 @@ class Gcc < Formula
     assert_equal "Hello, world!\n", `./hello-c`
   end
 end
+
 __END__
 --- a/gcc/jit/Make-lang.in	2015-02-03 17:19:58.000000000 +0000
 +++ b/gcc/jit/Make-lang.in	2015-04-08 22:08:24.000000000 +0100
