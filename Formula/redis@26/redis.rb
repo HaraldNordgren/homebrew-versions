@@ -1,4 +1,3 @@
-
 class Redis < Formula
   version "26"
   homepage "http://redis.io/"
@@ -14,11 +13,11 @@ class Redis < Formula
 
   fails_with :llvm do
     build 2334
-    cause 'Fails with "reference out of range from _linenoise"'
+    cause "Fails with 'reference out of range from _linenoise'"
   end
 
   def install
-    # Architecture isn"t detected correctly on 32bit Snow Leopard without help
+    # Architecture isn't detected correctly on 32bit Snow Leopard without help
     ENV["OBJARCH"] = MacOS.prefer_64_bit? ? "-arch x86_64" : "-arch i386"
 
     # Head and stable have different code layouts
