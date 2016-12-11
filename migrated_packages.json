@@ -586,5 +586,12 @@
     "file_without_extension": "gcc49",
     "original_filename": "gcc49.rb",
     "migrated_filename": "gcc.rb"
+  },
+  {
+    "classname_with_version": "Ppl011",
+    "package_at_version": "ppl@011",
+    "file_without_extension": "ppl011",
+    "original_filename": "ppl011.rb",
+    "migrated_filename": "ppl.rb"
   }
 ]
