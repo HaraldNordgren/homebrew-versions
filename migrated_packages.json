@@ -1594,5 +1594,12 @@
     "file_without_extension": "swig2",
     "original_filename": "swig2.rb",
     "migrated_filename": "swig.rb"
+  },
+  {
+    "classname_with_version": "Redis28",
+    "package_at_version": "redis@28",
+    "file_without_extension": "redis28",
+    "original_filename": "redis28.rb",
+    "migrated_filename": "redis.rb"
   }
 ]
