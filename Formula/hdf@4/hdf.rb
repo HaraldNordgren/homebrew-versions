@@ -4,6 +4,13 @@ class Hdf < Formula
   url "http://www.hdfgroup.org/ftp/HDF/releases/HDF4.2.10/src/hdf-4.2.10.tar.bz2"
   sha1 "5163543895728dabb536a0659b3d965d55bccf74"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha1 "c2c52d5a07559d08d3eb5af108ed8b839721ed88" => :yosemite
+    sha1 "ac39325b98c7baac776f8a28e4fb138a25ea7340" => :mavericks
+    sha1 "cc499e59d40db001001ef595539e1d79dcf18c96" => :mountain_lion
+  end
+
   option "with-fortran", "Build Fortran interface."
 
   deprecated_option "enable-fortran" => "with-fortran"
