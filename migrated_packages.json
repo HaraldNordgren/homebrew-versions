@@ -446,5 +446,12 @@
     "file_without_extension": "clojure14",
     "original_filename": "clojure14.rb",
     "migrated_filename": "clojure.rb"
+  },
+  {
+    "classname_with_version": "Gcc47",
+    "package_at_version": "gcc@47",
+    "file_without_extension": "gcc47",
+    "original_filename": "gcc47.rb",
+    "migrated_filename": "gcc.rb"
   }
 ]
