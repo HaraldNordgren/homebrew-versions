@@ -45,8 +45,10 @@ class Gcc < Formula
   # Fixes build on 10.4; fixed upstream, will be in next release
   # See: http://gcc.gnu.org/bugzilla/show_bug.cgi?id=58710
   def patches
-    "http://repo.or.cz/w/official-gcc.git/patch/2ee407b0577ea538556be3af464a27ef6e501db7"
-  end unless build.head?
+    unless build.head?
+      "http://repo.or.cz/w/official-gcc.git/patch/2ee407b0577ea538556be3af464a27ef6e501db7"
+    end
+  end
 
   def install
     # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
