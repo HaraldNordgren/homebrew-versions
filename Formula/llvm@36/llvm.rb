@@ -47,6 +47,14 @@ class Llvm < Formula
     end if MacOS.version <= :snow_leopard
   end
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha1 "7e767063a60caaa665aafda0f68e9f21d948ce1b" => :yosemite
+    sha1 "81dc1ed654d01110988be1d38d0c8b4056cbd557" => :mavericks
+    sha1 "71c7d6eb4428c81ea800336b7c022df72f7dd02f" => :mountain_lion
+  end
+
+
   head do
     url "http://llvm.org/git/llvm.git", :branch => "release_36"
 
