@@ -488,5 +488,12 @@
     "file_without_extension": "erlang-r16",
     "original_filename": "erlang-r16.rb",
     "migrated_filename": "erlang.rb"
+  },
+  {
+    "classname_with_version": "Jpeg9",
+    "package_at_version": "jpeg@9",
+    "file_without_extension": "jpeg9",
+    "original_filename": "jpeg9.rb",
+    "migrated_filename": "jpeg.rb"
   }
 ]
