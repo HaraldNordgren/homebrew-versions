@@ -1,25 +1,21 @@
-require 'formula'
-
 class Cassandra < Formula
   version "12"
-  homepage 'http://cassandra.apache.org'
-  url 'http://www.apache.org/dyn/closer.cgi?path=/cassandra/1.2.19/apache-cassandra-1.2.19-bin.tar.gz'
-  sha1 'e8abb254453a063bda43b17971aba0ca3b9badcd'
-
-  conflicts_with 'cassandra',
-    :because => "cassandra12 and cassandra install the same binaries."
+  desc "Eventually consistent, distributed key-value store"
+  homepage "https://cassandra.apache.org"
+  url "https://www.apache.org/dyn/closer.cgi?path=/cassandra/1.2.19/apache-cassandra-1.2.19-bin.tar.gz"
+  sha256 "1c0c6e62dc612a43d6cb54bc70054876576a6cae7b90aca2162aa379df1b787e"
 
   def install
-    (var+"lib/cassandra").mkpath
-    (var+"log/cassandra").mkpath
-    (etc+"cassandra").mkpath
+    (var/"lib/cassandra").mkpath
+    (var/"log/cassandra").mkpath
+    (etc/"cassandra").mkpath
 
     inreplace "conf/cassandra.yaml", "/var/lib/cassandra", "#{var}/lib/cassandra"
     inreplace "conf/log4j-server.properties", "/var/log/cassandra", "#{var}/log/cassandra"
     inreplace "conf/cassandra-env.sh", "/lib/", "/"
 
     inreplace "bin/cassandra.in.sh" do |s|
-      s.gsub! "CASSANDRA_HOME=\"`dirname \"$0\"`/..\"", "CASSANDRA_HOME=\"#{prefix}\""
+      s.gsub! "CASSANDRA_HOME=\"`dirname \"$0\"`/..\"", "CASSANDRA_HOME=\"#{libexec}\""
       # Store configs in etc, outside of keg
       s.gsub! "CASSANDRA_CONF=\"$CASSANDRA_HOME/conf\"", "CASSANDRA_CONF=\"#{etc}/cassandra\""
       # Jars installed to prefix, no longer in a lib folder
@@ -28,16 +24,17 @@ class Cassandra < Formula
 
     rm Dir["bin/*.bat"]
 
-    (etc+"cassandra").install Dir["conf/*"]
-    prefix.install Dir["*.txt"] + Dir["{bin,interface,javadoc,pylib,lib/licenses}"]
-    prefix.install Dir["lib/*.jar"]
+    (etc/"cassandra").install Dir["conf/*"]
+    libexec.install Dir["*.txt", "{bin,interface,javadoc,pylib,lib/licenses}"]
+    libexec.install Dir["lib/*.jar"]
+    bin.write_exec_script Dir["#{libexec}/bin/*"]
 
-    share.install [bin+'cassandra.in.sh', bin+'stop-server']
-    inreplace Dir["#{bin}/cassandra*", "#{bin}/debug-cql",
-                  "#{bin}/json2sstable", "#{bin}/nodetool",
-                  "#{bin}/sstable*"],
-      /`dirname "?\$0"?`\/cassandra.in.sh/,
-      "#{share}/cassandra.in.sh"
+    share.install [libexec/"bin/cassandra.in.sh", libexec/"bin/stop-server"]
+    inreplace Dir["#{libexec}/bin/cassandra*", "#{libexec}/bin/debug-cql",
+                  "#{libexec}/bin/json2sstable", "#{libexec}/bin/nodetool",
+                  "#{libexec}/bin/sstable*"],
+              %r{`dirname "?\$0"?`\/cassandra.in.sh},
+              "#{share}/cassandra.in.sh"
   end
 
   def caveats; <<-EOS.undent
@@ -56,19 +53,15 @@ class Cassandra < Formula
       <dict>
         <key>KeepAlive</key>
         <true/>
-
         <key>Label</key>
         <string>#{plist_name}</string>
-
         <key>ProgramArguments</key>
         <array>
-            <string>#{opt_prefix}/bin/cassandra</string>
+            <string>#{opt_bin}/cassandra</string>
             <string>-f</string>
         </array>
-
         <key>RunAtLoad</key>
         <true/>
-
         <key>WorkingDirectory</key>
         <string>#{var}/lib/cassandra</string>
       </dict>
