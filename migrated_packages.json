@@ -1916,5 +1916,12 @@
     "file_without_extension": "lz4r117",
     "original_filename": "lz4r117.rb",
     "migrated_filename": "lz4r.rb"
+  },
+  {
+    "classname_with_version": "Node4Lts",
+    "package_at_version": "node@4-lts",
+    "file_without_extension": "node4-lts",
+    "original_filename": "node4-lts.rb",
+    "migrated_filename": "node.rb"
   }
 ]
