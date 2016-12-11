@@ -3,9 +3,9 @@ require 'formula'
 class Gnutls < Formula
   version "3"
   homepage 'http://www.gnu.org/software/gnutls/gnutls.html'
-  url 'http://ftpmirror.gnu.org/gnutls/gnutls-3.0.18.tar.xz'
-  mirror 'http://ftp.gnu.org/gnu/gnutls/gnutls-3.0.18.tar.xz'
-  sha1 '2aeac620a26e6c8f266954110578d8817939b084'
+  url 'http://ftpmirror.gnu.org/gnutls/gnutls-3.0.20.tar.xz'
+  mirror 'http://ftp.gnu.org/gnu/gnutls/gnutls-3.0.20.tar.xz'
+  sha256 '7e3f431a43e5366ff5a9b7646d2a79892a905237ef18cb147b945ec99012686d'
 
   depends_on 'pkg-config' => :build
   depends_on 'p11-kit'
