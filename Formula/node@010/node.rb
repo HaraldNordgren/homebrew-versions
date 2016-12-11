@@ -3,9 +3,8 @@ class Node < Formula
   version "010"
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v0.10.39/node-v0.10.39.tar.gz"
-  sha256 "68f8d8f9515c4e77e2a06034b742e19e9848c1fee5bcadedc1d68f3e4302df37"
-  revision 1
+  url "https://nodejs.org/dist/v0.10.40/node-v0.10.40.tar.gz"
+  sha256 "bae79c2fd959aebe1629af36077bebbb760128db753da226d2344cd91499149f"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
