@@ -1,20 +1,21 @@
-require 'formula'
-
 class Hadoop < Formula
   version "121"
-  homepage 'http://hadoop.apache.org/'
-  url 'http://www.apache.org/dyn/closer.cgi?path=hadoop/core/hadoop-1.2.1/hadoop-1.2.1.tar.gz'
-  sha1 'b07b88ca658dc9d338aa84f5c68c809eb7c70964'
+  desc "Framework for distributed processing of large data sets"
+  homepage "https://hadoop.apache.org/"
+  url "https://www.apache.org/dyn/closer.cgi?path=hadoop/core/hadoop-1.2.1/hadoop-1.2.1.tar.gz"
+  sha256 "94a1181771f173bdb55c8f901722825866396091f0516bdd12b34dc3de1706a1"
 
   keg_only "Conflicts with hadoop in core."
+
+  depends_on :java
 
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install %w[bin conf lib webapps contrib]
-    libexec.install Dir['*.jar']
+    libexec.install Dir["*.jar"]
     bin.write_exec_script Dir["#{libexec}/bin/*"]
     # But don't make rcc visible, it conflicts with Qt
-    (bin/'rcc').unlink
+    (bin/"rcc").unlink
 
     inreplace "#{libexec}/conf/hadoop-env.sh",
       "# export JAVA_HOME=/usr/lib/j2sdk1.5-sun",
