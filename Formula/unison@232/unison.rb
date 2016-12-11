@@ -4,6 +4,14 @@ class Unison < Formula
   url "http://www.seas.upenn.edu/~bcpierce/unison//download/releases/unison-2.32.52/unison-2.32.52.tar.gz"
   sha1 "68ea5709de4fcc2f9aef7b01b24637503b61b5ac"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    cellar :any
+    sha1 "fbcf4a1cd9b94f28bd21617ebbf07535a38c750d" => :yosemite
+    sha1 "448d2e662a4fabd19451f42f2ea3473121f19253" => :mavericks
+    sha1 "9acefc3d54e595a47bdee9263257dd0ad4d20c12" => :mountain_lion
+  end
+
   depends_on "objective-caml"
 
   # http://tech.groups.yahoo.com/group/unison-users/message/9348
