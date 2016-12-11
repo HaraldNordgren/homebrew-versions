@@ -789,5 +789,12 @@
     "file_without_extension": "log4cplus10",
     "original_filename": "log4cplus10.rb",
     "migrated_filename": "log4cplus.rb"
+  },
+  {
+    "classname_with_version": "Hadoop0202",
+    "package_at_version": "hadoop@0202",
+    "file_without_extension": "hadoop0202",
+    "original_filename": "hadoop0202.rb",
+    "migrated_filename": "hadoop.rb"
   }
 ]
