@@ -43,8 +43,8 @@ end
 class Node < Formula
   version "08"
   homepage 'http://nodejs.org/'
-  url 'http://nodejs.org/dist/v0.8.24/node-v0.8.24.tar.gz'
-  sha1 '4035c547a98a9e9b9e7a036abe84f19c78220b8f'
+  url 'http://nodejs.org/dist/v0.8.25/node-v0.8.25.tar.gz'
+  sha1 'df91c9de8f3f14efb4cbe52d3ca8beb754b2a39a'
 
   option 'enable-debug', 'Build with debugger hooks'
   option 'without-npm', 'npm will not be installed'
