@@ -859,5 +859,12 @@
     "file_without_extension": "ruby186",
     "original_filename": "ruby186.rb",
     "migrated_filename": "ruby.rb"
+  },
+  {
+    "classname_with_version": "Ruby182",
+    "package_at_version": "ruby@182",
+    "file_without_extension": "ruby182",
+    "original_filename": "ruby182.rb",
+    "migrated_filename": "ruby.rb"
   }
 ]
