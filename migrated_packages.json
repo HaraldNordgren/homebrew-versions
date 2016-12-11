@@ -327,5 +327,12 @@
     "file_without_extension": "bash-completion2",
     "original_filename": "bash-completion2.rb",
     "migrated_filename": "bash-completion.rb"
+  },
+  {
+    "classname_with_version": "Raptor1",
+    "package_at_version": "raptor@1",
+    "file_without_extension": "raptor1",
+    "original_filename": "raptor1.rb",
+    "migrated_filename": "raptor.rb"
   }
 ]
