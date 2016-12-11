@@ -34,6 +34,13 @@ class Llvm < Formula
     end
   end
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/versions"
+    sha1 "386b378901302197496bcca9f24dedb4be92ea88" => :yosemite
+    sha1 "ff1d1f028eaa8ce95c2fd44d149a00ab96f6b4a3" => :mavericks
+    sha1 "17482b8f991b72eec819896185be797f9aa1bb64" => :mountain_lion
+  end
+
   head do
     url 'http://llvm.org/git/llvm.git', :branch => 'release_34'
 
