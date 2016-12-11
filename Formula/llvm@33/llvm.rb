@@ -71,6 +71,12 @@ class Llvm < Formula
     end
   end
 
+  # Fix Makefile bug concerning MacOSX >= 10.10
+  # See: http://llvm.org/bugs/show_bug.cgi?id=19951
+  if MacOS.version >= "10.10"
+     patch :DATA
+  end
+
   option :universal
   option 'with-libcxx', 'Build libc++ standard library support'
   option 'with-clang', 'Build Clang C/ObjC/C++ frontend'
@@ -261,3 +267,22 @@ class Llvm < Formula
     s
   end
 end
+
+__END__
+diff --git a/Makefile.rules b/Makefile.rules
+index f0c542b..ec05ac3 100644
+--- a/Makefile.rules
++++ b/Makefile.rules
+@@ -571,9 +571,9 @@ ifeq ($(HOST_OS),Darwin)
+   DARWIN_VERSION := `sw_vers -productVersion`
+  endif
+   # Strip a number like 10.4.7 to 10.4
+-  DARWIN_VERSION := $(shell echo $(DARWIN_VERSION)| sed -E 's/(10.[0-9]).*/\1/')
++  DARWIN_VERSION := $(shell echo $(DARWIN_VERSION)| sed -E 's/(10.[0-9]+).*/\1/')
+   # Get "4" out of 10.4 for later pieces in the makefile.
+-  DARWIN_MAJVERS := $(shell echo $(DARWIN_VERSION)| sed -E 's/10.([0-9]).*/\1/')
++  DARWIN_MAJVERS := $(shell echo $(DARWIN_VERSION)| sed -E 's/10.([0-9]+).*/\1/')
+ 
+   LoadableModuleOptions := -Wl,-flat_namespace -Wl,-undefined,suppress
+   SharedLinkOptions := -dynamiclib
+
