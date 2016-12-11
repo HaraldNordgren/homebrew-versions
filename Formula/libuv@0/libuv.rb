@@ -1,8 +1,8 @@
 class Libuv < Formula
   version "0"
   homepage "https://github.com/libuv/libuv"
-  url "https://github.com/libuv/libuv/archive/v0.10.31.tar.gz"
-  sha1 "9ab8ecb10f90ce13404ff58ff85cb774472e2cb9"
+  url "https://github.com/libuv/libuv/archive/v0.10.32.tar.gz"
+  sha1 "9f06392ebcbfd25e029d700c869ade8581ec2895"
   head "https://github.com/libuv/libuv.git", :branch => "v0.10"
 
   conflicts_with "libuv"
