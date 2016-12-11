@@ -180,5 +180,12 @@
     "file_without_extension": "openssl100",
     "original_filename": "openssl100.rb",
     "migrated_filename": "openssl.rb"
+  },
+  {
+    "classname_with_version": "Python26",
+    "package_at_version": "python@26",
+    "file_without_extension": "python26",
+    "original_filename": "python26.rb",
+    "migrated_filename": "python.rb"
   }
 ]
