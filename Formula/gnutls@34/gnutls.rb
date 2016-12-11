@@ -2,9 +2,9 @@
 class Gnutls < Formula
   version "34"
   homepage "http://gnutls.org"
-  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.5.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.4/gnutls-3.4.5.tar.xz"
-  sha256 "af88b8e0460728d034ff3f454f7851a09b7f0959a93531b6f8d35658ef0f7aae"
+  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.6.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.4/gnutls-3.4.6.tar.xz"
+  sha256 "feb559ed7fffa24d5aa40527054fae5cb7f7b66e9f2bebc2383a781dfa4d20ec"
 
   bottle do
     cellar :any
