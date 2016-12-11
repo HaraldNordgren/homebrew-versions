@@ -29,7 +29,6 @@ class Gnupg < Formula
   depends_on "libksba"
   depends_on "libassuan"
   depends_on "pinentry"
-  depends_on "curl" if MacOS.version <= :mavericks
   depends_on "libusb-compat" => :recommended
   depends_on "readline" => :optional
   depends_on "gettext"
