@@ -2,7 +2,7 @@ require 'formula'
 
 class Drush < Formula
   version "4"
-  homepage 'http://drupal.org/project/drush'
+  homepage 'https://github.com/drush-ops/drush'
   url 'http://ftp.drupal.org/files/projects/drush-7.x-4.6.tar.gz'
   sha1 '51d7a7743342cb3dabb201b4c5433ab3da06fb40'
 
