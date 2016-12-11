@@ -45,7 +45,14 @@ class Gcc < Formula
 
   # Patches adapted from macports:
   # http://trac.macports.org/browser/trunk/dports/lang/gcc44/files
-  def patches; DATA; end
+  def patches
+    { # Patches from macports
+      :p0 => [
+        # Fix libffi for ppc
+        'http://trac.macports.org/export/110576/trunk/dports/lang/gcc44/files/ppc_fde_encoding.diff'
+      ]
+    }
+  end
 
   def install
     # GCC will suffer build errors if forced to use a particular linker.
@@ -142,49 +149,3 @@ class Gcc < Formula
     end
   end
 end
-
-__END__
-diff --git src/powerpc/darwin.S src/powerpc/darwin.S
---- gcc-4.4.7.orig/libffi/src/powerpc/darwin.S
-+++ gcc-4.4.7/libffi/src/powerpc/darwin.S
-@@ -191,17 +191,17 @@ EH_frame1:
- LSCIE1:
- 	.long	0x0	; CIE Identifier Tag
- 	.byte	0x1	; CIE Version
- 	.ascii	"zR\0"	; CIE Augmentation
- 	.byte	0x1	; uleb128 0x1; CIE Code Alignment Factor
- 	.byte	0x7c	; sleb128 -4; CIE Data Alignment Factor
- 	.byte	0x41	; CIE RA Column
- 	.byte	0x1	; uleb128 0x1; Augmentation size
--	.byte	0x90	; FDE Encoding (indirect pcrel)
-+	.byte	0x10	; FDE Encoding (pcrel)
- 	.byte	0xc	; DW_CFA_def_cfa
- 	.byte	0x1	; uleb128 0x1
- 	.byte	0x0	; uleb128 0x0
- 	.align	LOG2_GPR_BYTES
- LECIE1:
- .globl _ffi_call_DARWIN.eh
- _ffi_call_DARWIN.eh:
- LSFDE1:
-diff --git src/powerpc/darwin_closure.S src/powerpc/darwin_closure.S
---- gcc-4.4.7.orig/libffi/src/powerpc/darwin_closure.S
-+++ gcc-4.4.7/libffi/src/powerpc/darwin_closure.S
-@@ -253,17 +253,17 @@ EH_frame1:
- LSCIE1:
- 	.long	0x0	; CIE Identifier Tag
- 	.byte	0x1	; CIE Version
- 	.ascii	"zR\0"	; CIE Augmentation
- 	.byte	0x1	; uleb128 0x1; CIE Code Alignment Factor
- 	.byte	0x7c	; sleb128 -4; CIE Data Alignment Factor
- 	.byte	0x41	; CIE RA Column
- 	.byte	0x1	; uleb128 0x1; Augmentation size
--	.byte	0x90	; FDE Encoding (indirect pcrel)
-+	.byte	0x10	; FDE Encoding (pcrel)
- 	.byte	0xc	; DW_CFA_def_cfa
- 	.byte	0x1	; uleb128 0x1
- 	.byte	0x0	; uleb128 0x0
- 	.align	LOG2_GPR_BYTES
- LECIE1:
- .globl _ffi_closure_ASM.eh
- _ffi_closure_ASM.eh:
- LSFDE1:
