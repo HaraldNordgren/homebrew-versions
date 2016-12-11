@@ -7,10 +7,9 @@ class Gnupg < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
-    revision 1
-    sha256 "c7aa93e32cbac2aed4ab86253a30223c6217042c6fa50b0a4dc1fa803d356982" => :yosemite
-    sha256 "2adbf1e360b01b0e20b5d6bbf6ac2835d91bc2b30ff9fa5f7ee2d230d04dd1a3" => :mavericks
-    sha256 "03bfc7c9116649ed00af8232a7edf6dee1eaaea887d56563b45cd1dc3a625bf5" => :mountain_lion
+    sha256 "2ccbf3c10596c8c81a624a1353e4f67b447c537ae09a25ef5e936d309f299442" => :yosemite
+    sha256 "ee6df932554bb036611098a07b3a34bf764fdfc03c45285ba312634a991e7c21" => :mavericks
+    sha256 "7e5d83d492c1d92f8502bc3c6e720bb641e71fb5ca1f5f32b912879f43cb4e91" => :mountain_lion
   end
 
   option "with-gpgsplit", "Additionally install the gpgsplit utility"
