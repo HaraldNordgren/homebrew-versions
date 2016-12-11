@@ -1692,5 +1692,12 @@
     "file_without_extension": "go13",
     "original_filename": "go13.rb",
     "migrated_filename": "go.rb"
+  },
+  {
+    "classname_with_version": "Mono3",
+    "package_at_version": "mono@3",
+    "file_without_extension": "mono3",
+    "original_filename": "mono3.rb",
+    "migrated_filename": "mono.rb"
   }
 ]
