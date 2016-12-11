@@ -1363,5 +1363,12 @@
     "file_without_extension": "swig304",
     "original_filename": "swig304.rb",
     "migrated_filename": "swig.rb"
+  },
+  {
+    "classname_with_version": "Lua53",
+    "package_at_version": "lua@53",
+    "file_without_extension": "lua53",
+    "original_filename": "lua53.rb",
+    "migrated_filename": "lua.rb"
   }
 ]
