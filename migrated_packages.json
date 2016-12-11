@@ -614,5 +614,12 @@
     "file_without_extension": "cloog-ppl015",
     "original_filename": "cloog-ppl015.rb",
     "migrated_filename": "cloog-ppl.rb"
+  },
+  {
+    "classname_with_version": "Gcc44",
+    "package_at_version": "gcc@44",
+    "file_without_extension": "gcc44",
+    "original_filename": "gcc44.rb",
+    "migrated_filename": "gcc.rb"
   }
 ]
