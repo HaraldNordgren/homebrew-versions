@@ -103,6 +103,10 @@ class Gcc < Formula
     # -fPIC, -shared, -ldl and -rdynamic."
     args << "--enable-plugin" if MacOS.version > :tiger
 
+    # Otherwise make fails during comparison at stage 3
+    # See: http://gcc.gnu.org/bugzilla/show_bug.cgi?id=45248
+    args << '--with-dwarf2' if MacOS.version < :leopard
+
     args << '--disable-nls' unless build.include? 'enable-nls'
 
     if build.include? 'enable-java' or build.include? 'enable-all-languages'
