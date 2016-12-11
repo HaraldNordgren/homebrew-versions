@@ -6,8 +6,6 @@ class Tomcat < Formula
   url 'http://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-6/v6.0.36/bin/apache-tomcat-6.0.36.tar.gz'
   sha1 'bfbc3944f0b2f87890e61bf31583ddb7cdf20fc0'
 
-  skip_clean :all
-
   keg_only "Some scripts that are installed conflict with other software."
 
   def install
