@@ -1020,5 +1020,12 @@
     "file_without_extension": "leptonica169",
     "original_filename": "leptonica169.rb",
     "migrated_filename": "leptonica.rb"
+  },
+  {
+    "classname_with_version": "Zeromq3",
+    "package_at_version": "zeromq@3",
+    "file_without_extension": "zeromq3",
+    "original_filename": "zeromq3.rb",
+    "migrated_filename": "zeromq.rb"
   }
 ]
