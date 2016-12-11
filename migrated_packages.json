@@ -915,5 +915,12 @@
     "file_without_extension": "boost149",
     "original_filename": "boost149.rb",
     "migrated_filename": "boost.rb"
+  },
+  {
+    "classname_with_version": "Llvm35",
+    "package_at_version": "llvm@35",
+    "file_without_extension": "llvm35",
+    "original_filename": "llvm35.rb",
+    "migrated_filename": "llvm.rb"
   }
 ]
