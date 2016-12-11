@@ -2,22 +2,17 @@ require 'formula'
 
 class Node < Formula
   version "04"
-  url 'http://nodejs.org/dist/node-v0.4.12.tar.gz'
-  head 'https://github.com/joyent/node.git'
   homepage 'http://nodejs.org/'
-  md5 'a6375eaa43db5356bf443e25b828ae16'
+  url 'http://nodejs.org/dist/node-v0.4.12.tar.gz'
+  sha1 '1c6e34b90ad6b989658ee85e0d0cb16797b16460'
 
-  # Leopard OpenSSL is not new enough, so use our keg-only one
-  depends_on 'openssl' if MacOS.leopard?
+  head 'https://github.com/joyent/node.git'
 
-  fails_with_llvm :build => 2326
+  option 'enable-debug', 'Build with debugger hooks'
 
-  # Stripping breaks dynamic loading
-  skip_clean :all
+  depends_on 'openssl' if MacOS.version == :leopard
 
-  def options
-    [["--debug", "Build with debugger hooks."]]
-  end
+  fails_with(:llvm) { build 2326 }
 
   def install
     inreplace 'wscript' do |s|
@@ -26,13 +21,15 @@ class Node < Formula
     end
 
     args = ["--prefix=#{prefix}"]
-    args << "--debug" if ARGV.include? '--debug'
+    args << "--debug" if build.include? 'enable-debug'
 
     system "./configure", *args
     system "make install"
   end
 
-  def caveats
-    "Please add #{HOMEBREW_PREFIX}/lib/node_modules to your NODE_PATH environment variable to have node libraries picked up."
+  def caveats; <<-EOS.undent
+    For node to pick up installed libraries, add this to your profile:
+      export NODE_PATH=#{HOMEBREW_PREFIX}/lib/node_modules
+    EOS
   end
 end
