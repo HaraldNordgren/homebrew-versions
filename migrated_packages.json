@@ -1391,5 +1391,19 @@
     "file_without_extension": "openssl101",
     "original_filename": "openssl101.rb",
     "migrated_filename": "openssl.rb"
+  },
+  {
+    "classname_with_version": "Elasticsearch12",
+    "package_at_version": "elasticsearch@12",
+    "file_without_extension": "elasticsearch12",
+    "original_filename": "elasticsearch12.rb",
+    "migrated_filename": "elasticsearch.rb"
+  },
+  {
+    "classname_with_version": "Elasticsearch13",
+    "package_at_version": "elasticsearch@13",
+    "file_without_extension": "elasticsearch13",
+    "original_filename": "elasticsearch13.rb",
+    "migrated_filename": "elasticsearch.rb"
   }
 ]
