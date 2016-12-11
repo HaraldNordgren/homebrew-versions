@@ -1048,5 +1048,12 @@
     "file_without_extension": "varnish3",
     "original_filename": "varnish3.rb",
     "migrated_filename": "varnish.rb"
+  },
+  {
+    "classname_with_version": "Maven31",
+    "package_at_version": "maven@31",
+    "file_without_extension": "maven31",
+    "original_filename": "maven31.rb",
+    "migrated_filename": "maven.rb"
   }
 ]
