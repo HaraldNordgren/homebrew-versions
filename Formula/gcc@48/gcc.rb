@@ -1,5 +1,3 @@
-require 'formula'
-
 class Gcc < Formula
   version "48"
   def arch
@@ -23,9 +21,9 @@ class Gcc < Formula
   end
 
   homepage 'http://gcc.gnu.org'
-  url 'http://ftpmirror.gnu.org/gcc/gcc-4.8.3/gcc-4.8.3.tar.bz2'
-  mirror 'ftp://gcc.gnu.org/pub/gcc/releases/gcc-4.8.3/gcc-4.8.3.tar.bz2'
-  sha1 'da0a2b9ec074f2bf624a34f3507f812ebb6e4dce'
+  url 'http://ftpmirror.gnu.org/gcc/gcc-4.8.4/gcc-4.8.4.tar.bz2'
+  mirror 'ftp://gcc.gnu.org/pub/gcc/releases/gcc-4.8.4/gcc-4.8.4.tar.bz2'
+  sha1 '40867a9ac74a054b1cee855988fd680cabf42006'
 
   head 'svn://gcc.gnu.org/svn/gcc/branches/gcc-4_8-branch'
 
