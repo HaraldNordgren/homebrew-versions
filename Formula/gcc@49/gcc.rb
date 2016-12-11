@@ -23,9 +23,9 @@ class Gcc < Formula
   end
 
   homepage 'http://gcc.gnu.org'
-  url 'http://ftpmirror.gnu.org/gcc/gcc-4.9.0/gcc-4.9.0.tar.bz2'
-  mirror 'ftp://gcc.gnu.org/pub/gcc/releases/gcc-4.9.0/gcc-4.9.0.tar.bz2'
-  sha1 'fbde8eb49f2b9e6961a870887cf7337d31cd4917'
+  url "http://ftpmirror.gnu.org/gcc/gcc-4.9.1/gcc-4.9.1.tar.bz2"
+  mirror "ftp://gcc.gnu.org/pub/gcc/releases/gcc-4.9.1/gcc-4.9.1.tar.bz2"
+  sha1 "3f303f403053f0ce79530dae832811ecef91197e"
 
   head 'svn://gcc.gnu.org/svn/gcc/branches/gcc-4_9-branch'
 
