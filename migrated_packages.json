@@ -782,5 +782,12 @@
     "file_without_extension": "glfw3",
     "original_filename": "glfw3.rb",
     "migrated_filename": "glfw.rb"
+  },
+  {
+    "classname_with_version": "Log4cplus10",
+    "package_at_version": "log4cplus@10",
+    "file_without_extension": "log4cplus10",
+    "original_filename": "log4cplus10.rb",
+    "migrated_filename": "log4cplus.rb"
   }
 ]
