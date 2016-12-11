@@ -11,7 +11,7 @@ class Allegro < Formula
   depends_on 'freetype' => :optional
   depends_on 'flac' => :optional
   depends_on 'libpng' => :optional
-  depends_on 'libjpeg' => :optional
+  depends_on 'jpeg' => :optional
   depends_on 'physfs' => :optional
 
   def install
