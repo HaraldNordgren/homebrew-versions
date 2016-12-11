@@ -320,5 +320,12 @@
     "file_without_extension": "node06",
     "original_filename": "node06.rb",
     "migrated_filename": "node.rb"
+  },
+  {
+    "classname_with_version": "BashCompletion2",
+    "package_at_version": "bash-completion@2",
+    "file_without_extension": "bash-completion2",
+    "original_filename": "bash-completion2.rb",
+    "migrated_filename": "bash-completion.rb"
   }
 ]
