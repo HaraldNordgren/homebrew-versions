@@ -8,6 +8,11 @@ class Allegro < Formula
 
   depends_on 'cmake' => :build
   depends_on 'libvorbis' => :optional
+  depends_on 'freetype' => :optional
+  depends_on 'flac' => :optional
+  depends_on 'libpng' => :optional
+  depends_on 'libjpeg' => :optional
+  depends_on 'physfs' => :optional
 
   def install
     system "cmake", ".", *std_cmake_args
