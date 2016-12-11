@@ -768,5 +768,19 @@
     "file_without_extension": "llvm34",
     "original_filename": "llvm34.rb",
     "migrated_filename": "llvm.rb"
+  },
+  {
+    "classname_with_version": "Glfw2",
+    "package_at_version": "glfw@2",
+    "file_without_extension": "glfw2",
+    "original_filename": "glfw2.rb",
+    "migrated_filename": "glfw.rb"
+  },
+  {
+    "classname_with_version": "Glfw3",
+    "package_at_version": "glfw@3",
+    "file_without_extension": "glfw3",
+    "original_filename": "glfw3.rb",
+    "migrated_filename": "glfw.rb"
   }
 ]
