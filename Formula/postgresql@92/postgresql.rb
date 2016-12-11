@@ -4,8 +4,8 @@ require 'formula'
 class Postgresql < Formula
   version "92"
   homepage 'http://www.postgresql.org/'
-  url 'http://ftp.postgresql.org/pub/source/v9.2.7/postgresql-9.2.7.tar.bz2'
-  sha256 '83c042c3f61c69b176d3e4344e59104f844bc8b8628dad2bb9022a64cf5afe86'
+  url 'http://ftp.postgresql.org/pub/source/v9.2.8/postgresql-9.2.8.tar.bz2'
+  sha256 '568ba482340219097475cce9ab744766889692ee7c9df886563e8292d66ed87c'
 
   option '32-bit'
   option 'no-perl', 'Build without Perl support'
