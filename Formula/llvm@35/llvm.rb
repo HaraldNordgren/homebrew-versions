@@ -7,23 +7,23 @@ class Llvm < Formula
     url 'http://llvm.org/git/llvm.git'
 
     resource 'clang' do
-      url 'http://llvm.org/git/clang.git'
+      url 'http://llvm.org/git/clang.git', :branch => 'release_35'
     end
 
     resource 'clang-tools-extra' do
-      url 'http://llvm.org/git/clang-tools-extra.git'
+      url 'http://llvm.org/git/clang-tools-extra.git', :branch => 'release_35'
     end
 
     resource 'compiler-rt' do
-      url 'http://llvm.org/git/compiler-rt.git'
+      url 'http://llvm.org/git/compiler-rt.git', :branch => 'release_35'
     end
 
     resource 'polly' do
-      url 'http://llvm.org/git/polly.git'
+      url 'http://llvm.org/git/polly.git', :branch => 'release_35'
     end
 
     resource 'libcxx' do
-      url 'http://llvm.org/git/libcxx.git'
+      url 'http://llvm.org/git/libcxx.git', :branch => 'release_35'
     end
 
     resource 'libcxxabi' do
