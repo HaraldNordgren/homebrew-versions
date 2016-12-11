@@ -138,5 +138,12 @@
     "file_without_extension": "gsl114",
     "original_filename": "gsl114.rb",
     "migrated_filename": "gsl.rb"
+  },
+  {
+    "classname_with_version": "Tomcat6",
+    "package_at_version": "tomcat@6",
+    "file_without_extension": "tomcat6",
+    "original_filename": "tomcat6.rb",
+    "migrated_filename": "tomcat.rb"
   }
 ]
