@@ -3,6 +3,37 @@ require 'formula'
 class Llvm < Formula
   version "34"
   homepage  'http://llvm.org/'
+
+  stable do
+    url 'http://llvm.org/releases/3.4/llvm-3.4.src.tar.gz'
+    sha1 '10b1fd085b45d8b19adb9a628353ce347bc136b8'
+
+    resource 'clang' do
+      url 'http://llvm.org/releases/3.4/clang-3.4.src.tar.gz'
+      sha1 'a6a3c815dd045e9c13c7ae37d2cfefe65607860d'
+    end
+
+    resource 'clang-tools-extra' do
+      url 'http://llvm.org/releases/3.4/clang-tools-extra-3.4.src.tar.gz'
+      sha1 '56afa36c2ddd11a53f1e199152b04dfb9347d93a'
+    end
+
+    resource 'compiler-rt' do
+      url 'http://llvm.org/releases/3.4/compiler-rt-3.4.src.tar.gz'
+      sha1 'd644b1e4f306f7ad35df0a134d14a1123cd9f082'
+    end
+
+    resource 'polly' do
+      url 'http://llvm.org/releases/3.4/polly-3.4.src.tar.gz'
+      sha1 '90891113f687018e6d0c0ad484afc3b221b89a8f'
+    end
+
+    resource 'libcxx' do
+      url 'http://llvm.org/releases/3.4/libcxx-3.4.src.tar.gz'
+      sha1 'c45333dce3e6bdac2583682417c03b6bb149ceb0'
+    end
+  end
+
   head do
     url 'http://llvm.org/git/llvm.git', :branch => 'release_34'
 
@@ -25,11 +56,11 @@ class Llvm < Formula
     resource 'libcxx' do
       url 'http://llvm.org/git/libcxx.git', :branch => 'release_34'
     end
-
-    resource 'libcxxabi' do
-      url 'http://llvm.org/git/libcxxabi.git', :branch => 'release_32'
-    end if MacOS.version <= :snow_leopard
   end
+
+  resource 'libcxxabi' do
+    url 'http://llvm.org/git/libcxxabi.git', :branch => 'release_32'
+  end if MacOS.version <= :snow_leopard
 
   option :universal
   option 'with-libcxx', 'Build libc++ standard library support'
