@@ -5,6 +5,13 @@ class Erlang < Formula
   sha256 "17ce53459bc5ceb34fc2da412e15ac8c23835a15fbd84e62c8d1852704747ee7"
   revision 2
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "46ff2e3066bc4fdb2bca0b4cf954d6ef50c4a161301d74fe4770f7dc4c6a9acb" => :yosemite
+    sha256 "9da63d7852b36d2659a8eaedadf21650430b8408692174369818df01d13fb097" => :mavericks
+    sha256 "943c59a888292edafb974460671327602deda37223680d52fd96dc152c1b99c7" => :mountain_lion
+  end
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
