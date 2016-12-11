@@ -1832,5 +1832,12 @@
     "file_without_extension": "selenium-server-standalone245",
     "original_filename": "selenium-server-standalone245.rb",
     "migrated_filename": "selenium-server-standalone.rb"
+  },
+  {
+    "classname_with_version": "Docker171",
+    "package_at_version": "docker@171",
+    "file_without_extension": "docker171",
+    "original_filename": "docker171.rb",
+    "migrated_filename": "docker.rb"
   }
 ]
