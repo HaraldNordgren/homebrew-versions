@@ -362,5 +362,12 @@
     "file_without_extension": "drush4",
     "original_filename": "drush4.rb",
     "migrated_filename": "drush.rb"
+  },
+  {
+    "classname_with_version": "Grails20",
+    "package_at_version": "grails@20",
+    "file_without_extension": "grails20",
+    "original_filename": "grails20.rb",
+    "migrated_filename": "grails.rb"
   }
 ]
