@@ -6,6 +6,13 @@ class Glfw < Formula
   url 'https://downloads.sourceforge.net/project/glfw/glfw/3.1/glfw-3.1.tar.bz2'
   sha1 'bf7e8a7f79cbbfa68978aea2341e7fc7c6eef985'
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha1 "520a04a4d4f7611c29da7c7635f9b379dcc3651e" => :yosemite
+    sha1 "12b86a9f1b86f8e5f9afe4b80ff42d877eb7a06a" => :mavericks
+    sha1 "7b55fda39d57ed1bf8258555ef3e263fae7c7bca" => :mountain_lion
+  end
+
   depends_on 'cmake' => :build
 
   option :universal
