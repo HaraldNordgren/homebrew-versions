@@ -5,6 +5,13 @@ class Node < Formula
   url "https://nodejs.org/dist/v0.10.36/node-v0.10.36.tar.gz"
   sha256 "b9d7d1d0294bce46686b13a05da6fc5b1e7743b597544aa888e8e64a9f178c81"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha1 "db442b55c0bf034033c2860ab31ee33664184158" => :yosemite
+    sha1 "ab5db3920b749aea4d48631284785a37973aeac9" => :mavericks
+    sha1 "779d3e3d63d4d4b2f4d1502ebfab9ce2510e4020" => :mountain_lion
+  end
+
   deprecated_option "enable-debug" => "with-debug"
 
   option "with-debug", "Build with debugger hooks"
