@@ -670,5 +670,12 @@
     "file_without_extension": "subversion17",
     "original_filename": "subversion17.rb",
     "migrated_filename": "subversion.rb"
+  },
+  {
+    "classname_with_version": "Cvsps2",
+    "package_at_version": "cvsps@2",
+    "file_without_extension": "cvsps2",
+    "original_filename": "cvsps2.rb",
+    "migrated_filename": "cvsps.rb"
   }
 ]
