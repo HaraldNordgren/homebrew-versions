@@ -7,9 +7,9 @@ class Gnupg < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
-    sha1 "11e98150489f0f1b1d258b14c4121aa73140c98c" => :yosemite
-    sha1 "1ea8b6ce35b84b6a51227ba51b1c9b137d19d04b" => :mavericks
-    sha1 "60f2f5cef5068a1c4a1c0ffa79ffe04d74ca5615" => :mountain_lion
+    sha256 "5c7443dc4a61509d8112e4b92f80e0ac2a65b1b00c914d58b8e462b5cfc99d6b" => :yosemite
+    sha256 "152ed5c9c7ada22de6bf5cc6bdd3971b423bc92b5c9ddb1aa2285d9b2c10a811" => :mavericks
+    sha256 "36a4821c7a05225b1b3c57b618ed37c4194e46615f76054b9dcb628405b0fe96" => :mountain_lion
   end
 
   head do
