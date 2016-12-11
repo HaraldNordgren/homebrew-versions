@@ -1846,5 +1846,12 @@
     "file_without_extension": "libxc21",
     "original_filename": "libxc21.rb",
     "migrated_filename": "libxc.rb"
+  },
+  {
+    "classname_with_version": "ErlangR17",
+    "package_at_version": "erlang@r17",
+    "file_without_extension": "erlang-r17",
+    "original_filename": "erlang-r17.rb",
+    "migrated_filename": "erlang.rb"
   }
 ]
