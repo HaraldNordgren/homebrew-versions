@@ -15,7 +15,10 @@ class BashCompletion < Formula
     ENV.deparallelize
     system "make install"
 
-    ln_s HOMEBREW_REPOSITORY/'Contributions/brew_bash_completion.sh', share/'bash-completion/completions/brew'
+    brew_bash_completion = HOMEBREW_REPOSITORY/'Library/Contributions/brew_bash_completion.sh'
+    compdir = HOMEBREW_PREFIX/'share/bash-completion/completions'
+    (compdir/'brew').unlink
+    compdir.install_symlink brew_bash_completion => 'brew'
   end
 
   def caveats; <<-EOS.undent
