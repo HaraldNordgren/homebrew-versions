@@ -817,5 +817,12 @@
     "file_without_extension": "appledoc21",
     "original_filename": "appledoc21.rb",
     "migrated_filename": "appledoc.rb"
+  },
+  {
+    "classname_with_version": "Appledoc22",
+    "package_at_version": "appledoc@22",
+    "file_without_extension": "appledoc22",
+    "original_filename": "appledoc22.rb",
+    "migrated_filename": "appledoc.rb"
   }
 ]
