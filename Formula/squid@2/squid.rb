@@ -1,6 +1,6 @@
 require 'formula'
 
-class Squid <Formula
+class Squid < Formula
   url 'http://www.squid-cache.org/Versions/v2/2.7/squid-2.7.STABLE9.tar.gz'
   homepage 'http://www.squid-cache.org/'
   version '2.7.9'

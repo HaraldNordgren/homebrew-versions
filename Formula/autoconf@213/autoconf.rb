@@ -1,6 +1,6 @@
 require 'formula'
 
-class Autoconf <Formula
+class Autoconf < Formula
   version "213"
   url 'http://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz'
   homepage 'http://www.gnu.org/software/autoconf/'

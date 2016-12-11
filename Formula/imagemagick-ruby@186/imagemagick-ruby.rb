@@ -17,7 +17,7 @@ def x11?
   File.file? '/usr/X11/include/ft2build.h'
 end
 
-class ImagemagickRuby <Formula
+class ImagemagickRuby < Formula
   version "186"
   url 'http://image_magick.veidrodis.com/image_magick/ImageMagick-6.5.9-8.tar.bz2'
   md5 '89892e250e81fad51b4b2a1f816987e6'
