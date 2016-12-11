@@ -81,10 +81,10 @@ class Llvm < Formula
     end
 
     # Also link man pages
-    mkdir_p share/'man/man1'
+    mkdir_p man1
     Dir.glob(install_prefix/'share/man/man1/*') do |manpage|
       manpage_base = File.basename(manpage, '.1')
-      ln_s manpage, share/"man/man1/#{manpage_base}-#{version}.1"
+      ln_s manpage, man1/"#{manpage_base}-#{version}.1"
     end
   end
 
