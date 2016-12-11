@@ -9,6 +9,14 @@ class Thrift < Formula
   url "https://archive.apache.org/dist/thrift/0.9.0/thrift-0.9.0.tar.gz"
   sha256 "71d129c49a2616069d9e7a93268cdba59518f77b3c41e763e09537cb3f3f0aac"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    cellar :any
+    sha256 "dea7ccc0fb965a709abddfad87d5ecb886e0b5d2f4618622d320f259bccf7aed" => :yosemite
+    sha256 "a9b9bf0bb4039b83d80b617d20f9a185b2f771c4e72284843c29253bd3fbbdcb" => :mavericks
+    sha256 "9c83d58ec3c0b0dc1477dc5c3496ba793893441790e7827e5020a5e775e993d5" => :mountain_lion
+  end
+
   # These patches are 0.9.0-specific and can go away once a newer version is release
   [
     # patch-tsocket.patch
