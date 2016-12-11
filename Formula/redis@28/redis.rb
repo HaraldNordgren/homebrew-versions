@@ -1,8 +1,8 @@
 class Redis < Formula
   version "28"
   homepage "http://redis.io/"
-  url "http://download.redis.io/releases/redis-2.8.19.tar.gz"
-  sha256 "29bb08abfc3d392b2f0c3e7f48ec46dd09ab1023f9a5575fc2a93546f4ca5145"
+  url "http://download.redis.io/releases/redis-2.8.21.tar.gz"
+  sha256 "3da371693bb54c22da04d86cab1b871072c8d19bdfbc4f811469b7b53384c563"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
