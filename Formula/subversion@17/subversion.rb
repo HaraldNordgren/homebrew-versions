@@ -34,7 +34,7 @@ class Subversion < Formula
 
     # Patch for Subversion handling of OS X UTF-8-MAC filename.
     if build.include? 'unicode-path'
-      ps << "https://raw.github.com/gist/3044094/1648c28f6133bcbb68b76b42669b0dc237c02dba/patch-path.c.diff"
+      ps << "https://gist.github.com/jeffstyr/3044094/raw/1648c28f6133bcbb68b76b42669b0dc237c02dba/patch-path.c.diff"
     end
 
     # Patch to prevent '-arch ppc' from being pulled in from Perl's $Config{ccflags}
