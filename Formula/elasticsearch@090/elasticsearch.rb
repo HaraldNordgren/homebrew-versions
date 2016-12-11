@@ -6,11 +6,6 @@ class Elasticsearch < Formula
   url 'https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.13.tar.gz'
   sha1 'bc4f805f052fbefbd2b4c392b108e62f08bf8380'
 
-  head do
-    url 'https://github.com/elasticsearch/elasticsearch.git'
-    depends_on 'maven'
-  end
-
   def cluster_name
     "elasticsearch_#{ENV['USER']}"
   end
