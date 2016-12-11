@@ -13,7 +13,6 @@ class Ppl < Formula
     args = [
       "--prefix=#{prefix}",
       "--disable-dependency-tracking",
-      "--enable-optimization=sspeed",
       "--with-gmp-prefix=#{Formula.factory('gmp4').opt_prefix}"
     ]
 
