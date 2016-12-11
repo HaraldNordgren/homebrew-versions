@@ -202,20 +202,13 @@ class Llvm < Formula
     system "#{bin}/llvm-config-#{ver}", "--version"
   end
 
-  def caveats
-    s = ''
-    s += "Extra tools are installed in #{HOMEBREW_PREFIX}/share/clang-#{ver}."
+  def caveats; <<-EOS.undent
+    Extra tools are installed in #{opt_share}/clang-#{ver}
 
-    include_path = HOMEBREW_PREFIX/"lib/llvm-#{ver}/include/c++/v1"
-    libs_path = HOMEBREW_PREFIX/"lib/llvm-#{ver}/usr/lib"
-    s += <<-EOS.undent
-
-      To link to libc++ built here, please adjust your environment as follow:
-
-        CXX="clang++-#{ver} -stdlib=libc++"
-        CXXFLAGS="${CXXFLAGS} -nostdinc++ -I#{include_path}"
-        LDFLAGS="${LDFLAGS} -L#{libs_path}"
+    To link to libc++, something like the following is required:
+      CXX="clang++-#{ver} -stdlib=libc++"
+      CXXFLAGS="$CXXFLAGS -nostdinc++ -I#{opt_lib}/llvm-#{ver}/include/c++/v1"
+      LDFLAGS="$LDFLAGS -L#{opt_lib}/llvm-#{ver}/usr/lib"
     EOS
-    s
   end
 end
