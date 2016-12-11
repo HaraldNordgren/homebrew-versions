@@ -92,8 +92,8 @@ class Llvm < Formula
   end
 
   resource "isl" do
-    url "http://repo.or.cz/w/isl.git/snapshot/0698f8436c523ecc742b13a9b3aa337cc2421fa2.tar.gz"
-    sha256 "d2b041d895f296936ef4cf3811b63fd6e3e5271ea97bb4b7406a743944a8a836"
+    url "http://isl.gforge.inria.fr/isl-0.14.1.tar.gz"
+    sha256 "bd15d06d050a92a6720fc7e2a58022a3fd1a73c4996cc358ba50864fd5e86c35"
   end
 
   patch :DATA
@@ -108,8 +108,6 @@ class Llvm < Formula
   option "without-assertions", "Speeds up LLVM, but provides less debug information"
 
   # required to build isl
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
   depends_on "libtool"  => :build
   depends_on "pkg-config" => :build
 
@@ -161,7 +159,6 @@ class Llvm < Formula
     isl_prefix = install_prefix/"libexec/isl"
 
     resource("isl").stage do
-      system "./autogen.sh"
       system "./configure", "--disable-dependency-tracking",
                             "--disable-silent-rules",
                             "--prefix=#{isl_prefix}",
