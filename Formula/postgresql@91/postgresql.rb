@@ -1,9 +1,8 @@
 class Postgresql < Formula
   version "91"
   homepage "http://www.postgresql.org/"
-  url "http://ftp.postgresql.org/pub/source/v9.1.13/postgresql-9.1.13.tar.bz2"
-  sha256 "20f8aa5dfcb47688ca6b6c41340cac61712d9cf87c34d58b0a75bb2f85d89b7f"
-  revision 1
+  url "http://ftp.postgresql.org/pub/source/v9.1.17/postgresql-9.1.17.tar.bz2"
+  sha256 "ddddd0a250c4b415d2edbf90671808276f29d81ee01971806f8ec5f2beae16aa"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
@@ -29,7 +28,6 @@ class Postgresql < Formula
   deprecated_option "no-tcl" => "without-tcl"
   deprecated_option "enable-dtrace" => "with-dtrace"
 
-  # Fix PL/Python build: https://github.com/mxcl/homebrew/issues/11162
   # Fix uuid-ossp build issues: http://archives.postgresql.org/pgsql-general/2012-07/msg00654.php
   patch :DATA
 
@@ -194,23 +192,12 @@ class Postgresql < Formula
   end
 
   test do
-    system "#{bin}/initdb", testpath
+    system "#{bin}/initdb", testpath/"test"
   end
 end
 
 
 __END__
---- a/src/pl/plpython/Makefile	2011-09-23 08:03:52.000000000 +1000
-+++ b/src/pl/plpython/Makefile	2011-10-26 21:43:40.000000000 +1100
-@@ -24,8 +24,6 @@
- # Darwin (OS X) has its own ideas about how to do this.
- ifeq ($(PORTNAME), darwin)
- shared_libpython = yes
--override python_libspec = -framework Python
--override python_additional_libs =
- endif
-
- # If we don't have a shared library and the platform doesn't allow it
 --- a/contrib/uuid-ossp/uuid-ossp.c	2012-07-30 18:34:53.000000000 -0700
 +++ b/contrib/uuid-ossp/uuid-ossp.c	2012-07-30 18:35:03.000000000 -0700
 @@ -9,6 +9,8 @@
