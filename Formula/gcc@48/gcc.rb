@@ -27,6 +27,13 @@ class Gcc < Formula
 
   head 'svn://gcc.gnu.org/svn/gcc/branches/gcc-4_8-branch'
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/versions"
+    sha1 "ae01f3b6be5b2b2734cc83d889ec96acbae9861c" => :yosemite
+    sha1 "941c2b6a78ec6eeb3f86d75a25a41d14673b5102" => :mavericks
+    sha1 "96c8003356a98c2a77961749eee3d33eb77711bc" => :mountain_lion
+  end
+
   option 'enable-fortran', 'Build the gfortran compiler'
   option 'enable-java', 'Build the gcj compiler'
   option 'enable-all-languages', 'Enable all compilers and languages, except Ada'
