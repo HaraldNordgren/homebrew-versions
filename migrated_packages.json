@@ -1132,5 +1132,12 @@
     "file_without_extension": "play22",
     "original_filename": "play22.rb",
     "migrated_filename": "play.rb"
+  },
+  {
+    "classname_with_version": "Tomcat7",
+    "package_at_version": "tomcat@7",
+    "file_without_extension": "tomcat7",
+    "original_filename": "tomcat7.rb",
+    "migrated_filename": "tomcat.rb"
   }
 ]
