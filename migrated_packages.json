@@ -1419,5 +1419,12 @@
     "file_without_extension": "phantomjs198",
     "original_filename": "phantomjs198.rb",
     "migrated_filename": "phantomjs.rb"
+  },
+  {
+    "classname_with_version": "Llvm36",
+    "package_at_version": "llvm@36",
+    "file_without_extension": "llvm36",
+    "original_filename": "llvm36.rb",
+    "migrated_filename": "llvm.rb"
   }
 ]
