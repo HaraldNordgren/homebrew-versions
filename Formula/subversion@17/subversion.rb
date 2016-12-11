@@ -34,9 +34,10 @@ class Subversion < Formula
   depends_on :java
 
   # Always build against Homebrew versions instead of system versions for consistency.
+  # We don't use our OpenSSL because Neon refuses to support it due to wanting SSLv2
+  # and using a more recent Neon via disabling the version check results in segfauls at runtime.
   depends_on :python => :optional
   depends_on "sqlite"
-  depends_on "openssl"
 
   # Building Ruby bindings requires libtool
   depends_on "libtool" => :build if build.with? "ruby"
@@ -89,7 +90,8 @@ class Subversion < Formula
     # Homebrew's Neon is too new and causes problems.
     resource("neon").stage do
       system "./configure", "--prefix=#{libexec}/neon", "--enable-shared",
-                            "--disable-static", "--disable-nls"
+                            "--disable-static", "--disable-nls", "--with-ssl=openssl",
+                            "--with-libs=/usr/lib"
       system "make", "install"
     end
 
@@ -111,8 +113,6 @@ class Subversion < Formula
       # scons ignores our compiler and flags unless explicitly passed
       args = %W[PREFIX=#{serf_prefix} GSSAPI=/usr CC=#{ENV.cc}
                 CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}]
-
-      args << "OPENSSL=#{Formula["openssl"].opt_prefix}"
 
       unless MacOS::CLT.installed?
         args << "APR=#{Formula["apr"].opt_prefix}"
@@ -144,7 +144,6 @@ class Subversion < Formula
             "--prefix=#{prefix}",
             "--with-zlib=/usr",
             "--with-sqlite=#{Formula["sqlite"].opt_prefix}",
-            "--with-ssl=#{Formula["openssl"].opt_prefix}",
             "--with-serf=#{serf_prefix}",
             "--enable-neon-version-check",
             "--disable-mod-activation",
