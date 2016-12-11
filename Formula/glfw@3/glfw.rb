@@ -6,9 +6,10 @@ class Glfw < Formula
   sha256 "6ac642087682aaf7f8397761a41a99042b2c656498217a1c63ba9706d1eef122"
 
   bottle do
-    sha256 "039df5a5929bdbdc6b20cf5fb3fffcff4d7a6360e76a2878e43152d993e7566c" => :yosemite
-    sha256 "0784107860072dc0cbfc61fcf8cdd84110cb3e37a0da1e2ff4a60e4e4bbf1c6b" => :mavericks
-    sha256 "e75bdc4478ee0510be626b78ff1f0862de8ff9fea26d9b4432ce2b7967c9b80c" => :mountain_lion
+    cellar :any
+    sha256 "c3f721491e4a3f07c1493f4fa2f90569df29d07b0e40c66ad74b7e5733030494" => :el_capitan
+    sha256 "8dfe6bdaa7e9d51c231dc2253ff058e1bf1414ca7d886962604fd9769e55bd9d" => :yosemite
+    sha256 "8913519230f28552e88591460316a97dd8f942bdb552de5ca7e2a68702b9e045" => :mavericks
   end
 
   option :universal
