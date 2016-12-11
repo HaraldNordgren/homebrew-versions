@@ -1,8 +1,9 @@
 class Postgresql < Formula
   version "92"
+  desc "Object-relational database system"
   homepage "http://www.postgresql.org/"
-  url "http://ftp.postgresql.org/pub/source/v9.2.12/postgresql-9.2.12.tar.bz2"
-  sha256 "5f381b15fb63f7aa6b221ee56677b6029db0ae4f84bc78768ff9e753063b6d03"
+  url "http://ftp.postgresql.org/pub/source/v9.2.13/postgresql-9.2.13.tar.bz2"
+  sha256 "5dcbd6209a8c0f508504fa433486583a42caaa240c823e1b3576db8a72db6a44"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
@@ -10,12 +11,6 @@ class Postgresql < Formula
     sha256 "97803ef59590a22155ba4bbc023fec615eb22ad7ea51d0709041c3095de817e0" => :mavericks
     sha256 "a4f8130dd553c41fd629c56182d20b03332b03e6292b571938d8fff2a139a796" => :mountain_lion
   end
-
-  depends_on "openssl"
-  depends_on "readline"
-  depends_on "libxml2" if MacOS.version <= :leopard # Leopard libxml is too old
-  depends_on "ossp-uuid" => :recommended
-  depends_on :python => :recommended
 
   option "32-bit"
   option "without-perl", "Build without Perl support"
@@ -25,6 +20,12 @@ class Postgresql < Formula
   deprecated_option "no-perl" => "without-perl"
   deprecated_option "no-tcl" => "without-tcl"
   deprecated_option "enable-dtrace" => "with-dtrace"
+
+  depends_on "openssl"
+  depends_on "readline"
+  depends_on "libxml2" if MacOS.version <= :leopard # Leopard libxml is too old
+  depends_on "ossp-uuid" => :recommended
+  depends_on :python => :recommended
 
   conflicts_with "postgres-xc",
     :because => "postgresql and postgres-xc install the same binaries."
