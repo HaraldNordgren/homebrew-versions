@@ -1,25 +1,5 @@
 require 'formula'
 
-class ErlangR15Manuals < Formula
-  url 'http://erlang.org/download/otp_doc_man_R15B03-1.tar.gz'
-  sha1 'c8674767cd0c1f98946f6a08c7ae318c3f026988'
-end
-
-class ErlangR15Htmls < Formula
-  url 'http://erlang.org/download/otp_doc_html_R15B03-1.tar.gz'
-  sha1 '49d761d8554a83be00e18f681b32b94572f9c050'
-end
-
-class ErlangR15HeadManuals < Formula
-  url 'http://erlang.org/download/otp_doc_man_R15B03-1.tar.gz'
-  sha1 'c8674767cd0c1f98946f6a08c7ae318c3f026988'
-end
-
-class ErlangR15HeadHtmls < Formula
-  url 'http://erlang.org/download/otp_doc_html_R15B03-1.tar.gz'
-  sha1 '49d761d8554a83be00e18f681b32b94572f9c050'
-end
-
 class Erlang < Formula
   version "r15"
   homepage 'http://www.erlang.org'
@@ -37,6 +17,16 @@ class Erlang < Formula
   option 'halfword', 'Enable halfword emulator (64-bit builds only)'
   option 'time', '`brew test --time` to include a time-consuming test'
   option 'no-docs', 'Do not install documentation'
+
+  resource 'man' do
+    url 'http://erlang.org/download/otp_doc_man_R15B03-1.tar.gz'
+    sha1 'c8674767cd0c1f98946f6a08c7ae318c3f026988'
+  end
+
+  resource 'html' do
+    url 'http://erlang.org/download/otp_doc_html_R15B03-1.tar.gz'
+    sha1 '49d761d8554a83be00e18f681b32b94572f9c050'
+  end
 
   def install
     ohai "Compilation takes a long time; use `brew install -v erlang` to see progress" unless ARGV.verbose?
@@ -72,11 +62,8 @@ class Erlang < Formula
     system "make install"
 
     unless build.include? 'no-docs'
-      manuals = build.head? ? ErlangR15HeadManuals : ErlangR15Manuals
-      manuals.new.brew { man.install Dir['man/*'] }
-
-      htmls = build.head? ? ErlangR15HeadHtmls : ErlangR15Htmls
-      htmls.new.brew { doc.install Dir['*'] }
+      resource("man").stage { man.install Dir["man/*"] }
+      resource("html").stage { doc.install Dir["*"] }
     end
   end
 
