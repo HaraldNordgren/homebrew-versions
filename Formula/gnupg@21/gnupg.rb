@@ -44,14 +44,10 @@ class Gnupg < Formula
   conflicts_with "gpgme",
         :because => "gpgme currently requires 1.x.x or 2.0.x."
 
-  # https://lists.gnupg.org/pipermail/gnupg-users/2015-April/053428.html
-  # GCC build doesn't fail. That was a mistaken labelling. Have notified upstream.
-  fails_with :clang do
-    cause "t-stringhelp.c:488:3: error: function definition is not allowed here"
-  end
-
-  fails_with :llvm do
-    cause "t-stringhelp.c:488:3: error: function definition is not allowed here"
+  # Remove this patch with next release.
+  patch do
+    url "http://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg.git;a=patch;h=454f60399c7318fffd3de2afadd58c7a490178bd"
+    sha256 "d837aa2c3be98ecde7b7101827fcf2c67f61d5134b20c14aa649a7115c182498"
   end
 
   def install
