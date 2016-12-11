@@ -7,9 +7,9 @@ class Openssl < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
-    sha1 "e1914252e1bb4208f633d193053a97cd8c0a42f4" => :yosemite
-    sha1 "9199ebad4eb20fcaff04103bc1c19f041ba348ff" => :mavericks
-    sha1 "858e31c9b99f985a80d396e807d3412839002756" => :mountain_lion
+    sha256 "c689b39e287ef03cddc47b748f124bf42bb46d2d7a8082087e435351ec5d3f53" => :yosemite
+    sha256 "e11d83bb1a613fb74e06402aa1812d08fe2140491020c7d73ae14cafa7a1f190" => :mavericks
+    sha256 "49f5ec664246ee6d336f045288960b40b73f31138c7bc588bd1b8e57212e1dd8" => :mountain_lion
   end
 
   option :universal
