@@ -129,8 +129,6 @@ class Llvm < Formula
     args = [
       "--prefix=#{install_prefix}",
       "--enable-optimized",
-      # As of LLVM 3.1, attempting to build ocaml bindings with Homebrew's
-      # OCaml 3.12.1 results in errors.
       "--disable-bindings",
       "--with-gmp=#{Formula["gmp4"].opt_prefix}",
       "--with-isl=#{Formula["isl011"].opt_prefix}",
