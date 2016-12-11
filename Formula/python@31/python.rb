@@ -1,15 +1,5 @@
 require 'formula'
 
-<<-COMMENTS
-Versions
---------
-This formula is currently tracking version 3.1.x.
-
-Python 2.x is available as a separate formula:
-  brew install python
-
-COMMENTS
-
 # Was a Framework build requested?
 def build_framework?; ARGV.include? '--framework'; end
 
