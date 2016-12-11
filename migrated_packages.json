@@ -82,5 +82,12 @@
     "file_without_extension": "mysql51",
     "original_filename": "mysql51.rb",
     "migrated_filename": "mysql.rb"
+  },
+  {
+    "classname_with_version": "Allegro5",
+    "package_at_version": "allegro@5",
+    "file_without_extension": "allegro5",
+    "original_filename": "allegro5.rb",
+    "migrated_filename": "allegro.rb"
   }
 ]
