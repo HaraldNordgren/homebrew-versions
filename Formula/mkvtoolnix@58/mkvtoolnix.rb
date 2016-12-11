@@ -4,6 +4,12 @@ class Mkvtoolnix < Formula
   url "https://www.bunkus.org/videotools/mkvtoolnix/sources/mkvtoolnix-5.8.0.tar.bz2"
   sha256 "3c9ec7e4c035b82a35850c5ada98a29904edc44a0d1c9b900ed05d56e6274960"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "16bcf30898539320690492bdd7d48561d9633a7b127c0c1689788110eff53651" => :yosemite
+    sha256 "c58a9c895e5a915c7c8de33a61392e25d40717a103032adbf53c559d75d6d7df" => :mavericks
+  end
+
   depends_on :ruby => "1.9"
   depends_on "pkg-config" => :build
   depends_on "libvorbis"
