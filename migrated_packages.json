@@ -1559,5 +1559,12 @@
     "file_without_extension": "thrift090",
     "original_filename": "thrift090.rb",
     "migrated_filename": "thrift.rb"
+  },
+  {
+    "classname_with_version": "Maven32",
+    "package_at_version": "maven@32",
+    "file_without_extension": "maven32",
+    "original_filename": "maven32.rb",
+    "migrated_filename": "maven.rb"
   }
 ]
