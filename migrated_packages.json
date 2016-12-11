@@ -733,5 +733,12 @@
     "file_without_extension": "solr36",
     "original_filename": "solr36.rb",
     "migrated_filename": "solr.rb"
+  },
+  {
+    "classname_with_version": "Protobuf240a",
+    "package_at_version": "protobuf@240a",
+    "file_without_extension": "protobuf240a",
+    "original_filename": "protobuf240a.rb",
+    "migrated_filename": "protobuf.rb"
   }
 ]
