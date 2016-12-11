@@ -13,15 +13,11 @@ class Isl < Formula
   depends_on 'gmp@4'
 
   def install
-    args = [
-      "--prefix=#{prefix}",
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--with-gmp=system",
-      "--with-gmp-prefix=#{Formula.factory('gmp4').opt_prefix}"
-    ]
-
-    system "./configure", *args
+    system "./configure", "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--prefix=#{prefix}",
+                          "--with-gmp=system",
+                          "--with-gmp-prefix=#{Formula.factory('gmp4').opt_prefix}"
     system "make install"
   end
 end
