@@ -1,0 +1,58 @@
+[
+  {
+    "classname_with_version": "Autoconf213",
+    "package_at_version": "autoconf@213",
+    "file_without_extension": "autoconf213",
+    "original_filename": "autoconf213.rb",
+    "migrated_filename": "autoconf.rb"
+  },
+  {
+    "classname_with_version": "Python24",
+    "package_at_version": "python@24",
+    "file_without_extension": "python24",
+    "original_filename": "python24.rb",
+    "migrated_filename": "python.rb"
+  },
+  {
+    "classname_with_version": "Hdf4",
+    "package_at_version": "hdf@4",
+    "file_without_extension": "hdf4",
+    "original_filename": "hdf4.rb",
+    "migrated_filename": "hdf.rb"
+  },
+  {
+    "classname_with_version": "ErlangR13",
+    "package_at_version": "erlang@r13",
+    "file_without_extension": "erlang-r13",
+    "original_filename": "erlang-r13.rb",
+    "migrated_filename": "erlang.rb"
+  },
+  {
+    "classname_with_version": "Maven2",
+    "package_at_version": "maven@2",
+    "file_without_extension": "maven2",
+    "original_filename": "maven2.rb",
+    "migrated_filename": "maven.rb"
+  },
+  {
+    "classname_with_version": "Squid2",
+    "package_at_version": "squid@2",
+    "file_without_extension": "squid2",
+    "original_filename": "squid2.rb",
+    "migrated_filename": "squid.rb"
+  },
+  {
+    "classname_with_version": "BerkeleyDb4",
+    "package_at_version": "berkeley-db@4",
+    "file_without_extension": "berkeley-db4",
+    "original_filename": "berkeley-db4.rb",
+    "migrated_filename": "berkeley-db.rb"
+  },
+  {
+    "classname_with_version": "Postgresql8",
+    "package_at_version": "postgresql@8",
+    "file_without_extension": "postgresql8",
+    "original_filename": "postgresql8.rb",
+    "migrated_filename": "postgresql.rb"
+  }
+]
