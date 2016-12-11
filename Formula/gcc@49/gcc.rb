@@ -64,38 +64,40 @@ class Gcc < Formula
       languages << 'obj-c++' if build.include? 'enable-objcxx'
     end
 
-    # Sandbox the GCC lib, libexec and include directories so they don't wander
-    # around telling small children there is no Santa Claus. This results in a
-    # partially keg-only brew following suggestions outlined in the "How to
-    # install multiple versions of GCC" section of the GCC FAQ:
-    #     http://gcc.gnu.org/faq.html#multiple
-    gcc_prefix = prefix + 'gcc'
+    version_suffix = version.to_s.slice(/\d\.\d/)
 
     args = [
       "--build=#{arch}-apple-darwin#{osmajor}",
-      # Sandbox everything...
-      "--prefix=#{gcc_prefix}",
-      # ...except the stuff in share...
-      "--datarootdir=#{share}",
-      # ...and the binaries...
-      "--bindir=#{bin}",
-      # ...which are tagged with a suffix to distinguish them.
+      "--prefix=#{prefix}",
       "--enable-languages=#{languages.join(',')}",
-      "--program-suffix=-#{version.to_s.slice(/\d\.\d/)}",
+      # Make most executables versioned to avoid conflicts.
+      "--program-suffix=-#{version_suffix}",
       "--with-gmp=#{Formula.factory('gmp4').opt_prefix}",
       "--with-mpfr=#{Formula.factory('mpfr2').opt_prefix}",
       "--with-mpc=#{Formula.factory('libmpc08').opt_prefix}",
       "--with-cloog=#{Formula.factory('cloog018').opt_prefix}",
       "--with-isl=#{Formula.factory('isl011').opt_prefix}",
       "--with-system-zlib",
+      # This ensures lib, libexec, include are sandboxed so that they
+      # don't wander around telling little children there is no Santa
+      # Claus.
+      "--enable-version-specific-runtime-libs",
       "--enable-libstdcxx-time=yes",
       "--enable-stage1-checking",
       "--enable-checking=release",
-      "--enable-plugin",
       "--enable-lto",
-      # a no-op unless --HEAD is built because in head warnings will raise errs.
+      # A no-op unless --HEAD is built because in head warnings will
+      # raise errors. But still a good idea to include.
       "--disable-werror"
     ]
+
+    # "Building GCC with plugin support requires a host that supports
+    # -fPIC, -shared, -ldl and -rdynamic."
+    args << "--enable-plugin" if MacOS.version > :tiger
+
+    # Otherwise make fails during comparison at stage 3
+    # See: http://gcc.gnu.org/bugzilla/show_bug.cgi?id=45248
+    args << '--with-dwarf2' if MacOS.version < :leopard
 
     args << '--disable-nls' unless build.include? 'enable-nls'
 
@@ -131,10 +133,26 @@ class Gcc < Formula
       # deja-gnu and autogen formulae must be installed in order to do this.
 
       system 'make install'
-
-      # Remove conflicting manpages in man7
-      man7.rmtree
     end
+
+    # Handle conflicts between GCC formulae.
+
+    # Since GCC 4.8 libffi stuff are no longer shipped.
+
+    # Rename libiberty.a.
+    Dir.glob(prefix/"**/libiberty.*") { |file| add_suffix file, version_suffix }
+
+    # Rename man7.
+    Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
+
+    # Since GCC 4.9 java properties are properly sandboxed.
+  end
+
+  def add_suffix file, suffix
+    dir = File.dirname(file)
+    ext = File.extname(file)
+    base = File.basename(file, ext)
+    File.rename file, "#{dir}/#{base}-#{suffix}#{ext}"
   end
 
   def caveats; <<-EOS.undent
