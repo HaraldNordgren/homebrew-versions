@@ -992,5 +992,12 @@
     "file_without_extension": "grails22",
     "original_filename": "grails22.rb",
     "migrated_filename": "grails.rb"
+  },
+  {
+    "classname_with_version": "GstFfmpeg010",
+    "package_at_version": "gst-ffmpeg@010",
+    "file_without_extension": "gst-ffmpeg010",
+    "original_filename": "gst-ffmpeg010.rb",
+    "migrated_filename": "gst-ffmpeg.rb"
   }
 ]
