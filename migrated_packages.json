@@ -1111,5 +1111,12 @@
     "file_without_extension": "mongodb24",
     "original_filename": "mongodb24.rb",
     "migrated_filename": "mongodb.rb"
+  },
+  {
+    "classname_with_version": "Mkvtoolnix58",
+    "package_at_version": "mkvtoolnix@58",
+    "file_without_extension": "mkvtoolnix58",
+    "original_filename": "mkvtoolnix58.rb",
+    "migrated_filename": "mkvtoolnix.rb"
   }
 ]
