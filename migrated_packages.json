@@ -1279,5 +1279,12 @@
     "file_without_extension": "ledger26",
     "original_filename": "ledger26.rb",
     "migrated_filename": "ledger.rb"
+  },
+  {
+    "classname_with_version": "AndroidNdkR10c",
+    "package_at_version": "android-ndk@r10c",
+    "file_without_extension": "android-ndk-r10c",
+    "original_filename": "android-ndk-r10c.rb",
+    "migrated_filename": "android-ndk.rb"
   }
 ]
