@@ -5,6 +5,13 @@ class Redis < Formula
   url "https://redis.googlecode.com/files/redis-2.6.14.tar.gz"
   sha1 "f56a5d4891e94ebd89f7e63c3e9151d1106dedd5"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha1 "7cb8c533eb6613e8e52484acc47808c2442a38f9" => :yosemite
+    sha1 "bac0ebd6021a55d0e0076d0e3ceb38c101ec1238" => :mavericks
+    sha1 "ddf4f2f99e96d58ffa7f816af6e93076ea7adf10" => :mountain_lion
+  end
+
   fails_with :llvm do
     build 2334
     cause 'Fails with "reference out of range from _linenoise"'
