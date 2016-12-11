@@ -509,5 +509,54 @@
     "file_without_extension": "guile18",
     "original_filename": "guile18.rb",
     "migrated_filename": "guile.rb"
+  },
+  {
+    "classname_with_version": "GstRtsp010",
+    "package_at_version": "gst-rtsp@010",
+    "file_without_extension": "gst-rtsp010",
+    "original_filename": "gst-rtsp010.rb",
+    "migrated_filename": "gst-rtsp.rb"
+  },
+  {
+    "classname_with_version": "GstPluginsUgly010",
+    "package_at_version": "gst-plugins-ugly@010",
+    "file_without_extension": "gst-plugins-ugly010",
+    "original_filename": "gst-plugins-ugly010.rb",
+    "migrated_filename": "gst-plugins-ugly.rb"
+  },
+  {
+    "classname_with_version": "GstPluginsGood010",
+    "package_at_version": "gst-plugins-good@010",
+    "file_without_extension": "gst-plugins-good010",
+    "original_filename": "gst-plugins-good010.rb",
+    "migrated_filename": "gst-plugins-good.rb"
+  },
+  {
+    "classname_with_version": "Gstreamer010",
+    "package_at_version": "gstreamer@010",
+    "file_without_extension": "gstreamer010",
+    "original_filename": "gstreamer010.rb",
+    "migrated_filename": "gstreamer.rb"
+  },
+  {
+    "classname_with_version": "GstPluginsBase010",
+    "package_at_version": "gst-plugins-base@010",
+    "file_without_extension": "gst-plugins-base010",
+    "original_filename": "gst-plugins-base010.rb",
+    "migrated_filename": "gst-plugins-base.rb"
+  },
+  {
+    "classname_with_version": "GstPython010",
+    "package_at_version": "gst-python@010",
+    "file_without_extension": "gst-python010",
+    "original_filename": "gst-python010.rb",
+    "migrated_filename": "gst-python.rb"
+  },
+  {
+    "classname_with_version": "GstPluginsBad010",
+    "package_at_version": "gst-plugins-bad@010",
+    "file_without_extension": "gst-plugins-bad010",
+    "original_filename": "gst-plugins-bad010.rb",
+    "migrated_filename": "gst-plugins-bad.rb"
   }
 ]
