@@ -5,6 +5,13 @@ class Lua < Formula
   mirror "https://raw.githubusercontent.com/DomT4/LibreMirror/master/Lua/lua-5.3.0.tar.gz"
   sha1 "1c46d1c78c44039939e820126b86a6ae12dadfba"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha1 "c0a8cc59d9463554e2ec2e9be89c79c08adb1243" => :yosemite
+    sha1 "b02fae800022488758c4866d3c6b5dabeefb2502" => :mavericks
+    sha1 "1b54e5d0dfb81aace3bc6086b01a1fd4eee290ec" => :mountain_lion
+  end
+
   fails_with :llvm do
     build 2326
     cause "Lua itself compiles with LLVM, but may fail when other software tries to link."
