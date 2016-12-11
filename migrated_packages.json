@@ -124,5 +124,12 @@
     "file_without_extension": "gmp4",
     "original_filename": "gmp4.rb",
     "migrated_filename": "gmp.rb"
+  },
+  {
+    "classname_with_version": "Gawk3",
+    "package_at_version": "gawk@3",
+    "file_without_extension": "gawk3",
+    "original_filename": "gawk3.rb",
+    "migrated_filename": "gawk.rb"
   }
 ]
