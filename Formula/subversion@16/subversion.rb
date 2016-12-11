@@ -28,7 +28,6 @@ class Subversion < Formula
 
   # On Snow Leopard, build a new neon. For Leopard, the deps below include this.
   if MacOS.version >= :snow_leopard
-    depends_on "neon"
     depends_on :apr => :build
     depends_on :python => :optional
     depends_on "scons" => :build
@@ -100,19 +99,25 @@ class Subversion < Formula
     (buildpath).install resource("neon")
   end
 
-  def check_neon_arch
-    # Check that Neon was built universal if we are building w/ --universal
-    neon = Formula["neon"]
-    if neon.installed?
-      neon_arch = archs_for_command(neon.lib+"libneon.dylib")
-      unless neon_arch.universal?
-        opoo "A universal build was requested, but neon was already built for a single arch."
-        puts "You may need to `brew rm neon` first."
-      end
-    end
-  end
-
   def install
+    ENV.universal_binary if build.universal?
+
+    if MacOS.version == :leopard
+      setup_leopard
+    else
+      # Homebrew's Neon is too new and causes segfaults on all OS X versions now.
+      resource("neon").stage do
+        system "./configure", "--prefix=#{libexec}/neon", "--enable-shared",
+                              "--disable-static", "--disable-nls"
+        system "make", "install"
+      end
+
+      ENV.prepend_path "PATH", libexec/"neon/bin"
+      ENV.prepend "CFLAGS", "-I#{libexec}/neon/include"
+      ENV.prepend "LDFLAGS", "-L#{libexec}/neon/lib"
+      ENV.prepend_path "PKG_CONFIG_PATH", libexec/"neon/lib/pkgconfig"
+    end
+
     if build.with?("perl") || build.with?("python") || build.with?("ruby") && MacOS.version >= :snow_leopard
       resource("swig").stage do
         system "./configure", "--prefix=#{buildpath}/swig", "--disable-debug", "--disable-dependency-tracking"
@@ -128,14 +133,6 @@ class Subversion < Formula
         puts "To use Java bindings with various Java IDEs, you might need a universal build:"
         puts "brew install subversion --universal --java"
       end
-    end
-
-    ENV.universal_binary if build.universal?
-
-    if MacOS.version == :leopard
-      setup_leopard
-    else
-      check_neon_arch if build.universal?
     end
 
     # Use existing system zlib
@@ -260,7 +257,7 @@ class Subversion < Formula
       EOS
     end
 
-    return s.empty? ? nil : s
+    s
   end
 
   test do
