@@ -7,9 +7,9 @@ class V8 < Formula
 
   bottle do
     cellar :any
-    sha1 "d2304e24d2fa6d6d499327d98755f4a0088d83d4" => :yosemite
-    sha1 "1c3a4a0b45f0d5a706e048e80f5a497a6d2e02ec" => :mavericks
-    sha1 "be82b18f5f267be5e11da92c62efb8a4c89f33c1" => :mountain_lion
+    sha256 "bed2afae1630434447484cbb92115f672b10c7ce87261ed8995a941e72ff8ab6" => :yosemite
+    sha256 "dc6075d9424ed14a7755290e042a6932eef2ef133d2f9b2700fafb604fc177fc" => :mavericks
+    sha256 "1694a71ceebcb40161161984ceeb0c2c8c0683a99e294a4a2d7f353d2cf2675f" => :mountain_lion
   end
 
   keg_only "Conflicts with V8 in Homebrew/homebrew."
