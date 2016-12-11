@@ -1706,5 +1706,12 @@
     "file_without_extension": "gdal111",
     "original_filename": "gdal111.rb",
     "migrated_filename": "gdal.rb"
+  },
+  {
+    "classname_with_version": "Libxml278",
+    "package_at_version": "libxml@278",
+    "file_without_extension": "libxml278",
+    "original_filename": "libxml278.rb",
+    "migrated_filename": "libxml.rb"
   }
 ]
