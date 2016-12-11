@@ -1,5 +1,3 @@
-require 'formula'
-
 class Tomcat < Formula
   version "7"
   homepage "https://tomcat.apache.org/"
@@ -23,17 +21,17 @@ class Tomcat < Formula
   end
 
   # Keep log folders
-  skip_clean 'libexec'
+  skip_clean "libexec"
 
   def install
     # Remove Windows scripts
-    rm_rf Dir['bin/*.bat']
+    rm_rf Dir["bin/*.bat"]
 
     # Install files
     prefix.install %w{ NOTICE LICENSE RELEASE-NOTES RUNNING.txt }
-    libexec.install Dir['*']
+    libexec.install Dir["*"]
     bin.install_symlink "#{libexec}/bin/catalina.sh" => "catalina"
 
-    (share/'fulldocs').install resource('fulldocs') if build.with? 'fulldocs'
+    (share/"fulldocs").install resource("fulldocs") if build.with? "fulldocs"
   end
 end
