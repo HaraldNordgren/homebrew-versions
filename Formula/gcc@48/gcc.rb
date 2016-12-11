@@ -28,10 +28,11 @@ class Gcc < Formula
   head "svn://gcc.gnu.org/svn/gcc/branches/gcc-4_8-branch"
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/versions"
-    sha1 "ae01f3b6be5b2b2734cc83d889ec96acbae9861c" => :yosemite
-    sha1 "941c2b6a78ec6eeb3f86d75a25a41d14673b5102" => :mavericks
-    sha1 "96c8003356a98c2a77961749eee3d33eb77711bc" => :mountain_lion
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    revision 1
+    sha256 "e202b6b2110c2d472966baaf238c5225cb6f84da6a1f963ada1e0021616ec535" => :yosemite
+    sha256 "6f851ed839bf11aaa0da182e30c5d2490b0500fa1f1246cd9518229dadee19d7" => :mavericks
+    sha256 "637925afb747497b4a7569b0f3a5d8d10eb65ffb4c90206f44938439a9c465e0" => :mountain_lion
   end
 
   option "with-fortran", "Build the gfortran compiler"
