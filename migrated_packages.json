@@ -243,5 +243,12 @@
     "file_without_extension": "openssl098",
     "original_filename": "openssl098.rb",
     "migrated_filename": "openssl.rb"
+  },
+  {
+    "classname_with_version": "Play12",
+    "package_at_version": "play@12",
+    "file_without_extension": "play12",
+    "original_filename": "play12.rb",
+    "migrated_filename": "play.rb"
   }
 ]
