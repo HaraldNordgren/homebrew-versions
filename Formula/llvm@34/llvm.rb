@@ -9,7 +9,7 @@ class Llvm < Formula
     sha1 '3711baa6f5ef9df07418ce76039fc3848a7bde7c'
 
     resource 'clang' do
-      url 'http://llvm.org/releases/3.4.1/clang-3.4.1.src.tar.gz'
+      url 'http://llvm.org/releases/3.4.1/cfe-3.4.1.src.tar.gz'
       sha1 'ecd38fa89e837e6cb8305b8d05e88baecb0bda55'
     end
 
