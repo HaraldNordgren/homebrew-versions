@@ -1258,5 +1258,12 @@
     "file_without_extension": "gradle20",
     "original_filename": "gradle20.rb",
     "migrated_filename": "gradle.rb"
+  },
+  {
+    "classname_with_version": "Cassandra20",
+    "package_at_version": "cassandra@20",
+    "file_without_extension": "cassandra20",
+    "original_filename": "cassandra20.rb",
+    "migrated_filename": "cassandra.rb"
   }
 ]
