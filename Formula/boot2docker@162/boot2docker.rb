@@ -5,6 +5,13 @@ class Boot2docker < Formula
   url "https://github.com/boot2docker/boot2docker-cli.git", :tag => "v1.6.2", :revision => "cb2c3bcc890d8ee67bb76cc91ecf5b63927c97f9"
   head "https://github.com/boot2docker/boot2docker-cli.git"
 
+  bottle do
+    cellar :any
+    sha256 "8fc53a91e70cffa85c027eeff13e7cacb75e3ee972bb1b48269b60e72a7753b5" => :yosemite
+    sha256 "75f77bec6752e476cbb3cc86af294577fcfe8c100a86a188adfe777fe17f1524" => :mavericks
+    sha256 "8e206a8bda71f95a7408ad7c18d1f76768a01b781517c05234755f9c16f5f4e0" => :mountain_lion
+  end
+
   depends_on "docker@162" => :recommended
   depends_on "go" => :build
 
