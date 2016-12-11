@@ -101,7 +101,7 @@ class Subversion < Formula
             "--with-sqlite=#{Formula["sqlite"].opt_prefix}",
             "--with-ssl=#{Formula["openssl"].opt_prefix}",
             "--with-serf=#{serf_prefix}",
-            "--disable-neon-version-check",
+            "--enable-neon-version-check",
             "--disable-mod-activation",
             "--disable-nls",
             "--without-apache-libexecdir",
