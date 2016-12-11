@@ -1727,5 +1727,12 @@
     "file_without_extension": "astyle204",
     "original_filename": "astyle204.rb",
     "migrated_filename": "astyle.rb"
+  },
+  {
+    "classname_with_version": "Protobuf260",
+    "package_at_version": "protobuf@260",
+    "file_without_extension": "protobuf260",
+    "original_filename": "protobuf260.rb",
+    "migrated_filename": "protobuf.rb"
   }
 ]
