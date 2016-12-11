@@ -8,9 +8,8 @@ class Postgresql < Formula
 
   depends_on 'readline'
   depends_on 'libxml2' if MacOS.version == :leopard
-  depends_on 'ossp-uuid' unless build.include? 'without-ossp-uuid'
+  depends_on 'ossp-uuid' => :recommended
 
-  option 'without-ossp-uuid', 'Build without OSSP uuid'
   option 'no-python', 'Build without Python support'
   option 'no-perl', 'Build without Perl support'
   option 'enable-dtrace', 'Build with DTrace support'
@@ -32,7 +31,7 @@ class Postgresql < Formula
             "--with-openssl",
             "--with-libxml", "--with-libxslt"]
 
-    args << "--with-ossp-uuid" unless build.include? 'without-ossp-uuid'
+    args << "--with-ossp-uuid" unless build.without? 'ossp-uuid'
     args << "--with-python" unless build.include? 'no-python'
     args << "--with-perl" unless build.include? 'no-perl'
     args << "--enable-dtrace" if build.include? 'enable-dtrace'
