@@ -61,5 +61,12 @@
     "file_without_extension": "cassandra-0.6",
     "original_filename": "cassandra-0.6.rb",
     "migrated_filename": "cassandra.rb"
+  },
+  {
+    "classname_with_version": "ImagemagickRuby186",
+    "package_at_version": "imagemagick-ruby@186",
+    "file_without_extension": "imagemagick-ruby186",
+    "original_filename": "imagemagick-ruby186.rb",
+    "migrated_filename": "imagemagick-ruby.rb"
   }
 ]
