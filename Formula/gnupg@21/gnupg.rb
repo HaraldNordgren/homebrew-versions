@@ -1,9 +1,9 @@
 class Gnupg < Formula
   version "21"
   homepage "https://www.gnupg.org/"
-  url "ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.1.tar.bz2"
-  mirror "http://mirror.switch.ch/ftp/mirror/gnupg/gnupg/gnupg-2.1.1.tar.bz2"
-  sha1 "3d11fd150cf86f842d077437edb119a775c7325d"
+  url "ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.2.tar.bz2"
+  mirror "http://ftp.heanet.ie/mirrors/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.2.tar.bz2"
+  sha1 "7e972cb9af47d9b8ce164dcf37fc4f32634d6cd6"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/versions"
