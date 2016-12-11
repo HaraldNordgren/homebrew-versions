@@ -6,7 +6,11 @@ class BashCompletion < Formula
   url 'http://bash-completion.alioth.debian.org/files/bash-completion-2.0.tar.bz2'
   sha256 'e5a490a4301dfb228361bdca2ffca597958e47dd6056005ef9393a5852af5804'
 
-  head 'git://git.debian.org/git/bash-completion/bash-completion.git'
+  conflicts_with 'bash-completion'
+
+  def compdir
+    HOMEBREW_PREFIX/'share/bash-completion/completions'
+  end
 
   def install
     inreplace 'bash_completion', 'readlink -f', 'readlink'
@@ -15,10 +19,9 @@ class BashCompletion < Formula
     ENV.deparallelize
     system "make install"
 
-    brew_bash_completion = HOMEBREW_REPOSITORY/'Library/Contributions/brew_bash_completion.sh'
-    compdir = HOMEBREW_PREFIX/'share/bash-completion/completions'
-    (compdir/'brew').unlink
-    compdir.install_symlink brew_bash_completion => 'brew'
+    unless (compdir/'brew').exist?
+      compdir.install_symlink HOMEBREW_CONTRIB/'brew_bash_completion.sh' => 'brew'
+    end
   end
 
   def caveats; <<-EOS.undent
@@ -28,10 +31,10 @@ class BashCompletion < Formula
       fi
 
       Homebrew's own bash completion script has been linked into
-        #{HOMEBREW_PREFIX}/share/bash-completion/completions
+        #{compdir}
       bash-completion will automatically source it when you invoke `brew`.
 
-      Any completion scripts in #{HOMEBREW_PREFIX}/etc/bash_completion.d
+      Any completion scripts in #{Formula.factory("bash-completion").compdir}
       will continue to be sourced as well.
     EOS
   end
