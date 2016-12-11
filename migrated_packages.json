@@ -663,5 +663,12 @@
     "file_without_extension": "ppl10",
     "original_filename": "ppl10.rb",
     "migrated_filename": "ppl.rb"
+  },
+  {
+    "classname_with_version": "Subversion17",
+    "package_at_version": "subversion@17",
+    "file_without_extension": "subversion17",
+    "original_filename": "subversion17.rb",
+    "migrated_filename": "subversion.rb"
   }
 ]
