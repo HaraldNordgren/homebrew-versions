@@ -3,10 +3,11 @@ require 'formula'
 class Gnutls < Formula
   version "3"
   homepage 'http://www.gnu.org/software/gnutls/gnutls.html'
-  url 'http://ftpmirror.gnu.org/gnutls/gnutls-3.0.20.tar.xz'
-  mirror 'http://ftp.gnu.org/gnu/gnutls/gnutls-3.0.20.tar.xz'
-  sha256 '7e3f431a43e5366ff5a9b7646d2a79892a905237ef18cb147b945ec99012686d'
+  url 'http://ftpmirror.gnu.org/gnutls/gnutls-3.0.21.tar.xz'
+  mirror 'http://ftp.gnu.org/gnu/gnutls/gnutls-3.0.21.tar.xz'
+  sha256 '6901b0203a613869cf475f18d44acd47b36adf714c67d1f9ad29c26ab7bec410'
 
+  depends_on 'xz' => :build
   depends_on 'pkg-config' => :build
   depends_on 'p11-kit'
   depends_on 'nettle'
