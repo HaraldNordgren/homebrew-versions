@@ -15,7 +15,7 @@ class Ruby < Formula
   depends_on 'libyaml'
 
   option :universal
-  option 'with-suffix', 'Suffix commands with "19"'
+  option 'with-suffix', 'Suffix commands with "192"'
   option 'with-doc', 'Install documentation'
 
   fails_with :llvm do
@@ -28,7 +28,7 @@ class Ruby < Formula
     args = %W[--prefix=#{prefix}
               --enable-shared]
 
-    args << "--program-suffix=19" if build.include? 'with-suffix'
+    args << "--program-suffix=192" if build.include? 'with-suffix'
     args << "--with-arch=x86_64,i386" if build.universal?
 
     # Put gem, site and vendor folders in the HOMEBREW_PREFIX
