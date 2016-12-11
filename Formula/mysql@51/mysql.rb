@@ -1,21 +1,23 @@
-require 'formula'
-
 class Mysql < Formula
   version "51"
-  homepage 'http://dev.mysql.com/doc/refman/5.1/en/'
-  url 'http://mysql.mirrors.pair.com/Downloads/MySQL-5.1/mysql-5.1.73.tar.gz'
-  sha1 '6cb1c547dec873a0afda825c83fd8e5a32b9a619'
+  homepage "https://dev.mysql.com/doc/refman/5.1/en/"
+  url "http://mysql.mirrors.pair.com/Downloads/MySQL-5.1/mysql-5.1.73.tar.gz"
+  sha256 "05ebe21305408b24407d14b77607a3e5ffa3c300e03f1359d3066f301989dcb5"
+  revision 1
 
   option :universal
-  option 'with-tests', 'Keep tests when installing'
-  option 'with-bench', 'Keep benchmark app when installing'
-  option 'with-embedded', 'Build the embedded server'
-  option 'client-only', 'Only install client tools, not the server'
-  option 'with-utf8-default', 'Set the default character set to utf8'
+  option "with-tests", "Keep tests when installing"
+  option "with-bench", "Keep benchmark app when installing"
+  option "with-embedded", "Build the embedded server"
+  option "without-server", "Only install client tools, not the server"
+  option "with-utf8-default", "Set the default character set to utf8"
 
-  keg_only 'Conflicts with mysql, mariadb, percona-server, mysql-cluster, etc.'
+  deprecated_option "client-only" => "without-server"
 
-  depends_on 'readline'
+  keg_only "Conflicts with mysql, mariadb, percona-server, mysql-cluster, etc."
+
+  depends_on "readline"
+  depends_on "openssl" => :recommended
 
   fails_with :clang
 
@@ -25,41 +27,47 @@ class Mysql < Formula
     # Make universal for bindings to universal applications
     ENV.universal_binary if build.universal?
 
-    configure_args = [
-      "--without-docs",
-      "--without-debug",
-      "--disable-dependency-tracking",
-      "--prefix=#{prefix}",
-      "--localstatedir=#{var}/mysql",
-      "--sysconfdir=#{etc}",
-      "--with-plugins=innobase,myisam",
-      "--with-extra-charsets=complex",
-      "--with-ssl",
-      "--without-readline", # Confusingly, means "use detected readline instead of included readline"
-      "--enable-assembler",
-      "--enable-thread-safe-client",
-      "--enable-local-infile",
-      "--enable-shared",
-      "--with-partition"]
+    # "without-readline" = "use detected readline instead of included readline"
+    args = %W[
+      --without-docs
+      --without-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+      --localstatedir=#{var}/mysql
+      --sysconfdir=#{etc}
+      --with-plugins=innobase,myisam
+      --with-extra-charsets=complex
+      --without-readline
+      --enable-assembler
+      --enable-thread-safe-client
+      --enable-local-infile
+      --enable-shared
+    ]
 
-    configure_args << "--without-server" if build.include? 'client-only'
-    configure_args << "--with-embedded-server" if build.with? 'embedded'
-    configure_args << "--with-charset=utf8" if build.with? 'utf8-default'
+    args << "--without-server" if build.without? "server"
+    args << "--with-embedded-server" if build.with? "embedded"
+    args << "--with-charset=utf8" if build.with? "utf8-default"
 
-    system "./configure", *configure_args
-    system "make install"
+    if build.with? "openssl"
+      args << "--with-ssl=#{Formula["openssl"].opt_prefix}"
+    else
+      args << "with-ssl"
+    end
 
-    ln_s "#{libexec}/mysqld", bin
-    ln_s "#{share}/mysql/mysql.server", bin
+    system "./configure", *args
+    system "make", "install"
 
-    (prefix+'mysql-test').rmtree if build.without? 'tests' # save 66MB!
-    (prefix+'sql-bench').rmtree if build.without? 'bench'
+    ln_s libexec/"mysqld", bin
+    ln_s share/"mysql/mysql.server", bin
+
+    (prefix+"mysql-test").rmtree if build.without? "tests" # save 66MB!
+    (prefix+"sql-bench").rmtree if build.without? "bench"
   end
 
   def caveats; <<-EOS.undent
     Set up databases with:
-        unset TMPDIR
-        mysql_install_db
+      unset TMPDIR
+      mysql_install_db
     EOS
   end
 
@@ -84,8 +92,11 @@ class Mysql < Formula
     </plist>
     EOPLIST
   end
-end
 
+  test do
+    system bin/"mysql_config", "--libs", "--include"
+  end
+end
 
 __END__
 --- old/scripts/mysqld_safe.sh  2009-09-02 04:10:39.000000000 -0400
