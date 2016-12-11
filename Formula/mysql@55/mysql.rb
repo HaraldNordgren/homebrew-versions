@@ -12,10 +12,6 @@ class Mysql < Formula
     sha256 "e2446972a03786904fbdc1e0388ebedb62f58dcc29b117d1eb8feed8b145d147" => :mountain_lion
   end
 
-  depends_on "cmake" => :build
-  depends_on "pidof" unless MacOS.version >= :mountain_lion
-  depends_on "openssl"
-
   option :universal
   option "with-tests", "Build with unit tests"
   option "with-embedded", "Build the embedded server"
@@ -28,6 +24,10 @@ class Mysql < Formula
   deprecated_option "enable-local-infile" => "with-local-infile"
   deprecated_option "enable-memcached" => "with-memcached"
   deprecated_option "enable-debug" => "with-debug"
+
+  depends_on "cmake" => :build
+  depends_on "pidof" unless MacOS.version >= :mountain_lion
+  depends_on "openssl"
 
   keg_only "Conflicts with mysql, mariadb, percona-server, mysql-cluster, etc."
 
@@ -142,11 +142,11 @@ class Mysql < Formula
     server starting up correctly.
 
     To connect:
-        mysql -uroot
+        #{opt_bin}/mysql -uroot
     EOS
   end
 
-  plist_options :manual => "mysql.server start"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mysql55/bin/mysql.server start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
