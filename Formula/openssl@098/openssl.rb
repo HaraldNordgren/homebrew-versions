@@ -1,9 +1,9 @@
 class Openssl < Formula
   version "098"
   homepage "https://www.openssl.org"
-  url "https://www.openssl.org/source/openssl-0.9.8ze.tar.gz"
-  mirror "https://raw.githubusercontent.com/DomT4/LibreMirror/master/OpenSSL/openssl-0.9.8ze.tar.gz"
-  sha256 "ee3da602826e975b47e4d7af8a27be8258c160876194898c58881eab814b55b8"
+  url "https://www.openssl.org/source/openssl-0.9.8zf.tar.gz"
+  mirror "https://raw.githubusercontent.com/DomT4/LibreMirror/master/OpenSSL/openssl-0.9.8zf.tar.gz"
+  sha256 "d5245a29128984192acc5b1fc01e37429b7a01c53cadcb2645e546718b300edb"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/versions"
