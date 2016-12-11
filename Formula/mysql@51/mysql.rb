@@ -57,39 +57,18 @@ class Mysql < Formula
 
     (prefix+'mysql-test').rmtree unless build.include? 'with-tests' # save 66MB!
     (prefix+'sql-bench').rmtree unless build.include? 'with-bench'
-
-    (prefix+'com.mysql.mysqld.plist').write startup_plist
   end
 
   def caveats; <<-EOS.undent
     Set up databases with:
         unset TMPDIR
         mysql_install_db
-
-    If this is your first install, automatically load on login with:
-        mkdir -p ~/Library/LaunchAgents
-        cp #{prefix}/com.mysql.mysqld.plist ~/Library/LaunchAgents/
-        launchctl load -w ~/Library/LaunchAgents/com.mysql.mysqld.plist
-
-    If this is an upgrade and you already have the com.mysql.mysqld.plist loaded:
-        launchctl unload -w ~/Library/LaunchAgents/com.mysql.mysqld.plist
-        cp #{prefix}/com.mysql.mysqld.plist ~/Library/LaunchAgents/
-        launchctl load -w ~/Library/LaunchAgents/com.mysql.mysqld.plist
-
-    Note on upgrading:
-        We overwrite any existing com.mysql.mysqld.plist in ~/Library/LaunchAgents
-        if we are upgrading because previous versions of this brew created the
-        plist with a version specific program argument.
-
-    Or start manually with:
-        mysql.server start
-
-    This article may help in troubleshooting MySQL installs:
-        http://cloudbacon.com/2011/03/20/fixing-mysql-in-homebrew/
     EOS
   end
 
-  def startup_plist; <<-EOPLIST.undent
+  plist_options :manual => "mysql.server start"
+
+  def plist; <<-EOPLIST.undent
     <?xml version="1.0" encoding="UTF-8"?>
     <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
     <plist version="1.0">
@@ -97,9 +76,9 @@ class Mysql < Formula
       <key>KeepAlive</key>
       <true/>
       <key>Label</key>
-      <string>com.mysql.mysqld</string>
+      <string>#{plist_name}</string>
       <key>Program</key>
-      <string>#{bin}/mysqld_safe</string>
+      <string>#{opt_prefix}/bin/mysqld_safe</string>
       <key>RunAtLoad</key>
       <true/>
       <key>UserName</key>
