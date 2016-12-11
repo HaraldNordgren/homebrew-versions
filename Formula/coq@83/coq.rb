@@ -16,6 +16,13 @@ class Coq < Formula
   version "8.3pl5"
   sha256 "89d185fa3e0d3620703ad4b723ef85695ce427da6235fe91d74fc22d1ffcfd5d"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "beafdfe1bc6998f86828e22d1c804a8a53b0deab63b765fd356133abc56732c4" => :yosemite
+    sha256 "1843f9ec028f792a0f2768fadc6ad3c96704fdda6a276c194b91304844b8fb0d" => :mavericks
+    sha256 "8ae5624dd484c4da18a1b56b25a9adec861014d86155bf7ab9977d923a7d4e4c" => :mountain_lion
+  end
+
   depends_on TransitionalMode
   depends_on "objective-caml@312"
   depends_on "camlp5@606"
