@@ -6,6 +6,13 @@ class Libmongoclient < Formula
 
   head "https://github.com/mongodb/mongo-cxx-driver.git", :branch => "legacy"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "b6224d2274abc491d9d7a2e300e2c537baa46c18e8c5b2223a6fb80ada7bcc3e" => :yosemite
+    sha256 "0ffb747ad72a01f2e99bb6c305e4394a87fe64800c8287fca1ee36de13ec6ab7" => :mavericks
+    sha256 "45832154ceff0acbbd3b31834fe7734d87b937815ae478534d9049e19668c931" => :mountain_lion
+  end
+
   option :cxx11
 
   depends_on "scons" => :build
