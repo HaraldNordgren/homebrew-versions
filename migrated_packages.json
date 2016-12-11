@@ -1580,5 +1580,12 @@
     "file_without_extension": "camlp5-606",
     "original_filename": "camlp5-606.rb",
     "migrated_filename": "camlp5.rb"
+  },
+  {
+    "classname_with_version": "Boot2docker133",
+    "package_at_version": "boot2docker@133",
+    "file_without_extension": "boot2docker133",
+    "original_filename": "boot2docker133.rb",
+    "migrated_filename": "boot2docker.rb"
   }
 ]
