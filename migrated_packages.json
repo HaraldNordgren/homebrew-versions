@@ -649,5 +649,12 @@
     "file_without_extension": "mysql55",
     "original_filename": "mysql55.rb",
     "migrated_filename": "mysql.rb"
+  },
+  {
+    "classname_with_version": "Libotr4",
+    "package_at_version": "libotr@4",
+    "file_without_extension": "libotr4",
+    "original_filename": "libotr4.rb",
+    "migrated_filename": "libotr.rb"
   }
 ]
