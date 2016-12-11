@@ -1713,5 +1713,12 @@
     "file_without_extension": "libxml278",
     "original_filename": "libxml278.rb",
     "migrated_filename": "libxml.rb"
+  },
+  {
+    "classname_with_version": "Nasm21106",
+    "package_at_version": "nasm@21106",
+    "file_without_extension": "nasm21106",
+    "original_filename": "nasm21106.rb",
+    "migrated_filename": "nasm.rb"
   }
 ]
