@@ -28,6 +28,11 @@ class Llvm < Formula
       sha1 '74a2c80f12dc2645e4e77d330c8b7e0f53a5709c'
     end
 
+    resource 'lld' do
+      url 'http://llvm.org/releases/3.5.0/lld-3.5.0.src.tar.xz'
+      sha1 '13c88e1442b482b3ffaff5934f0a2b51cab067e5'
+    end
+
     resource 'libcxx' do
       url 'http://llvm.org/releases/3.5.0/libcxx-3.5.0.src.tar.xz'
       sha1 'c98beed86ae1adf9ab7132aeae8fd3b0893ea995'
@@ -58,6 +63,10 @@ class Llvm < Formula
       url 'http://llvm.org/git/polly.git', :branch => 'release_35'
     end
 
+    resource 'lld' do
+      url 'http://llvm.org/git/lld.git'
+    end
+
     resource 'libcxx' do
       url 'http://llvm.org/git/libcxx.git', :branch => 'release_35'
     end
@@ -80,6 +89,7 @@ class Llvm < Formula
   option :universal
   option 'with-libcxx', 'Build libc++ standard library support'
   option 'with-clang', 'Build Clang C/ObjC/C++ frontend'
+  option 'with-lld', 'Build LLD linker'
   option 'with-asan', 'Include support for -faddress-sanitizer (from compiler-rt)'
   option 'disable-shared', "Don't build LLVM as a shared library"
   option 'all-targets', 'Build all target backends'
@@ -124,6 +134,7 @@ class Llvm < Formula
     polly_buildpath = buildpath/'tools/polly'
     clang_buildpath = buildpath/'tools/clang'
     clang_tools_extra_buildpath = buildpath/'tools/clang/tools/extra'
+    lld_buildpath = buildpath/'tools/lld'
     compiler_rt_buildpath = buildpath/'projects/compiler-rt'
     libcxx_buildpath = buildpath/'projects/libcxx'
     libcxxabi_buildpath = buildpath/'libcxxabi' # build failure if put in projects due to no Makefile
@@ -131,6 +142,7 @@ class Llvm < Formula
     polly_buildpath.install resource('polly')
     clang_buildpath.install resource('clang') if build.with? 'clang'
     clang_tools_extra_buildpath.install resource('clang-tools-extra') if build.with? 'clang'
+    lld_buildpath.install resource('lld') if build.with? 'lld'
     compiler_rt_buildpath.install resource('compiler-rt') if build.with? 'asan'
     libcxx_buildpath.install resource('libcxx') if build.with? 'libcxx'
 
