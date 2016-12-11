@@ -5,6 +5,12 @@ class Mapnik < Formula
   url "https://s3.amazonaws.com/mapnik/dist/v2.2.0/mapnik-v2.2.0.tar.bz2"
   sha256 "9b30de4e58adc6d5aa8478779d0a47fdabe6bf8b166b67a383b35f5aa5d6c1b0"
 
+  bottle do
+    sha256 "5dfd9531b492ff97578bc0d018d2772409e69371913add52de2cfd292fd5d532" => :yosemite
+    sha256 "59b444b1755a9edf77ed88d8db84cadff4d2f4a80ca90688201e167be0919cc1" => :mavericks
+    sha256 "9cb1eb54e02bd32845a1748d3989b9becd95095cb9a7e8566864c760c49670c8" => :mountain_lion
+  end
+
   # compile error in bindings/python/mapnik_text_placement.cpp
   # https://github.com/mapnik/mapnik/issues/1973
   patch :DATA
