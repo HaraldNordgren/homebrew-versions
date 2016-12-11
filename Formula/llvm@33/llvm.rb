@@ -3,8 +3,36 @@ require 'formula'
 class Llvm < Formula
   version "33"
   homepage  'http://llvm.org/'
-  url       'http://llvm.org/releases/3.3/llvm-3.3.src.tar.gz'
-  sha1      'c6c22d5593419e3cb47cbcf16d967640e5cce133'
+
+  stable do
+    url 'http://llvm.org/releases/3.3/llvm-3.3.src.tar.gz'
+    sha1 'c6c22d5593419e3cb47cbcf16d967640e5cce133'
+
+    resource 'clang' do
+      url 'http://llvm.org/releases/3.3/cfe-3.3.src.tar.gz'
+      sha1 'ccd6dbf2cdb1189a028b70bcb8a22509c25c74c8'
+    end
+
+    resource 'clang-tools-extra' do
+      url 'http://llvm.org/releases/3.3/clang-tools-extra-3.3.src.tar.gz'
+      sha1 '6f7af9ba8014f7e286a02e4ae2e3f2017b8bfac2'
+    end
+
+    resource 'compiler-rt' do
+      url 'http://llvm.org/releases/3.3/compiler-rt-3.3.src.tar.gz'
+      sha1 '745386ec046e3e49742e1ecb6912c560ccd0a002'
+    end
+
+    resource 'polly' do
+      url 'http://llvm.org/releases/3.3/polly-3.3.src.tar.gz'
+      sha1 'eb75f5674fedf77425d16c9c0caec04961f03e04'
+    end
+
+    resource 'libcxx' do
+      url 'http://llvm.org/releases/3.3/libcxx-3.3.src.tar.gz'
+      sha1 '7bea00bc1031bf3bf6c248e57c1f4e0874c18c04'
+    end
+  end
 
   head do
     url 'http://llvm.org/git/llvm.git', :branch => 'release_33'
@@ -28,17 +56,17 @@ class Llvm < Formula
     resource 'libcxx' do
       url 'http://llvm.org/git/libcxx.git', :branch => 'release_33'
     end
+  end
 
-    if MacOS.version <= :snow_leopard
-      # Not tarball release for libc++abi yet. Using latest branch.
-      resource 'libcxxabi' do
-        url 'http://llvm.org/git/libcxxabi.git', :branch => 'release_32'
-      end
+  if MacOS.version <= :snow_leopard
+    # Not tarball release for libc++abi yet. Using latest branch.
+    resource 'libcxxabi' do
+      url 'http://llvm.org/git/libcxxabi.git', :branch => 'release_32'
+    end
 
-      resource 'clang-unwind-patch' do
-        url 'http://llvm.org/viewvc/llvm-project/cfe/trunk/lib/Headers/unwind.h?r1=172666&r2=189535&view=patch', :using => :nounzip
-        sha1 'b40f6dba4928add36945c50e5b89ca0988147cd2'
-      end
+    resource 'clang-unwind-patch' do
+      url 'http://llvm.org/viewvc/llvm-project/cfe/trunk/lib/Headers/unwind.h?r1=172666&r2=189535&view=patch', :using => :nounzip
+      sha1 'b40f6dba4928add36945c50e5b89ca0988147cd2'
     end
   end
 
@@ -56,43 +84,6 @@ class Llvm < Formula
   depends_on 'isl@011'
   depends_on 'cloog@018'
   depends_on 'libffi' => :recommended
-
-  resource 'clang' do
-    url 'http://llvm.org/releases/3.3/cfe-3.3.src.tar.gz'
-    sha1 'ccd6dbf2cdb1189a028b70bcb8a22509c25c74c8'
-  end
-
-  resource 'clang-tools-extra' do
-    url 'http://llvm.org/releases/3.3/clang-tools-extra-3.3.src.tar.gz'
-    sha1 '6f7af9ba8014f7e286a02e4ae2e3f2017b8bfac2'
-  end
-
-  resource 'compiler-rt' do
-    url 'http://llvm.org/releases/3.3/compiler-rt-3.3.src.tar.gz'
-    sha1 '745386ec046e3e49742e1ecb6912c560ccd0a002'
-  end
-
-  resource 'polly' do
-    url 'http://llvm.org/releases/3.3/polly-3.3.src.tar.gz'
-    sha1 'eb75f5674fedf77425d16c9c0caec04961f03e04'
-  end
-
-  resource 'libcxx' do
-    url 'http://llvm.org/releases/3.3/libcxx-3.3.src.tar.gz'
-    sha1 '7bea00bc1031bf3bf6c248e57c1f4e0874c18c04'
-  end
-
-  if MacOS.version <= :snow_leopard
-    # Not tarball release for libc++abi yet. Using latest branch.
-    resource 'libcxxabi' do
-      url 'http://llvm.org/svn/llvm-project/libcxxabi/branches/release_32', :using => :svn
-    end
-
-    resource 'clang-unwind-patch' do
-      url 'http://llvm.org/viewvc/llvm-project/cfe/trunk/lib/Headers/unwind.h?r1=172666&r2=189535&view=patch', :using => :nounzip
-      sha1 'b40f6dba4928add36945c50e5b89ca0988147cd2'
-    end
-  end
 
   env :std if build.universal?
 
