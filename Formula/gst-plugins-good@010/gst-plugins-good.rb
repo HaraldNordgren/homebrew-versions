@@ -10,6 +10,7 @@ class GstPluginsGood < Formula
   depends_on 'pkg-config' => :build
   depends_on 'gettext'
   depends_on 'homebrew/versions/gst-plugins-base@010'
+  depends_on 'cairo'
 
   # The set of optional dependencies is based on the intersection of
   # gst-plugins-good-0.10.30/REQUIREMENTS and Homebrew formulae
