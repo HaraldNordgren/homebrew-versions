@@ -5,6 +5,13 @@ class Gnupg < Formula
   mirror "http://mirror.switch.ch/ftp/mirror/gnupg/gnupg/gnupg-2.1.1.tar.bz2"
   sha1 "3d11fd150cf86f842d077437edb119a775c7325d"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/versions"
+    sha1 "d41f7959c3e464cd5967f5f7ffd407bd8cc6d087" => :yosemite
+    sha1 "7bfd0d59ad50efb6031cee27565b11e9bcaa07e4" => :mavericks
+    sha1 "a2e18e41cc3e8dd318bd932950999c93300f85db" => :mountain_lion
+  end
+
   head do
     url "git://git.gnupg.org/gnupg.git"
 
