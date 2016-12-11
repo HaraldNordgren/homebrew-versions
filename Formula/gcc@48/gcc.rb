@@ -49,12 +49,6 @@ class Gcc < Formula
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete 'LD'
 
-    gmp = Formula.factory 'gmp'
-    mpfr = Formula.factory 'mpfr'
-    libmpc = Formula.factory 'libmpc'
-    cloog = Formula.factory 'cloog'
-    isl = Formula.factory 'isl'
-
     if build.include? 'enable-all-languages'
       # Everything but Ada, which requires a pre-existing GCC Ada compiler
       # (gnat) to bootstrap. GCC 4.6.0 add go as a language option, but it is
@@ -90,13 +84,15 @@ class Gcc < Formula
       # ...which are tagged with a suffix to distinguish them.
       "--enable-languages=#{languages.join(',')}",
       "--program-suffix=-#{version.to_s.slice(/\d\.\d/)}",
-      "--with-gmp=#{gmp.opt_prefix}",
-      "--with-mpfr=#{mpfr.opt_prefix}",
-      "--with-mpc=#{libmpc.opt_prefix}",
-      "--with-cloog=#{cloog.opt_prefix}",
-      "--with-isl=#{isl.opt_prefix}",
+      "--with-gmp=#{Formula.factory('gmp').opt_prefix}",
+      "--with-mpfr=#{Formula.factory('mpfr').opt_prefix}",
+      "--with-mpc=#{Formula.factory('libmpc').opt_prefix}",
+      "--with-cloog=#{Formula.factory('cloog').opt_prefix}",
+      "--with-isl=#{Formula.factory('isl').opt_prefix}",
       "--with-system-zlib",
+      "--enable-libstdcxx-time=yes",
       "--enable-stage1-checking",
+      "--enable-checking=release",
       "--enable-plugin",
       "--enable-lto",
       # a no-op unless --HEAD is built because in head warnings will raise errs.
@@ -106,8 +102,7 @@ class Gcc < Formula
     args << '--disable-nls' unless build.include? 'enable-nls'
 
     if build.include? 'enable-java' or build.include? 'enable-all-languages'
-      ecj = Formula.factory 'ecj'
-      args << "--with-ecj-jar=#{ecj.opt_prefix}/share/java/ecj.jar"
+      args << "--with-ecj-jar=#{Formula.factory('ecj').opt_prefix}/share/java/ecj.jar"
     end
 
     if build.include? 'enable-multilib'
