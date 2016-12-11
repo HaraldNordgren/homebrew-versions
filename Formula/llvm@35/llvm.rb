@@ -1,44 +1,44 @@
 class Llvm < Formula
   version "35"
-  homepage  'http://llvm.org/'
+  homepage "http://llvm.org/"
 
   stable do
-    url 'http://llvm.org/releases/3.5.1/llvm-3.5.1.src.tar.xz'
-    sha1 '79638cf00584b08fd6eeb1e73ea69b331561e7f6'
+    url "http://llvm.org/releases/3.5.1/llvm-3.5.1.src.tar.xz"
+    sha1 "79638cf00584b08fd6eeb1e73ea69b331561e7f6"
 
-    resource 'clang' do
-      url 'http://llvm.org/releases/3.5.1/cfe-3.5.1.src.tar.xz'
-      sha1 '39d79c0b40cec548a602dcac3adfc594b18149fe'
+    resource "clang" do
+      url "http://llvm.org/releases/3.5.1/cfe-3.5.1.src.tar.xz"
+      sha1 "39d79c0b40cec548a602dcac3adfc594b18149fe"
     end
 
-    resource 'clang-tools-extra' do
-      url 'http://llvm.org/releases/3.5.1/clang-tools-extra-3.5.1.src.tar.xz'
-      sha1 '7a0dd880d7d8fe48bdf0f841eca318337d27a345'
+    resource "clang-tools-extra" do
+      url "http://llvm.org/releases/3.5.1/clang-tools-extra-3.5.1.src.tar.xz"
+      sha1 "7a0dd880d7d8fe48bdf0f841eca318337d27a345"
     end
 
-    resource 'compiler-rt' do
-      url 'http://llvm.org/releases/3.5.1/compiler-rt-3.5.1.src.tar.xz'
-      sha1 '620d59dcc375b24c5663f2793b2bcd74f848435d'
+    resource "compiler-rt" do
+      url "http://llvm.org/releases/3.5.1/compiler-rt-3.5.1.src.tar.xz"
+      sha1 "620d59dcc375b24c5663f2793b2bcd74f848435d"
     end
 
-    resource 'polly' do
-      url 'http://llvm.org/releases/3.5.1/polly-3.5.1.src.tar.xz'
-      sha1 '5f387aa9ceeeb9194459120110fcbd7e3bbb02d2'
+    resource "polly" do
+      url "http://llvm.org/releases/3.5.1/polly-3.5.1.src.tar.xz"
+      sha1 "5f387aa9ceeeb9194459120110fcbd7e3bbb02d2"
     end
 
-    resource 'lld' do
-      url 'http://llvm.org/releases/3.5.1/lld-3.5.1.src.tar.xz'
-      sha1 '9af270a79ae0aeb0628112073167495c43ab836a'
+    resource "lld" do
+      url "http://llvm.org/releases/3.5.1/lld-3.5.1.src.tar.xz"
+      sha1 "9af270a79ae0aeb0628112073167495c43ab836a"
     end
 
-    resource 'libcxx' do
-      url 'http://llvm.org/releases/3.5.1/libcxx-3.5.1.src.tar.xz'
-      sha1 'aa8d221f4db99f5a8faef6b594cbf7742cc55ad2'
+    resource "libcxx" do
+      url "http://llvm.org/releases/3.5.1/libcxx-3.5.1.src.tar.xz"
+      sha1 "aa8d221f4db99f5a8faef6b594cbf7742cc55ad2"
     end
 
-    resource 'libcxxabi' do
-      url 'http://llvm.org/releases/3.5.1/libcxxabi-3.5.1.src.tar.xz'
-      sha1 '9933c07cb8a8fbfd872a302dc033a0887d9c5726'
+    resource "libcxxabi" do
+      url "http://llvm.org/releases/3.5.1/libcxxabi-3.5.1.src.tar.xz"
+      sha1 "9933c07cb8a8fbfd872a302dc033a0887d9c5726"
     end if MacOS.version <= :snow_leopard
   end
 
@@ -53,53 +53,57 @@ class Llvm < Formula
   head do
     url "http://llvm.org/git/llvm.git", :branch => "release_35"
 
-    resource 'clang' do
-      url 'http://llvm.org/git/clang.git', :branch => 'release_35'
+    resource "clang" do
+      url "http://llvm.org/git/clang.git", :branch => "release_35"
     end
 
-    resource 'clang-tools-extra' do
-      url 'http://llvm.org/git/clang-tools-extra.git', :branch => 'release_35'
+    resource "clang-tools-extra" do
+      url "http://llvm.org/git/clang-tools-extra.git", :branch => "release_35"
     end
 
-    resource 'compiler-rt' do
-      url 'http://llvm.org/git/compiler-rt.git', :branch => 'release_35'
+    resource "compiler-rt" do
+      url "http://llvm.org/git/compiler-rt.git", :branch => "release_35"
     end
 
-    resource 'polly' do
-      url 'http://llvm.org/git/polly.git', :branch => 'release_35'
+    resource "polly" do
+      url "http://llvm.org/git/polly.git", :branch => "release_35"
     end
 
-    resource 'lld' do
-      url 'http://llvm.org/git/lld.git'
+    resource "lld" do
+      url "http://llvm.org/git/lld.git"
     end
 
-    resource 'libcxx' do
-      url 'http://llvm.org/git/libcxx.git', :branch => 'release_35'
+    resource "libcxx" do
+      url "http://llvm.org/git/libcxx.git", :branch => "release_35"
     end
 
-    resource 'libcxxabi' do
-      url 'http://llvm.org/git/libcxxabi.git'
+    resource "libcxxabi" do
+      url "http://llvm.org/git/libcxxabi.git"
     end if MacOS.version <= :snow_leopard
   end
 
-  resource 'isl' do
-    url 'http://isl.gforge.inria.fr/isl-0.13.tar.bz2'
-    sha1 '3904274c84fb3068e4f59b6a6b0fe29e7a2b7010'
+  resource "isl" do
+    url "http://isl.gforge.inria.fr/isl-0.13.tar.bz2"
+    sha1 "3904274c84fb3068e4f59b6a6b0fe29e7a2b7010"
   end
 
-  resource 'cloog' do
-    url 'http://repo.or.cz/w/cloog.git/snapshot/22643c94eba7b010ae4401c347289f4f52b9cd2b.tar.gz'
-    sha1 '5409629e2fbe38035e8071c81601317a1a699309'
+  resource "cloog" do
+    url "http://repo.or.cz/w/cloog.git/snapshot/22643c94eba7b010ae4401c347289f4f52b9cd2b.tar.gz"
+    sha1 "5409629e2fbe38035e8071c81601317a1a699309"
   end
 
   patch :DATA
 
   option :universal
-  option 'with-lld', 'Build LLD linker'
-  option 'with-asan', 'Include support for -faddress-sanitizer (from compiler-rt)'
-  option 'disable-shared', "Don't build LLVM as a shared library"
-  option 'all-targets', 'Build all target backends'
-  option 'disable-assertions', 'Speeds up LLVM, but provides less debug information'
+  option "with-lld", "Build LLD linker"
+  option "with-asan", "Include support for -faddress-sanitizer (from compiler-rt)"
+  option "with-all-targets", "Build all target backends"
+  option "without-shared", "Don't build LLVM as a shared library"
+  option "without-assertions", "Speeds up LLVM, but provides less debug information"
+
+  deprecated_option "all-targets" => "with-all-targets"
+  deprecated_option "disable-shared" => "without-shared"
+  deprecated_option "disable-assertions" => "without-assertions"
 
   # required to build cloog
   depends_on "autoconf" => :build
@@ -107,10 +111,13 @@ class Llvm < Formula
   depends_on "libtool"  => :build
   depends_on "pkg-config" => :build
 
-  depends_on 'gmp'
-  depends_on 'libffi' => :recommended
+  depends_on "gmp"
+  depends_on "libffi" => :recommended
 
-  def ver; '3.5'; end # version suffix
+  # version suffix
+  def ver
+    "3.5"
+  end
 
   # LLVM installs its own standard library which confuses stdlib checking.
   cxxstdlib_check :skip
@@ -136,19 +143,19 @@ class Llvm < Formula
 
     if build.universal?
       ENV.permit_arch_flags
-      ENV['UNIVERSAL'] = '1'
-      ENV['UNIVERSAL_ARCH'] = Hardware::CPU.universal_archs.join(' ')
+      ENV["UNIVERSAL"] = "1"
+      ENV["UNIVERSAL_ARCH"] = Hardware::CPU.universal_archs.join(" ")
     end
 
-    ENV['REQUIRES_RTTI'] = '1'
+    ENV["REQUIRES_RTTI"] = "1"
 
     install_prefix = lib/"llvm-#{ver}"
 
     gmp_prefix = Formula["gmp"].opt_prefix
-    isl_prefix = install_prefix/'libexec/isl'
-    cloog_prefix = install_prefix/'libexec/cloog'
+    isl_prefix = install_prefix/"libexec/isl"
+    cloog_prefix = install_prefix/"libexec/cloog"
 
-    resource('isl').stage do
+    resource("isl").stage do
       system "./configure", "--disable-dependency-tracking",
                             "--disable-silent-rules",
                             "--prefix=#{isl_prefix}",
@@ -158,7 +165,7 @@ class Llvm < Formula
       system "make", "install"
     end
 
-    resource('cloog').stage do
+    resource("cloog").stage do
       system "./autogen.sh"
       system "./configure", "--disable-dependency-tracking",
                             "--disable-silent-rules",
@@ -175,35 +182,35 @@ class Llvm < Formula
       "--disable-bindings",
       "--with-gmp=#{gmp_prefix}",
       "--with-isl=#{isl_prefix}",
-      "--with-cloog=#{cloog_prefix}"
+      "--with-cloog=#{cloog_prefix}",
     ]
 
-    if build.include? 'all-targets'
-      args << '--enable-targets=all'
+    if build.with? "all-targets"
+      args << "--enable-targets=all"
     else
-      args << '--enable-targets=host'
+      args << "--enable-targets=host"
     end
 
-    args << "--enable-shared" unless build.include? 'disable-shared'
+    args << "--enable-shared" if build.with? "shared"
 
-    args << "--disable-assertions" if build.include? 'disable-assertions'
+    args << "--disable-assertions" if build.without? "assertions"
 
-    args << "--enable-libffi" if build.with? 'libffi'
+    args << "--enable-libffi" if build.with? "libffi"
 
-    system './configure', *args
-    system 'make', 'VERBOSE=1'
-    system 'make', 'VERBOSE=1', 'install'
+    system "./configure", *args
+    system "make", "VERBOSE=1"
+    system "make", "VERBOSE=1", "install"
 
     if MacOS.version <= :snow_leopard
       libcxxabi_buildpath.install resource("libcxxabi")
 
-      cd libcxxabi_buildpath/'lib' do
+      cd libcxxabi_buildpath/"lib" do
         # Set rpath to save user from setting DYLD_LIBRARY_PATH
         inreplace "buildit", "-install_name /usr/lib/libc++abi.dylib", "-install_name #{install_prefix}/usr/lib/libc++abi.dylib"
 
-        ENV['CC'] = "#{install_prefix}/bin/clang"
-        ENV['CXX'] = "#{install_prefix}/bin/clang++"
-        ENV['TRIPLE'] = "*-apple-*"
+        ENV["CC"] = "#{install_prefix}/bin/clang"
+        ENV["CXX"] = "#{install_prefix}/bin/clang++"
+        ENV["TRIPLE"] = "*-apple-*"
         system "./buildit"
         (install_prefix/"usr/lib").install "libc++abi.dylib"
         cp libcxxabi_buildpath/"include/cxxabi.h", install_prefix/"lib/c++/v1"
@@ -233,7 +240,7 @@ class Llvm < Formula
       "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
       # The following flags are needed so it can be installed correctly.
       "DSTROOT=#{install_prefix}",
-      "SYMROOT=#{libcxx_buildpath}"
+      "SYMROOT=#{libcxx_buildpath}",
     ]
 
     system "make", "-C", libcxx_buildpath, "install", *libcxx_make_args
@@ -241,14 +248,14 @@ class Llvm < Formula
     (share/"clang-#{ver}/tools").install Dir["tools/clang/tools/scan-{build,view}"]
 
     (lib/"python2.7/site-packages").install "bindings/python/llvm" => "llvm-#{ver}",
-      clang_buildpath/"bindings/python/clang" => "clang-#{ver}"
+                                            clang_buildpath/"bindings/python/clang" => "clang-#{ver}"
 
-    Dir.glob(install_prefix/'bin/*') do |exec_path|
+    Dir.glob(install_prefix/"bin/*") do |exec_path|
       basename = File.basename(exec_path)
       bin.install_symlink exec_path => "#{basename}-#{ver}"
     end
 
-    Dir.glob(install_prefix/'share/man/man1/*') do |manpage|
+    Dir.glob(install_prefix/"share/man/man1/*") do |manpage|
       basename = File.basename(manpage, ".1")
       man1.install_symlink manpage => "#{basename}-#{ver}.1"
     end
