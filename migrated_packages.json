@@ -1671,5 +1671,12 @@
     "file_without_extension": "syncthing010",
     "original_filename": "syncthing010.rb",
     "migrated_filename": "syncthing.rb"
+  },
+  {
+    "classname_with_version": "Ruby187",
+    "package_at_version": "ruby@187",
+    "file_without_extension": "ruby187",
+    "original_filename": "ruby187.rb",
+    "migrated_filename": "ruby.rb"
   }
 ]
