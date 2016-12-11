@@ -1,12 +1,10 @@
-require 'formula'
-
 class Protobuf < Formula
   version "240a"
-  homepage 'https://code.google.com/p/protobuf/'
-  url 'https://protobuf.googlecode.com/files/protobuf-2.4.0a.tar.bz2'
-  sha1 '5816b0dd686115c3d90c3beccf17fd89432d3f07'
+  homepage "https://github.com/google/protobuf"
+  url "https://launchpad.net/ubuntu/+archive/primary/+files/protobuf_2.4.0a.orig.tar.gz"
+  sha256 "bb20941d4958bcf2fa76fde251bb4f71463d4fe28884a015c7335894344cffcb"
 
-  keg_only 'Conflicts with protobuf in main repository.'
+  keg_only "Conflicts with protobuf in main repository."
 
   option :universal
 
@@ -14,23 +12,24 @@ class Protobuf < Formula
     build 2334
   end
 
-  # make it build with clang and libc++
+  # Fix build with clang and libc++
   patch :DATA
 
   def install
     # Don't build in debug mode. See:
-    # https://github.com/mxcl/homebrew/issues/9279
-    # http://code.google.com/p/protobuf/source/browse/trunk/configure.ac#61
-    ENV.prepend 'CXXFLAGS', '-DNDEBUG'
+    # https://github.com/homebrew/homebrew/issues/9279
+    ENV.prepend "CXXFLAGS", "-DNDEBUG"
     ENV.universal_binary if build.universal?
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
+
+    system "./configure", "--disable-debug",
+                          "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--with-zlib"
     system "make"
-    system "make install"
+    system "make", "install"
 
     # Install editor support and examples
-    doc.install %w( editors examples )
+    doc.install "editors", "examples"
   end
 
   def caveats; <<-EOS.undent
@@ -38,7 +37,22 @@ class Protobuf < Formula
       #{doc}
     EOS
   end
+
+  test do
+    (testpath/"test.proto").write <<-EOS.undent
+      package test;
+      message TestCase {
+        required string name = 4;
+      }
+      message Test {
+        repeated TestCase case = 1;
+      }
+    EOS
+
+    system bin/"protoc", "test.proto", "--cpp_out=."
+  end
 end
+
 __END__
 diff --git a/src/google/protobuf/message.cc b/src/google/protobuf/message.cc
 index 91e6878..0409a94 100644
