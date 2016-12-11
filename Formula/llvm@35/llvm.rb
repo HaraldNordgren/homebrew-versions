@@ -44,9 +44,10 @@ class Llvm < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/versions"
-    sha1 "9fbbf9cb228878e9d725d2b924058b11a20ec1e5" => :yosemite
-    sha1 "aedddf3cab0a800afb69e1d0346ecb429cf4edde" => :mavericks
-    sha1 "f7c856f89bf7561cf1125c8e34a9cc17b06f7b3f" => :mountain_lion
+    revision 1
+    sha1 "40acdee096ab4c536ebde72220986cd160b9432a" => :yosemite
+    sha1 "ac92d8f6bf0e7127c940671869aeac39d06dd636" => :mavericks
+    sha1 "f1f245d80d26d539327c88feeaa90aefdbf2eaa8" => :mountain_lion
   end
 
   head do
