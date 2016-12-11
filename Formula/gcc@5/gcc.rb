@@ -42,6 +42,7 @@ class Gcc < Formula
   option "with-profiled-build", "Make use of profile guided optimization when bootstrapping GCC"
   # enabling multilib on a host that can"t run 64-bit results in build failures
   option "without-multilib", "Build without multilib support" if MacOS.prefer_64_bit?
+  option "with-jit", "Build the jit compiler"
 
   depends_on "gmp"
   depends_on "libmpc"
@@ -60,6 +61,9 @@ class Gcc < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
+  # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=64089
+  patch :DATA
+
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
@@ -76,6 +80,7 @@ class Gcc < Formula
       languages << "fortran" if build.with? "fortran"
       languages << "java" if build.with? "java"
       languages << "go" if build.with? "go"
+      languages << "jit" if build.with? "jit"
     end
 
     version_suffix = version.to_s.slice(/\d/)
@@ -122,6 +127,8 @@ class Gcc < Formula
     else
       args << "--enable-multilib"
     end
+
+    args << "--enable-host-shared" if build.with? "jit"
 
     # Ensure correct install names when linking against libgcc_s;
     # see discussion in https://github.com/Homebrew/homebrew/pull/34303
@@ -185,4 +192,18 @@ class Gcc < Formula
     system bin/"gcc-5", "-o", "hello-c", "hello-c.c"
     assert_equal "Hello, world!\n", `./hello-c`
   end
+
 end
+__END__
+--- a/gcc/jit/Make-lang.in	2015-02-03 17:19:58.000000000 +0000
++++ b/gcc/jit/Make-lang.in	2015-04-08 22:08:24.000000000 +0100
+@@ -85,8 +85,7 @@
+	     $(jit_OBJS) libbackend.a libcommon-target.a libcommon.a \
+	     $(CPPLIB) $(LIBDECNUMBER) $(LIBS) $(BACKENDLIBS) \
+	     $(EXTRA_GCC_OBJS) \
+-	     -Wl,--version-script=$(srcdir)/jit/libgccjit.map \
+-	     -Wl,-soname,$(LIBGCCJIT_SONAME)
++	     -Wl,-install_name,$(LIBGCCJIT_SONAME)
+
+ $(LIBGCCJIT_SONAME_SYMLINK): $(LIBGCCJIT_FILENAME)
+	ln -sf $(LIBGCCJIT_FILENAME) $(LIBGCCJIT_SONAME_SYMLINK)
