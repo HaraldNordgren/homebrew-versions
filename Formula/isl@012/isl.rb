@@ -1,12 +1,10 @@
-require "formula"
-
 class Isl < Formula
   version "012"
-  homepage "http://freecode.com/projects/isl"
+  homepage "http://isl.gforge.inria.fr/"
   # Track gcc infrastructure releases.
   url "http://isl.gforge.inria.fr/isl-0.12.2.tar.bz2"
   mirror "ftp://gcc.gnu.org/pub/gcc/infrastructure/isl-0.12.2.tar.bz2"
-  sha1 "ca98a91e35fb3ded10d080342065919764d6f928"
+  sha256 "f4b3dbee9712850006e44f0db2103441ab3d13b406f77996d1df19ee89d11fb4"
 
   keg_only "Conflicts with isl in main repository."
 
@@ -21,5 +19,21 @@ class Isl < Formula
     system "make"
     system "make", "install"
     (share/"gdb/auto-load").install Dir["#{lib}/*-gdb.py"]
+  end
+
+  test do
+    (testpath/"test.c").write <<-EOS.undent
+      #include <isl/ctx.h>
+
+      int main()
+      {
+        isl_ctx* ctx = isl_ctx_alloc();
+        isl_ctx_free(ctx);
+        return 0;
+      }
+    EOS
+
+    system ENV.cc, "test.c", "-I#{include}", "-I#{Formula["gmp4"].opt_include}", "-L#{lib}", "-lisl", "-o", "test"
+    system "./test"
   end
 end
