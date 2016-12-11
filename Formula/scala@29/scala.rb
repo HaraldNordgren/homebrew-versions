@@ -6,6 +6,8 @@ class Scala < Formula
   url 'http://www.scala-lang.org/files/archive/scala-2.9.3.tgz'
   sha1 '01bf9e2c854e2385b2bcef319840415867a00388'
 
+  keg_only 'Conflicts with scala in main repository.'
+
   option 'with-docs', 'Also install library documentation'
 
   resource 'docs' do
