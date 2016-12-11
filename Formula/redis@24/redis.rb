@@ -3,7 +3,7 @@ require 'formula'
 class Redis < Formula
   version "24"
   homepage 'http://redis.io/'
-  url 'http://redis.googlecode.com/files/redis-2.4.18.tar.gz'
+  url 'https://redis.googlecode.com/files/redis-2.4.18.tar.gz'
   sha1 '7afdaede54ccd5b1a838776eb82b4c97fe7d5d17'
 
   fails_with :llvm do

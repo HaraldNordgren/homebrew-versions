@@ -3,7 +3,7 @@ require 'formula'
 class Phantomjs < Formula
   version "17"
   homepage 'http://www.phantomjs.org/'
-  url 'http://phantomjs.googlecode.com/files/phantomjs-1.7.0-macosx.zip'
+  url 'https://phantomjs.googlecode.com/files/phantomjs-1.7.0-macosx.zip'
   sha1 'de9ed8092d7fd5095447ada2cf96efb6c949b359'
 
   depends_on :macos => :snow_leopard

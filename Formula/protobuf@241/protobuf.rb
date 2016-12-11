@@ -3,7 +3,7 @@ require 'formula'
 class Protobuf < Formula
   version "241"
   homepage 'http://code.google.com/p/protobuf/'
-  url 'http://protobuf.googlecode.com/files/protobuf-2.4.1.tar.bz2'
+  url 'https://protobuf.googlecode.com/files/protobuf-2.4.1.tar.bz2'
   sha1 'df5867e37a4b51fb69f53a8baf5b994938691d6d'
 
   keg_only 'Conflicts with protobuf in main repository.'

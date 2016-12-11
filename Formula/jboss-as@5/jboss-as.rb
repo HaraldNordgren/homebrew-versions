@@ -2,7 +2,7 @@ require "formula"
 
 class JbossAs < Formula
   homepage "http://www.jboss.org/jbossas"
-  url "http://sourceforge.net/projects/jboss/files/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA.zip/download"
+  url "https://downloads.sf.net/project/jboss/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA.zip"
   sha1 "be05d9e4774c60cc7473e2fdd0b1fff228ef7b38"
   version "5.1.0GA"
 
