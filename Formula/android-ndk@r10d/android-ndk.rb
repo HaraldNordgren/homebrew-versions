@@ -54,4 +54,8 @@ class AndroidNdk < Formula
       #{prefix}/docs
     EOS
   end
+
+  test do
+    assert_match /Usage/, shell_output("#{bin}/ndk-build --help")
+  end
 end
