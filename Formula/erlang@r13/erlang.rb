@@ -14,7 +14,7 @@ class Erlang < Formula
   # `file` over everything in lib because there is almost 4000 files (and
   # really erlang guys! what's with that?! Most of them should be in share/erlang!)
   # may as well skip bin too, everything is just shell scripts
-  skip_clean ['lib', 'bin']
+  skip_clean 'lib', 'bin'
 
   fails_with :llvm do
     build 2326
