@@ -67,10 +67,11 @@ class Go < Formula
     (buildpath/"pkg/obj").rmtree
 
     libexec.install Dir["*"]
-    bin.install_symlink Dir["#{libexec}/bin/go*"]
+    (bin/"go12").write_env_script(libexec/"bin/go", :PATH => "#{libexec}/bin:$PATH")
+    bin.install_symlink libexec/"bin/gofmt" => "gofmt12"
 
     if build.with?("godoc") || build.with?("vet")
-      ENV.prepend_path "PATH", bin
+      ENV.prepend_path "PATH", libexec/"bin"
       ENV["GOPATH"] = buildpath
       (buildpath/"src/golang.org/x/tools").install resource("gotools")
 
@@ -79,7 +80,7 @@ class Go < Formula
           system "go", "build"
           (libexec/"bin").install "godoc"
         end
-        bin.install_symlink libexec/"bin/godoc"
+        bin.install_symlink libexec/"bin/godoc" => "godoc12"
       end
 
       if build.with? "vet"
@@ -93,10 +94,13 @@ class Go < Formula
   end
 
   def caveats; <<-EOS.undent
+    The `go*` commands in `bin` are suffixed with 12 e.g. `go12`.
+
     As of go 1.2, a valid GOPATH is required to use the `go get` command:
       https://golang.org/doc/code.html#GOPATH
 
-    You may wish to add the GOROOT-based install location to your PATH:
+    You may wish to add the GOROOT-based install location
+    (with unsuffixed `go*` commands) to your PATH:
       export PATH=$PATH:#{opt_libexec}/bin
     EOS
   end
@@ -113,8 +117,8 @@ class Go < Formula
     EOS
     # Run go fmt check for no errors then run the program.
     # This is a a bare minimum of go working as it uses fmt, build, and run.
-    system "#{bin}/go", "fmt", "hello.go"
-    assert_equal "Hello World\n", `#{bin}/go run hello.go`
+    system "#{bin}/go12", "fmt", "hello.go"
+    assert_equal "Hello World\n", shell_output("#{bin}/go12 run hello.go")
 
     if build.with? "godoc"
       assert File.exist?(libexec/"bin/godoc")
