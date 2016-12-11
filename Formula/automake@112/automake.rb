@@ -14,7 +14,7 @@ class Automake < Formula
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--program-suffix=112"
     system "make install"
 
     # Our aclocal must go first. See:
@@ -26,6 +26,6 @@ class Automake < Formula
   end
 
   def test
-    system "#{bin}/automake", "--version"
+    system "#{bin}/automake112", "--version"
   end
 end
