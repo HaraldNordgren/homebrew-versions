@@ -1069,5 +1069,12 @@
     "file_without_extension": "scala210",
     "original_filename": "scala210.rb",
     "migrated_filename": "scala.rb"
+  },
+  {
+    "classname_with_version": "Doxygen1831",
+    "package_at_version": "doxygen@1831",
+    "file_without_extension": "doxygen1831",
+    "original_filename": "doxygen1831.rb",
+    "migrated_filename": "doxygen.rb"
   }
 ]
