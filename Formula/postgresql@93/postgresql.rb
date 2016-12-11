@@ -1,8 +1,8 @@
 class Postgresql < Formula
   version "93"
   homepage "http://www.postgresql.org/"
-  url "http://ftp.postgresql.org/pub/source/v9.3.5/postgresql-9.3.5.tar.bz2"
-  sha256 "14176ffb1f90a189e7626214365be08ea2bfc26f26994bafb4235be314b9b4b0"
+  url "http://ftp.postgresql.org/pub/source/v9.3.8/postgresql-9.3.8.tar.bz2"
+  sha256 "bc5c3ce755dfc5f6fbc0186a564f97abac3c2914f9a5d5a47f22f4fd354aadfa"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
@@ -143,7 +143,7 @@ class Postgresql < Formula
   end
 
   test do
-    system "#{bin}/initdb", testpath
+    system "#{bin}/initdb", testpath/"test"
   end
 end
 
