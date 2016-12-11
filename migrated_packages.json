@@ -824,5 +824,12 @@
     "file_without_extension": "appledoc22",
     "original_filename": "appledoc22.rb",
     "migrated_filename": "appledoc.rb"
+  },
+  {
+    "classname_with_version": "Valgrind36",
+    "package_at_version": "valgrind@36",
+    "file_without_extension": "valgrind36",
+    "original_filename": "valgrind36.rb",
+    "migrated_filename": "valgrind.rb"
   }
 ]
