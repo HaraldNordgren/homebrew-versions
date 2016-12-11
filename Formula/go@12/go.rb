@@ -1,8 +1,9 @@
 class Go < Formula
+  desc "Go programming environment (1.2)"
   homepage "https://golang.org"
   url "https://storage.googleapis.com/golang/go1.2.2.src.tar.gz"
   version "1.2.2"
-  sha1 "3ce0ac4db434fc1546fec074841ff40dc48c1167"
+  sha256 "fbcfe1fe6dfe660cae1c973811c5e2075e3f7b06feea32b4b91c7f0b48352391"
 
   bottle do
     sha1 "5e138e15af3a7ac39a0b6afdc238566e25c613f9" => :yosemite
@@ -57,6 +58,7 @@ class Go < Formula
           ENV["GOOS"]         = os
           ENV["GOARCH"]       = arch
           ENV["CGO_ENABLED"]  = cgo_enabled
+          ohai "Building go for #{arch}-#{os}"
           system "./make.bash", "--no-clean"
         end
       end
@@ -92,7 +94,7 @@ class Go < Formula
 
   def caveats; <<-EOS.undent
     As of go 1.2, a valid GOPATH is required to use the `go get` command:
-      http://golang.org/doc/code.html#GOPATH
+      https://golang.org/doc/code.html#GOPATH
 
     You may wish to add the GOROOT-based install location to your PATH:
       export PATH=$PATH:#{opt_libexec}/bin
@@ -111,7 +113,17 @@ class Go < Formula
     EOS
     # Run go fmt check for no errors then run the program.
     # This is a a bare minimum of go working as it uses fmt, build, and run.
-    system bin/"go", "fmt", "hello.go"
+    system "#{bin}/go", "fmt", "hello.go"
     assert_equal "Hello World\n", `#{bin}/go run hello.go`
+
+    if build.with? "godoc"
+      assert File.exist?(libexec/"bin/godoc")
+      assert File.executable?(libexec/"bin/godoc")
+    end
+
+    if build.with? "vet"
+      assert File.exist?(libexec/"pkg/tool/darwin_amd64/vet")
+      assert File.executable?(libexec/"pkg/tool/darwin_amd64/vet")
+    end
   end
 end
