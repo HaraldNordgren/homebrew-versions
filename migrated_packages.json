@@ -726,5 +726,12 @@
     "file_without_extension": "perl518",
     "original_filename": "perl518.rb",
     "migrated_filename": "perl.rb"
+  },
+  {
+    "classname_with_version": "Solr36",
+    "package_at_version": "solr@36",
+    "file_without_extension": "solr36",
+    "original_filename": "solr36.rb",
+    "migrated_filename": "solr.rb"
   }
 ]
