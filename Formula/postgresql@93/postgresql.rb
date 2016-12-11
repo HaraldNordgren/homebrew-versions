@@ -4,6 +4,13 @@ class Postgresql < Formula
   url "http://ftp.postgresql.org/pub/source/v9.3.5/postgresql-9.3.5.tar.bz2"
   sha256 "14176ffb1f90a189e7626214365be08ea2bfc26f26994bafb4235be314b9b4b0"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/versions"
+    sha1 "03ee0754bd8d4533f46b5a9c9fc4f92d10ab4330" => :yosemite
+    sha1 "8505dfee60752f920e9c75fce19729c4ba76b857" => :mavericks
+    sha1 "aa9e5d577b52b253ac211b1b8b79f26d197d2112" => :mountain_lion
+  end
+
   depends_on "openssl"
   depends_on "readline"
   depends_on "libxml2" if MacOS.version <= :leopard # Leopard libxml is too old
