@@ -30,9 +30,4 @@ class Openssl < Formula
     system "make test"
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"
   end
-
-  def caveats; <<-EOS.undent
-    Note that the libraries built tend to be 32-bit only, even on Snow Leopard.
-    EOS
-  end
 end
