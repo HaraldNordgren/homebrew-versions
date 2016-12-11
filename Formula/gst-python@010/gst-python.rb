@@ -48,7 +48,7 @@ class GstPython < Formula
       if __name__ == "__main__":
           main()
     EOS
-    system "chmod +x test.py"
+    chmod 0755, "test.py"
     system "./test.py"
   end
 end

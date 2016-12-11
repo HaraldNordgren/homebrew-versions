@@ -22,9 +22,9 @@ class Gcc < Formula
     `uname -r`.chomp
   end
 
-  homepage 'http://gcc.gnu.org'
+  homepage 'https://gcc.gnu.org'
   url 'http://ftpmirror.gnu.org/gcc/gcc-4.6.4/gcc-4.6.4.tar.bz2'
-  mirror 'http://ftp.gnu.org/gnu/gcc/gcc-4.6.4/gcc-4.6.4.tar.bz2'
+  mirror 'https://ftp.gnu.org/gnu/gcc/gcc-4.6.4/gcc-4.6.4.tar.bz2'
   sha1 '63933a8a5cf725626585dbba993c8b0f6db1335d'
 
   option 'enable-fortran', 'Build the gfortran compiler'

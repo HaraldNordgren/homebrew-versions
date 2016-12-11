@@ -20,7 +20,7 @@ class Gcc < Formula
     `uname -r`.chomp
   end
 
-  homepage 'http://gcc.gnu.org'
+  homepage 'https://gcc.gnu.org'
   url 'http://ftpmirror.gnu.org/gcc/gcc-4.8.4/gcc-4.8.4.tar.bz2'
   mirror 'ftp://gcc.gnu.org/pub/gcc/releases/gcc-4.8.4/gcc-4.8.4.tar.bz2'
   sha1 '40867a9ac74a054b1cee855988fd680cabf42006'

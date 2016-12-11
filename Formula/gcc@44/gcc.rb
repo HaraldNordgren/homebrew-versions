@@ -22,9 +22,9 @@ class Gcc < Formula
     `uname -r`.chomp
   end
 
-  homepage 'http://gcc.gnu.org'
+  homepage 'https://gcc.gnu.org'
   url 'http://ftpmirror.gnu.org/gcc/gcc-4.4.7/gcc-4.4.7.tar.bz2'
-  mirror 'http://ftp.gnu.org/gnu/gcc/gcc-4.4.7/gcc-4.4.7.tar.bz2'
+  mirror 'https://ftp.gnu.org/gnu/gcc/gcc-4.4.7/gcc-4.4.7.tar.bz2'
   sha1 'a6c834b0c2f58583da1d093de7a81a20ede9af75'
 
   option 'enable-fortran', 'Build the gfortran compiler'
@@ -42,7 +42,7 @@ class Gcc < Formula
 
   # Fix libffi for ppc, from MacPorts
   patch :p0 do
-    url "http://trac.macports.org/export/110576/trunk/dports/lang/gcc44/files/ppc_fde_encoding.diff"
+    url "https://trac.macports.org/export/110576/trunk/dports/lang/gcc44/files/ppc_fde_encoding.diff"
     sha1 "49e335d085567467155ea6512ffa959a18eab0ef"
   end
 
