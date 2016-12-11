@@ -208,5 +208,12 @@
     "file_without_extension": "node04",
     "original_filename": "node04.rb",
     "migrated_filename": "node.rb"
+  },
+  {
+    "classname_with_version": "Unison232",
+    "package_at_version": "unison@232",
+    "file_without_extension": "unison232",
+    "original_filename": "unison232.rb",
+    "migrated_filename": "unison.rb"
   }
 ]
