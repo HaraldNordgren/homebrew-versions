@@ -22,7 +22,7 @@ class Hdf < Formula
   def install
     ENV.fortran if fortran?
 
-    args = std_cmake_parameters.split
+    args = std_cmake_args
     args.concat [
       '-DBUILD_SHARED_LIBS=ON',
       '-DBUILD_TESTING=OFF',
