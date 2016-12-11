@@ -45,9 +45,9 @@ class Llvm < Formula
   option 'disable-assertions', 'Speeds up LLVM, but provides less debug information'
 
   depends_on :python => :recommended
-  depends_on 'gmp@4'
-  depends_on 'isl@011'
-  depends_on 'cloog@018'
+  depends_on 'gmp'
+  depends_on 'isl'
+  depends_on 'cloog'
 
   env :std if build.universal?
 
@@ -91,9 +91,9 @@ class Llvm < Formula
       # As of LLVM 3.1, attempting to build ocaml bindings with Homebrew's
       # OCaml 3.12.1 results in errors.
       "--disable-bindings",
-      "--with-gmp=#{Formula.factory('gmp4').opt_prefix}",
-      "--with-isl=#{Formula.factory('isl011').opt_prefix}",
-      "--with-cloog=#{Formula.factory('cloog018').opt_prefix}"
+      "--with-gmp=#{Formula.factory('gmp').opt_prefix}",
+      "--with-isl=#{Formula.factory('isl').opt_prefix}",
+      "--with-cloog=#{Formula.factory('cloog').opt_prefix}"
     ]
 
     if build.include? 'all-targets'
