@@ -1,5 +1,4 @@
 require 'formula'
-require 'hardware'
 
 class Postgresql < Formula
   version "9"
@@ -9,17 +8,12 @@ class Postgresql < Formula
 
   depends_on 'readline'
   depends_on 'libxml2' if MacOS.version == :leopard
-  depends_on 'ossp-uuid'
+  depends_on 'ossp-uuid' unless build.include? 'without-ossp-uuid'
 
-  def options
-    [
-      ['--no-python', 'Build without Python support.'],
-      ['--no-perl', 'Build without Perl support.'],
-      ['--enable-dtrace', 'Build with DTrace support.']
-    ]
-  end
-
-  skip_clean :all
+  option 'without-ossp-uuid', 'Build without OSSP uuid'
+  option 'no-python', 'Build without Python support'
+  option 'no-perl', 'Build without Perl support'
+  option 'enable-dtrace', 'Build with DTrace support'
 
   def install
     ENV.libxml2 if MacOS.version >= :snow_leopard
@@ -33,35 +27,35 @@ class Postgresql < Formula
             "--with-openssl",
             "--with-libxml", "--with-libxslt"]
 
-    args << "--with-python" unless ARGV.include? '--no-python'
-    args << "--with-perl" unless ARGV.include? '--no-perl'
-    args << "--enable-dtrace" if ARGV.include? '--enable-dtrace'
-
-    args << "--with-ossp-uuid"
+    args << "--with-ossp-uuid" unless build.include? 'without-ossp-uuid'
+    args << "--with-python" unless build.include? 'no-python'
+    args << "--with-perl" unless build.include? 'no-perl'
+    args << "--enable-dtrace" if build.include? 'enable-dtrace'
 
     args << "--datadir=#{share}/#{name}"
     args << "--docdir=#{doc}"
 
-    ENV.append 'CFLAGS', `uuid-config --cflags`.strip
-    ENV.append 'LDFLAGS', `uuid-config --ldflags`.strip
-    ENV.append 'LIBS', `uuid-config --libs`.strip
+    unless build.include? 'without-ossp-uuid'
+      ENV.append 'CFLAGS', `uuid-config --cflags`.strip
+      ENV.append 'LDFLAGS', `uuid-config --ldflags`.strip
+      ENV.append 'LIBS', `uuid-config --libs`.strip
+    end
 
-    if MacOS.prefer_64_bit? and not ARGV.include? '--no-python'
+    if MacOS.prefer_64_bit? and not build.include? 'no-python'
       args << "ARCHFLAGS='-arch x86_64'"
       check_python_arch
     end
-
-    # Fails on Core Duo with O4 and O3
-    ENV.O2 if Hardware.intel_family == :core
 
     system "./configure", *args
     system "make install"
     system "make install-docs"
 
-    contrib_directories = Dir.glob("contrib/*").select{ |path| File.directory?(path) } - ['contrib/start-scripts']
+    contribs = Dir.glob("contrib/*").select{ |path| File.directory?(path) }
+    contribs.delete('contrib/start-scripts')
+    contribs.delete('contrib/uuid-ossp') if build.include? 'without-ossp-uuid'
 
-    contrib_directories.each do |contrib_directory|
-      system "cd #{contrib_directory}; make install"
+    contribs.each do |dir|
+      system "cd #{dir}; make install"
     end
 
     (prefix+'org.postgresql.postgres.plist').write startup_plist
