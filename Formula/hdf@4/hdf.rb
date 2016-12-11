@@ -11,15 +11,10 @@ class Hdf < Formula
     sha256 "d0f88cadfb4fd2e5a2e7dc996d5d218531c43924812443ecad15a1393eb50388" => :mountain_lion
   end
 
-  option "with-fortran", "Build Fortran interface."
-
-  deprecated_option "enable-fortran" => "with-fortran"
-
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "szip"
   depends_on "jpeg"
-  depends_on :fortran => :optional
 
   # redefine library name to "df" from "hdf".  this seems to be an artifact
   # of using cmake that needs to be corrected for compatibility with
@@ -40,14 +35,9 @@ class Hdf < Formula
       "-DHDF4_ENABLE_NETCDF=OFF", # Conflict. Just install NetCDF for this.
       "-DHDF4_ENABLE_SZIP_ENCODING=ON",
       "-DHDF4_ENABLE_SZIP_SUPPORT=ON",
-      "-DHDF4_ENABLE_Z_LIB_SUPPORT=ON"
+      "-DHDF4_ENABLE_Z_LIB_SUPPORT=ON",
+      "-DHDF4_BUILD_FORTRAN=OFF"
     ]
-
-    if build.with? "fortran"
-      args.concat %W[-DHDF4_BUILD_FORTRAN=ON -DCMAKE_Fortran_MODULE_DIRECTORY=#{include}]
-    else
-      args << "-DHDF4_BUILD_FORTRAN=OFF"
-    end
 
     mkdir "build" do
       system "cmake", "..", *args
