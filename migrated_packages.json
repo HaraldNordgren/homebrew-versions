@@ -894,5 +894,12 @@
     "file_without_extension": "postgis20",
     "original_filename": "postgis20.rb",
     "migrated_filename": "postgis.rb"
+  },
+  {
+    "classname_with_version": "Vtk5",
+    "package_at_version": "vtk@5",
+    "file_without_extension": "vtk5",
+    "original_filename": "vtk5.rb",
+    "migrated_filename": "vtk.rb"
   }
 ]
