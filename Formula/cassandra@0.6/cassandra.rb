@@ -2,8 +2,8 @@ require 'formula'
 
 class Cassandra < Formula
   version "0.6"
-  url 'http://www.mirrorservice.org/sites/ftp.apache.org//cassandra/0.6.8/apache-cassandra-0.6.8-bin.tar.gz'
   homepage 'http://cassandra.apache.org'
+  url 'http://www.mirrorservice.org/sites/ftp.apache.org//cassandra/0.6.8/apache-cassandra-0.6.8-bin.tar.gz'
   md5 'a1a15b00e78fd3148c37d45900e08829'
 
   def install

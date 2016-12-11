@@ -2,8 +2,8 @@ require 'formula'
 
 class Nu < Formula
   version "0"
-  url 'http://programming.nu/releases/Nu-0.4.0.tgz'
   homepage 'http://programming.nu'
+  url 'http://programming.nu/releases/Nu-0.4.0.tgz'
   md5 '94d181e94cd661569103290183e89477'
 
   depends_on 'pcre'

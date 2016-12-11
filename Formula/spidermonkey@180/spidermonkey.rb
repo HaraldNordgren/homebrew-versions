@@ -2,10 +2,10 @@ require 'formula'
 
 # Private older version of autoconf required to compile Spidermonkey
 class Autoconf213 < Formula
+  homepage 'http://www.gnu.org/software/autoconf/'
   url 'http://ftpmirror.gnu.org/autoconf/autoconf-2.13.tar.gz'
   mirror 'http://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz'
   md5 '9de56d4a161a723228220b0f425dc711'
-  homepage 'http://www.gnu.org/software/autoconf/'
 end
 
 class Spidermonkey < Formula
@@ -35,7 +35,7 @@ class Spidermonkey < Formula
       system "make install"
     end
 
-    Dir.chdir "js/src" do
+    cd "js/src" do
       # Fixes a bug with linking against CoreFoundation. Tests all pass after
       # building like this. See: http://openradar.appspot.com/7209349
       inreplace "configure.in", "LDFLAGS=\"$LDFLAGS -framework Cocoa\"", ""
@@ -49,7 +49,7 @@ class Spidermonkey < Formula
 
     mkdir "brew-build"
 
-    Dir.chdir "brew-build" do
+    cd "brew-build" do
       system "../js/src/configure", "--prefix=#{prefix}",
                                     "--enable-readline",
                                     "--enable-threadsafe",

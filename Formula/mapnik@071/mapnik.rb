@@ -2,8 +2,8 @@ require 'formula'
 
 class Mapnik < Formula
   version "071"
-  url 'http://download.berlios.de/mapnik/mapnik-0.7.1.tar.gz'
   homepage 'http://www.mapnik.org/'
+  url 'http://download.berlios.de/mapnik/mapnik-0.7.1.tar.gz'
   md5 '3a070fdd7c6a3367ad78d95c2387b03b'
 
   depends_on 'pkg-config' => :build

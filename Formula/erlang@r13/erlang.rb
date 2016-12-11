@@ -6,10 +6,10 @@ class ErlangR13Manuals < Formula
 end
 
 class Erlang < Formula
+  homepage 'http://www.erlang.org'
   # Download from GitHub. Much faster than official tarball.
   url "https://github.com/erlang/otp.git", :tag => "OTP_R13B04"
   version 'R13B04'
-  homepage 'http://www.erlang.org'
 
   # We can't strip the beam executables or any plugins, there isn't really
   # anything else worth stripping and it takes a really, long time to run

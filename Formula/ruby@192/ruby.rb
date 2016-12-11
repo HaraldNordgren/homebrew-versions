@@ -2,10 +2,11 @@ require 'formula'
 
 class Ruby < Formula
   version "192"
-  url 'http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-p290.tar.bz2'
   homepage 'http://www.ruby-lang.org/en/'
-  head 'http://svn.ruby-lang.org/repos/ruby/trunk/', :using => :svn
+  url 'http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-p290.tar.bz2'
   sha256 '403b3093fbe8a08dc69c269753b8c6e7bd8f87fb79a7dd7d676913efe7642487'
+
+  head 'http://svn.ruby-lang.org/repos/ruby/trunk/', :using => :svn
 
   depends_on 'readline'
   depends_on 'libyaml'

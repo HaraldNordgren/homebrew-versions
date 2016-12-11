@@ -138,8 +138,7 @@ class Gcc < Formula
       end
     end
 
-    Dir.mkdir 'build'
-    Dir.chdir 'build' do
+    mkdir 'build' do
       system '../configure', "--enable-languages=#{languages.join(',')}", *args
 
       if profiledbuild?
