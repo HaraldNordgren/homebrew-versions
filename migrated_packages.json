@@ -376,5 +376,12 @@
     "file_without_extension": "jetty8",
     "original_filename": "jetty8.rb",
     "migrated_filename": "jetty.rb"
+  },
+  {
+    "classname_with_version": "Appledoc20",
+    "package_at_version": "appledoc@20",
+    "file_without_extension": "appledoc20",
+    "original_filename": "appledoc20.rb",
+    "migrated_filename": "appledoc.rb"
   }
 ]
