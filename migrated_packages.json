@@ -831,5 +831,12 @@
     "file_without_extension": "valgrind36",
     "original_filename": "valgrind36.rb",
     "migrated_filename": "valgrind.rb"
+  },
+  {
+    "classname_with_version": "Cassandra12",
+    "package_at_version": "cassandra@12",
+    "file_without_extension": "cassandra12",
+    "original_filename": "cassandra12.rb",
+    "migrated_filename": "cassandra.rb"
   }
 ]
