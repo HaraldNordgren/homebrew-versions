@@ -6,6 +6,8 @@ class Zeromq < Formula
   url 'http://download.zeromq.org/zeromq-2.2.0.tar.gz'
   sha1 'e4bc024c33d3e62f658640625e061ce4e8bd1ff1'
 
+  keg_only 'Conflicts with zeromq in main repository.'
+
   depends_on 'pkg-config' => :build
   depends_on 'libpgm' if build.include? 'with-pgm'
 
