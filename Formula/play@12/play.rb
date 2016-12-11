@@ -3,8 +3,8 @@ require 'formula'
 class Play < Formula
   version "12"
   homepage 'http://www.playframework.org/'
-  url 'http://downloads.typesafe.com/play/1.2.6/play-1.2.6.zip'
-  sha1 '53f92eff7cc4c18c9f5fc399bb73351e7c7f18c5'
+  url 'http://downloads.typesafe.com/play/1.2.7/play-1.2.7.zip'
+  sha1 '436739d9f7cc00567a7e4245413c9c1ebf886797'
 
   def install
     rm_rf 'python' # we don't need the bundled Python for windows
