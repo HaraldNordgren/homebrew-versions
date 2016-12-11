@@ -383,5 +383,12 @@
     "file_without_extension": "appledoc20",
     "original_filename": "appledoc20.rb",
     "migrated_filename": "appledoc.rb"
+  },
+  {
+    "classname_with_version": "Povray36",
+    "package_at_version": "povray@36",
+    "file_without_extension": "povray36",
+    "original_filename": "povray36.rb",
+    "migrated_filename": "povray.rb"
   }
 ]
