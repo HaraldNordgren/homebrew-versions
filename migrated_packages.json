@@ -740,5 +740,12 @@
     "file_without_extension": "protobuf240a",
     "original_filename": "protobuf240a.rb",
     "migrated_filename": "protobuf.rb"
+  },
+  {
+    "classname_with_version": "Libcouchbase1",
+    "package_at_version": "libcouchbase@1",
+    "file_without_extension": "libcouchbase1",
+    "original_filename": "libcouchbase1.rb",
+    "migrated_filename": "libcouchbase.rb"
   }
 ]
