@@ -14,7 +14,8 @@ class OpenMpi < Formula
   depends_on :fortran unless build.include? 'disable-fortran'
 
   def patches
-    # Fixes error in tests, which makes them fail on clang
+    # Fixes error in tests, which makes them fail on clang.
+    # Upstream ticket: https://svn.open-mpi.org/trac/ompi/ticket/4255
     DATA
   end
 
