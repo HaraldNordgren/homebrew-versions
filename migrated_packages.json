@@ -173,5 +173,12 @@
     "file_without_extension": "spidermonkey180",
     "original_filename": "spidermonkey180.rb",
     "migrated_filename": "spidermonkey.rb"
+  },
+  {
+    "classname_with_version": "Openssl100",
+    "package_at_version": "openssl@100",
+    "file_without_extension": "openssl100",
+    "original_filename": "openssl100.rb",
+    "migrated_filename": "openssl.rb"
   }
 ]
