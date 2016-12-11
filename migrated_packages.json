@@ -495,5 +495,12 @@
     "file_without_extension": "jpeg9",
     "original_filename": "jpeg9.rb",
     "migrated_filename": "jpeg.rb"
+  },
+  {
+    "classname_with_version": "Grails21",
+    "package_at_version": "grails@21",
+    "file_without_extension": "grails21",
+    "original_filename": "grails21.rb",
+    "migrated_filename": "grails.rb"
   }
 ]
