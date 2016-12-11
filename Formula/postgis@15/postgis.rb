@@ -6,6 +6,8 @@ class Postgis < Formula
   url 'http://download.osgeo.org/postgis/source/postgis-1.5.8.tar.gz'
   sha1 'a3637851ba9dd4f29576c9dc60254e9f53abc559'
 
+  keg_only "Conflicts with postgis in main repository."
+
   option 'with-gui', 'Build sh2pgsql-gui in addition to CLI tools'
 
   depends_on 'postgresql@9'
