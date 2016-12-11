@@ -2,7 +2,7 @@ class Syncthing < Formula
   version "010"
   homepage "https://syncthing.net/"
   url "https://github.com/syncthing/syncthing.git",
-    :tag => "v0.10.30", :revision => "3cc4cb0a0b71908ae2d6392f14457e7ca6712278"
+    :tag => "v0.10.31", :revision => "2470875d1436a1757e07bec09e388b75d5ac12c0"
 
   depends_on "go" => :build
   depends_on :hg => :build
