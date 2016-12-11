@@ -2,7 +2,7 @@ require 'formula'
 
 class Autoconf < Formula
   version "213"
-  url 'http://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz'
+  url 'http://ftpmirror.gnu.org/autoconf/autoconf-2.13.tar.gz'
   homepage 'http://www.gnu.org/software/autoconf/'
   md5 '9de56d4a161a723228220b0f425dc711'
 
