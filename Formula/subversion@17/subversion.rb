@@ -3,9 +3,9 @@ require 'formula'
 class Subversion < Formula
   version "17"
   homepage 'http://subversion.apache.org/'
-  url 'http://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.7.11.tar.bz2'
-  mirror 'http://archive.apache.org/dist/subversion/subversion-1.7.11.tar.bz2'
-  sha1 'd82e187803043b74c072cd5a861ac02e4a027684'
+  url 'http://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.7.13.tar.bz2'
+  mirror 'http://archive.apache.org/dist/subversion/subversion-1.7.13.tar.bz2'
+  sha1 '844bb756ec505edaa12b9610832bcd21567139f1'
 
   option :universal
   option 'java', 'Build Java bindings'
