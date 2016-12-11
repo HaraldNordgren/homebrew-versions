@@ -1,9 +1,9 @@
 class Gnupg < Formula
   version "21"
   homepage "https://www.gnupg.org/"
-  url "ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.2.tar.bz2"
-  mirror "http://ftp.heanet.ie/mirrors/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.2.tar.bz2"
-  sha1 "7e972cb9af47d9b8ce164dcf37fc4f32634d6cd6"
+  url "ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.3.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.3.tar.bz2"
+  sha256 "213e7fb0d74bb4e53a2d3153f309ddc077528f2cfffa2af85f2a20cc7875c8ed"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
@@ -44,6 +44,16 @@ class Gnupg < Formula
   conflicts_with "gpgme",
         :because => "gpgme currently requires 1.x.x or 2.0.x."
 
+  # https://lists.gnupg.org/pipermail/gnupg-users/2015-April/053428.html
+  # GCC build doesn't fail. That was a mistaken labelling. Have notified upstream.
+  fails_with :clang do
+    cause "t-stringhelp.c:488:3: error: function definition is not allowed here"
+  end
+
+  fails_with :llvm do
+    cause "t-stringhelp.c:488:3: error: function definition is not allowed here"
+  end
+
   def install
     (var/"run").mkpath
 
@@ -60,14 +70,13 @@ class Gnupg < Formula
       --enable-symcryptrun
     ]
 
-    args << "--enable-maintainer-mode" if build.head?
+    args << "--with-readline=#{Formula["readline"].opt_prefix}" if build.with? "readline"
 
-    if build.with? "readline"
-      args << "--with-readline=#{Formula["readline"].opt_prefix}"
+    if build.head?
+      args << "--enable-maintainer-mode"
+      system "./autogen.sh", "--force"
+      system "automake", "--add-missing"
     end
-
-    system "./autogen.sh", "--force" if build.head?
-    system "automake", "--add-missing" if build.head?
 
     # Adjust package name to fit our scheme of packaging both gnupg 1.x and
     # and 2.1.x and gpg-agent separately.
