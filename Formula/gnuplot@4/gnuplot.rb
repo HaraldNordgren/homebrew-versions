@@ -10,6 +10,13 @@ class Gnuplot < Formula
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/4.6.6/gnuplot-4.6.6.tar.gz"
   sha256 "1f19596fd09045f22225afbfec11fa91b9ad1d95b9f48406362f517d4f130274"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "231af7bcc0ba62d137d2a191274bbf8030633e8612c773746ae157f0d305a624" => :yosemite
+    sha256 "5489c26f250a2d45b7d14c29f047c04a526775edb0d183a580e2d6678a49dec1" => :mavericks
+    sha256 "443d876966452eb42a1cf851d3d7cd4ab8c92056383f975a5c533ad4c94c9d27" => :mountain_lion
+  end
+
   option "with-pdf", "Build the PDF terminal using pdflib-lite"
   option "with-wxmac", "Build the wxWidgets terminal using pango"
   option "with-qt", "Build the Qt4 terminal"
