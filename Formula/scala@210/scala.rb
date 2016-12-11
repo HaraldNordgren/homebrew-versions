@@ -6,6 +6,14 @@ class Scala < Formula
   url 'http://www.scala-lang.org/files/archive/scala-2.10.5.tgz'
   sha1 'e981301c06e3d06f4b24c0b983fe0bc3ca86b850'
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    cellar :any
+    sha256 "1a831dd7a9262b967ecfaf8b19101e8ad7085cd84b8de1de8e3831cabc0c4a12" => :yosemite
+    sha256 "ec0bfc9d38a57fe663e70270bcfbf374f3f74caea98aa9e460835e8956a71e46" => :mavericks
+    sha256 "878b3f7b0daee491594aaa80211ba49a8e3d4a7e9be8c025cf7ddbd227242bb3" => :mountain_lion
+  end
+
   keg_only 'Conflicts with scala in main repository.'
 
   option 'with-docs', 'Also install library documentation'
