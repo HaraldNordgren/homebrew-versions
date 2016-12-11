@@ -42,6 +42,11 @@ class Mongodb < Formula
     args << "--use-system-boost" if build.with? "boost"
     args << "--64" if MacOS.prefer_64_bit?
 
+    # Pass the --disable-warnings-as-errors flag to Scons when on Yosemite
+    # or later, otherwise 2.6.x won't build from source due to a Clang 3.5+
+    # error - https://github.com/mongodb/mongo/pull/956#issuecomment-94545753
+    args << "--disable-warnings-as-errors" if MacOS.version >= :yosemite
+
     if build.with? "openssl"
       args << "--ssl" << "--extrapath=#{Formula["openssl"].opt_prefix}"
     end
