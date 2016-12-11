@@ -1755,5 +1755,12 @@
     "file_without_extension": "docker162",
     "original_filename": "docker162.rb",
     "migrated_filename": "docker.rb"
+  },
+  {
+    "classname_with_version": "Boot2docker162",
+    "package_at_version": "boot2docker@162",
+    "file_without_extension": "boot2docker162",
+    "original_filename": "boot2docker162.rb",
+    "migrated_filename": "boot2docker.rb"
   }
 ]
