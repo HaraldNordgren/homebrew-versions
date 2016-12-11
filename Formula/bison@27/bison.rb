@@ -6,7 +6,6 @@ class Bison < Formula
   sha256 "08e2296b024bab8ea36f3bb3b91d071165b22afda39a17ffc8ff53ade2883431"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     revision 1
     sha256 "f0c9fbb8b8734b1fe48ee8fc7ee3b272262d2eadcc4e233231b8e8312ff1578f" => :yosemite
     sha256 "510a8e77cfdf4a0be5be12d4558dcd5bdbcf61ec6808118edcfd8bd3a34799cc" => :mavericks

@@ -6,7 +6,6 @@ class Nettle < Formula
   sha256 "f6859d4ec88e70805590af9862b4b8c43a2d1fc7991df0a7a711b1e7ca9fc9d3"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "e50d9eab1bbc727db7176ce14e64583e10305edf29f58478f44e81e67129f6fb" => :yosemite
     sha256 "793f30f7cb3773776ad460a6cb65c63828d2030ebc6b09596f93c6925c22e95a" => :mavericks

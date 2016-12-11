@@ -6,7 +6,6 @@ class Docker < Formula
       :revision => "a8a31eff10544860d2188dddabdee4d727545796"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "2256ee87c0119e6103017426be424fe90c7c5a6c04db41b74c8d92878063cb4a" => :yosemite
     sha256 "b324f9255ec8cd89955a149104953c8358ced91163c52caa798802ecb39e871c" => :mavericks

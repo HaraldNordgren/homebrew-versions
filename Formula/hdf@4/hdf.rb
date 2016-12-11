@@ -5,7 +5,6 @@ class Hdf < Formula
   sha256 "bb0e900b8cc6bc89a5730abc97e654e7705e8e1fbc4e0d4477f417822428d99b"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     sha256 "8ba0e3973461d87e378cebcfef7d6d73ceb49a999e47d8c19bd083f4f9d8cacf" => :yosemite
     sha256 "7a56cd6de013df4548bc13f17cc1ff2585b24f2baf4bc8056d91a46a7ed099f7" => :mavericks
     sha256 "d0f88cadfb4fd2e5a2e7dc996d5d218531c43924812443ecad15a1393eb50388" => :mountain_lion

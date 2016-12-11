@@ -6,7 +6,6 @@ class ObjectiveCaml < Formula
   sha256 "edcf563da75e0b91f09765649caa98ab1535e0c7498f0737b5591b7de084958d"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     sha256 "c6f0d0c36a7e45097b1c5b96ff159d6049d691828369bcef6a481bad071413eb" => :yosemite
     sha256 "2bd5864b49e5db08188649c02eea5de34799a17bc95b942d1ce5a70464d09273" => :mavericks
     sha256 "f529118355c17b749545898977a4e8e8f8ed5e72cb561e522fdf7516c0348d8a" => :mountain_lion

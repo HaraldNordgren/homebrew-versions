@@ -4,7 +4,6 @@ class Docker < Formula
   url "https://github.com/docker/docker.git", :tag => "v1.4.1"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha1 "fa072be59aa298d570dcc2d2ae6c1878fd0d22a7" => :yosemite
     sha1 "74f376168a3a76064a7a586527a4de1f7a97c50f" => :mavericks

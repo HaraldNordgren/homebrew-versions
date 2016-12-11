@@ -5,7 +5,6 @@ class Openjpeg < Formula
   sha256 "1232bb814fd88d8ed314c94f0bfebb03de8559583a33abbe8c64ef3fc0a8ff03"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "f40e41ca1b1ee59149411ca5054bb7aded1323f64d5b84a30ff88377d946610d" => :yosemite
     sha256 "9004d4427b26fb5d5178c5c8e942cc225d6e5e9a2439d63fb74c4022ce87544a" => :mavericks

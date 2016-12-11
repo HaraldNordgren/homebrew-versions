@@ -6,7 +6,6 @@ class GstPluginsBad < Formula
   revision 1
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     sha256 "413d08dd42855899df225b20b391a9e7ab37da5f9d46cfbcdaeb8ad906cddb01" => :yosemite
     sha256 "24429ab0e2e44c457a914131c91fcdd5367794366593c6ed192ba1de22f5ae8b" => :mavericks
     sha256 "7265d55c630ed8de96a59257d47640cbd664ec31bfbb5f1f90413291c716b1a8" => :mountain_lion

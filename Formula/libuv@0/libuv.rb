@@ -6,7 +6,6 @@ class Libuv < Formula
   head "https://github.com/libuv/libuv.git", :branch => "v0.10"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha1 "49427a8c4ba598d11867e33ff05f304f61cceab8" => :yosemite
     sha1 "eb147122bbabb9e35df0a77f795dd9899ba5320c" => :mavericks

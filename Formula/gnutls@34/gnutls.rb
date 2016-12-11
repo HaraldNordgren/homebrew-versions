@@ -7,7 +7,6 @@ class Gnutls < Formula
   sha256 "e9b5f58becf34756464216056cd5abbf04315eda80a374d02699dee83f80b12e"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "15ede4ba5c02fa5dcc9e7edee0ce1df29dd5acd6d5ecc57ae0eea62ae1a692ac" => :yosemite
     sha256 "387b22e785931178c6c5cf979ef19708136ed6babcd6596fcc31a39abb68a4a5" => :mavericks

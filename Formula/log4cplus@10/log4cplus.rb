@@ -5,7 +5,6 @@ class Log4cplus < Formula
   sha256 "9af936fc4a25c3a59b7ae2c34ce95e08e8a705797ffe27e13272c01732649491"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "f005657c98f3eb20b038124a4ee15898de2fc5de45b0ce9d7cc23a2d58b62a64" => :yosemite
     sha256 "c1fb62f4325ca3d7c7f6aa7167bf7b821214347a5565fe4279f61f2d523254a9" => :mavericks

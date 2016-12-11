@@ -9,7 +9,6 @@ class Appledoc < Formula
   sha1 "a25d9ce876c4f7ee88d82b4532956d2c94b5d2e9"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     revision 1
     sha1 "e21eff6c8e1d59dda1aaaf4e052b46342c046a11" => :yosemite
     sha1 "1e21c233ab7e4ec4783f32d08b22553fa82baddf" => :mavericks

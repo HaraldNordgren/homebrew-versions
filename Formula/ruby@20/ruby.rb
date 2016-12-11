@@ -5,7 +5,6 @@ class Ruby < Formula
   sha256 "2dcdcf9900cb923a16d3662d067bc8c801997ac3e4a774775e387e883b3683e9"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     sha256 "e9b01603d66cc5553ca7f9d3594fc0ce6d186aea4c85aaa1af1c241404452e39" => :yosemite
     sha256 "0e79ce291d4f661d7872f7deb1d809a419a7c6599483a422bc7787049f0cebb0" => :mavericks
     sha256 "6840f190b6a853a2fa885f24cf60b203424aa2a7eb887ab5f051848f072de30e" => :mountain_lion

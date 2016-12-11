@@ -5,7 +5,6 @@ class Protobuf < Formula
   sha256 "bb20941d4958bcf2fa76fde251bb4f71463d4fe28884a015c7335894344cffcb"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "19d29ffebfeb9beab833b7e8254ad19de11afea643bab6381dd51858e6a680db" => :yosemite
     sha256 "8e6160ffa4e7d1eeb4dd293b07fe4dd5fd78b134ee5a0af6e77053a57a0ccea2" => :mavericks

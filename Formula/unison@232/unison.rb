@@ -5,7 +5,6 @@ class Unison < Formula
   sha1 "68ea5709de4fcc2f9aef7b01b24637503b61b5ac"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha1 "fbcf4a1cd9b94f28bd21617ebbf07535a38c750d" => :yosemite
     sha1 "448d2e662a4fabd19451f42f2ea3473121f19253" => :mavericks

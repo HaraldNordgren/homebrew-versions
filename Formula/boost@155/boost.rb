@@ -61,7 +61,6 @@ class Boost < Formula
     end
   end
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "7ddd8eaf57ef85d2cbc5bfa04f6cac1aedfbf435cefdab2ccbf1d682c846248c" => :yosemite
     sha256 "7a33b63b1e8c4afdb877cbb45b951c1867fb09ecd73f836478140cdce1ca8291" => :mavericks

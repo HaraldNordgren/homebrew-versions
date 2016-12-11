@@ -9,7 +9,6 @@ class Gmp < Formula
   sha1 'c011e8feaf1bb89158bd55eaabd7ef8fdd101a2c'
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "40de88cbcd04d6869051eb8617afbb2e0754f680f6754708652a807349948815" => :yosemite
     sha256 "7543fa0986dfa81487367b410c178ca581560df39ca53dfc7d66e2c2a4543813" => :mavericks

@@ -5,7 +5,6 @@ class Libpqxx < Formula
   sha1 "b8942164495310894cab39e5882c42f092570fc5"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha1 "4b252768206da1560e33af4baefb689f475556a8" => :yosemite
     sha1 "4b9dbfb332c12c1b8b8b16fff11a66d2b5ad9621" => :mavericks

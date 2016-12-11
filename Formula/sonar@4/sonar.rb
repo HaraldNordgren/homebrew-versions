@@ -5,7 +5,6 @@ class Sonar < Formula
   sha1 "755d93b58d8fe88f4e7e99eb11930254128bc5c1"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     sha1 "e2107c08b2317a7bb0623c2362e09e1e67e42501" => :yosemite
     sha1 "9b645db49f27913c9edd85e1772e9fab85210986" => :mavericks
     sha1 "b1072a188f79703046a120ae35bc0534c5b9f2c6" => :mountain_lion

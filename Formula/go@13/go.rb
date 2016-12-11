@@ -5,7 +5,6 @@ class Go < Formula
   sha256 "1bb6fde89cfe8b9756a875af55d994cce0994861227b5dc0f268c143d91cd5ff"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     sha256 "da04cd0a9ed7aba226a83abcb2bb1232592eb821cdfdc5fce3714806ea612987" => :yosemite
     sha256 "8a37cb9684cb97b5ddf0fea297aef89a8dfeca8c73cb03631aaa26fbbae20879" => :mavericks
     sha256 "8b2f2390a6b251147ba61a70b6d1be6d8ca96ea38dc0ce39290ae88ab4d0f0b8" => :mountain_lion

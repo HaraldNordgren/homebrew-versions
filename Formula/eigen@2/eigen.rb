@@ -5,7 +5,6 @@ class Eigen < Formula
   sha256 "7255e856ed367ce6e6e2d4153b0e4e753c8b8d36918bf440dd34ad56aff09960"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "59cbfaafbcba0535357bb63ac0e4877d47c2a52869cd32b7d6af74b5521d81bd" => :yosemite
     sha256 "38c28e3bc3a78717584ecc83fabeeb840884273301c10311c7c274517ce75a6a" => :mavericks

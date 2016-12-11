@@ -5,7 +5,6 @@ class JsonC < Formula
   sha256 "274fc9d47c1911fad9caab4db117e4be5d6b68c4547eab0c508d79c4768e170c"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "db1de5a842fe6f047617e8271fcff34aad75c5fc199121ffcff8eba1920d6257" => :yosemite
     sha256 "96227004581799c64d10f4020d371fa8803b93447767c918d9e2f8b2973a267f" => :mavericks

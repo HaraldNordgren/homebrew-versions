@@ -5,7 +5,6 @@ class GstPython < Formula
   sha256 "8f26f519a5bccd770864317e098e5e307fc5ad1201eb96329634b6508b253178"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     sha256 "8733d920b1b69bb171774c6e399071ed58c1a2e687c612f380947d5e1fea1e83" => :yosemite
     sha256 "d526f793ea62bd1a298aecfb6a635105303a8230cd43338fde43e3b12161cebd" => :mavericks
     sha256 "13be6f9f7c40553c881363bf6a494e823bf1628b0996e4183b26e03eae652b8a" => :mountain_lion

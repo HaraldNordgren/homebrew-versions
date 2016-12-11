@@ -9,7 +9,6 @@ class Libmpc < Formula
   sha1 '5ef03ca7aee134fe7dfecb6c9d048799f0810278'
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "a52eb16b2016623c7c31bdebad9a3d90b84082bcbf96e1648dce18e1e1d8dff3" => :yosemite
     sha256 "9e52d35c5ee1c1027701d012110dc18b546288fbbec113c09a8b3dacdb87bbc4" => :mavericks

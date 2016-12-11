@@ -7,7 +7,6 @@ class Bind < Formula
   sha1 "8a02c5e67b4d6cb49fd896bb5c56e605cac8c992"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     sha1 "f6d747018fa54f5bae36b3ef9b6fae55dfd4f258" => :yosemite
     sha1 "8dd7a6d5193a39c2ceb97f03b252007cb630127f" => :mavericks
     sha1 "e595bafb76ca37fb8ea683e2b649a88e11a492f7" => :mountain_lion

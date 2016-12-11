@@ -5,7 +5,6 @@ class Jpeg < Formula
   sha256 "75c3ec241e9996504fe02a9ed4d12f16b74ade713972f3db9e65ce95cd27e35d"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "1c270f53c34c4183c52ad2101e7b47f5bddf6e5b431931bcc737dd76f1bd6270" => :yosemite
     sha256 "bf033c7f0bcdd1955574cf461a72633dfa9d2ce6415c6afabc00beddb287386f" => :mavericks

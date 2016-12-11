@@ -5,7 +5,6 @@ class Perl < Formula
   sha256 "7cbed5ef11900e8f68041215eea0de5e443d53393f84c41d5c9c69c150a4982f"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     sha256 "5dd29dc3db33fef36b20f65846097c6baf8b3bd52733d0de39b97dc333089a9c" => :yosemite
     sha256 "6f668e0501e54013a4dc1483aeed25b3c9ecd60976fc78b198c0e8f27d3d4842" => :mavericks
     sha256 "301f4d292b2936d97de340e691d86ad541f8dcc7eb56db8d0785df288494d194" => :mountain_lion

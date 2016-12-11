@@ -5,7 +5,6 @@ class Libdvdcss < Formula
   sha256 "84f1bba6cfef1df87f774fceaefc8e73c4cda32e8f6700b224ad0acb5511ba2c"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "4069c609642a8db093211c5ac84146645f7423c05852f47bc64c89c741ea1f0f" => :yosemite
     sha256 "14712b601bf80411fa3c99fbf06a0617a533599c0ac5a07a98d6cc09d4305470" => :mavericks

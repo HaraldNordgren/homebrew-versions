@@ -7,7 +7,6 @@ class Isl < Formula
   sha256 "7e3c02ff52f8540f6a85534f54158968417fd676001651c8289c705bd0228f36"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "a6166d161841d901af54319a5434e955964712ae5cc19a88705d4f28669dc36b" => :yosemite
     sha256 "cbcb2862709fa87913927a3ce261ac989f650a3506abde6c9eaa4da2d58b2b53" => :mavericks

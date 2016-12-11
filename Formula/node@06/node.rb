@@ -6,7 +6,6 @@ class Node < Formula
   revision 1
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     revision 1
     sha256 "1cd2e47454085ccf21ca1b5a6e9366ec0f6ba0f6d7f5bd20d08f830b3df70d48" => :yosemite
     sha256 "b758f04ea1979adfe27cf6c4f161d98698d6056d8b0d1fe47071ffb702b1f81e" => :mavericks

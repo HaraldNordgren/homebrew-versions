@@ -5,7 +5,6 @@ class Libgee < Formula
   sha256 "5e3707cbc1cebea86ab8865682cb28f8f80273869551c3698e396b5dc57831ea"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "71fa029e341ee653ac46ba119cbdc31a61d7477a2b5586dcb2ca1e900941e755" => :yosemite
     sha256 "43d06d6d2d2e6cd6a0c67aa054749df8de92c609fa6fc8cf95e1a049894115ca" => :mavericks

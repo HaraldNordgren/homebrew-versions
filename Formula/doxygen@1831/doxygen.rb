@@ -6,7 +6,6 @@ class Doxygen < Formula
   sha256 "0c749f68101b6c04ccb0d9696dd37836a6ba62cd8002add275058a975ee72b55"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "64977dcd670dad96123eb960e0d3c10aabc77a54581fcd80b1d739e2944bfa66" => :yosemite
     sha256 "75ea3c6a589dee81e8ca790a9c9a17aa008be2dd8c392add690a01cf37e91a63" => :mavericks

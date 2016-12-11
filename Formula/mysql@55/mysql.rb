@@ -6,7 +6,6 @@ class Mysql < Formula
   sha256 "85f05b257db39e63c82ff4b5ce4e0c6d2b07560b5fc1646d47d7ae48eab3e5de"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     revision 2
     sha256 "eeacb7aba73191733f822f8e20bf19b220becca116120d3d1aeb9ec82d0d17bb" => :yosemite
     sha256 "0059b640fb7c4c02b485423e7135f0d4d30cda7c21533d16d460a9cf5deb2e87" => :mavericks

@@ -7,7 +7,6 @@ class Erlang < Formula
   revision 1
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     sha256 "ee8e05620de5ea113fc234268ef880a168285cdeaa018ec367dc5ff918500b75" => :yosemite
     sha256 "653639650d945f6219cb24bbbfe3792d4767ecd83170fb35afae56f651f1a043" => :mavericks
     sha256 "bd871db2f82beca53b107b3dd0385738ad2da756e73a8306a3f7f3b831a67e6c" => :mountain_lion

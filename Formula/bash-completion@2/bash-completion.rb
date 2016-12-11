@@ -7,7 +7,6 @@ class BashCompletion < Formula
   revision 2
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     sha256 "6f33a41b2cf3b2f7b5377fc03c3878537a97c1d71f405c24f3e2e4f91ea99d8a" => :yosemite
     sha256 "d664af0a49745230030965c62b7842c7fc94b65394b3a80f0b693e4855b59848" => :mavericks
     sha256 "40a9bbf11f9b53bb0e2d95c560eb90a793e09b62b9f85c17cbd739812fd107cf" => :mountain_lion

@@ -5,7 +5,6 @@ class Phantomjs < Formula
   sha256 "3a321561677f678ca00137c47689e3379c7fe6b83f7597d2d5de187dd243f7be"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha1 "ad447564de81f1499795a6c8e2dd7b5db474f2dc" => :yosemite
     sha1 "ec47fc927a5ed38bb2c5802f661c635f6c15324d" => :mavericks

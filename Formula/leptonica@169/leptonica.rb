@@ -5,7 +5,6 @@ class Leptonica < Formula
   sha256 "3eb7669dcda7e417f399bb3698414ea523270797dfd36c59b08ef37a3fe0a72d"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "bae61b3605c495b109678205a0971dc0c30549eb9ef26ba7116899bda42bf600" => :yosemite
     sha256 "8dfdecd0322a25042c41515ea1f389294659f70dc9ad1934cd50a7216b1e50af" => :mavericks

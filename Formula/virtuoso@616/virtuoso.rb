@@ -5,7 +5,6 @@ class Virtuoso < Formula
   sha256 "c6bfa6817b3dad5f87577b68f4cf554d1bfbff48178a734084ac3dcbcea5a037"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     sha256 "a4d6211240c5c63acfa138dfee3b9ec3af59fe6b72f71d8ee3c2a309a5c0fe16" => :yosemite
     sha256 "ae32083a6b88ca8f2c62a41d6365455723118180920d6b5924db73452dc81519" => :mavericks
     sha256 "e912f51ff038a85144f9939bd43fbbaf7cc653fd8e12a18ff8774e5cc1e3542b" => :mountain_lion

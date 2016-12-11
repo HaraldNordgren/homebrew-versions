@@ -7,7 +7,6 @@ class Elasticsearch < Formula
   sha256 '82904d4c564fc893a1cfc0deb4526073900072a3f4667b995881a2ec5cdfdb43'
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "40c32b6fc4a72dfc08fc9b828f87f8752497a15bff279914edd739308139c206" => :yosemite
     sha256 "9fda4444f8f94091dfaad505ece36e1918e6cd0552619c1ba202745350deefce" => :mavericks

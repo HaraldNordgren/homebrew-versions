@@ -9,7 +9,6 @@ class Cloog < Formula
   sha1 '85f620a26aabf6a934c44ca40a9799af0952f863'
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "2a246c9d1cac00f85866d23ac9f4270335fc69131fe1b9fd72c6e756496ed72d" => :yosemite
     sha256 "94abba0efbb32299a4a26ea1d961cac7c3fb35a5c26211578b50ef17226207ba" => :mavericks

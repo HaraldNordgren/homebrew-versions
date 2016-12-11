@@ -6,7 +6,6 @@ class Syncthing < Formula
       :revision => "2470875d1436a1757e07bec09e388b75d5ac12c0"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "acea7eb8d47d40de31719437e9d12f74a0f76be0df97f33c5cedc07a5a6e4246" => :yosemite
     sha256 "48ce978c9eec4f574517e410527eee37189a11a0db2bcbabcef3d3b10a581672" => :mavericks

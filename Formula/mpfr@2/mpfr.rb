@@ -9,7 +9,6 @@ class Mpfr < Formula
   sha1 '7ca93006e38ae6e53a995af836173cf10ee7c18c'
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "b567a28e0d55497325ab97f73e302414bd66e48068c8dbb1092d453704ffe523" => :yosemite
     sha256 "3f195ad79022a35840e46f0726f623c932ad5ef72516a873615078f053867aef" => :mavericks

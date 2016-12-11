@@ -5,7 +5,6 @@ class OpenMpi < Formula
   sha256 "fe37bab89b5ef234e0ac82dc798282c2ab08900bf564a1ec27239d3f1ad1fc85"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     sha256 "62ba62c636ccf8ecedd44429b4b5289af8580c499e85d2cc54f0d3015fd7b318" => :yosemite
     sha256 "7146c0325758769fd48cba0565764c5c287eb53de8d47428e000546f51858bcb" => :mavericks
     sha256 "3d2986df69b5f759c56956ee0c94a93447ef69ed5e2bc3b42ffada4d8eacdca1" => :mountain_lion

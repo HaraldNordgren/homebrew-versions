@@ -6,7 +6,6 @@ class Raptor < Formula
   sha256 "db3172d6f3c432623ed87d7d609161973d2f7098e3d2233d0702fbcc22cfd8ca"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "e997b1a0c4babc39ba78e49ac8fecf2f738b8557da17813171a5d717fe46c49b" => :yosemite
     sha256 "924aa949684970bc6924afaf222f2374bd28d1f50a61471685d88c2fd1638e8e" => :mavericks

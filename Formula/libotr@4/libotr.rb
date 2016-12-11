@@ -5,7 +5,6 @@ class Libotr < Formula
   sha256 "3f911994409898e74527730745ef35ed75c352c695a1822a677a34b2cf0293b4"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "5e123d6699df1de4ba60a54a298969abed51582f26a9dea376f2edb3f64c8f89" => :yosemite
     sha256 "4d49d2e193e6dcf5eeb60d096ffe8650dec6bd90145cfe120d6de38f37bca0bc" => :mavericks

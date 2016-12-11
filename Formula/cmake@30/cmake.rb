@@ -25,7 +25,6 @@ class Cmake < Formula
   sha256 "6b4ea61eadbbd9bec0ccb383c29d1f4496eacc121ef7acf37c7a24777805693e"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "71b46be0b22a43368e8beddeb50c758d281684597bfb578c0e883151c968869f" => :yosemite
     sha256 "5cbd2d245b6bb71480ac15d901d2caa8558f4429d2535fbef662e53431679cb2" => :mavericks

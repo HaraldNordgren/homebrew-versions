@@ -6,7 +6,6 @@ class Redis < Formula
   sha256 "5a65b54bb6deef2a8a4fabd7bd6962654a5d35787e68f732f471bbf117f4768e"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "1c0c9565f242a1e34d171950a341e2f38372e49cc5420162c73cf2c39ef2c682" => :yosemite
     sha256 "f4abb52ec0ef232b85aae9c0e3bbc6cfdfca3e43daeef38e46f3eaeb35644b45" => :mavericks

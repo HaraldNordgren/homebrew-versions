@@ -5,7 +5,6 @@ class Libpng < Formula
   sha256 "d4fb0fbf14057ad6d0319034188fc2aecddb493da8e3031b7b072ed28f510ec0"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "5dce4e061796e9ba41112b3f0dfd2ede83eff085e2c5fa19ceb5839a63867a41" => :yosemite
     sha256 "88360558925258c5d2701088de404ac253952e572ed1917f3e6281f3b04d6732" => :mavericks

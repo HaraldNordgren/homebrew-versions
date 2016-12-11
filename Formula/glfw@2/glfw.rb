@@ -5,7 +5,6 @@ class Glfw < Formula
   sha256 "d1f47e99e4962319f27f30d96571abcb04c1022c000de4d01df69ec59aae829d"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "e8671d6afb9e92f0aa692997a7fce65fcbd686e4e1762d4afc546542bead8211" => :yosemite
     sha256 "c13596bfe24aabf4b717f95ee6a3d8e9103b2122a614b7cc0d011d0570487ea3" => :mavericks

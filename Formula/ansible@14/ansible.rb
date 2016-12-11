@@ -5,7 +5,6 @@ class Ansible < Formula
   sha1 "09f451e6634c6e7bb5705d26b9daab6efc0407c1"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     sha1 "c7098fe56be7afc0c789337aeb209a9821ae3035" => :yosemite
     sha1 "f6d35bc75e6642567c2430f6c989fe5c4991ccb7" => :mavericks
     sha1 "e060a56c76c91cc0c7d524bcd2b3fb9774d183c5" => :mountain_lion

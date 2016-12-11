@@ -29,7 +29,6 @@ class Gcc < Formula
   head "svn://gcc.gnu.org/svn/gcc/branches/gcc-4_9-branch"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     revision 1
     sha256 "2b1284fe314224509aa629a667cd0e00b276a9c44c5fd4cecc337d47faf4dbcc" => :yosemite
     sha256 "6698beb47cbd336a31dd0a70ef1392be5233aa37d1f69b848dc29f162ddb50d2" => :mavericks

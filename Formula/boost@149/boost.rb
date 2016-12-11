@@ -17,7 +17,6 @@ class Boost < Formula
   sha256 "dd748a7f5507a7e7af74f452e1c52a64e651ed1f7263fce438a06641d2180d3c"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     sha256 "f885dbcfb802d0514d555b318f82d59293844811e4f197eae615088c8b3af442" => :yosemite
     sha256 "e2dc343ebf9c83f63d23c0a61a1e181ecf77cbdd1ce38e4568d9492c2c6bebab" => :mavericks
     sha256 "6f63a75817fca6d3da4d01588bbc6f358f55f497c9c2a8b033e04b3c4d169a9a" => :mountain_lion

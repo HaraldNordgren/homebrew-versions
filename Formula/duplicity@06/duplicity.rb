@@ -5,7 +5,6 @@ class Duplicity < Formula
   sha256 "ac44f44abc1c5fe775a49b77e722d238c0b3bbb105e083fd505e2dca8e2c1725"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     sha256 "868c0785eec052900fa9d9689cf1694197d548a668b48e8e647f712be6cd22c3" => :yosemite
     sha256 "bda0f5173e1209caf37aa178475604a490f9b63820761fbd1d2e4ca3ed43701a" => :mavericks
     sha256 "65106c3924bb7287e2ae1ef93ce9b56bd543d8bb433a23292d708bb12e415b27" => :mountain_lion

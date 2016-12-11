@@ -5,7 +5,6 @@ class Ledger < Formula
   sha256 "d5c244343f054c413b129f14e7020b731f43afb8bdf92c6bdb702a17a2e2aa3a"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "cd0f88dbad8397bff4f40f64ab69528011998a32766e7df61165f0b937938651" => :yosemite
     sha256 "7b6c0c42ef6e02b2f51ef3c2dae21ea4d87ea200d0d6b514a80651567d554089" => :mavericks

@@ -5,7 +5,6 @@ class Play < Formula
   sha256 "4fc610e2db0993fee3daf01527ba5ca57a9ad970c429733415ee59b55064b322"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "cb17a08dc698a1a67715f7e84c6fe22976b5504b165caf237f608c8efc2cc33c" => :yosemite
     sha256 "dd9edaea771dde63964f647f6b49cff8714fe70598cf128a59ce59bcd4381925" => :mavericks

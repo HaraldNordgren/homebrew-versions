@@ -6,7 +6,6 @@ class Gawk < Formula
   sha256 "5dbc7b2c4c328711337c2aacd09a122c7313122262e3ff034590f014067412b4"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     sha256 "1759758515e164e132faca481366230aadf1b23bd4beec9fbdb5e75046d6bdeb" => :yosemite
     sha256 "69de726a50262eb82938332505f0f55b3112423212b4a2a372b1e30a90b34eef" => :mavericks
     sha256 "88861130d66e15afafc9627fb065ab4b7b45e599bb02dd50c67aa2592da67cd0" => :mountain_lion

@@ -5,7 +5,6 @@ class Mongodb < Formula
   sha256 "b239a065a1197f811a3908bdee8d535564b94f2d79da893935e38831ebbac8b3"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "004b4e3bfdb5ee0c00b5568383b5012059d057cc30248f5604afd34fd3cb8382" => :yosemite
     sha256 "c6310fd5ea6f665c1d6aec573024b729c912865fcad25ce6723a293bcde82db7" => :mavericks

@@ -5,7 +5,6 @@ class Cvsps < Formula
   sha256 "91d3198b33463861a581686d5fcf99a5c484e7c4d819384c04fda9cafec1075a"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "b8c56242eeab6032ea45267eda778852ed8101a6403ffbe570a39040849a7292" => :yosemite
     sha256 "c28f907d790d36bdb5afdb3acccf604b8dbf10c3208ffd545e6040374fcb4988" => :mavericks

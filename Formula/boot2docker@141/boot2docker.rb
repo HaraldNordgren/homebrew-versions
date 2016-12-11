@@ -5,7 +5,6 @@ class Boot2docker < Formula
   head "https://github.com/boot2docker/boot2docker-cli.git"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     sha1 "ad01226489b8973588e93ed7584e6cf4e86493bd" => :yosemite
     sha1 "952605852a330ebe60ea41aa723c7dd8822105f6" => :mavericks
     sha1 "60b8e61e5df4eda554e81a5fbf221c81afb12f13" => :mountain_lion

@@ -5,7 +5,6 @@ class Antlr < Formula
   sha256 "853aeb021aef7586bda29e74a6b03006bcb565a755c86b66032d8ec31b67dbb9"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     sha256 "7dcc3717cb1fd192ddb3200378856b81d1ccfaeeabcb60817e6927a4c78111a9" => :yosemite
     sha256 "f70c59f788573514d6666fc20410456b584e328108af814d17422121b17278d6" => :mavericks
     sha256 "2d722d988a3352dae7b13d6344af7bf34a0301d39bd7d8b0da5e2f285a4af008" => :mountain_lion

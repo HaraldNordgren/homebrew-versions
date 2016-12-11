@@ -6,7 +6,6 @@ class V8 < Formula
   sha1 "0c47b3a5409d71d4fd6581520c8972f7451a87e4"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha1 "d2304e24d2fa6d6d499327d98755f4a0088d83d4" => :yosemite
     sha1 "1c3a4a0b45f0d5a706e048e80f5a497a6d2e02ec" => :mavericks

@@ -5,7 +5,6 @@ class Postgresql < Formula
   sha256 "5c1d56ce77448706d9dd03b2896af19d9ab1b9b8dcdb96c39707c74675ca3826"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     sha256 "3112ea7b41cf54ef5afb870a48cadd281ad0683903f9d5a075622f471e1078c7" => :yosemite
     sha256 "5a99e0e124cc349fbf9244d470e66dae026e9b3f14c1d69bb8812eddf23dffdb" => :mavericks
     sha256 "4ac58e1036d1a0848b1642542b293c4299c44bd34b9c1aeb931a7404556b1798" => :mountain_lion

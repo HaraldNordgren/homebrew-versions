@@ -6,7 +6,6 @@ class Node < Formula
   revision 1
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     revision 1
     sha256 "30c8b596cf0184fd7608b5370b5e10c3adf453e899fa90dfa72215837eaf499a" => :mountain_lion
   end

@@ -6,7 +6,6 @@ class Autoconf < Formula
   sha256 "f0611136bee505811e9ca11ca7ac188ef5323a8e2ef19cffd3edb3cf08fd791e"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
     sha256 "aaca2ae48a63679a6ae88c537dd6b79500efac75389fd566afd6f108471f35a8" => :yosemite
     sha256 "7fab563545c3f6ae3b85dbfceaff1321191efba3d2d6d41da4aa71866eabad89" => :mavericks
