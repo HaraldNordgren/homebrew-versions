@@ -1881,5 +1881,12 @@
     "file_without_extension": "apache-spark141",
     "original_filename": "apache-spark141.rb",
     "migrated_filename": "apache-spark.rb"
+  },
+  {
+    "classname_with_version": "Zeromq405",
+    "package_at_version": "zeromq@405",
+    "file_without_extension": "zeromq405",
+    "original_filename": "zeromq405.rb",
+    "migrated_filename": "zeromq.rb"
   }
 ]
