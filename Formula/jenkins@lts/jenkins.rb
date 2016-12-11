@@ -3,8 +3,8 @@ require "formula"
 class Jenkins < Formula
   version "lts"
   homepage "http://jenkins-ci.org/#stable"
-  url "http://mirrors.jenkins-ci.org/war-stable/1.580.2/jenkins.war"
-  sha1 "7585f4920e3e1f501a4c26647b5776188d5ed290"
+  url "http://mirrors.jenkins-ci.org/war-stable/1.580.3/jenkins.war"
+  sha1 "ee3f94a2eab93a119baaa897a2fd0045cc401e73"
 
   def install
     libexec.install "jenkins.war"
