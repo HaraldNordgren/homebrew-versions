@@ -9,8 +9,8 @@ require 'formula'
 class ImagemagickRuby < Formula
   version "186"
   homepage 'http://www.imagemagick.org'
-  url 'http://image_magick.veidrodis.com/image_magick/ImageMagick-6.5.9-8.tar.bz2'
-  sha1 'bb292ff860cebf76bfed9df68289abb76d408e34'
+  url 'http://download.sourceforge.net/project/imagemagick/old-sources/6.x/6.5/ImageMagick-6.5.9-10.tar.gz'
+  sha1 'cd60f630037f659dc8833afa1b283321ec91b3dc'
 
   depends_on 'jpeg'
   depends_on 'libwmf' => :optional
@@ -52,4 +52,3 @@ class ImagemagickRuby < Formula
     (share+"ImageMagick/ChangeLog").unlink
   end
 end
-
