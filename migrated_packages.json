@@ -1076,5 +1076,12 @@
     "file_without_extension": "doxygen1831",
     "original_filename": "doxygen1831.rb",
     "migrated_filename": "doxygen.rb"
+  },
+  {
+    "classname_with_version": "Ansible14",
+    "package_at_version": "ansible@14",
+    "file_without_extension": "ansible14",
+    "original_filename": "ansible14.rb",
+    "migrated_filename": "ansible.rb"
   }
 ]
