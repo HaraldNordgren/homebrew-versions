@@ -355,5 +355,12 @@
     "file_without_extension": "python32",
     "original_filename": "python32.rb",
     "migrated_filename": "python.rb"
+  },
+  {
+    "classname_with_version": "Drush4",
+    "package_at_version": "drush@4",
+    "file_without_extension": "drush4",
+    "original_filename": "drush4.rb",
+    "migrated_filename": "drush.rb"
   }
 ]
