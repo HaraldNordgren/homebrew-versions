@@ -80,8 +80,8 @@ class Elasticsearch < Formula
           <string>#{plist_name}</string>
           <key>ProgramArguments</key>
           <array>
-            <string>#{prefix}/bin/elasticsearch</string>
-            <string>--config=#{prefix}/config/elasticsearch.yml</string>
+            <string>#{opt_bin}/elasticsearch</string>
+            <string>--config=#{opt_prefix}/config/elasticsearch.yml</string>
           </array>
           <key>EnvironmentVariables</key>
           <dict>
