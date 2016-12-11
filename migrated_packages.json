@@ -215,5 +215,12 @@
     "file_without_extension": "unison232",
     "original_filename": "unison232.rb",
     "migrated_filename": "unison.rb"
+  },
+  {
+    "classname_with_version": "Subversion16",
+    "package_at_version": "subversion@16",
+    "file_without_extension": "subversion16",
+    "original_filename": "subversion16.rb",
+    "migrated_filename": "subversion.rb"
   }
 ]
