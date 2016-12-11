@@ -8,9 +8,9 @@ class Libmongoclient < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
-    sha256 "347dacd430b05815ea1270eb6355f54134e5171b15c140da475235f045060c13" => :yosemite
-    sha256 "06d04228c6bd53c7a2634228d4c8b3b19a4d765a9a10c20554b6bb1b019fe4d4" => :mavericks
-    sha256 "3a73c4e2a01e30f064c600f6bfcf723e47516cb2dba2debe566dbe4c56bab730" => :mountain_lion
+    sha256 "098e1f54a5ff0eefaa2f80bdb1c37792c9bfdebf49fc55f439a37143b6fa84bc" => :yosemite
+    sha256 "016a9dff9e4f0d12919eb135976eba568d890476e9cfc53f95039e3e467df49f" => :mavericks
+    sha256 "89f5e5dd0504b75c5d454536b0d604704c262e5791b0cc160e6a366eebcda827" => :mountain_lion
   end
 
   option :cxx11
