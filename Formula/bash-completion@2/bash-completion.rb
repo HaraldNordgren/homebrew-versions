@@ -6,6 +6,13 @@ class BashCompletion < Formula
   sha256 "2b606804a7d5f823380a882e0f7b6c8a37b0e768e72c3d4107c51fbe8a46ae4f"
   revision 2
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "6f33a41b2cf3b2f7b5377fc03c3878537a97c1d71f405c24f3e2e4f91ea99d8a" => :yosemite
+    sha256 "d664af0a49745230030965c62b7842c7fc94b65394b3a80f0b693e4855b59848" => :mavericks
+    sha256 "40a9bbf11f9b53bb0e2d95c560eb90a793e09b62b9f85c17cbd739812fd107cf" => :mountain_lion
+  end
+
   conflicts_with "bash-completion"
 
   # All three fix issues with GNU extended regexs
