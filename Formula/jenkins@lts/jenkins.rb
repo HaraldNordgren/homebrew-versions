@@ -4,7 +4,7 @@ class Jenkins < Formula
   version "lts"
   homepage "http://jenkins-ci.org/#stable"
   url "http://mirrors.jenkins-ci.org/war-stable/1.580.3/jenkins.war"
-  sha1 "ee3f94a2eab93a119baaa897a2fd0045cc401e73"
+  sha1 "18a8e6ea4a7723b10027ae51ed0196a0d994f622"
 
   def install
     libexec.install "jenkins.war"
