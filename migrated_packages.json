@@ -1167,5 +1167,12 @@
     "file_without_extension": "gradle16",
     "original_filename": "gradle16.rb",
     "migrated_filename": "gradle.rb"
+  },
+  {
+    "classname_with_version": "Gradle112",
+    "package_at_version": "gradle@112",
+    "file_without_extension": "gradle112",
+    "original_filename": "gradle112.rb",
+    "migrated_filename": "gradle.rb"
   }
 ]
