@@ -28,8 +28,8 @@ class Node < Formula
   end
 
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-2.7.6.tgz"
-    sha256 "a9445167f68a42ffcdaa36f9f5c14a954237fce6898555c362e8785261fd72a1"
+    url "https://registry.npmjs.org/npm/-/npm-2.8.3.tgz"
+    sha256 "81089fbb9f71286d2fd41423fbb171a92a126709d6a4b5d7c5ae02475a393838"
   end
 
   # Fixes double-free issue. See https://github.com/joyent/node/issues/6427
@@ -40,7 +40,7 @@ class Node < Formula
     # Lie to `xcode-select` for now to work around a GYP bug that affects
     # CLT-only systems:
     #
-    #   http://code.google.com/p/gyp/issues/detail?id=292
+    #   https://code.google.com/p/gyp/issues/detail?id=292
     #   joyent/node#3681
     ENV["DEVELOPER_DIR"] = MacOS.dev_tools_path unless MacOS::Xcode.installed?
 
