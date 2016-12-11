@@ -8,9 +8,9 @@ class Gnutls < Formula
 
   bottle do
     cellar :any
-    sha256 "27a77935541b989b0bff9d45ea3a9a3571e287014e6dbab294eb73e4306bfee6" => :yosemite
-    sha256 "cceaee48d753482ef604551377665d93b22582c4f0032d6f7c1cb04d8a35fda6" => :mavericks
-    sha256 "ac1387f3ccef9fb263e2cf45813cc75ae822f8dc848e751db8cb080e3f22197b" => :mountain_lion
+    sha256 "30f3453447fc6f4851a42d444aaa18a2d2711af294a5f0b02ae5552d8573cb18" => :yosemite
+    sha256 "27e42b369dd48e7f9efde2eaba9d226cdbedea39221fff7a028f81dea1dabb49" => :mavericks
+    sha256 "2016e94ef9a5ebbfd10ce9afac4965afd78197cccfe9e9fb9e82048af2d3222d" => :mountain_lion
   end
 
   depends_on "pkg-config" => :build
