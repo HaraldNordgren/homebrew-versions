@@ -16,13 +16,6 @@ class Erlang < Formula
     sha256 "c9708b395543c8a36b736e73c6ef3cffb8280626119dbef61883437af4a13733" => :mountain_lion
   end
 
-  bottle do
-    cellar :any
-    sha256 "e388230f9e4ca9bb25e3062048585191735b3a9b149f16b83182187fb2c63694" => :yosemite
-    sha256 "858f71be830e181de7c2538edca6997f8eb3d45342e6abb14a4b239f3f9f3e79" => :mavericks
-    sha256 "c9708b395543c8a36b736e73c6ef3cffb8280626119dbef61883437af4a13733" => :mountain_lion
-  end
-
   resource "man" do
     url "http://www.erlang.org/download/otp_doc_man_17.5.tar.gz"
     sha256 "85b1b2a1011fc01af550f1fe9e5a599a4c5f2a35d264d2804af1d05590a857c3"
