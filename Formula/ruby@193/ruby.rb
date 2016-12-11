@@ -5,6 +5,13 @@ class Ruby < Formula
   sha256 "b0c5e37e3431d58613a160504b39542ec687d473de1d4da983dabcf3c5de771e"
   revision 1
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "331f6f131245fbd345a409ed4eddd92600465678a0b053b59b58d7beb9ea7139" => :yosemite
+    sha256 "9f766d333e06d6c92eb40b4370a02fb0c54e29cff51adb4338050dc667a6c14d" => :mavericks
+    sha256 "1b1df99ceae1a5c4b779bf6975c63d9f36620040a7703e7f6bb769a249cc508a" => :mountain_lion
+  end
+
   option :universal
   option "with-suffix", "Suffix commands with '193'"
   option "with-doc", "Install documentation"
