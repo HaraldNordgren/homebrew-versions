@@ -3,10 +3,18 @@ require 'formula'
 class Tomcat < Formula
   version "6"
   homepage 'http://tomcat.apache.org/'
-  url 'http://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-6/v6.0.37/bin/apache-tomcat-6.0.37.tar.gz'
-  sha1 '722e6e4f35983b28170002d6b89b4915db682db6'
+  url 'http://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-6/v6.0.39/bin/apache-tomcat-6.0.39.tar.gz'
+  sha1 '09db6cda165c6180f19c65cd95732b546bada456'
 
   keg_only "Some scripts that are installed conflict with other software."
+
+  option "with-fulldocs", "Install full documentation locally"
+
+  resource 'fulldocs' do
+    url 'http://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-6/v6.0.39/bin/apache-tomcat-6.0.39-fulldocs.tar.gz'
+    version '6.0.39'
+    sha1 '173ea9148d21d80eb7aeee8d96779ddc2e1d5391'
+  end
 
   def install
     rm_rf Dir['bin/*.{cmd,bat]}']
@@ -14,6 +22,7 @@ class Tomcat < Formula
     (libexec+'logs').mkpath
     bin.mkpath
     Dir["#{libexec}/bin/*.sh"].each { |f| ln_s f, bin }
+    (share/'fulldocs').install resource('fulldocs') if build.with? 'fulldocs'
   end
 
   def caveats; <<-EOS.undent
