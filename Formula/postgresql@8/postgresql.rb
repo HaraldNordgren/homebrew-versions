@@ -6,6 +6,7 @@ class Postgresql < Formula
   url 'http://ftp.postgresql.org/pub/source/v8.4.21/postgresql-8.4.21.tar.bz2'
   sha256 '388f67e59f2a16c27e84f50656f5d755adf3d0a883138366d091aa0c727c1e2c'
 
+  depends_on 'openssl'
   depends_on 'readline'
   depends_on 'libxml2' if MacOS.version == :leopard
   depends_on 'ossp-uuid' => :recommended
