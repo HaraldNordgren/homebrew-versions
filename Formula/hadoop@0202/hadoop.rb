@@ -3,8 +3,10 @@ require 'formula'
 class Hadoop < Formula
   url 'http://archive.apache.org/dist/hadoop/common/hadoop-0.20.2/hadoop-0.20.2.tar.gz'
   homepage 'http://hadoop.apache.org/'
-  md5 '8f40198ed18bef28aeea1401ec536cb9'
+  sha1 'c15d89f8f379e5ef242e36a881e45e79c934bfd7'
   version '0.20.2'
+
+  keg_only "Conflicts with hadoop in core."
 
   def shim_script target
     <<-EOS.undent
@@ -15,18 +17,22 @@ class Hadoop < Formula
 
   def install
     rm_f Dir["bin/*.bat"]
-    libexec.install %w[bin conf contrib lib webapps]
+    libexec.install %w[bin conf lib webapps contrib]
     libexec.install Dir['*.jar']
-    bin.mkpath
-    Dir["#{libexec}/bin/*"].each do |b|
-      n = Pathname.new(b).basename
-      (bin+n).write shim_script(n)
-    end
+    bin.write_exec_script Dir["#{libexec}/bin/*"]
+    # But don't make rcc visible, it conflicts with Qt
+    (bin/'rcc').unlink
+
+    inreplace "#{libexec}/conf/hadoop-env.sh",
+      "# export JAVA_HOME=/usr/lib/j2sdk1.5-sun",
+      "export JAVA_HOME=\"$(/usr/libexec/java_home)\""
   end
 
-  def caveats
-    <<-EOS.undent
-      $JAVA_HOME must be set for Hadoop commands to work.
+  def caveats; <<-EOS.undent
+    In Hadoop's config file:
+      #{libexec}/conf/hadoop-env.sh
+    $JAVA_HOME has been set to be the output of:
+      /usr/libexec/java_home
     EOS
   end
 end
