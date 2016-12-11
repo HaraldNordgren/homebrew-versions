@@ -3,8 +3,8 @@ require 'formula'
 class Openssl < Formula
   version "098"
   homepage 'http://www.openssl.org'
-  url 'http://www.openssl.org/source/openssl-0.9.8y.tar.gz'
-  sha1 '32ec994d626555774548c82e48c5d220bec903c4'
+  url 'http://www.openssl.org/source/openssl-0.9.8za.tar.gz'
+  sha1 'aadca1eb1a103a5536b24e1ed7e45051e2939731'
 
   keg_only :provided_by_osx
 
