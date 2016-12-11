@@ -17,11 +17,6 @@ class Erlang < Formula
   url 'https://github.com/erlang/otp/archive/OTP_R14B04.tar.gz'
   sha1 '4c8f1dcb5cc9e39e7637a8022a93588823076f0e'
 
-  bottle do
-    url 'https://downloads.sf.net/project/machomebrew/Bottles/erlang-R14B04-bottle.tar.gz'
-    sha1 '0cbd2ebd59491a473b38833970ba0cfb78549594'
-  end
-
   option 'disable-hipe', 'Disable building hipe; fails on various OS X systems'
   option 'halfword', 'Enable halfword emulator (64-bit builds only)'
   option 'time', '`brew test --time` to include a time-consuming test'
