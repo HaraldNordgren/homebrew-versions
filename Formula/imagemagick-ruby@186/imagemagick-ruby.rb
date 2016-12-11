@@ -46,7 +46,7 @@ class ImagemagickRuby < Formula
      "--with-modules",
      "--without-magick-plus-plus"]
 
-     args << "--disable-openmp" if MACOS_VERSION < 10.6   # libgomp unavailable
+     args << "--disable-openmp" if MacOS.version < 10.6   # libgomp unavailable
      args << '--without-ghostscript' \
           << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" \
              unless ghostscript_srsly?
