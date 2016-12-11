@@ -35,8 +35,8 @@ COMMENTS
 class Python < Formula
   version "26"
   homepage 'http://www.python.org/'
-  url 'http://www.python.org/ftp/python/2.6.8/Python-2.6.8.tgz'
-  sha1 '104304943eb9f0a34d255f1849bc00f67d3d272f'
+  url 'http://www.python.org/ftp/python/2.6.9/Python-2.6.9.tgz'
+  sha1 '006a6d0535f0b250fb148700e12b8b0a513d84ad'
 
   option :universal
   option 'framework', 'Do a Framework build instead of a UNIX-style build'
