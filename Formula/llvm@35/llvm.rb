@@ -1,50 +1,53 @@
 class Llvm < Formula
   version "35"
+  desc "A next-gen compiler infrastructure"
   homepage "http://llvm.org/"
 
   stable do
     url "http://llvm.org/releases/3.5.1/llvm-3.5.1.src.tar.xz"
-    sha1 "79638cf00584b08fd6eeb1e73ea69b331561e7f6"
+    sha256 "bf3275d2d7890015c8d8f5e6f4f882f8cf3bf51967297ebe74111d6d8b53be15"
 
     resource "clang" do
       url "http://llvm.org/releases/3.5.1/cfe-3.5.1.src.tar.xz"
-      sha1 "39d79c0b40cec548a602dcac3adfc594b18149fe"
+      sha256 "6773f3f9cf815631cc7e779ec134ddd228dc8e9a250e1ea3a910610c59eb8f5c"
     end
 
     resource "clang-tools-extra" do
       url "http://llvm.org/releases/3.5.1/clang-tools-extra-3.5.1.src.tar.xz"
-      sha1 "7a0dd880d7d8fe48bdf0f841eca318337d27a345"
+      sha256 "e8d011250389cfc36eb51557ca25ae66ab08173e8d53536a0747356105d72906"
     end
 
     resource "compiler-rt" do
       url "http://llvm.org/releases/3.5.1/compiler-rt-3.5.1.src.tar.xz"
-      sha1 "620d59dcc375b24c5663f2793b2bcd74f848435d"
+      sha256 "adf4b526f33e681aff5961f0821f5b514d3fc375410008842640b56a2e6a837a"
     end
 
     resource "polly" do
       url "http://llvm.org/releases/3.5.1/polly-3.5.1.src.tar.xz"
-      sha1 "5f387aa9ceeeb9194459120110fcbd7e3bbb02d2"
+      sha256 "ac12ec5ff2119ac1d2916c105920e1880321a7d97b6f5ec5957a588450704f04"
     end
 
     resource "lld" do
       url "http://llvm.org/releases/3.5.1/lld-3.5.1.src.tar.xz"
-      sha1 "9af270a79ae0aeb0628112073167495c43ab836a"
+      sha256 "f29f684723effd204b6fe96edb1bf2f66f0f81297230bc92b8cc514f7a24236f"
     end
 
     resource "lldb" do
       url "http://llvm.org/releases/3.5.1/lldb-3.5.1.src.tar.xz"
-      sha1 "32728e25e6e513528c8c793ae65981150bec7c0d"
+      sha256 "e8b948c6c85cd61bd9a48361959401b9c631fa257c0118db26697c5d57460e13"
     end
 
     resource "libcxx" do
       url "http://llvm.org/releases/3.5.1/libcxx-3.5.1.src.tar.xz"
-      sha1 "aa8d221f4db99f5a8faef6b594cbf7742cc55ad2"
+      sha256 "a16d0ae0c0cf2c8cebb94fafcb907022cd4f8579ebac99a4c9919990a37ad475"
     end
 
-    resource "libcxxabi" do
-      url "http://llvm.org/releases/3.5.1/libcxxabi-3.5.1.src.tar.xz"
-      sha1 "9933c07cb8a8fbfd872a302dc033a0887d9c5726"
-    end if MacOS.version <= :snow_leopard
+    if MacOS.version <= :snow_leopard
+      resource "libcxxabi" do
+        url "http://llvm.org/releases/3.5.1/libcxxabi-3.5.1.src.tar.xz"
+        sha256 "7ff14fdce0ed7bfcc532c627c7a2dc7876dd8a3d788b2aa201d3bbdc443d06a3"
+      end
+    end
   end
 
   bottle do
@@ -86,19 +89,21 @@ class Llvm < Formula
       url "http://llvm.org/git/libcxx.git", :branch => "release_35"
     end
 
-    resource "libcxxabi" do
-      url "http://llvm.org/git/libcxxabi.git"
-    end if MacOS.version <= :snow_leopard
+    if MacOS.version <= :snow_leopard
+      resource "libcxxabi" do
+        url "http://llvm.org/git/libcxxabi.git"
+      end
+    end
   end
 
   resource "isl" do
     url "http://isl.gforge.inria.fr/isl-0.13.tar.bz2"
-    sha1 "3904274c84fb3068e4f59b6a6b0fe29e7a2b7010"
+    sha256 "7265fd897b7f9147fde76560f28ed18f2c20e5f5da7f4bd9d0e01f8a713401f1"
   end
 
   resource "cloog" do
-    url "http://repo.or.cz/w/cloog.git/snapshot/22643c94eba7b010ae4401c347289f4f52b9cd2b.tar.gz"
-    sha1 "5409629e2fbe38035e8071c81601317a1a699309"
+    url "http://repo.or.cz/cloog.git",
+    :revision => "22643c94eba7b010ae4401c347289f4f52b"
   end
 
   patch :DATA
@@ -117,11 +122,10 @@ class Llvm < Formula
   deprecated_option "disable-assertions" => "without-assertions"
 
   # required to build cloog
-  depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "libtool"  => :build
+  depends_on "autoconf" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-
   depends_on "gmp"
   depends_on "libffi" => :recommended
 
@@ -277,10 +281,6 @@ class Llvm < Formula
     end
   end
 
-  test do
-    system "#{bin}/llvm-config-#{ver}", "--version"
-  end
-
   def caveats; <<-EOS.undent
     Extra tools are installed in #{opt_share}/clang-#{ver}
 
@@ -289,6 +289,10 @@ class Llvm < Formula
       CXXFLAGS="$CXXFLAGS -nostdinc++ -I#{opt_lib}/llvm-#{ver}/include/c++/v1"
       LDFLAGS="$LDFLAGS -L#{opt_lib}/llvm-#{ver}/lib"
     EOS
+  end
+
+  test do
+    system "#{bin}/llvm-config-#{ver}", "--version"
   end
 end
 
