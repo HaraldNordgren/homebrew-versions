@@ -54,5 +54,12 @@
     "file_without_extension": "postgresql8",
     "original_filename": "postgresql8.rb",
     "migrated_filename": "postgresql.rb"
+  },
+  {
+    "classname_with_version": "Cassandra06",
+    "package_at_version": "cassandra@0.6",
+    "file_without_extension": "cassandra-0.6",
+    "original_filename": "cassandra-0.6.rb",
+    "migrated_filename": "cassandra.rb"
   }
 ]
