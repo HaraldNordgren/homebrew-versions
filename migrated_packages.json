@@ -299,5 +299,12 @@
     "file_without_extension": "antlr2",
     "original_filename": "antlr2.rb",
     "migrated_filename": "antlr.rb"
+  },
+  {
+    "classname_with_version": "Jpeg6b",
+    "package_at_version": "jpeg@6b",
+    "file_without_extension": "jpeg6b",
+    "original_filename": "jpeg6b.rb",
+    "migrated_filename": "jpeg.rb"
   }
 ]
