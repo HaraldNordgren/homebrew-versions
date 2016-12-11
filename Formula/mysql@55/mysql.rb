@@ -45,11 +45,11 @@ class Mysql < Formula
     ENV.minimal_optimization
 
     # Make sure the var/mysql directory exists
-    (var+"mysql").mkpath
+    (var/name).mkpath
 
     args = [".",
             "-DCMAKE_INSTALL_PREFIX=#{prefix}",
-            "-DMYSQL_DATADIR=#{var}/mysql",
+            "-DMYSQL_DATADIR=#{var}/#{name}",
             "-DINSTALL_MANDIR=#{man}",
             "-DINSTALL_DOCDIR=#{doc}",
             "-DINSTALL_INFODIR=#{info}",
@@ -114,7 +114,7 @@ class Mysql < Formula
   def caveats; <<-EOS.undent
     Set up databases to run AS YOUR USER ACCOUNT with:
         unset TMPDIR
-        mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix mysql)" --datadir=#{var}/mysql --tmpdir=/tmp
+        mysql_install_db --verbose --user=`whoami` --basedir="$(brew --prefix #{name})" --datadir=#{var}/#{name} --tmpdir=/tmp
 
     To set up base tables in another folder, or use a different user to run
     mysqld, view the help for mysql_install_db:
