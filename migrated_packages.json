@@ -1601,5 +1601,12 @@
     "file_without_extension": "redis28",
     "original_filename": "redis28.rb",
     "migrated_filename": "redis.rb"
+  },
+  {
+    "classname_with_version": "Elasticsearch14",
+    "package_at_version": "elasticsearch@14",
+    "file_without_extension": "elasticsearch14",
+    "original_filename": "elasticsearch14.rb",
+    "migrated_filename": "elasticsearch.rb"
   }
 ]
