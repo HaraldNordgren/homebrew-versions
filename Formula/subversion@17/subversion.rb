@@ -34,7 +34,6 @@ class Subversion < Formula
 
   # Always build against Homebrew versions instead of system versions for consistency.
   depends_on :python => :optional
-  depends_on "neon"
   depends_on "sqlite"
   depends_on "openssl"
 
@@ -68,7 +67,36 @@ class Subversion < Formula
   # Patch to prevent "-arch ppc" from being pulled in from Perl's $Config{ccflags}
   patch :p0, :DATA if build.with? "perl"
 
+  resource "neon" do
+    url "http://webdav.org/neon/neon-0.29.6.tar.gz"
+    sha256 "9c640b728d6dc80ef1e48f83181166ab6bc95309cece5537e01ffdd01b96eb43"
+  end
+
   def install
+    # OS X's Python is built universally and can't link with Homebrew's deps
+    # unless Homebrew's deps are universal as well.
+    # https://github.com/Homebrew/homebrew-versions/issues/777
+    if build.with?("python") && !File.exist?(HOMEBREW_PREFIX/"bin/python")
+      unless build.universal?
+        fail <<-EOS.undent
+          You must build subversion17 --universal unless Homebrew's
+          Python is installed, otherwise the build will fail.
+        EOS
+      end
+    end
+
+    # Homebrew's Neon is too new and causes problems.
+    resource("neon").stage do
+      system "./configure", "--prefix=#{libexec}/neon", "--enable-shared",
+                            "--disable-static", "--disable-nls"
+      system "make", "install"
+    end
+
+    ENV.prepend_path "PATH", libexec/"neon/bin"
+    ENV.prepend "CFLAGS", "-I#{libexec}/neon/include"
+    ENV.prepend "LDFLAGS", "-L#{libexec}/neon/lib"
+    ENV.prepend_path "PKG_CONFIG_PATH", libexec/"neon/lib/pkgconfig"
+
     serf_prefix = libexec+"serf"
 
     resource("serf").stage do
