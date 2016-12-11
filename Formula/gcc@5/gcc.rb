@@ -26,6 +26,13 @@ class Gcc < Formula
 
   head "svn://gcc.gnu.org/svn/gcc/trunk"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "de1af069d20b15185c1f1a1a31861e01e41101bfbac30179ddd85ddc02eb6d17" => :yosemite
+    sha256 "cd5a5293f41012ba0290508380eeae52e835fd1d81ca634ced3be22c08d6f709" => :mavericks
+    sha256 "c302188a6f07adebbca615c0a7dcfcc02ea41c29810505c86901c05b439241a7" => :mountain_lion
+  end
+
   option "with-fortran", "Build the gfortran compiler"
   option "with-java", "Build the gcj compiler"
   option "with-go", "Build the gccgo compiler"
