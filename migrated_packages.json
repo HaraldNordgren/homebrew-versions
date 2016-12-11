@@ -1720,5 +1720,12 @@
     "file_without_extension": "nasm21106",
     "original_filename": "nasm21106.rb",
     "migrated_filename": "nasm.rb"
+  },
+  {
+    "classname_with_version": "Astyle204",
+    "package_at_version": "astyle@204",
+    "file_without_extension": "astyle204",
+    "original_filename": "astyle204.rb",
+    "migrated_filename": "astyle.rb"
   }
 ]
