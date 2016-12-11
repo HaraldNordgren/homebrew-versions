@@ -19,7 +19,7 @@ class Mapnik < Formula
   # concatenated from https://github.com/mapnik/mapnik/issues/2428
   patch do
     url "https://gist.githubusercontent.com/tdsmith/22aeb0bfb9691de91463/raw/3064c193466a041d82e011dc5601312ccadc9e15/mapnik-boost-megadiff.diff"
-    sha1 "63939ad5e197c83f7fe09e321484248dfd96d0f3"
+    sha256 "40e83052ae892aa0b134c09d8610ebd891619895bb5f3e5d937d0c48ed42d1a6"
   end
 
   depends_on "pkg-config" => :build
@@ -34,7 +34,6 @@ class Mapnik < Formula
   depends_on "gdal" => :optional
   depends_on "postgresql" => :optional
   depends_on "cairo" => :optional
-
   depends_on "py2cairo" if build.with? "cairo"
 
   def install
