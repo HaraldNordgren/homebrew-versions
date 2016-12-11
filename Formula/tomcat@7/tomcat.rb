@@ -7,9 +7,9 @@ class Tomcat < Formula
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
-    sha256 "80ebcd42d337ab33d7bd0294193838e4d1a5945eafb44e07f254ba3e1229d725" => :yosemite
-    sha256 "55c01b38aac5ec11ffcfbc5a8de7eff817afa4f964c4a50210f5a5021a611c06" => :mavericks
-    sha256 "2f0d0aaa88b3a730d6c1b936c9251cba2968e15d89a5b1372e129870146969b3" => :mountain_lion
+    sha256 "9f44bf780148b5f9a46b8a7e23243157c563d1405ad883e52113379e9ac73f96" => :yosemite
+    sha256 "51d1d46ea51a1e843f2bc960250ee3bbe3d1e309aa31044d4bcea7f63558a007" => :mavericks
+    sha256 "4bb7d4bd8c153963eaaf83c79d6c947bc83b264d7c380389f9696e2740412f05" => :mountain_lion
   end
 
   option "with-fulldocs", "Install full documentation locally"
