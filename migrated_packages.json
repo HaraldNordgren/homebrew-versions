@@ -719,5 +719,12 @@
     "file_without_extension": "perl516",
     "original_filename": "perl516.rb",
     "migrated_filename": "perl.rb"
+  },
+  {
+    "classname_with_version": "Perl518",
+    "package_at_version": "perl@518",
+    "file_without_extension": "perl518",
+    "original_filename": "perl518.rb",
+    "migrated_filename": "perl.rb"
   }
 ]
