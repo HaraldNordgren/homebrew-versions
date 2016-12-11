@@ -76,12 +76,9 @@ class Llvm < Formula
   patch :DATA
 
   option :universal
-  option 'with-libcxx', 'Build libc++ standard library support'
-  option 'with-clang', 'Build Clang C/ObjC/C++ frontend'
   option 'with-asan', 'Include support for -faddress-sanitizer (from compiler-rt)'
   option 'disable-shared', "Don't build LLVM as a shared library"
   option 'all-targets', 'Build all target backends'
-  option 'rtti', 'Build with C++ RTTI'
   option 'disable-assertions', 'Speeds up LLVM, but provides less debug information'
 
   depends_on :python => :recommended
@@ -100,14 +97,6 @@ class Llvm < Formula
       raise 'The Python bindings need the shared library.'
     end
 
-    if build.with? 'libcxx' and build.without? 'clang'
-      raise '"--with-libcxx" requires "--with-clang".'
-    end
-
-    if build.with? 'libcxx' and not build.include? 'rtti'
-      raise '"--with-libcxx" requires "rtti".'
-    end
-
     polly_buildpath = buildpath/'tools/polly'
     clang_buildpath = buildpath/'tools/clang'
     clang_tools_extra_buildpath = buildpath/'tools/clang/tools/extra'
@@ -116,13 +105,14 @@ class Llvm < Formula
     libcxxabi_buildpath = buildpath/'libcxxabi' # build failure if put in projects due to no Makefile
 
     polly_buildpath.install resource('polly')
-    clang_buildpath.install resource('clang') if build.with? 'clang'
-    clang_tools_extra_buildpath.install resource('clang-tools-extra') if build.with? 'clang'
+    clang_buildpath.install resource('clang')
+    clang_tools_extra_buildpath.install resource('clang-tools-extra')
+    libcxx_buildpath.install resource('libcxx')
+
     compiler_rt_buildpath.install resource('compiler-rt') if build.with? 'asan'
-    libcxx_buildpath.install resource('libcxx') if build.with? 'libcxx'
 
     # On Snow Leopard and below libc++abi is not shipped but needed for libc++.
-    if MacOS.version <= :snow_leopard and build.with? 'libcxx'
+    if MacOS.version <= :snow_leopard
       libcxxabi_buildpath.install resource('libcxxabi')
       buildpath.install resource('clang-unwind-patch')
       cd clang_buildpath do
@@ -136,7 +126,7 @@ class Llvm < Formula
       ENV['UNIVERSAL_ARCH'] = Hardware::CPU.universal_archs.join(' ')
     end
 
-    ENV['REQUIRES_RTTI'] = '1' if build.include? 'rtti'
+    ENV['REQUIRES_RTTI'] = '1'
 
     install_prefix = lib/"llvm-#{ver}"
 
@@ -180,7 +170,7 @@ class Llvm < Formula
       (install_prefix/'usr/lib/').install libcxxabi_buildpath/'lib/libc++abi.dylib'
       # Install headers.
       cp libcxxabi_buildpath/'include/cxxabi.h', install_prefix/'lib/c++/v1/'
-    end if MacOS.version <= :snow_leopard and build.with? 'libcxx'
+    end if MacOS.version <= :snow_leopard
 
     # Putting libcxx in projects only ensures that headers are installed.
     # Manually "make install" to actually install the shared libs.
@@ -210,20 +200,18 @@ class Llvm < Formula
       ln_s libcxxabi_buildpath/'include/cxxabi.h', libcxx_buildpath/'include' if MacOS.version <= :snow_leopard
 
       system 'make', 'install', *libcxx_make_args
-    end if build.with? 'libcxx'
+    end
 
     # Install Clang tools
-    (share/"clang-#{ver}/tools").install clang_buildpath/'tools/scan-build', clang_buildpath/'tools/scan-view' if build.with? 'clang'
+    (share/"clang-#{ver}/tools").install clang_buildpath/'tools/scan-build', clang_buildpath/'tools/scan-view'
 
     if build.with? "python"
       # Install llvm python bindings.
       mv buildpath/'bindings/python/llvm', buildpath/"bindings/python/llvm-#{ver}"
       (lib+'python2.7/site-packages').install buildpath/"bindings/python/llvm-#{ver}"
       # Install clang tools and bindings if requested.
-      if build.with? 'clang'
-        mv clang_buildpath/'bindings/python/clang', clang_buildpath/"bindings/python/clang-#{ver}"
-        (lib+'python2.7/site-packages').install clang_buildpath/"bindings/python/clang-#{ver}"
-      end
+      mv clang_buildpath/'bindings/python/clang', clang_buildpath/"bindings/python/clang-#{ver}"
+      (lib+'python2.7/site-packages').install clang_buildpath/"bindings/python/clang-#{ver}"
     end
 
     # Link executables to bin and add suffix to avoid conflicts
@@ -245,23 +233,18 @@ class Llvm < Formula
 
   def caveats
     s = ''
+    s += "Extra tools are installed in #{HOMEBREW_PREFIX}/share/clang-#{ver}."
 
-    if build.with? 'clang'
-      s += "Extra tools are installed in #{HOMEBREW_PREFIX}/share/clang-#{ver}."
-    end
-
-    if build.with? 'libcxx'
-      include_path = HOMEBREW_PREFIX/"lib/llvm-#{ver}/lib/c++/v1"
-      libs_path = HOMEBREW_PREFIX/"lib/llvm-#{ver}/usr/lib"
-      s += <<-EOS.undent
+    include_path = HOMEBREW_PREFIX/"lib/llvm-#{ver}/lib/c++/v1"
+    libs_path = HOMEBREW_PREFIX/"lib/llvm-#{ver}/usr/lib"
+    s += <<-EOS.undent
 
       To link to libc++ built here, please adjust your environment as follow:
 
         CXX="clang++-#{ver} -stdlib=libc++"
         CXXFLAGS="${CXXFLAGS} -nostdinc++ -I#{include_path}"
         LDFLAGS="${LDFLAGS} -L#{libs_path}"
-      EOS
-    end
+    EOS
     s
   end
 end
