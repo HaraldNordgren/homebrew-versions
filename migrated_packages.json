@@ -481,5 +481,12 @@
     "file_without_extension": "eigen2",
     "original_filename": "eigen2.rb",
     "migrated_filename": "eigen.rb"
+  },
+  {
+    "classname_with_version": "ErlangR16",
+    "package_at_version": "erlang@r16",
+    "file_without_extension": "erlang-r16",
+    "original_filename": "erlang-r16.rb",
+    "migrated_filename": "erlang.rb"
   }
 ]
