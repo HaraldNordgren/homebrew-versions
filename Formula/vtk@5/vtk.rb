@@ -5,26 +5,37 @@ class Vtk < Formula
   homepage 'http://www.vtk.org'
   url 'http://www.vtk.org/files/release/5.10/vtk-5.10.1.tar.gz'  # update libdir below, too!
   sha1 'deb834f46b3f7fc3e122ddff45e2354d69d2adc3'
+  head 'git://vtk.org/VTK.git', :branch => 'release-5.10'
+
+  option :cxx11
 
   depends_on 'cmake' => :build
   depends_on :x11 => :optional
   depends_on 'qt' => :optional
   depends_on :python => :recommended
-  conflicts_with 'vtk', :because =>  "Different versions of the same library."
   # If --with-qt and --with-python, then we automatically use PyQt, too!
-  if build.with? 'qt'
+  if build.with? 'qt' and build.with? 'python'
     depends_on 'sip'
     depends_on 'pyqt'
   end
+  depends_on 'boost' => :recommended
+  depends_on 'hdf5' => :recommended
+  depends_on 'jpeg' => :recommended
+  depends_on :libpng => :recommended
+  depends_on 'libtiff' => :recommended
+
+  keg_only "Different versions of the same library."
 
   option 'examples',  'Compile and install various examples'
   option 'qt-extern', 'Enable Qt4 extension via non-Homebrew external Qt4'
   option 'tcl',       'Enable Tcl wrapping of VTK classes'
+  option 'remove-legacy', 'Disable legacy APIs'
 
   def patches
     # Fix bug in Wrapping/Python/setup_install_paths.py: http://vtk.org/Bug/view.php?id=13699
     # and compilation on mavericks backported from head.
-    DATA
+    p = [DATA]
+    p << "https://gist.github.com/sxprophet/7463815/raw/85e57e0fd078d407b09a75e52ffe89350b8beef9/vtk5-cxx11-patch.diff" if build.cxx11?
   end
 
   def install
@@ -39,6 +50,9 @@ class Vtk < Formula
       -DIOKit:FILEPATH=#{MacOS.sdk_path}/System/Library/Frameworks/IOKit.framework
       -DCMAKE_INSTALL_RPATH:STRING=#{libdir}
       -DCMAKE_INSTALL_NAME_DIR:STRING=#{libdir}
+      -DVTK_USE_SYSTEM_EXPAT=ON
+      -DVTK_USE_SYSTEM_LIBXML2=ON
+      -DVTK_USE_SYSTEM_ZLIB=ON
     ]
 
     args << '-DBUILD_EXAMPLES=' + ((build.include? 'examples') ? 'ON' : 'OFF')
@@ -65,6 +79,16 @@ class Vtk < Formula
       args << "-DTK_INCLUDE_PATH:PATH=#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Headers"
       args << "-DTK_INTERNAL_PATH:PATH=#{MacOS.sdk_path}/System/Library/Frameworks/Tk.framework/Headers/tk-private"
     end
+
+
+    args << '-DVTK_USE_BOOST=ON' if build.with? 'boost'
+    args << '-DVTK_USE_SYSTEM_HDF5=ON' if build.with? 'hdf5'
+    args << '-DVTK_USE_SYSTEM_JPEG=ON' if build.with? 'jpeg'
+    args << '-DVTK_USE_SYSTEM_PNG=ON' if build.with? :libpng
+    args << '-DVTK_USE_SYSTEM_TIFF=ON' if build.with? 'libtiff'
+    args << '-DVTK_LEGACY_REMOVE=ON' if build.include? 'remove-legacy'
+
+    ENV.cxx11 if build.cxx11?
 
     mkdir 'build' do
       if build.with? 'python'
@@ -95,6 +119,9 @@ class Vtk < Formula
         in PyQt, PySide, Tk or Wx at runtime. Read more:
             import vtk.qt4; help(vtk.qt4) or import vtk.wx; help(vtk.wx)
 
+        VTK5 is keg only in favor of VTK6. Add
+            #{opt_prefix}/lib/python2.7/site-packages
+        to your PYTHONPATH before using the python bindings.
     EOS
 
     if build.include? 'examples'
