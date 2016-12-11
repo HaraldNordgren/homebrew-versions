@@ -1,10 +1,24 @@
 require 'formula'
-require Formula.path("python") # For TkCheck requirement
 
 # Python3 is the new language standard, not just a new revision.
 # It's somewhat incompatible to Python 2.x, therefore, the executable
 # "python" will always point to the 2.x version which you can get by
 # `brew install python`.
+
+class TkCheck < Requirement
+  def message; <<-EOS.undent
+    Tk.framework was detected in /Library/Frameworks
+    This can cause Python builds to fail. See:
+      https://github.com/mxcl/homebrew/issues/11602
+    EOS
+  end
+
+  def fatal?; false; end
+
+  def satisfied?
+    not File.exist? '/Library/Frameworks/Tk.framework'
+  end
+end
 
 class Distribute < Formula
   url 'http://pypi.python.org/packages/source/d/distribute/distribute-0.6.28.tar.gz'
@@ -45,7 +59,7 @@ class Python < Formula
 
   # Where distribute/pip will install executable scripts.
   def scripts_folder
-    HOMEBREW_PREFIX/"share/python3"
+    HOMEBREW_PREFIX/"share/python#{VER}"
   end
 
   def effective_lib
@@ -58,12 +72,12 @@ class Python < Formula
     ENV['PYTHONPATH'] = nil
     ENV['PYTHONHOME'] = nil
 
-    args = %W[
-      --prefix=#{prefix}
-      --enable-ipv6
-      --datarootdir=#{share}
-      --datadir=#{share}
-      --enable-framework=#{prefix}/Frameworks]
+    args = %W[--prefix=#{prefix}
+             --enable-ipv6
+             --datarootdir=#{share}
+             --datadir=#{share}
+             --enable-framework=#{prefix}/Frameworks
+           ]
 
     args << '--without-gcc' if ENV.compiler == :clang
 
@@ -89,13 +103,13 @@ class Python < Formula
     # Tell Python not to install into /Applications (default for framework builds)
     system "make", "install", "PYTHONAPPSDIR=#{prefix}"
     # Demos and Tools
-    (HOMEBREW_PREFIX/'share/python3').mkpath
-    system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{share}/python3"
+    (HOMEBREW_PREFIX/"share/python#{VER}").mkpath
+    system "make", "frameworkinstallextras", "PYTHONAPPSDIR=#{share}/python#{VER}"
     system "make", "quicktest" if build.include? "quicktest"
 
     # Any .app get a " 3" attached, so it does not conflict with python 2.x.
     Dir.glob(prefix/"*.app").each do |app|
-      mv app, app.gsub(".app", " 3.app")
+      mv app, app.gsub(".app", " #{VER}.app")
     end
 
     # Post-install, fix up the site-packages and install-scripts folders
@@ -115,18 +129,14 @@ class Python < Formula
     rm sitecustomize if File.exist? sitecustomize
     sitecustomize.write(sitecustomize_content)
 
-    # "python3" and executable is forgotten for framework builds.
-    # Make sure homebrew symlinks it to HOMEBREW_PREFIX/bin.
-    ln_s "#{bin}/python#{VER}", "#{bin}/python3" unless (bin/"python3").exist?
-
     # Install distribute for python3 and assure there's no name clash
     # with what the python (2.x) formula installs.
     scripts_folder.mkpath
     setup_args = ["-s", "setup.py", "install", "--force", "--verbose", "--install-lib=#{site_packages_cellar}", "--install-scripts=#{bin}" ]
     Distribute.new.brew { system "#{bin}/python#{VER}", *setup_args }
-    mv bin/'easy_install', bin/'easy_install3'
+    rm bin/'easy_install'
     Pip.new.brew { system "#{bin}/python#{VER}", *setup_args }
-    mv bin/'pip', bin/'pip3'
+    rm bin/'pip'
 
     # Tell distutils-based installers where to put scripts
     (prefix/"Frameworks/Python.framework/Versions/#{VER}/lib/python#{VER}/distutils/distutils.cfg").write <<-EOF.undent
@@ -200,7 +210,7 @@ class Python < Formula
 
   def sitecustomize_content
     <<-EOF.undent
-      # This file is created by `brew install python3` and is executed on each
+      # This file is created by `brew install python#{VER}` and is executed on each
       # python#{VER} startup. Don't print from here, or else universe will collapse.
       import sys
       import site
@@ -209,12 +219,9 @@ class Python < Formula
       if sys.executable.startswith('#{HOMEBREW_PREFIX}'):
           # Fix 1)
           #   A setuptools.pth and/or easy-install.pth sitting either in
-          #   /Library/Python/2.7/site-packages or in
-          #   ~/Library/Python/2.7/site-packages can inject the
-          #   /System's Python site-packages. People then report
-          #   "OSError: [Errno 13] Permission denied" because pip/easy_install
-          #   attempts to install into
-          #   /System/Library/Frameworks/Python.framework/Versions/2.7/Extras/lib/python
+          #   /Library/Python/#{VER}/site-packages or in
+          #   ~/Library/Python/#{VER}/site-packages can inject the
+          #   /System's Python site-packages. 
           #   See: https://github.com/mxcl/homebrew/issues/14712
           sys.path = [ p for p in sys.path if not p.startswith('/System') ]
 
@@ -235,14 +242,14 @@ class Python < Formula
         #{prefix}/Frameworks/Python.framework
 
       Distribute and Pip have been installed. To update them
-        pip3 install --upgrade distribute
-        pip3 install --upgrade pip
+        pip-#{VER} install --upgrade distribute
+        pip-#{VER} install --upgrade pip
 
-      To symlink "Idle 3" and the "Python Launcher 3" to ~/Applications
+      To symlink "Idle #{VER}" and the "Python Launcher #{VER}" to ~/Applications
         `brew linkapps`
 
       You can install Python packages with
-        `pip3 install <your_favorite_package>`
+        `pip-#{VER} install <your_favorite_package>`
 
       They will install into the site-package directory
         #{site_packages}
