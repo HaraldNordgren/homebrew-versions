@@ -607,5 +607,12 @@
     "file_without_extension": "libmpc08",
     "original_filename": "libmpc08.rb",
     "migrated_filename": "libmpc.rb"
+  },
+  {
+    "classname_with_version": "CloogPpl015",
+    "package_at_version": "cloog-ppl@015",
+    "file_without_extension": "cloog-ppl015",
+    "original_filename": "cloog-ppl015.rb",
+    "migrated_filename": "cloog-ppl.rb"
   }
 ]
