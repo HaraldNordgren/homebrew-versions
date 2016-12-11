@@ -1,18 +1,16 @@
-require 'formula'
-
 class Mongodb < Formula
   version "24"
-  homepage 'http://www.mongodb.org/'
-  url 'http://downloads.mongodb.org/src/mongodb-src-r2.4.12.tar.gz'
-  sha1 '7b78d201fdc25c791c30fe7ec8cadecb405c7bb7'
+  homepage "https://www.mongodb.org/"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r2.4.12.tar.gz"
+  sha256 "b239a065a1197f811a3908bdee8d535564b94f2d79da893935e38831ebbac8b3"
 
   patch do
-    url 'https://github.com/mongodb/mongo/commit/be4bc7.diff'
-    sha1 '7bbf8f9e48fb55dd418e4a5e9070bf0d19d83ab0'
+    url "https://github.com/mongodb/mongo/commit/be4bc7.diff"
+    sha256 "63592bb33dbe1662425a4a323a6ad33a6aa25d8e3c28b2bc48e34df57361eeed"
   end
 
-  depends_on 'scons' => :build
-  depends_on 'openssl' => :optional
+  depends_on "scons" => :build
+  depends_on "openssl" => :optional
 
   # When 2.6 is released this conditional can be removed.
   if MacOS.version < :mavericks
@@ -32,7 +30,7 @@ class Mongodb < Formula
       cxx += " -stdlib=libstdc++"
     end
 
-    args << '--64' if MacOS.prefer_64_bit?
+    args << "--64" if MacOS.prefer_64_bit?
     args << "--cc=#{ENV.cc}"
     args << "--cxx=#{cxx}"
 
@@ -40,18 +38,18 @@ class Mongodb < Formula
     args << "--full"
     args << "--use-system-boost" if build.with? "boost"
 
-    if build.with? 'openssl'
-      args << '--ssl'
+    if build.with? "openssl"
+      args << "--ssl"
       args << "--extrapath=#{Formula["openssl"].opt_prefix}"
     end
 
-    scons 'install', *args
+    scons "install", *args
 
     (buildpath+"mongod.conf").write mongodb_conf
     etc.install "mongod.conf"
 
-    (var+'mongodb').mkpath
-    (var+'log/mongodb').mkpath
+    (var+"mongodb").mkpath
+    (var+"log/mongodb").mkpath
   end
 
   def mongodb_conf; <<-EOS.undent
@@ -108,6 +106,6 @@ class Mongodb < Formula
   end
 
   test do
-    system "#{bin}/mongod", '--sysinfo'
+    system "#{bin}/mongod", "--sysinfo"
   end
 end
