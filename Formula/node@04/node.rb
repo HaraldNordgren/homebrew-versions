@@ -7,7 +7,8 @@ class Node < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
-    sha1 "42dfa7168e3d88a016be5e70da13fc45f63ae852" => :mountain_lion
+    revision 1
+    sha256 "30c8b596cf0184fd7608b5370b5e10c3adf453e899fa90dfa72215837eaf499a" => :mountain_lion
   end
 
   option "with-debug", "Build with debugger hooks"
