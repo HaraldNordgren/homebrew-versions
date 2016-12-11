@@ -15,8 +15,8 @@ class Python < Formula
 
   # Fixed to compile on Lion by reusing a patch from the Plone guys.
   def patches
-    {:p0 => [
-      "https://raw.github.com/collective/buildout.python/master/src/python-2.4-darwin-10.6.patch"
+    {:p0 => %W[
+      https://raw.github.com/collective/buildout.python/46f883ddaab4be778e87c9dcd23ec3446799dd04/src/python-2.4-darwin-10.6.patch
     ]}
   end
 
