@@ -116,7 +116,7 @@ class Llvm < Formula
       "--with-cloog=#{Formula["cloog"].opt_prefix}"
     ]
 
-    if build.include? 'all-targets' or build.with? "asan"
+    if build.include? 'all-targets'
       args << '--enable-targets=all'
     else
       args << '--enable-targets=host'
