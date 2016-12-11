@@ -7,9 +7,9 @@ class Mysql < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
-    sha256 "d35ce8e4c573a2d39e313b308b10c56ed0f1436d36dc061c898a7d155d92c2ab" => :yosemite
-    sha256 "31e4a4f7997090780e7304c8f564caf7aec68907813067d63f51e5c389c8d244" => :mavericks
-    sha256 "fc21481e66b48f7d464b5eff77c50d7bc3b5b7a1c474f57cbe3dce34057a6a60" => :mountain_lion
+    sha256 "1a409ee001f9e0a1e75d91bdf9635b912f92f55b19a4070e9776468149e531c3" => :yosemite
+    sha256 "6d4bebed1945df542aeaf1e2cc4940dc9cd2579ad3c9664fc958362d590c5dc0" => :mavericks
+    sha256 "fe21bc32c1a29b5a680cc64fd91db7712e5d3e2efba1f0322220934a85940bb1" => :mountain_lion
   end
 
   depends_on "cmake" => :build
