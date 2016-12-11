@@ -1,10 +1,8 @@
-require 'formula'
-
 class PerconaServer < Formula
-  homepage 'http://www.percona.com'
-  url 'http://www.percona.com/downloads/Percona-Server-5.5/Percona-Server-5.5.41-37.0/source/tarball/percona-server-5.5.41-37.0.tar.gz'
-  version '5.5.41-37.0'
-  sha1 '74610892ba6402e8df04320db444d6dcc7cb2fe8'
+  homepage "http://www.percona.com"
+  url "http://www.percona.com/downloads/Percona-Server-5.5/Percona-Server-5.5.41-37.0/source/tarball/percona-server-5.5.41-37.0.tar.gz"
+  version "5.5.41-37.0"
+  sha1 "74610892ba6402e8df04320db444d6dcc7cb2fe8"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
@@ -13,28 +11,25 @@ class PerconaServer < Formula
     sha1 "1d2f86b8c062a965a28e246f9d0957855c20b883" => :mountain_lion
   end
 
-  depends_on 'cmake' => :build
-  depends_on 'readline'
-  depends_on 'pidof'
-  depends_on 'openssl'
+  depends_on "cmake" => :build
+  depends_on "readline"
+  depends_on "pidof"
+  depends_on "openssl"
 
   option :universal
-  option 'with-tests', 'Build with unit tests'
-  option 'with-embedded', 'Build the embedded server'
-  option 'with-libedit', 'Compile with editline wrapper instead of readline'
-  option 'enable-local-infile', 'Build with local infile loading support'
+  option "with-tests", "Build with unit tests"
+  option "with-embedded", "Build the embedded server"
+  option "with-libedit", "Compile with editline wrapper instead of readline"
+  option "enable-local-infile", "Build with local infile loading support"
 
-  conflicts_with 'mysql',
+  conflicts_with "mysql",
     :because => "percona-server55 and mysql install the same binaries."
 
-  conflicts_with 'mariadb',
+  conflicts_with "mariadb",
     :because => "percona-server55 and mariadb install the same binaries."
 
-  conflicts_with 'mysql-cluster',
+  conflicts_with "mysql-cluster",
     :because => "percona-server55 and mysql-cluster install the same binaries."
-
-  conflicts_with 'percona-server',
-    :because => "percona-server55 and percona-server install the same binaries."
 
   fails_with :llvm do
     build 2334
@@ -45,7 +40,7 @@ class PerconaServer < Formula
   # under var/percona, but going forward they will be under var/msyql to be
   # shared with the mysql and mariadb formulae.
   def destination
-    @destination ||= (var/'percona').directory? ? 'percona' : 'mysql'
+    @destination ||= (var/"percona").directory? ? "percona" : "mysql"
   end
 
   def install
@@ -77,17 +72,17 @@ class PerconaServer < Formula
     ]
 
     # To enable unit testing at build, we need to download the unit testing suite
-    if build.with? 'tests'
+    if build.with? "tests"
       args << "-DENABLE_DOWNLOADS=ON"
     else
       args << "-DWITH_UNIT_TESTS=OFF"
     end
 
     # Build the embedded server
-    args << "-DWITH_EMBEDDED_SERVER=ON" if build.with? 'embedded'
+    args << "-DWITH_EMBEDDED_SERVER=ON" if build.with? "embedded"
 
     # Compile with readline unless libedit is explicitly chosen
-    args << "-DWITH_READLINE=yes" if build.without? 'libedit'
+    args << "-DWITH_READLINE=yes" if build.without? "libedit"
 
     # Make universal for binding to universal applications
     if build.universal?
@@ -96,18 +91,18 @@ class PerconaServer < Formula
     end
 
     # Build with local infile loading support
-    args << "-DENABLED_LOCAL_INFILE=1" if build.include? 'enable-local-infile'
+    args << "-DENABLED_LOCAL_INFILE=1" if build.include? "enable-local-infile"
 
     system "cmake", *args
     system "make"
-    system "make install"
+    system "make", "install"
 
     # Don't create databases inside of the prefix!
     # See: https://github.com/mxcl/homebrew/issues/4975
-    rm_rf prefix+'data'
+    rm_rf prefix+"data"
 
     # Link the setup script into bin
-    ln_s prefix+'scripts/mysql_install_db', bin+'mysql_install_db'
+    ln_s prefix+"scripts/mysql_install_db", bin+"mysql_install_db"
 
     # Fix up the control script and link into bin
     inreplace "#{prefix}/support-files/mysql.server" do |s|
@@ -145,7 +140,7 @@ class PerconaServer < Formula
     EOS
   end
 
-  plist_options :manual => 'mysql.server start'
+  plist_options :manual => "mysql.server start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
