@@ -222,5 +222,12 @@
     "file_without_extension": "subversion16",
     "original_filename": "subversion16.rb",
     "migrated_filename": "subversion.rb"
+  },
+  {
+    "classname_with_version": "Python25",
+    "package_at_version": "python@25",
+    "file_without_extension": "python25",
+    "original_filename": "python25.rb",
+    "migrated_filename": "python.rb"
   }
 ]
