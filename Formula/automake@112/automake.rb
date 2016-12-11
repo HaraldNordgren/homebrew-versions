@@ -7,7 +7,7 @@ class Automake < Formula
   mirror 'http://ftp.gnu.org/gnu/automake/automake-1.12.6.tar.gz'
   sha1 '34bfda1c720e1170358562b1667e533a203878d6'
 
-  depends_on 'autoconf'
+  depends_on 'autoconf' => :run
 
   if MacOS::Xcode.provides_autotools? or File.file? "/usr/bin/automake"
     keg_only "Xcode (up to and including 4.2) provides (a rather old) Automake."
