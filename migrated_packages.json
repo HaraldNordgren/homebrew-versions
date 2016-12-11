@@ -1566,5 +1566,12 @@
     "file_without_extension": "maven32",
     "original_filename": "maven32.rb",
     "migrated_filename": "maven.rb"
+  },
+  {
+    "classname_with_version": "ObjectiveCaml312",
+    "package_at_version": "objective-caml@312",
+    "file_without_extension": "objective-caml312",
+    "original_filename": "objective-caml312.rb",
+    "migrated_filename": "objective-caml.rb"
   }
 ]
