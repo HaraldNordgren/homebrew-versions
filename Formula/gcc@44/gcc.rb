@@ -11,9 +11,9 @@ class Gcc < Formula
       end
     elsif Hardware::CPU.type == :ppc
       if MacOS.prefer_64_bit?
-        'ppc64'
+        'powerpc64'
       else
-        'ppc'
+        'powerpc'
       end
     end
   end
