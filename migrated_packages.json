@@ -1608,5 +1608,12 @@
     "file_without_extension": "elasticsearch14",
     "original_filename": "elasticsearch14.rb",
     "migrated_filename": "elasticsearch.rb"
+  },
+  {
+    "classname_with_version": "Unison240",
+    "package_at_version": "unison@240",
+    "file_without_extension": "unison240",
+    "original_filename": "unison240.rb",
+    "migrated_filename": "unison.rb"
   }
 ]
