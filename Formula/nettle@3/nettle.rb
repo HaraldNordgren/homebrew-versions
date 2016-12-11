@@ -1,9 +1,9 @@
 class Nettle < Formula
   version "3"
   homepage "https://www.lysator.liu.se/~nisse/nettle/"
-  url "http://ftpmirror.gnu.org/nettle/nettle-3.1.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/nettle/nettle-3.1.tar.gz"
-  sha256 "f6859d4ec88e70805590af9862b4b8c43a2d1fc7991df0a7a711b1e7ca9fc9d3"
+  url "http://ftpmirror.gnu.org/nettle/nettle-3.1.1.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/nettle/nettle-3.1.1.tar.gz"
+  sha256 "5fd4d25d64d8ddcb85d0d897572af73b05b4d163c6cc49438a5bfbb8ff293d4c"
 
   bottle do
     cellar :any
