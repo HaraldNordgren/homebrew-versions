@@ -3,8 +3,8 @@ require 'formula'
 class Postgresql < Formula
   version "91"
   homepage 'http://www.postgresql.org/'
-  url 'http://ftp.postgresql.org/pub/source/v9.1.11/postgresql-9.1.11.tar.bz2'
-  sha256 'ccbc35aae1490ee5878b97a6aea48dad7465cdad296b380542e4303b68cc6f74'
+  url 'http://ftp.postgresql.org/pub/source/v9.1.12/postgresql-9.1.12.tar.bz2'
+  sha256 '0b267ebab5feb39ad6ef945b9588787886e7f7e5284467921d18cc7b76bcb383'
 
   depends_on 'readline'
   depends_on 'libxml2' if MacOS.version == :leopard
