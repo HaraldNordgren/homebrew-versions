@@ -908,5 +908,12 @@
     "file_without_extension": "valgrind38",
     "original_filename": "valgrind38.rb",
     "migrated_filename": "valgrind.rb"
+  },
+  {
+    "classname_with_version": "Boost149",
+    "package_at_version": "boost@149",
+    "file_without_extension": "boost149",
+    "original_filename": "boost149.rb",
+    "migrated_filename": "boost.rb"
   }
 ]
