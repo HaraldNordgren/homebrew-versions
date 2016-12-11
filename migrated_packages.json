@@ -1412,5 +1412,12 @@
     "file_without_extension": "play13",
     "original_filename": "play13.rb",
     "migrated_filename": "play.rb"
+  },
+  {
+    "classname_with_version": "Phantomjs198",
+    "package_at_version": "phantomjs@198",
+    "file_without_extension": "phantomjs198",
+    "original_filename": "phantomjs198.rb",
+    "migrated_filename": "phantomjs.rb"
   }
 ]
