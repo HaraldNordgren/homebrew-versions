@@ -425,5 +425,12 @@
     "file_without_extension": "jetty76",
     "original_filename": "jetty76.rb",
     "migrated_filename": "jetty.rb"
+  },
+  {
+    "classname_with_version": "Automake112",
+    "package_at_version": "automake@112",
+    "file_without_extension": "automake112",
+    "original_filename": "automake112.rb",
+    "migrated_filename": "automake.rb"
   }
 ]
