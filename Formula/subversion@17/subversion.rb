@@ -61,10 +61,6 @@ class Subversion < Formula
     cause "core.c:1: error: bad value (native) for -march= switch"
   end if (build.include? 'perl') or (build.include? 'ruby')
 
-  def apr_bin
-    Superenv.bin or "/usr/bin"
-  end
-
   def install
     serf_prefix = libexec+'serf'
 
@@ -107,7 +103,7 @@ class Subversion < Formula
     # Don't mess with Apache modules (since we're not sudo)
     args = ["--disable-debug",
             "--prefix=#{prefix}",
-            "--with-apr=#{apr_bin}",
+            "--with-apr=#{which("apr-1-config").dirname}",
             "--with-zlib=/usr",
             "--with-sqlite=#{Formula["sqlite"].opt_prefix}",
             "--with-ssl=#{Formula["openssl"].opt_prefix}",
