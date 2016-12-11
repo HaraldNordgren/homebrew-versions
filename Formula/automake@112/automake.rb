@@ -9,9 +9,7 @@ class Automake < Formula
 
   depends_on 'autoconf' => :run
 
-  if MacOS::Xcode.provides_autotools? or File.file? "/usr/bin/automake"
-    keg_only "Xcode (up to and including 4.2) provides (a rather old) Automake."
-  end
+  keg_only :provided_until_xcode43
 
   def install
     system "./configure", "--prefix=#{prefix}", "--program-suffix=112"
