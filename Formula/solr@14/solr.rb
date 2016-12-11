@@ -1,10 +1,10 @@
-require 'formula'
-
 class Solr < Formula
   version "14"
-  homepage 'http://lucene.apache.org/solr/'
-  url 'http://archive.apache.org/dist/lucene/solr/1.4.1/apache-solr-1.4.1.tgz'
-  sha1 'cb5d4066634b329bd90649041724a07263eb9655'
+  homepage "http://lucene.apache.org/solr/"
+  url "https://archive.apache.org/dist/lucene/solr/1.4.1/apache-solr-1.4.1.tgz"
+  sha256 "d795bc477335b3e29bab7073b385c93fca4be867aae345203da0d1e438d7543f"
+
+  depends_on :java
 
   def script; <<-EOS.undent
     #!/bin/sh
@@ -17,8 +17,8 @@ class Solr < Formula
   end
 
   def install
-    libexec.install Dir['*']
-    (bin+'solr14').write script
+    libexec.install Dir["*"]
+    (bin+"solr14").write script
   end
 
   def caveats; <<-EOS.undent
@@ -28,5 +28,9 @@ class Solr < Formula
     See the solr homepage for more setup information:
         brew home solr
     EOS
+  end
+
+  test do
+    system "solr14"
   end
 end
