@@ -51,8 +51,6 @@ class Postgresql < Formula
         pgcrypto tsearch2 vacuumlo xml2 intarray ].each do |a|
       system "cd contrib/#{a}; make install"
     end
-
-    (prefix+'org.postgresql.postgres.plist').write startup_plist
   end
 
   def check_python_arch
@@ -90,24 +88,9 @@ See:
 
 If this is your first install, create a database with:
     initdb #{var}/postgres
-
-If this is your first install, automatically load on login with:
-    cp #{prefix}/org.postgresql.postgres.plist ~/Library/LaunchAgents
-    launchctl load -w ~/Library/LaunchAgents/org.postgresql.postgres.plist
-
-If this is an upgrade and you already have the org.postgresql.postgres.plist loaded:
-    launchctl unload -w ~/Library/LaunchAgents/org.postgresql.postgres.plist
-    cp #{prefix}/org.postgresql.postgres.plist ~/Library/LaunchAgents
-    launchctl load -w ~/Library/LaunchAgents/org.postgresql.postgres.plist
-
-Or start manually with:
-    pg_ctl -D #{var}/postgres -l #{var}/postgres/server.log start
-
-And stop with:
-    pg_ctl -D #{var}/postgres stop -s -m fast
 EOS
 
-    if snow_leopard_64? then
+    if MacOS.prefer_64_bit? then
       s << <<-EOS
 
 If you want to install the postgres gem, including ARCHFLAGS is recommended:
@@ -120,33 +103,34 @@ To install gems without sudo, see the Homebrew wiki.
     return s
   end
 
-  def startup_plist
-    return <<-EOPLIST
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-  <key>KeepAlive</key>
-  <true/>
-  <key>Label</key>
-  <string>org.postgresql.postgres</string>
-  <key>ProgramArguments</key>
-  <array>
-    <string>#{bin}/postgres</string>
-    <string>-D</string>
-    <string>#{var}/postgres</string>
-    <string>-r</string>
-    <string>#{var}/postgres/server.log</string>
-  </array>
-  <key>RunAtLoad</key>
-  <true/>
-  <key>UserName</key>
-  <string>#{`whoami`.chomp}</string>
-  <key>WorkingDirectory</key>
-  <string>#{HOMEBREW_PREFIX}</string>
-</dict>
-</plist>
-    EOPLIST
+  plist_options :manual => "pg_ctl -D #{HOMEBREW_PREFIX}/var/postgres -l #{HOMEBREW_PREFIX}/var/postgres/server.log start"
+
+  def plist; <<-EOS.undent
+    <?xml version="1.0" encoding="UTF-8"?>
+    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+    <plist version="1.0">
+    <dict>
+      <key>KeepAlive</key>
+      <true/>
+      <key>Label</key>
+      <string>#{plist_name}</string>
+      <key>ProgramArguments</key>
+      <array>
+        <string>#{opt_prefix}/bin/postgres</string>
+        <string>-D</string>
+        <string>#{var}/postgres</string>
+        <string>-r</string>
+        <string>#{var}/postgres/server.log</string>
+      </array>
+      <key>RunAtLoad</key>
+      <true/>
+      <key>UserName</key>
+      <string>#{`whoami`.chomp}</string>
+      <key>WorkingDirectory</key>
+      <string>#{HOMEBREW_PREFIX}</string>
+    </dict>
+    </plist>
+    EOS
   end
 end
 
