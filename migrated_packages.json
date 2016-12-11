@@ -1013,5 +1013,12 @@
     "file_without_extension": "cassandra10",
     "original_filename": "cassandra10.rb",
     "migrated_filename": "cassandra.rb"
+  },
+  {
+    "classname_with_version": "Leptonica169",
+    "package_at_version": "leptonica@169",
+    "file_without_extension": "leptonica169",
+    "original_filename": "leptonica169.rb",
+    "migrated_filename": "leptonica.rb"
   }
 ]
