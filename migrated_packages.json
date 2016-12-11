@@ -1188,5 +1188,12 @@
     "file_without_extension": "grails224",
     "original_filename": "grails224.rb",
     "migrated_filename": "grails.rb"
+  },
+  {
+    "classname_with_version": "Riak132",
+    "package_at_version": "riak@132",
+    "file_without_extension": "riak132",
+    "original_filename": "riak132.rb",
+    "migrated_filename": "riak.rb"
   }
 ]
