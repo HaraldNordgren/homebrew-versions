@@ -6,10 +6,10 @@ class Mono < Formula
   sha256 "5d8cf153af2948c06bc9fbf5088f6834868e4db8e5f41c7cff76da173732b60d"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
-    sha256 "3a1d9b0a386f082a5e0470b29abac04ad06c20b142d9d2d42a0eeb0910bff310" => :yosemite
-    sha256 "ae323b1533f892e769b2cd9ef518a24cce0cc55cb2f0d0e494661d6d5aa479e2" => :mavericks
-    sha256 "3bc5cc111d9003c6e21480a39595dc4756cffcf33f58c548886ab6df5b0e8944" => :mountain_lion
+    revision 1
+    sha256 "5198e039dd51649c18bf061ddd7ce9d340b7eb789b89cb5576859f136f25c9a4" => :yosemite
+    sha256 "42e7f3a352274350abdd8ca174fe35d565b5dde77b25f5e6626a7322c3177eab" => :mavericks
+    sha256 "5843d8e66bb316c2fbd8fa509923082d2cbbc5d44c76e54c82006bed582cb5dd" => :mountain_lion
   end
 
   keg_only "Conflicts with mono in main repository."
