@@ -92,7 +92,7 @@ class Subversion < Formula
             "--prefix=#{prefix}",
             "--with-ssl",
             "--with-zlib=/usr",
-            "--with-sqlite=/usr",
+            "--with-sqlite=#{MacOS.sdk_path}/usr",
             # use our neon, not OS X's
             "--disable-neon-version-check",
             "--disable-mod-activation",
