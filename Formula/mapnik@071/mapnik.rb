@@ -14,10 +14,9 @@ class Mapnik < Formula
   depends_on 'icu4c'
   depends_on 'boost'
   depends_on 'cairomm' => :optional
+  depends_on :freetype
 
   def install
-    ENV.x11 # for freetype-config
-
     # Allow compilation against boost 1.46
     inreplace ["src/datasource_cache.cpp", "src/libxml2_loader.cpp", "src/load_map.cpp", "src/tiff_reader.cpp"],
       "#include <boost/filesystem/operations.hpp>",
