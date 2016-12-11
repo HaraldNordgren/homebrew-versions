@@ -166,5 +166,12 @@
     "file_without_extension": "node4",
     "original_filename": "node4.rb",
     "migrated_filename": "node.rb"
+  },
+  {
+    "classname_with_version": "Spidermonkey180",
+    "package_at_version": "spidermonkey@180",
+    "file_without_extension": "spidermonkey180",
+    "original_filename": "spidermonkey180.rb",
+    "migrated_filename": "spidermonkey.rb"
   }
 ]
