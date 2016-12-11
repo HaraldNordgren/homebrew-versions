@@ -2,9 +2,9 @@ require 'formula'
 
 class Plowshare < Formula
   homepage 'http://code.google.com/p/plowshare/'
-  url 'https://plowshare.googlecode.com/files/plowshare3-snapshot-git20130901.de1fd83.tar.gz'
-  version '3.GIT-de1fd83'
-  sha1 '3a4b3dd5fcdeca2f7cc96be385318eea5ad40794'
+  url 'https://plowshare.googlecode.com/files/plowshare3-snapshot-git20131009.55e67de.tar.gz'
+  version '3.GIT-55e67de'
+  sha1 '6acb3a2264de6fc1e516ed4574028cc4a94e9fa6'
 
   head 'https://code.google.com/p/plowshare/', :using => :git
 
