@@ -1860,5 +1860,12 @@
     "file_without_extension": "go14",
     "original_filename": "go14.rb",
     "migrated_filename": "go.rb"
+  },
+  {
+    "classname_with_version": "Freetds091",
+    "package_at_version": "freetds@091",
+    "file_without_extension": "freetds091",
+    "original_filename": "freetds091.rb",
+    "migrated_filename": "freetds.rb"
   }
 ]
