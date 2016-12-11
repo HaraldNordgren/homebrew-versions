@@ -5,6 +5,13 @@ class Libxc < Formula
   url "http://www.tddft.org/programs/octopus/down.php?file=libxc/libxc-2.1.0.tar.gz"
   sha256 "481fcd811d7f5e99ceab2596be09e422a21e9b03437ca607b9c03ffc42050d29"
 
+  bottle do
+    cellar :any
+    sha256 "5fa1514e1877a5381a177275dab3834d533971bb4413aca9dc78bc65a507e815" => :yosemite
+    sha256 "a480ad2a7d1b77aab3469fb70784984ab27266a96bdef642cb4163158eaef573" => :mavericks
+    sha256 "dd79b4beaa7d09ff761a65f83dac94aac11ac6640cd055b4152dd58f359a766e" => :mountain_lion
+  end
+
   depends_on :fortran
 
   def install
