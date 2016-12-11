@@ -4,6 +4,13 @@ class Redis < Formula
   url "http://download.redis.io/releases/redis-2.8.19.tar.gz"
   sha256 "29bb08abfc3d392b2f0c3e7f48ec46dd09ab1023f9a5575fc2a93546f4ca5145"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "9251b1a449b5335aa3a48b23621f1ac87fdaa0c4ad2b28c057e5e946ad2807f5" => :yosemite
+    sha256 "067e0b6755f8ee584f590df01c90f31183912910d8dd19f7e6f951debeef5593" => :mavericks
+    sha256 "36f24812f523ce8b32d662469fd0b2e8876aff45234ba44819f297370511fbb3" => :mountain_lion
+  end
+
   fails_with :llvm do
     build 2334
     cause "Fails with 'reference out of range from _linenoise'"
