@@ -502,5 +502,12 @@
     "file_without_extension": "grails21",
     "original_filename": "grails21.rb",
     "migrated_filename": "grails.rb"
+  },
+  {
+    "classname_with_version": "Guile18",
+    "package_at_version": "guile@18",
+    "file_without_extension": "guile18",
+    "original_filename": "guile18.rb",
+    "migrated_filename": "guile.rb"
   }
 ]
