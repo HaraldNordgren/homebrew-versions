@@ -1,8 +1,8 @@
 class Tomcat < Formula
   version "7"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-7/v7.0.62/bin/apache-tomcat-7.0.62.tar.gz"
-  sha256 "a787ea12e163e78ccebbb9662d7da78e707aef051d15af9ab5be20489adf1f6d"
+  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-7/v7.0.63/bin/apache-tomcat-7.0.63.tar.gz"
+  sha256 "b5d878a17de2421a078d8907583076b507e67dbf1567c6f4346d70c88473f8ad"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
@@ -15,9 +15,9 @@ class Tomcat < Formula
   option "with-fulldocs", "Install full documentation locally"
 
   resource "fulldocs" do
-    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-7/v7.0.62/bin/apache-tomcat-7.0.62-fulldocs.tar.gz"
-    version "7.0.62"
-    sha256 "46aa0412c1d0f041757e1e8dc9a0561507e3586a400165eafe4479e5adb5e86b"
+    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-7/v7.0.63/bin/apache-tomcat-7.0.63-fulldocs.tar.gz"
+    version "7.0.63"
+    sha256 "a86abb866733565a054adaf02ccfb77fdea08d71c17978e1c1bc942090f63353"
   end
 
   # Keep log folders
@@ -28,7 +28,7 @@ class Tomcat < Formula
     rm_rf Dir["bin/*.bat"]
 
     # Install files
-    prefix.install %w{ NOTICE LICENSE RELEASE-NOTES RUNNING.txt }
+    prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]
     libexec.install Dir["*"]
     bin.install_symlink "#{libexec}/bin/catalina.sh" => "catalina"
 
