@@ -119,6 +119,11 @@ class Gcc < Formula
       "--with-bugurl=https://github.com/Homebrew/homebrew-versions/issues",
     ]
 
+    # Use 'bootstrap-debug' build configuration to force stripping of object
+    # files prior to comparison during bootstrap (broken by Xcode 6.3).
+    # This causes bottle errors for gcc48 on Mountain Lion, so scope it to 10.10.
+    args << "--with-build-config=bootstrap-debug" if MacOS.version >= :yosemite
+
     # "Building GCC with plugin support requires a host that supports
     # -fPIC, -shared, -ldl and -rdynamic."
     args << "--enable-plugin" if MacOS.version > :tiger
