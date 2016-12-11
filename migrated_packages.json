@@ -971,5 +971,12 @@
     "file_without_extension": "bison27",
     "original_filename": "bison27.rb",
     "migrated_filename": "bison.rb"
+  },
+  {
+    "classname_with_version": "JbossAs5",
+    "package_at_version": "jboss-as@5",
+    "file_without_extension": "jboss-as5",
+    "original_filename": "jboss-as5.rb",
+    "migrated_filename": "jboss-as.rb"
   }
 ]
