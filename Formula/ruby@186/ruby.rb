@@ -6,6 +6,7 @@ class Ruby < Formula
   url 'http://ftp.ruby-lang.org/pub/ruby/1.8/ruby-1.8.6-p420.tar.bz2'
   mirror 'http://mirrorservice.org/sites/ftp.ruby-lang.org/pub/ruby/1.8/ruby-1.8.6-p420.tar.bz2'
   sha256 '5ed3e6b9ebcb51baf59b8263788ec9ec8a65fbb82286d952dd3eb66e22d9a09f'
+  revision 1
 
   # Otherwise it fails when building bigdecimal by trying to load
   # files from the system ruby instead of the one it's building

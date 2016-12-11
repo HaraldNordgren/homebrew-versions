@@ -5,6 +5,7 @@ class Ruby < Formula
   homepage 'http://www.ruby-lang.org/en/'
   url 'http://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-p320.tar.bz2'
   sha256 '6777f865cfa21ffdc167fcc4a7da05cb13aab1bd9e59bfcda82c4b32f75e6b51'
+  revision 1
 
   depends_on 'pkg-config' => :build
   depends_on 'readline'

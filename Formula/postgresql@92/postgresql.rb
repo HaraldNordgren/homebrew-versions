@@ -6,6 +6,7 @@ class Postgresql < Formula
   homepage 'http://www.postgresql.org/'
   url 'http://ftp.postgresql.org/pub/source/v9.2.8/postgresql-9.2.8.tar.bz2'
   sha256 '568ba482340219097475cce9ab744766889692ee7c9df886563e8292d66ed87c'
+  revision 1
 
   option '32-bit'
   option 'no-perl', 'Build without Perl support'

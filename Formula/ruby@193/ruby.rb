@@ -5,6 +5,7 @@ class Ruby < Formula
   homepage 'http://www.ruby-lang.org/en/'
   url 'http://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p547.tar.bz2'
   sha256 'ef588ed3ff53009b4c1833c83187ae252dd6c20db45e21a326cd4a16a102ef4c'
+  revision 1
 
   option :universal
   option 'with-suffix', 'Suffix commands with "193"'

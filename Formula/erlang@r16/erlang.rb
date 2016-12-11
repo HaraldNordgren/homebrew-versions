@@ -5,6 +5,7 @@ class Erlang < Formula
   homepage "http://www.erlang.org"
   url "http://www.erlang.org/download/otp_src_R16B03-1.tar.gz"
   sha1 "c2634ea0c078500f1c6a1369f4be59a6d14673e0"
+  revision 1
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
