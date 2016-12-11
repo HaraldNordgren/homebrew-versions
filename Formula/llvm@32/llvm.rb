@@ -104,7 +104,7 @@ class Llvm < Formula
     end
   end
 
-  def test
+  test do
     system "#{bin}/llvm-config-#{version}", "--version"
   end
 
