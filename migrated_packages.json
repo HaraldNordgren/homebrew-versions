@@ -1244,5 +1244,19 @@
     "file_without_extension": "protobuf250",
     "original_filename": "protobuf250.rb",
     "migrated_filename": "protobuf.rb"
+  },
+  {
+    "classname_with_version": "Gradle21",
+    "package_at_version": "gradle@21",
+    "file_without_extension": "gradle21",
+    "original_filename": "gradle21.rb",
+    "migrated_filename": "gradle.rb"
+  },
+  {
+    "classname_with_version": "Gradle20",
+    "package_at_version": "gradle@20",
+    "file_without_extension": "gradle20",
+    "original_filename": "gradle20.rb",
+    "migrated_filename": "gradle.rb"
   }
 ]
