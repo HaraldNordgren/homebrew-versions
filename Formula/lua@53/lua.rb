@@ -3,7 +3,7 @@ class Lua < Formula
   homepage "http://www.lua.org/"
   url "http://www.lua.org/ftp/lua-5.3.0.tar.gz"
   mirror "https://raw.githubusercontent.com/DomT4/LibreMirror/master/Lua/lua-5.3.0.tar.gz"
-  sha1 "1c46d1c78c44039939e820126b86a6ae12dadfba"
+  sha256 "ae4a5eb2d660515eb191bfe3e061f2b8ffe94dce73d32cfd0de090ddcc0ddb01"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
@@ -20,6 +20,7 @@ class Lua < Formula
   option :universal
   option "with-completion", "Enables advanced readline support"
   option "with-default-names", "Don't version-suffix the Lua installation. Conflicts with Homebrew/Lua"
+  option "without-luarocks", "Don't build with Luarocks support embedded"
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
   # See: https://github.com/Homebrew/homebrew/pull/5043
@@ -30,8 +31,13 @@ class Lua < Formula
   if build.with? "completion"
     patch do
       url "http://luajit.org/patches/lua-5.2.0-advanced_readline.patch"
-      sha1 "ca405dbd126bc018980a26c2c766dfb0f82e919e"
+      sha256 "33d32d11fce4f85b88ce8f9bd54e6a6cbea376dfee3dbf8cdda3640e056bc29d"
     end
+  end
+
+  resource "luarocks" do
+    url "https://github.com/keplerproject/luarocks/archive/v2.2.1.tar.gz"
+    sha256 "30e5bd99f82f5e3ea174572c1831f9ff83dfe37727f9fcfc89168b4572193571"
   end
 
   def install
@@ -67,6 +73,33 @@ class Lua < Formula
 
       # Patches the pkg-config file to find the correct lib names
       inreplace lib/"pkgconfig/lua5.3.pc", "Libs: -L${libdir} -llua -lm", "Libs: -L${libdir} -llua5.3 -lm"
+    end
+
+    # This resource must be handled after the main install, since there's a lua dep.
+    # Keeping it in install rather than postinstall means we can bottle.
+    if build.with? "luarocks"
+      resource("luarocks").stage do
+        ENV.prepend_path "PATH", bin
+        lua_prefix = prefix
+
+        system "./configure", "--prefix=#{libexec}", "--rocks-tree=#{HOMEBREW_PREFIX}",
+                              "--sysconfdir=#{etc}/luarocks53", "--with-lua=#{lua_prefix}",
+                              "--lua-version=5.3", "--versioned-rocks-dir", "--force-config=#{etc}/luarocks53"
+        system "make", "build"
+        system "make", "install"
+
+        (share+"lua/5.3/luarocks").install_symlink Dir["#{libexec}/share/lua/5.3/luarocks/*"]
+        bin.install_symlink libexec/"bin/luarocks-5.3"
+        bin.install_symlink libexec/"bin/luarocks-admin-5.3"
+
+        # This block ensures luarock exec scripts don't break across updates.
+        inreplace libexec/"share/lua/5.3/luarocks/site_config.lua" do |s|
+          s.gsub! "#{HOMEBREW_CELLAR}/lua53/#{pkg_version}/libexec", "#{Formula["lua53"].opt_libexec}"
+          s.gsub! "#{HOMEBREW_CELLAR}/lua53/#{pkg_version}/include", "#{HOMEBREW_PREFIX}/include"
+          s.gsub! "#{HOMEBREW_CELLAR}/lua53/#{pkg_version}/lib", "#{HOMEBREW_PREFIX}/lib"
+          s.gsub! "#{HOMEBREW_CELLAR}/lua53/#{pkg_version}/bin", "#{HOMEBREW_PREFIX}/bin"
+        end
+      end
     end
   end
 
