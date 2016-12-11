@@ -38,8 +38,13 @@ class Ruby < Formula
     ENV.prepend 'LDFLAGS', '-L.'
 
     args = %W[--prefix=#{prefix} --mandir=#{man} --enable-shared]
+
+    if build.universal?
+      ENV.universal_binary
+      args << "--with-arch=#{Hardware::CPU.universal_archs.join(",")}"
+    end
+
     args << "--program-suffix=182" if build.with? "suffix"
-    args << "--with-arch=#{Hardware::CPU.universal_archs.join(',')}" if build.universal?
     args << "--with-out-ext=tk" if build.without? "tcltk"
     args << "--disable-install-doc" if build.without? "doc"
     args << "--disable-dtrace" unless MacOS::CLT.installed?
