@@ -1664,5 +1664,12 @@
     "file_without_extension": "gecode373",
     "original_filename": "gecode373.rb",
     "migrated_filename": "gecode.rb"
+  },
+  {
+    "classname_with_version": "Syncthing010",
+    "package_at_version": "syncthing@010",
+    "file_without_extension": "syncthing010",
+    "original_filename": "syncthing010.rb",
+    "migrated_filename": "syncthing.rb"
   }
 ]
