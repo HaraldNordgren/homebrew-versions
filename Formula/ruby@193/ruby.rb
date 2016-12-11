@@ -6,8 +6,6 @@ class Ruby < Formula
   url 'http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p392.tar.bz2'
   sha256 '5a7334dfdf62966879bf539b8a9f0b889df6f3b3824fb52a9303c3c3d3a58391'
 
-  env :std
-
   option :universal
   option 'with-suffix', 'Suffix commands with "193"'
   option 'with-doc', 'Install documentation'
