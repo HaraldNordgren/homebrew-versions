@@ -1615,5 +1615,19 @@
     "file_without_extension": "unison240",
     "original_filename": "unison240.rb",
     "migrated_filename": "unison.rb"
+  },
+  {
+    "classname_with_version": "Gcc5",
+    "package_at_version": "gcc@5",
+    "file_without_extension": "gcc5",
+    "original_filename": "gcc5.rb",
+    "migrated_filename": "gcc.rb"
+  },
+  {
+    "classname_with_version": "Isl014",
+    "package_at_version": "isl@014",
+    "file_without_extension": "isl014",
+    "original_filename": "isl014.rb",
+    "migrated_filename": "isl.rb"
   }
 ]
