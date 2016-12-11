@@ -6,9 +6,9 @@ class Glfw < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
-    sha1 "520a04a4d4f7611c29da7c7635f9b379dcc3651e" => :yosemite
-    sha1 "12b86a9f1b86f8e5f9afe4b80ff42d877eb7a06a" => :mavericks
-    sha1 "7b55fda39d57ed1bf8258555ef3e263fae7c7bca" => :mountain_lion
+    sha256 "039df5a5929bdbdc6b20cf5fb3fffcff4d7a6360e76a2878e43152d993e7566c" => :yosemite
+    sha256 "0784107860072dc0cbfc61fcf8cdd84110cb3e37a0da1e2ff4a60e4e4bbf1c6b" => :mavericks
+    sha256 "e75bdc4478ee0510be626b78ff1f0862de8ff9fea26d9b4432ce2b7967c9b80c" => :mountain_lion
   end
 
   depends_on "cmake" => :build
