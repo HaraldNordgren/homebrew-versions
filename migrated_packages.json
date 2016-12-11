@@ -873,5 +873,12 @@
     "file_without_extension": "open-mpi16",
     "original_filename": "open-mpi16.rb",
     "migrated_filename": "open-mpi.rb"
+  },
+  {
+    "classname_with_version": "Protobuf241",
+    "package_at_version": "protobuf@241",
+    "file_without_extension": "protobuf241",
+    "original_filename": "protobuf241.rb",
+    "migrated_filename": "protobuf.rb"
   }
 ]
