@@ -3,8 +3,8 @@ require 'formula'
 class Mariadb < Formula
   version "10"
   homepage 'http://mariadb.org/'
-  url 'http://mirror3.layerjet.com/mariadb/mariadb-10.0.1/kvm-tarbake-jaunty-x86/mariadb-10.0.1.tar.gz'
-  sha1 'ab5a6d2490e60b3e20d1a7a3312fabebf0a830d6'
+  url 'http://mirror3.layerjet.com/mariadb/mariadb-10.0.3/kvm-tarbake-jaunty-x86/mariadb-10.0.3.tar.gz'
+  sha1 'c36c03ad78bdadf9a10e7b695159857d6432726d'
 
   depends_on 'cmake' => :build
   depends_on 'pidof' unless MacOS.version >= :mountain_lion
