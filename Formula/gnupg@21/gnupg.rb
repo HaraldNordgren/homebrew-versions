@@ -2,9 +2,9 @@ class Gnupg < Formula
   version "21"
   desc "GNU Privacy Guard: a free PGP replacement"
   homepage "https://www.gnupg.org/"
-  url "ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.6.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.6.tar.bz2"
-  sha256 "5e599ad542199f3bd733eed2b88a539d1b4c3beda2dbab0ff69f1896f52e92fd"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.7.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.7.tar.bz2"
+  sha256 "c18a3776d47fec98892d51d28b6574ef16bf0a25eabb0956231058aaf2e7846e"
 
   bottle do
     sha256 "19c095a0cad8c62047701fea74815335465062e30dfbc258f1f3d867745d4b96" => :yosemite
@@ -50,7 +50,6 @@ class Gnupg < Formula
     (var/"run").mkpath
 
     ENV.append "LDFLAGS", "-lresolv"
-
     ENV["gl_cv_absolute_stdint_h"] = "#{MacOS.sdk_path}/usr/include/stdint.h"
 
     args = %W[
@@ -94,7 +93,7 @@ class Gnupg < Formula
     mv share/"doc/gnupg2/FAQ", share/"doc/gnupg2/FAQ21"
     mv share/"doc/gnupg2/examples/gpgconf.conf", share/"doc/gnupg2/examples/gpgconf21.conf"
     mv share/"info/gnupg.info", share/"info/gnupg21.info"
-    mv "#{man7}/gnupg.7", "#{man7}/gnupg21.7"
+    mv man7/"gnupg.7", man7/"gnupg21.7"
   end
 
   def caveats; <<-EOS.undent
