@@ -58,6 +58,10 @@ class Node < Formula
     build 2326
   end
 
+  # Fixes double-free issue. See https://github.com/joyent/node/issues/6427
+  # Should be fixed if they ever do a v0.8 release.
+  patch :p1, :DATA
+
   def install
     # Lie to `xcode-select` for now to work around a GYP bug that affects
     # CLT-only systems:
@@ -124,3 +128,18 @@ class Node < Formula
     end
   end
 end
+__END__
+diff --git a/deps/v8/src/spaces.h b/deps/v8/src/spaces.h
+index b0ecc5d..d76d77d 100644
+--- a/deps/v8/src/spaces.h
++++ b/deps/v8/src/spaces.h
+@@ -321,7 +321,8 @@ class MemoryChunk {
+   Space* owner() const {
+     if ((reinterpret_cast<intptr_t>(owner_) & kFailureTagMask) ==
+         kFailureTag) {
+-      return reinterpret_cast<Space*>(owner_ - kFailureTag);
++      return reinterpret_cast<Space*>(reinterpret_cast<intptr_t>(owner_) -
++                                      kFailureTag);
+     } else {
+       return NULL;
+     }
