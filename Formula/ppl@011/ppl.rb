@@ -7,6 +7,13 @@ class Ppl < Formula
   sha256 "3453064ac192e095598576c5b59ecd81a26b268c597c53df05f18921a4f21c77"
   revision 1
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "be178bf8fc11a049a27b83d0b00660a3ee4426845657f3d8279b31e10730a878" => :yosemite
+    sha256 "f89fff76bdc39bea26763f765188523ba34eb9d07d3834c79a8d50a489a9aabc" => :mavericks
+    sha256 "f257cca9615ae1fb0a239c1fbf4f505dbcba139744999a9c8d7f512b5dbb7fa4" => :mountain_lion
+  end
+
   conflicts_with "ppl10", :because => "They install the same binaries"
 
   depends_on "homebrew/dupes/m4" => :build if MacOS.version < :leopard
