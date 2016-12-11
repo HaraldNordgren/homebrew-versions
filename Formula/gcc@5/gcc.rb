@@ -27,10 +27,9 @@ class Gcc < Formula
   sha256 "5f835b04b5f7dd4f4d2dc96190ec1621b8d89f2dc6f638f9f8bc1b1014ba8cad"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
-    sha256 "33062848404942474e87d51bb3dfa389d557c7a9c76f89d46741d757b8a10bd5" => :yosemite
-    sha256 "d092279a7e0e069aacd09a63e4598593948400c4eb95b201912fbe08d242c4bc" => :mavericks
-    sha256 "5cc7eaaab1dd29879109ccf896f91c691ba6267a997288ee526e3f21479a8f02" => :mountain_lion
+    sha256 "e70e8ce3ef7b1a9ec3677c34cad3480d985042b88909568c140dddfbdfa8dca2" => :yosemite
+    sha256 "8dfd614540e36459c57c095292f7ad687249ad3530d7f95f690fb4e6629bdbea" => :mavericks
+    sha256 "56a3d0e3a79b365fc366a43616faa5e30da4d8a5cb6bbc58d611f98d22f9c080" => :mountain_lion
   end
 
   # GCC's Go compiler is not currently supported on Mac OS X.
