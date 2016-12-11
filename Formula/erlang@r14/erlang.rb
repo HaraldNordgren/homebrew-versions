@@ -11,16 +11,21 @@ class ErlangR14Htmls < Formula
 end
 
 class Erlang < Formula
+  version "r14"
   homepage 'http://www.erlang.org'
   # Download tarball from GitHub; it is served faster than the official tarball.
   url 'https://github.com/erlang/otp/tarball/OTP_R14B04'
   sha1 'fd260c63da0caa0f4b129d052e8305190e30cf33'
-  version 'R14B04'
 
   bottle do
     url 'https://downloads.sf.net/project/machomebrew/Bottles/erlang-R14B04-bottle.tar.gz'
     sha1 '0cbd2ebd59491a473b38833970ba0cfb78549594'
   end
+
+  option 'disable-hipe', 'Disable building hipe; fails on various OS X systems'
+  option 'halfword', 'Enable halfword emulator (64-bit builds only)'
+  option 'time', '`brew test --time` to include a time-consuming test'
+  option 'no-docs', 'Do not install documentation'
 
   # We can't strip the beam executables or any plugins, there isn't really
   # anything else worth stripping and it takes a really, long time to run
@@ -30,15 +35,6 @@ class Erlang < Formula
   skip_clean ['lib', 'bin']
 
   fails_with(:llvm) { build 2334 }
-
-  def options
-    [
-      ['--disable-hipe', "Disable building hipe; fails on various OS X systems."],
-      ['--halfword', 'Enable halfword emulator (64-bit builds only)'],
-      ['--time', '"brew test --time" to include a time-consuming test.'],
-      ['--no-docs', 'Do not install documentation.']
-    ]
-  end
 
   def install
     ohai "Compilation may take a very long time; use `brew install -v erlang` to see progress"
@@ -60,7 +56,7 @@ class Erlang < Formula
             "--enable-shared-zlib",
             "--enable-smp-support"]
 
-    unless ARGV.include? '--disable-hipe'
+    unless build.include? 'disable-hipe'
       # HIPE doesn't strike me as that reliable on OS X
       # http://syntatic.wordpress.com/2008/06/12/macports-erlang-bus-error-due-to-mac-os-x-1053-update/
       # http://www.erlang.org/pipermail/erlang-patches/2008-September/000293.html
@@ -69,7 +65,7 @@ class Erlang < Formula
 
     if MacOS.prefer_64_bit?
       args << "--enable-darwin-64bit"
-      args << "--enable-halfword-emulator" if ARGV.include? '--halfword' # Does not work with HIPE yet. Added for testing only
+      args << "--enable-halfword-emulator" if build.include? 'halfword' # Does not work with HIPE yet. Added for testing only
     end
 
     system "./configure", *args
@@ -77,7 +73,7 @@ class Erlang < Formula
     system "make"
     system "make install"
 
-    unless ARGV.include? '--no-docs'
+    unless build.include? 'no-docs'
       ErlangR14Manuals.new.brew { man.install Dir['man/*'] }
       ErlangR14Htmls.new.brew { doc.install Dir['*'] }
     end
@@ -88,7 +84,7 @@ class Erlang < Formula
 
     # This test takes some time to run, but per bug #120 should finish in
     # "less than 20 minutes". It takes a few minutes on a Mac Pro (2009).
-    if ARGV.include? "--time"
+    if build.include? "time"
       `#{bin}/dialyzer --build_plt -r #{lib}/erlang/lib/kernel-2.14.1/ebin/`
     end
   end
