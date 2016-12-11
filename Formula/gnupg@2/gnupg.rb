@@ -11,11 +11,13 @@ class Gnupg < Formula
   depends_on 'libksba'
   depends_on 'libassuan'
   depends_on 'pinentry'
+  depends_on 'pth'
 
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking"
     system "make"
+    system "make check"
     system "make install"
   end
 end
