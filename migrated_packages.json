@@ -96,5 +96,12 @@
     "file_without_extension": "allegro4",
     "original_filename": "allegro4.rb",
     "migrated_filename": "allegro.rb"
+  },
+  {
+    "classname_with_version": "Gnupg2",
+    "package_at_version": "gnupg@2",
+    "file_without_extension": "gnupg2",
+    "original_filename": "gnupg2.rb",
+    "migrated_filename": "gnupg.rb"
   }
 ]
