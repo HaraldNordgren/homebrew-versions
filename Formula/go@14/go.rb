@@ -18,9 +18,6 @@ class Go < Formula
   option "without-godoc", "godoc will not be installed for you"
   option "without-vet", "vet will not be installed for you"
 
-  deprecated_option "cross-compile-all" => "with-cc-all"
-  deprecated_option "cross-compile-common" => "with-cc-common"
-
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
     :revision => "69db398fe0e69396984e3967724820c1f631e971"
