@@ -11,9 +11,9 @@ class GstFfmpeg < Formula
   depends_on 'homebrew/versions/gst-plugins-base@010'
 
   def install
-    system './configure', "--prefix=#{prefix}",
-                          "--with-ffmpeg-extra-configure=--cc=#{ENV.cc}",
-                          '--disable-dependency-tracking'
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--with-ffmpeg-extra-configure=--cc=#{ENV.cc}"
     system "make install"
   end
 end
