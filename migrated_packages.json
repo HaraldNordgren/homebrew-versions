@@ -1062,5 +1062,12 @@
     "file_without_extension": "redis1310",
     "original_filename": "redis1310.rb",
     "migrated_filename": "redis.rb"
+  },
+  {
+    "classname_with_version": "Scala210",
+    "package_at_version": "scala@210",
+    "file_without_extension": "scala210",
+    "original_filename": "scala210.rb",
+    "migrated_filename": "scala.rb"
   }
 ]
