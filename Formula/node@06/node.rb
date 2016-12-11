@@ -1,36 +1,40 @@
-require 'formula'
-
 class Node < Formula
   version "06"
-  homepage 'http://nodejs.org/'
-  url 'http://nodejs.org/dist/v0.6.21/node-v0.6.21.tar.gz'
-  sha1 '31f564bf34c64b07cae3b9a88a87b4a08bab4dc5'
+  homepage "https://nodejs.org/"
+  url "https://nodejs.org/dist/v0.6.21/node-v0.6.21.tar.gz"
+  sha1 "31f564bf34c64b07cae3b9a88a87b4a08bab4dc5"
+  revision 1
 
-  option 'enable-debug', 'Build with debugger hooks'
+  option "with-debug", "Build with debugger hooks"
 
-  depends_on 'openssl' if MacOS.version == :leopard
+  deprecated_option "enable-debug" => "with-debug"
 
-  fails_with(:llvm) { build 2326 }
+  depends_on "openssl"
+
+  fails_with :llvm do
+    build 2326
+  end
+
+  env :std
 
   def install
-    inreplace 'wscript' do |s|
-      s.gsub! '/usr/local', HOMEBREW_PREFIX
-      s.gsub! '/opt/local/lib', '/usr/lib'
+    inreplace "wscript" do |s|
+      s.gsub! "/usr/local", HOMEBREW_PREFIX
+      s.gsub! "/opt/local/lib", "/usr/lib"
     end
 
-    # Why skip npm install? Read https://github.com/mxcl/homebrew/pull/8784.
     args = ["--prefix=#{prefix}", "--without-npm"]
-    args << "--debug" if build.include? 'enable-debug'
+    args << "--debug" if build.with? "debug"
+    args << "--openssl-includes=#{Formula["openssl"].include}"
+    args << "--openssl-libpath=#{Formula["openssl"].lib}"
 
     system "./configure", *args
-    system "make install"
+    system "make", "install"
   end
 
   def caveats
     <<-EOS.undent
-      Homebrew has NOT installed npm. We recommend the following method of
-      installation:
-        curl http://npmjs.org/install.sh | sh
+      Homebrew has NOT installed npm.
 
       After installing, add the following path to your NODE_PATH environment
       variable to have npm libraries picked up:
