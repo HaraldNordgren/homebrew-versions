@@ -1447,5 +1447,12 @@
     "file_without_extension": "libpqxx3",
     "original_filename": "libpqxx3.rb",
     "migrated_filename": "libpqxx.rb"
+  },
+  {
+    "classname_with_version": "Gradle221",
+    "package_at_version": "gradle@221",
+    "file_without_extension": "gradle221",
+    "original_filename": "gradle221.rb",
+    "migrated_filename": "gradle.rb"
   }
 ]
