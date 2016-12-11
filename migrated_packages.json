@@ -229,5 +229,12 @@
     "file_without_extension": "python25",
     "original_filename": "python25.rb",
     "migrated_filename": "python.rb"
+  },
+  {
+    "classname_with_version": "Autoconf264",
+    "package_at_version": "autoconf@264",
+    "file_without_extension": "autoconf264",
+    "original_filename": "autoconf264.rb",
+    "migrated_filename": "autoconf.rb"
   }
 ]
