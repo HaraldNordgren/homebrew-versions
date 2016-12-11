@@ -285,5 +285,12 @@
     "file_without_extension": "postgis15",
     "original_filename": "postgis15.rb",
     "migrated_filename": "postgis.rb"
+  },
+  {
+    "classname_with_version": "Libpng12",
+    "package_at_version": "libpng@12",
+    "file_without_extension": "libpng12",
+    "original_filename": "libpng12.rb",
+    "migrated_filename": "libpng.rb"
   }
 ]
