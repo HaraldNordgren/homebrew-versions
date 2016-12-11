@@ -936,5 +936,12 @@
     "file_without_extension": "json-c010",
     "original_filename": "json-c010.rb",
     "migrated_filename": "json-c.rb"
+  },
+  {
+    "classname_with_version": "Hadoop121",
+    "package_at_version": "hadoop@121",
+    "file_without_extension": "hadoop121",
+    "original_filename": "hadoop121.rb",
+    "migrated_filename": "hadoop.rb"
   }
 ]
