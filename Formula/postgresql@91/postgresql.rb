@@ -5,6 +5,13 @@ class Postgresql < Formula
   sha256 "20f8aa5dfcb47688ca6b6c41340cac61712d9cf87c34d58b0a75bb2f85d89b7f"
   revision 1
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha1 "a078dd2759fb9af8f6c8b858ecd4ade21b17960d" => :yosemite
+    sha1 "75410ec0395b8f8bbf298f2d6faf854c86373882" => :mavericks
+    sha1 "fe3784654f8c50b919b4cac3805bf19a82640438" => :mountain_lion
+  end
+
   depends_on "openssl"
   depends_on "readline"
   depends_on "libxml2" if MacOS.version == :leopard
