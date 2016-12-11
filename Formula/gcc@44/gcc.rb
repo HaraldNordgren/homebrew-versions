@@ -35,7 +35,6 @@ class Gcc < Formula
   option 'enable-all-languages', 'Enable all compilers and languages, except Ada'
   option 'enable-nls', 'Build with native language support (localization)'
   option 'enable-profiled-build', 'Make use of profile guided optimization when bootstrapping GCC'
-  option 'enable-multilib', 'Build with multilib support'
 
   depends_on 'gmp@4'
   depends_on 'mpfr@2'
@@ -95,6 +94,8 @@ class Gcc < Formula
       "--enable-libstdcxx-time=yes",
       "--enable-stage1-checking",
       "--enable-checking=release",
+      # Multilib building is broken in GCC 4.4 on Darwin
+      "--disable-multilib",
       # A no-op unless --HEAD is built because in head warnings will
       # raise errors. But still a good idea to include.
       "--disable-werror"
@@ -104,12 +105,6 @@ class Gcc < Formula
 
     if build.include? 'enable-java' or build.include? 'enable-all-languages'
       args << "--with-ecj-jar=#{Formula.factory('ecj').opt_prefix}/share/java/ecj.jar"
-    end
-
-    if build.include? 'enable-multilib'
-      args << '--enable-multilib'
-    else
-      args << '--disable-multilib'
     end
 
     mkdir 'build' do
