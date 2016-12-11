@@ -922,5 +922,12 @@
     "file_without_extension": "llvm35",
     "original_filename": "llvm35.rb",
     "migrated_filename": "llvm.rb"
+  },
+  {
+    "classname_with_version": "Ruby20",
+    "package_at_version": "ruby@20",
+    "file_without_extension": "ruby20",
+    "original_filename": "ruby20.rb",
+    "migrated_filename": "ruby.rb"
   }
 ]
