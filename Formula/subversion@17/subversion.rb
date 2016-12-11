@@ -1,5 +1,6 @@
 class Subversion < Formula
   version "17"
+  desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
   url "https://archive.apache.org/dist/subversion/subversion-1.7.14.tar.bz2"
   sha256 "c4ac8f37eb0ebd38901bfa6f1c7e4d7716d32d7460ee0cee520381ca2f5b120d"
@@ -33,6 +34,9 @@ class Subversion < Formula
   depends_on :apr => :build
   depends_on :java
 
+  # Requires system OpenSSL headers to build. >El Capitan no longer ship them.
+  depends_on MaximumMacOSRequirement => :yosemite
+
   # Always build against Homebrew versions instead of system versions for consistency.
   # We don't use our OpenSSL because Neon refuses to support it due to wanting SSLv2
   # and using a more recent Neon via disabling the version check results in segfauls at runtime.
@@ -44,6 +48,9 @@ class Subversion < Formula
 
   # For Serf
   depends_on "scons" => :build
+
+  conflicts_with "openssl",
+                 :because => "You must unlink Homebrew's OpenSSL to install. You should `brew link openssl` after install!"
 
   # If building bindings, allow non-system interpreters
   if build.with?("perl") || build.with?("ruby")
@@ -78,10 +85,10 @@ class Subversion < Formula
     # OS X's Python is built universally and can't link with Homebrew's deps
     # unless Homebrew's deps are universal as well.
     # https://github.com/Homebrew/homebrew-versions/issues/777
-    if build.with?("python") && !File.exist?(HOMEBREW_PREFIX/"bin/python")
+    if build.with?("python") && (which "python").universal?
       unless build.universal?
-        fail <<-EOS.undent
-          You must build subversion17 --universal unless Homebrew's
+        raise <<-EOS.undent
+          You must build subversion --universal unless Homebrew's
           Python is installed, otherwise the build will fail.
         EOS
       end
