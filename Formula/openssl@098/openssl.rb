@@ -7,9 +7,9 @@ class Openssl < Formula
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/versions"
-    sha1 "65c01f5377ddcb07b4addae5dc6239840bb2fe4b" => :yosemite
-    sha1 "bfd9afdd4e9f4262341b53425e08727d44738aa2" => :mavericks
-    sha1 "a0c17c20c2ac25bd44dccd90eb44b20033142dd9" => :mountain_lion
+    sha1 "71f0611fbc56d1485261b37ef39ed1a184a15603" => :yosemite
+    sha1 "ce75e2df6aa958aef7d8617da8155b6db826b05c" => :mavericks
+    sha1 "92a1614461c028ed0f56fa4c5195d5425a513411" => :mountain_lion
   end
 
   keg_only :provided_by_osx
