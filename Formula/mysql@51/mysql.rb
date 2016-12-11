@@ -3,8 +3,8 @@ require 'formula'
 class Mysql < Formula
   version "51"
   homepage 'http://dev.mysql.com/doc/refman/5.1/en/'
-  url 'http://mysql.mirrors.pair.com/Downloads/MySQL-5.1/mysql-5.1.65.tar.gz'
-  sha1 '9af3740d0a9f3fb2a9423500dd298b423867cf6e'
+  url 'http://mysql.mirrors.pair.com/Downloads/MySQL-5.1/mysql-5.1.67.tar.gz'
+  sha1 'f1a7854701a1146b109c30d61236802523969b8d'
 
   depends_on 'readline'
 
