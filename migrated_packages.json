@@ -1629,5 +1629,12 @@
     "file_without_extension": "isl014",
     "original_filename": "isl014.rb",
     "migrated_filename": "isl.rb"
+  },
+  {
+    "classname_with_version": "Nettle3",
+    "package_at_version": "nettle@3",
+    "file_without_extension": "nettle3",
+    "original_filename": "nettle3.rb",
+    "migrated_filename": "nettle.rb"
   }
 ]
