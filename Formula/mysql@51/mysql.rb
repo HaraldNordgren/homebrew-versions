@@ -6,23 +6,18 @@ class Mysql < Formula
   url 'http://mysql.mirrors.pair.com/Downloads/MySQL-5.1/mysql-5.1.67.tar.gz'
   sha1 'f1a7854701a1146b109c30d61236802523969b8d'
 
+  option :universal
+  option 'with-tests', 'Keep tests when installing'
+  option 'with-bench', 'Keep benchmark app when installing'
+  option 'with-embedded', 'Build the embedded server'
+  option 'client-only', 'Only install client tools, not the server'
+  option 'with-utf8-default', 'Set the default character set to utf8'
+
   depends_on 'readline'
 
   fails_with :clang do
     build 421
     cause "Reported not building with clang as of 2011.06.27"
-  end
-
-  option :universal
-
-  def options
-    [
-      ['--with-tests', "Keep tests when installing."],
-      ['--with-bench', "Keep benchmark app when installing."],
-      ['--with-embedded', "Build the embedded server."],
-      ['--client-only', "Only install client tools, not the server."],
-      ['--with-utf8-default', "Set the default character set to utf8"]
-    ]
   end
 
   def patches
@@ -50,9 +45,9 @@ class Mysql < Formula
       "--enable-shared",
       "--with-partition"]
 
-    configure_args << "--without-server" if ARGV.include? '--client-only'
-    configure_args << "--with-embedded-server" if ARGV.include? '--with-embedded'
-    configure_args << "--with-charset=utf8" if ARGV.include? '--with-utf8-default'
+    configure_args << "--without-server" if build.include? 'client-only'
+    configure_args << "--with-embedded-server" if build.include? 'with-embedded'
+    configure_args << "--with-charset=utf8" if build.include? 'with-utf8-default'
 
     system "./configure", *configure_args
     system "make install"
@@ -60,8 +55,8 @@ class Mysql < Formula
     ln_s "#{libexec}/mysqld", bin
     ln_s "#{share}/mysql/mysql.server", bin
 
-    (prefix+'mysql-test').rmtree unless ARGV.include? '--with-tests' # save 66MB!
-    (prefix+'sql-bench').rmtree unless ARGV.include? '--with-bench'
+    (prefix+'mysql-test').rmtree unless build.include? 'with-tests' # save 66MB!
+    (prefix+'sql-bench').rmtree unless build.include? 'with-bench'
 
     (prefix+'com.mysql.mysqld.plist').write startup_plist
   end
