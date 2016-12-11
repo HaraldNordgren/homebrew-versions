@@ -52,7 +52,6 @@ class Gcc < Formula
   depends_on 'isl@011'
   depends_on 'ecj' if build.include? 'enable-java' or build.include? 'enable-all-languages'
 
-  
   # The as that comes with Tiger isn't capable of dealing with the
   # PPC asm that comes in libitm
   depends_on 'cctools' => :build if MacOS.version < :leopard
