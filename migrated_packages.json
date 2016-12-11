@@ -1804,5 +1804,12 @@
     "file_without_extension": "jruby168",
     "original_filename": "jruby168.rb",
     "migrated_filename": "jruby.rb"
+  },
+  {
+    "classname_with_version": "Jruby1721",
+    "package_at_version": "jruby@1721",
+    "file_without_extension": "jruby1721",
+    "original_filename": "jruby1721.rb",
+    "migrated_filename": "jruby.rb"
   }
 ]
