@@ -1,10 +1,10 @@
 require "formula"
 
 class Bind < Formula
+  version "99"
   homepage "http://www.isc.org/software/bind/"
-  url "http://ftp.isc.org/isc/bind9/9.9.6-P2/bind-9.9.6-P2.tar.gz"
-  sha1 "19b53e60ed632f2063b2d630eabfb7234900bca6"
-  version "9.9.6-P2"
+  url "http://ftp.isc.org/isc/bind9/9.9.7/bind-9.9.7.tar.gz"
+  sha1 "8a02c5e67b4d6cb49fd896bb5c56e605cac8c992"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
