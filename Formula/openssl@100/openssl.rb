@@ -1,9 +1,9 @@
 require 'formula'
 
 class Openssl < Formula
-  url 'http://www.openssl.org/source/openssl-1.0.0f.tar.gz'
-  version '1.0.0f'
+  version "100"
   homepage 'http://www.openssl.org'
+  url 'http://www.openssl.org/source/openssl-1.0.0f.tar.gz'
   sha1 'f087190fc7702f328324aaa89c297cab6e236564'
 
   keg_only :provided_by_osx
