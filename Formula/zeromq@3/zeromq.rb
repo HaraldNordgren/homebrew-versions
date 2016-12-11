@@ -6,15 +6,6 @@ class Zeromq < Formula
   url 'http://download.zeromq.org/zeromq-3.2.4.tar.gz'
   sha1 '08303259f08edd1faeac2e256f5be3899377135e'
 
-  head do
-    url 'https://github.com/zeromq/libzmq.git'
-
-    depends_on :autoconf
-    depends_on :automake
-    depends_on :libtool
-  end
-
-
   option :universal
   option 'with-pgm', 'Build with PGM extension'
 
