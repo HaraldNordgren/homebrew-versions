@@ -18,14 +18,7 @@ class Mysql < Formula
   option 'enable-local-infile', 'Build with local infile loading support'
   option 'enable-debug', 'Build with debug support'
 
-  conflicts_with 'mariadb',
-    :because => "mysql and mariadb install the same binaries."
-
-  conflicts_with 'percona-server',
-    :because => "mysql and percona-server install the same binaries."
-
-  conflicts_with 'mysql-cluster',
-    :because => "mysql and mysql-cluster install the same binaries."
+  keg_only 'Conflicts with mysql, mariadb, percona-server, mysql-cluster, etc.'
 
   env :std if build.universal?
 
@@ -51,7 +44,7 @@ class Mysql < Formula
             "-DINSTALL_DOCDIR=#{doc}",
             "-DINSTALL_INFODIR=#{info}",
             # CMake prepends prefix, so use share.basename
-            "-DINSTALL_MYSQLSHAREDIR=#{share.basename}/#{name}",
+            "-DINSTALL_MYSQLSHAREDIR=#{share.basename}/mysql",
             "-DWITH_SSL=yes",
             "-DDEFAULT_CHARSET=utf8",
             "-DDEFAULT_COLLATION=utf8_general_ci",

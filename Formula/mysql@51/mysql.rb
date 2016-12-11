@@ -13,6 +13,8 @@ class Mysql < Formula
   option 'client-only', 'Only install client tools, not the server'
   option 'with-utf8-default', 'Set the default character set to utf8'
 
+  keg_only 'Conflicts with mysql, mariadb, percona-server, mysql-cluster, etc.'
+
   depends_on 'readline'
 
   fails_with :clang
