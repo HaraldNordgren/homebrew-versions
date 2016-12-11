@@ -43,9 +43,9 @@ end
 
 class Python < Formula
   version "26"
-  url 'http://www.python.org/ftp/python/2.6.7/Python-2.6.7.tgz'
+  url 'http://www.python.org/ftp/python/2.6.8/Python-2.6.8.tgz'
   homepage 'http://www.python.org/'
-  md5 'af474f85a3af69ea50438a2a48039d7d'
+  md5 'f6c1781f5d73ab7dfa5181f43ea065f6'
 
   depends_on 'sqlite' => :optional    # Prefer over OS X's older version
   depends_on 'readline' => :optional  # Prefer over OS X's libedit
