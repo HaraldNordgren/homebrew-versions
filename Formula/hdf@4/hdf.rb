@@ -6,9 +6,9 @@ class Hdf < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
-    sha1 "c2c52d5a07559d08d3eb5af108ed8b839721ed88" => :yosemite
-    sha1 "ac39325b98c7baac776f8a28e4fb138a25ea7340" => :mavericks
-    sha1 "cc499e59d40db001001ef595539e1d79dcf18c96" => :mountain_lion
+    sha256 "8ba0e3973461d87e378cebcfef7d6d73ceb49a999e47d8c19bd083f4f9d8cacf" => :yosemite
+    sha256 "7a56cd6de013df4548bc13f17cc1ff2585b24f2baf4bc8056d91a46a7ed099f7" => :mavericks
+    sha256 "d0f88cadfb4fd2e5a2e7dc996d5d218531c43924812443ecad15a1393eb50388" => :mountain_lion
   end
 
   option "with-fortran", "Build Fortran interface."
