@@ -20,10 +20,8 @@ class Libpng < Formula
     libexec.install 'pngtest.png', '.libs/pngtest'
   end
 
-  def test
-    mktemp do
-      system "#{libexec}/pngtest", "#{libexec}/pngtest.png"
-      system "/usr/bin/qlmanage", "-p", "pngout.png"
-    end
+  test do
+    system "#{libexec}/pngtest", "#{libexec}/pngtest.png"
+    system "/usr/bin/qlmanage", "-p", "pngout.png"
   end
 end

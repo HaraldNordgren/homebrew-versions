@@ -88,7 +88,7 @@ class Erlang < Formula
     end
   end
 
-  def test
+  test do
     `#{bin}/erl -noshell -eval 'crypto:start().' -s init stop`
 
     # This test takes some time to run, but per bug #120 should finish in
