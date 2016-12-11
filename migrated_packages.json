@@ -334,5 +334,12 @@
     "file_without_extension": "raptor1",
     "original_filename": "raptor1.rb",
     "migrated_filename": "raptor.rb"
+  },
+  {
+    "classname_with_version": "Lua52",
+    "package_at_version": "lua@52",
+    "file_without_extension": "lua52",
+    "original_filename": "lua52.rb",
+    "migrated_filename": "lua.rb"
   }
 ]
