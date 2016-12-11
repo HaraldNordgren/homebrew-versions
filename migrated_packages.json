@@ -68,5 +68,12 @@
     "file_without_extension": "imagemagick-ruby186",
     "original_filename": "imagemagick-ruby186.rb",
     "migrated_filename": "imagemagick-ruby.rb"
+  },
+  {
+    "classname_with_version": "Python3",
+    "package_at_version": "python@31",
+    "file_without_extension": "python31",
+    "original_filename": "python31.rb",
+    "migrated_filename": "python.rb"
   }
 ]
