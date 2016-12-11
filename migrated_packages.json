@@ -278,5 +278,12 @@
     "file_without_extension": "gnutls3",
     "original_filename": "gnutls3.rb",
     "migrated_filename": "gnutls.rb"
+  },
+  {
+    "classname_with_version": "Postgis15",
+    "package_at_version": "postgis@15",
+    "file_without_extension": "postgis15",
+    "original_filename": "postgis15.rb",
+    "migrated_filename": "postgis.rb"
   }
 ]
