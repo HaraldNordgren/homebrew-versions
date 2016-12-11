@@ -3,15 +3,17 @@ require 'formula'
 class Mysql < Formula
   version "51"
   homepage 'http://dev.mysql.com/doc/refman/5.1/en/'
-  url 'http://mysql.mirrors.pair.com/Downloads/MySQL-5.1/mysql-5.1.63.tar.gz'
-  sha1 'ce1743098b53540cb75c144d71299bace7398aef'
+  url 'http://mysql.mirrors.pair.com/Downloads/MySQL-5.1/mysql-5.1.65.tar.gz'
+  sha1 '9af3740d0a9f3fb2a9423500dd298b423867cf6e'
 
   depends_on 'readline'
 
-  fails_with :llvm do
-    build 2335
-    cause "https://github.com/mxcl/homebrew/issues/issue/144"
+  fails_with :clang do
+    build 421
+    cause "Reported not building with clang as of 2011.06.27"
   end
+
+  option :universal
 
   def options
     [
@@ -19,7 +21,6 @@ class Mysql < Formula
       ['--with-bench', "Keep benchmark app when installing."],
       ['--with-embedded', "Build the embedded server."],
       ['--client-only', "Only install client tools, not the server."],
-      ['--universal', "Make mysql a universal binary"],
       ['--with-utf8-default', "Set the default character set to utf8"]
     ]
   end
@@ -29,13 +30,8 @@ class Mysql < Formula
   end
 
   def install
-    # See: http://dev.mysql.com/doc/refman/5.1/en/configure-options.html
-    # These flags may not apply to gcc 4+
-    ENV['CXXFLAGS'] = ENV['CXXFLAGS'].gsub "-fomit-frame-pointer", ""
-    ENV['CXXFLAGS'] += " -fno-omit-frame-pointer -felide-constructors"
-
     # Make universal for bindings to universal applications
-    ENV.universal_binary if ARGV.include? '--universal'
+    ENV.universal_binary if build.universal?
 
     configure_args = [
       "--without-docs",
@@ -125,7 +121,7 @@ end
 __END__
 --- old/scripts/mysqld_safe.sh  2009-09-02 04:10:39.000000000 -0400
 +++ new/scripts/mysqld_safe.sh  2009-09-02 04:52:55.000000000 -0400
-@@ -383,7 +383,7 @@
+@@ -384,7 +384,7 @@
  fi
 
  USER_OPTION=""
