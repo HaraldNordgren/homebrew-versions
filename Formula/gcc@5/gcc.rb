@@ -1,4 +1,5 @@
 class Gcc < Formula
+  version "5"
   def arch
     if Hardware::CPU.type == :intel
       if MacOS.prefer_64_bit?
@@ -20,10 +21,9 @@ class Gcc < Formula
   end
 
   homepage "https://gcc.gnu.org"
-  url "ftp://gcc.gnu.org/pub/gcc/snapshots/5-20150405/gcc-5-20150405.tar.bz2"
-  mirror "http://robotlab.itk.ppke.hu/gcc/snapshots/5-20150405/gcc-5-20150405.tar.bz2"
-  sha256 "53b9dc0478d0ee327bf68a76de088e7f947c4a6376c13b30f2d65950c9c37ee6"
-  version "5-20150405"
+  url "http://ftpmirror.gnu.org/gcc/gcc-5.1.0/gcc-5.1.0.tar.bz2"
+  mirror "https://ftp.gnu.org/gnu/gcc/gcc-5.1.0/gcc-5.1.0.tar.bz2"
+  sha256 "b7dafdf89cbb0e20333dbf5b5349319ae06e3d1a30bf3515b5488f7e89dca5ad"
 
   head "svn://gcc.gnu.org/svn/gcc/trunk"
 
@@ -40,15 +40,21 @@ class Gcc < Formula
   option "with-all-languages", "Enable all compilers and languages, except Ada"
   option "with-nls", "Build with native language support (localization)"
   option "with-profiled-build", "Make use of profile guided optimization when bootstrapping GCC"
+  option "with-jit", "Build the jit compiler"
   # enabling multilib on a host that can"t run 64-bit results in build failures
   option "without-multilib", "Build without multilib support" if MacOS.prefer_64_bit?
-  option "with-jit", "Build the jit compiler"
 
   depends_on "gmp"
   depends_on "libmpc"
   depends_on "mpfr"
   depends_on "isl@014"
   depends_on "ecj" if build.with?("java") || build.with?("all-languages")
+
+  if MacOS.version < :leopard
+    # The as that comes with Tiger isn't capable of dealing with the
+    # PPC asm that comes in libitm
+    depends_on "cctools" => :build
+  end
 
   fails_with :llvm
 
@@ -61,12 +67,17 @@ class Gcc < Formula
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
+  # Fix for libgccjit.so linkage on Darwin
   # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=64089
   patch :DATA
 
   def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete "LD"
+
+    if MacOS.version < :leopard
+      ENV["AS"] = ENV["AS_FOR_TARGET"] = "#{Formula["cctools"].bin}/as"
+    end
 
     if build.with? "all-languages"
       # Everything but Ada, which requires a pre-existing GCC Ada compiler
@@ -119,7 +130,7 @@ class Gcc < Formula
     args << "--disable-nls" if build.without? "nls"
 
     if build.with?("java") || build.with?("all-languages")
-      args << "--with-ecj-jar=#{Formula["ecj"].opt_prefix}/share/java/ecj.jar"
+      args << "--with-ecj-jar=#{Formula["ecj"].opt_share}/java/ecj.jar"
     end
 
     if !MacOS.prefer_64_bit? || build.without?("multilib")
@@ -192,7 +203,6 @@ class Gcc < Formula
     system bin/"gcc-5", "-o", "hello-c", "hello-c.c"
     assert_equal "Hello, world!\n", `./hello-c`
   end
-
 end
 __END__
 --- a/gcc/jit/Make-lang.in	2015-02-03 17:19:58.000000000 +0000
