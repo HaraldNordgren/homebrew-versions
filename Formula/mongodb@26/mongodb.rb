@@ -1,8 +1,8 @@
 class Mongodb < Formula
   version "26"
   homepage "https://www.mongodb.org/"
-  url "https://fastdl.mongodb.org/src/mongodb-src-r2.6.8.tar.gz"
-  sha256 "1997f60d9de17320f22c604d8aa1cbe5f38d877142cd0e9130fe3dae7b311a06"
+  url "https://fastdl.mongodb.org/src/mongodb-src-r2.6.10.tar.gz"
+  sha256 "74228a22aaf99570e706ecde20658165e3983ee8a9f327e80974f82a4e819476"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
