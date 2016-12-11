@@ -1930,5 +1930,12 @@
     "file_without_extension": "gradle27",
     "original_filename": "gradle27.rb",
     "migrated_filename": "gradle.rb"
+  },
+  {
+    "classname_with_version": "Nifi021",
+    "package_at_version": "nifi@021",
+    "file_without_extension": "nifi021",
+    "original_filename": "nifi021.rb",
+    "migrated_filename": "nifi.rb"
   }
 ]
