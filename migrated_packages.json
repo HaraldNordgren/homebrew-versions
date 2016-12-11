@@ -460,5 +460,12 @@
     "file_without_extension": "node08",
     "original_filename": "node08.rb",
     "migrated_filename": "node.rb"
+  },
+  {
+    "classname_with_version": "ErlangR15",
+    "package_at_version": "erlang@r15",
+    "file_without_extension": "erlang-r15",
+    "original_filename": "erlang-r15.rb",
+    "migrated_filename": "erlang.rb"
   }
 ]
