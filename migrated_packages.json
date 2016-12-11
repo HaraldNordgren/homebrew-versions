@@ -600,5 +600,12 @@
     "file_without_extension": "mpfr2",
     "original_filename": "mpfr2.rb",
     "migrated_filename": "mpfr.rb"
+  },
+  {
+    "classname_with_version": "Libmpc08",
+    "package_at_version": "libmpc@08",
+    "file_without_extension": "libmpc08",
+    "original_filename": "libmpc08.rb",
+    "migrated_filename": "libmpc.rb"
   }
 ]
