@@ -6,6 +6,30 @@ class Llvm < Formula
   url       'http://llvm.org/releases/3.3/llvm-3.3.src.tar.gz'
   sha1      'c6c22d5593419e3cb47cbcf16d967640e5cce133'
 
+  head do
+    url 'http://llvm.org/svn/llvm-project/llvm/branches/release_33', :using => :svn
+
+    resource 'clang' do
+      url 'http://llvm.org/svn/llvm-project/cfe/branches/release_33', :using => :svn
+    end
+
+    resource 'clang-tools-extra' do
+      url 'http://llvm.org/svn/llvm-project/clang-tools-extra/branches/release_33', :using => :svn
+    end
+
+    resource 'compiler-rt' do
+      url 'http://llvm.org/svn/llvm-project/compiler-rt/branches/release_33', :using => :svn
+    end
+
+    resource 'polly' do
+      url 'http://llvm.org/svn/llvm-project/polly/branches/release_33', :using => :svn
+    end
+
+    resource 'libcxx' do
+      url 'http://llvm.org/svn/llvm-project/libcxx/branches/release_33', :using => :svn
+    end
+  end
+
   option :universal
   option 'with-libcxx', 'Build libc++ standard library support'
   option 'with-clang', 'Build Clang C/ObjC/C++ frontend'
@@ -42,15 +66,21 @@ class Llvm < Formula
   end
 
   resource 'libcxx' do
-    url       'http://llvm.org/releases/3.3/libcxx-3.3.src.tar.gz'
-    sha1      '7bea00bc1031bf3bf6c248e57c1f4e0874c18c04'
+    url 'http://llvm.org/releases/3.3/libcxx-3.3.src.tar.gz'
+    sha1 '7bea00bc1031bf3bf6c248e57c1f4e0874c18c04'
   end
 
   env :std if build.universal?
 
+  def ver; '3.3'; end # version suffix
+
   def install
     if python and build.include? 'disable-shared'
       raise 'The Python bindings need the shared library.'
+    end
+
+    if build.with? 'libcxx' and build.without? 'clang'
+      raise '"--with-libcxx" requires "--with-clang".'
     end
 
     (buildpath/'tools/polly').install resource('polly')
@@ -66,7 +96,7 @@ class Llvm < Formula
 
     ENV['REQUIRES_RTTI'] = '1' if build.include? 'rtti'
 
-    install_prefix = lib/"llvm-#{version}"
+    install_prefix = lib/"llvm-#{ver}"
 
     args = [
       "--prefix=#{install_prefix}",
@@ -84,6 +114,7 @@ class Llvm < Formula
     else
       args << '--enable-targets=host'
     end
+
     args << "--enable-shared" unless build.include? 'disable-shared'
 
     args << "--disable-assertions" if build.include? 'disable-assertions'
@@ -99,6 +130,8 @@ class Llvm < Formula
     cd buildpath/'projects/libcxx' do
       libcxx_make_args = [
         # The following flags are needed so it can be installed correctly.
+        "CC=#{install_prefix}/bin/clang",
+        "CXX=#{install_prefix}/bin/clang++",
         "DSTROOT=#{install_prefix}",
         "SYMROOT=#{buildpath}/projects/libcxx"
       ]
@@ -106,16 +139,16 @@ class Llvm < Formula
     end if build.with? 'libcxx'
 
     # Install Clang tools
-    (share/"clang-#{version}/tools").install buildpath/'tools/clang/tools/scan-build', buildpath/'tools/clang/tools/scan-view' if build.with? 'clang'
+    (share/"clang-#{ver}/tools").install buildpath/'tools/clang/tools/scan-build', buildpath/'tools/clang/tools/scan-view' if build.with? 'clang'
 
     if python
       # Install llvm python bindings.
-      mv buildpath/'bindings/python/llvm', buildpath/"bindings/python/llvm-#{version}"
-      python.site_packages.install buildpath/"bindings/python/llvm-#{version}"
+      mv buildpath/'bindings/python/llvm', buildpath/"bindings/python/llvm-#{ver}"
+      python.site_packages.install buildpath/"bindings/python/llvm-#{ver}"
       # Install clang tools and bindings if requested.
       if build.with? 'clang'
-        mv buildpath/'tools/clang/bindings/python/clang', buildpath/"tools/clang/bindings/python/clang-#{version}"
-        python.site_packages.install buildpath/"tools/clang/bindings/python/clang-#{version}"
+        mv buildpath/'tools/clang/bindings/python/clang', buildpath/"tools/clang/bindings/python/clang-#{ver}"
+        python.site_packages.install buildpath/"tools/clang/bindings/python/clang-#{ver}"
       end
     end
 
@@ -123,19 +156,19 @@ class Llvm < Formula
     mkdir_p bin
     Dir.glob(install_prefix/'bin/*') do |exec_path|
       exec_file = File.basename(exec_path)
-      ln_s exec_path, bin/"#{exec_file}-#{version}"
+      ln_s exec_path, bin/"#{exec_file}-#{ver}"
     end
 
     # Also link man pages
     mkdir_p man1
     Dir.glob(install_prefix/'share/man/man1/*') do |manpage|
       manpage_base = File.basename(manpage, '.1')
-      ln_s manpage, man1/"#{manpage_base}-#{version}.1"
+      ln_s manpage, man1/"#{manpage_base}-#{ver}.1"
     end
   end
 
   def test
-    system "#{bin}/llvm-config-#{version}", "--version"
+    system "#{bin}/llvm-config-#{ver}", "--version"
   end
 
   def caveats
@@ -143,7 +176,7 @@ class Llvm < Formula
     s += python.standard_caveats if python
 
     if build.with? 'clang'
-      clang_tools_path = HOMEBREW_PREFIX/"share/clang-#{version}"
+      clang_tools_path = HOMEBREW_PREFIX/"share/clang-#{ver}"
       s += <<-EOS.undent
 
       Extra tools are installed in #{clang_tools_path}.
@@ -151,15 +184,14 @@ class Llvm < Formula
     end
 
     if build.with? 'libcxx'
-      include_path = HOMEBREW_PREFIX/"lib/llvm-#{version}/c++/v1"
-      libs_path = HOMEBREW_PREFIX/"lib/llvm-#{version}/usr/lib"
+      include_path = HOMEBREW_PREFIX/"lib/llvm-#{ver}/c++/v1"
+      libs_path = HOMEBREW_PREFIX/"lib/llvm-#{ver}/usr/lib"
       s += <<-EOS.undent
 
       To link to libc++ built here, please adjust your $CXX as following:
-      clang++-#{version} -stdlib=libc++ -nostdinc++ -I#{include_path} -L#{libs_path} -lc++
+      clang++-#{ver} -stdlib=libc++ -nostdinc++ -I#{include_path} -L#{libs_path}
       EOS
     end
     s
   end
-
 end
