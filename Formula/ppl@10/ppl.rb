@@ -6,12 +6,18 @@ class Ppl < Formula
   url 'http://bugseng.com/products/ppl/download/ftp/releases/1.0/ppl-1.0.tar.gz'
   sha1 '5f543206cc9de17d48ff797e977547b61b40ab2c'
 
+  depends_on 'homebrew/dupes/m4' => :build if MacOS.version < :leopard
   depends_on 'gmp@4'
 
   def install
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-optimization=sspeed"
+    args = [
+      "--prefix=#{prefix}",
+      "--disable-dependency-tracking",
+      "--enable-optimization=sspeed",
+      "--with-gmp-prefix=#{Formula.factory('gmp4').opt_prefix}"
+    ]
+
+    system "./configure", *args
     system "make install"
   end
 end
