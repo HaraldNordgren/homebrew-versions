@@ -1,5 +1,3 @@
-require "formula"
-
 class Ruby < Formula
   version "21"
   homepage "https://www.ruby-lang.org/"

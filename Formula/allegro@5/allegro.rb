@@ -1,29 +1,27 @@
-require 'formula'
-
 class Allegro < Formula
   version "5"
-  homepage 'http://www.allegro.cc'
-  url 'https://downloads.sourceforge.net/project/alleg/allegro/5.0.11/allegro-5.0.11.tar.gz'
-  sha1 '0c21a40db6e1c9ae82405734f095b9049456d14d'
+  homepage "https://www.allegro.cc"
+  url "https://downloads.sourceforge.net/project/alleg/allegro/5.0.11/allegro-5.0.11.tar.gz"
+  sha256 "49fe14c9571463ba08db4ff778d1fbb15e49f9c33bdada3ac8599e04330ea531"
 
-  head 'git://git.code.sf.net/p/alleg/allegro', :branch => '5.1'
+  head "git://git.code.sf.net/p/alleg/allegro", :branch => "5.1"
 
-  depends_on 'cmake' => :build
-  depends_on 'libvorbis' => :optional
-  depends_on 'freetype' => :optional
-  depends_on 'flac' => :optional
-  depends_on 'libpng' => :optional
-  depends_on 'jpeg' => :optional
-  depends_on 'physfs' => :optional
+  depends_on "cmake" => :build
+  depends_on "libvorbis" => :optional
+  depends_on "freetype" => :optional
+  depends_on "flac" => :optional
+  depends_on "libpng" => :optional
+  depends_on "jpeg" => :optional
+  depends_on "physfs" => :optional
 
   def install
     args = std_cmake_args + ["-DWANT_DOCS=OFF"]
     system "cmake", ".", *args
-    system "make install"
+    system "make", "install"
   end
 
   test do
-    (testpath/'allegro_test.cpp').write <<-EOS
+    (testpath/"allegro_test.cpp").write <<-EOS
     #include <assert.h>
     #include <allegro5/allegro5.h>
 
