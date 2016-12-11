@@ -1,16 +1,14 @@
-require 'formula'
-
 class Log4cplus < Formula
   version "10"
-  url 'https://downloads.sourceforge.net/project/log4cplus/log4cplus-stable/1.0.4/log4cplus-1.0.4.3.tar.bz2'
-  homepage 'http://log4cplus.sourceforge.net/'
-  sha1 '917d244f7f3d58a5fff35e3eef7fff9c74e9409b'
+  homepage "http://log4cplus.sourceforge.net/"
+  url "https://downloads.sourceforge.net/project/log4cplus/log4cplus-stable/1.0.4/log4cplus-1.0.4.3.tar.bz2"
+  sha256 "9af936fc4a25c3a59b7ae2c34ce95e08e8a705797ffe27e13272c01732649491"
 
-  keg_only "so it can live alongside current version of log4cplus"
+  keg_only "Differing version of the same formula shipped in Homebrew/homebrew"
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
-    system "make install"
+    system "make", "install"
   end
 end
