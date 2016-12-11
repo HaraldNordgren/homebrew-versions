@@ -50,8 +50,6 @@ class Thrift < Formula
   option "with-php", "Install Php binding"
 
   def install
-    system "./bootstrap.sh" if build.head?
-
     args = ["--without-ruby", "--without-tests", "--without-php_extension"]
 
     args << "--without-python" if build.without? "python"
