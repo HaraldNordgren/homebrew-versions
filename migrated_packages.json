@@ -390,5 +390,12 @@
     "file_without_extension": "povray36",
     "original_filename": "povray36.rb",
     "migrated_filename": "povray.rb"
+  },
+  {
+    "classname_with_version": "Zeromq22",
+    "package_at_version": "zeromq@22",
+    "file_without_extension": "zeromq22",
+    "original_filename": "zeromq22.rb",
+    "migrated_filename": "zeromq.rb"
   }
 ]
