@@ -1,26 +1,17 @@
 require 'formula'
 
-def build_gui?
-  ARGV.include? '--with-gui'
-end
-
 class Postgis < Formula
   version "15"
   homepage 'http://postgis.refractions.net'
   url 'http://download.osgeo.org/postgis/source/postgis-1.5.8.tar.gz'
   sha1 'a3637851ba9dd4f29576c9dc60254e9f53abc559'
 
+  option 'with-gui', 'Build sh2pgsql-gui in addition to CLI tools'
+
   depends_on 'postgresql@9'
   depends_on 'proj'
   depends_on 'geos'
-
-  depends_on 'gtk+' if build_gui?
-
-  def options
-    [
-      ['--with-gui', 'Build shp2pgsql-gui in addition to command line tools']
-    ]
-  end
+  depends_on 'gtk+' if build.with? 'gui'
 
   def install
     ENV.deparallelize
@@ -36,7 +27,7 @@ class Postgis < Formula
       # Postgresql keg.
       "--with-pgconfig=#{postgresql.bin}/pg_config"
     ]
-    args << '--with-gui' if build_gui?
+    args << '--with-gui' if build.with? 'gui'
 
     system './configure', *args
     system 'make'
@@ -62,7 +53,7 @@ class Postgis < Formula
       loader/shp2pgsql
       utils/new_postgis_restore.pl
     ]
-    bin.install 'loader/shp2pgsql-gui' if build_gui?
+    bin.install 'loader/shp2pgsql-gui' if build.with? 'gui'
 
     # Install PostGIS 1.x upgrade scripts
     postgis_sql.install %w[
