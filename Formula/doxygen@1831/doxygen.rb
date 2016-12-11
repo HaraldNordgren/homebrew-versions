@@ -5,6 +5,14 @@ class Doxygen < Formula
   mirror "https://downloads.sourceforge.net/project/doxygen/rel-1.8.3.1/doxygen-1.8.3.1.src.tar.gz"
   sha256 "0c749f68101b6c04ccb0d9696dd37836a6ba62cd8002add275058a975ee72b55"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    cellar :any
+    sha256 "64977dcd670dad96123eb960e0d3c10aabc77a54581fcd80b1d739e2944bfa66" => :yosemite
+    sha256 "75ea3c6a589dee81e8ca790a9c9a17aa008be2dd8c392add690a01cf37e91a63" => :mavericks
+    sha256 "e9ca771c72c9ca33d4a3cd5b0def2059c061b156e348e651c2b4d023f1106688" => :mountain_lion
+  end
+
   option "with-graphviz", "Build with dot command support from Graphviz."
   option "with-doxywizard", "Build GUI frontend with qt support."
   option "with-libclang", "Build with libclang support."
