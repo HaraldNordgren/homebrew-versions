@@ -3,8 +3,8 @@ require 'formula'
 class Perl < Formula
   version "518"
   homepage 'http://www.perl.org/'
-  url 'http://www.cpan.org/src/5.0/perl-5.18.0.tar.gz'
-  sha1 'f5a97a9fa4e9d0ef9c4b313c5b778a0e76291ee2'
+  url 'http://www.cpan.org/src/5.0/perl-5.18.2.tar.gz'
+  sha1 '7f0cc08d883a0e0aaaa385903ec4fb28aec514ec'
 
   keg_only 'System provides Perl. Also conflicts with other Perl versions.'
 
