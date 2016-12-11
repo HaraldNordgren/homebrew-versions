@@ -1293,5 +1293,12 @@
     "file_without_extension": "bind99",
     "original_filename": "bind99.rb",
     "migrated_filename": "bind.rb"
+  },
+  {
+    "classname_with_version": "Ruby21",
+    "package_at_version": "ruby@21",
+    "file_without_extension": "ruby21",
+    "original_filename": "ruby21.rb",
+    "migrated_filename": "ruby.rb"
   }
 ]
