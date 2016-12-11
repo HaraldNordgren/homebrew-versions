@@ -1524,5 +1524,12 @@
     "file_without_extension": "cmake28",
     "original_filename": "cmake28.rb",
     "migrated_filename": "cmake.rb"
+  },
+  {
+    "classname_with_version": "Cmake30",
+    "package_at_version": "cmake@30",
+    "file_without_extension": "cmake30",
+    "original_filename": "cmake30.rb",
+    "migrated_filename": "cmake.rb"
   }
 ]
