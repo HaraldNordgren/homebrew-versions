@@ -44,6 +44,13 @@ class Llvm < Formula
     end if MacOS.version <= :snow_leopard
   end
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/versions"
+    sha1 "9fbbf9cb228878e9d725d2b924058b11a20ec1e5" => :yosemite
+    sha1 "aedddf3cab0a800afb69e1d0346ecb429cf4edde" => :mavericks
+    sha1 "f7c856f89bf7561cf1125c8e34a9cc17b06f7b3f" => :mountain_lion
+  end
+
   head do
     url "http://llvm.org/git/llvm.git", :branch => "release_35"
 
