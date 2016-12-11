@@ -2,8 +2,8 @@ class V8 < Formula
   version "315"
   homepage "https://code.google.com/p/v8/"
   # Use the official github mirror, it is easier to find tags there
-  url "https://github.com/v8/v8/archive/3.15.11.tar.gz"
-  sha1 "0c47b3a5409d71d4fd6581520c8972f7451a87e4"
+  url "https://github.com/v8/v8-git-mirror/archive/3.15.11.18.tar.gz"
+  sha256 "389c03f67731874342486536bd231c43281fe43d05001664000abd3ac48fd9cf"
 
   bottle do
     cellar :any
