@@ -6,10 +6,10 @@ class Subversion < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
-    revision 1
-    sha256 "47c9d6ab1c79d79fe6fc94d60b8492e4c998d883e2c3e18f076c0f59b606ab89" => :yosemite
-    sha256 "9e5b9bfd7b786df7e061c6b49714d7393ba96e88da59640c219279a87900918b" => :mavericks
-    sha256 "9fbf3307fc4125b617f26a6f045924a7f4778713e935743aa1f25738d9e33737" => :mountain_lion
+    revision 2
+    sha256 "412d63fe92b65f47387d82019d6fc3182f38785726495cae185f6d2deea0cc20" => :yosemite
+    sha256 "b13dd2a4574d01ef4afe26b66bb975b93249376446100f52f6f29a52376914f3" => :mavericks
+    sha256 "c66db0cc2f6ee86adb9cef45ab31fff5dbb5a4416af6b83d7bd76e5ef2cc770c" => :mountain_lion
   end
 
   option :universal
