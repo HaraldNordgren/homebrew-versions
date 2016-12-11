@@ -1678,5 +1678,12 @@
     "file_without_extension": "ruby187",
     "original_filename": "ruby187.rb",
     "migrated_filename": "ruby.rb"
+  },
+  {
+    "classname_with_version": "Docker150",
+    "package_at_version": "docker@150",
+    "file_without_extension": "docker150",
+    "original_filename": "docker150.rb",
+    "migrated_filename": "docker.rb"
   }
 ]
