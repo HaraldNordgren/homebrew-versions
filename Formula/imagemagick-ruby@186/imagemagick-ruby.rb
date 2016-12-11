@@ -4,6 +4,13 @@ class ImagemagickRuby < Formula
   url "https://download.sourceforge.net/project/imagemagick/old-sources/6.x/6.5/ImageMagick-6.5.9-10.tar.gz"
   sha256 "2330183bdecfda05f0503dcbf9cc74bc313211717194a2dbe4e3074564e9c2df"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "2dd389cdca475b1a4dbdc3e0169f87ba86b7ea6bf44c6bd2b80f551a82589d78" => :yosemite
+    sha256 "f6005dc489e5c0589a6305105c62904168c1ac27b0b90e721b1d89a445f7ddcc" => :mavericks
+    sha256 "897d2e94a983c980cb3deb620273bd0ca81a9c2fa1df07d6fc6b42014b4729db" => :mountain_lion
+  end
+
   depends_on "jpeg"
   depends_on "libwmf" => :optional
   depends_on "libtiff" => :optional
