@@ -1209,5 +1209,12 @@
     "file_without_extension": "go12",
     "original_filename": "go12.rb",
     "migrated_filename": "go.rb"
+  },
+  {
+    "classname_with_version": "AndroidNdkR9d",
+    "package_at_version": "android-ndk@r9d",
+    "file_without_extension": "android-ndk-r9d",
+    "original_filename": "android-ndk-r9d.rb",
+    "migrated_filename": "android-ndk.rb"
   }
 ]
