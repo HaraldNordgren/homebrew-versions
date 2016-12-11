@@ -1923,5 +1923,12 @@
     "file_without_extension": "node4-lts",
     "original_filename": "node4-lts.rb",
     "migrated_filename": "node.rb"
+  },
+  {
+    "classname_with_version": "Gradle27",
+    "package_at_version": "gradle@27",
+    "file_without_extension": "gradle27",
+    "original_filename": "gradle27.rb",
+    "migrated_filename": "gradle.rb"
   }
 ]
