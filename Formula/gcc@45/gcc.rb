@@ -67,7 +67,7 @@ class Gcc < Formula
 
     args << '--disable-nls' unless build.include? 'enable-nls'
 
-    if build_everything?
+    if build.include? 'enable-all-languages'
       # Everything but Ada, which requires a pre-existing GCC Ada compiler
       # (gnat) to bootstrap.
       languages = %w[c c++ fortran java objc obj-c++]
