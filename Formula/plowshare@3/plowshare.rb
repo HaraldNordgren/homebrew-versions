@@ -6,8 +6,6 @@ class Plowshare < Formula
   version '3.GIT-55e67de'
   sha1 '6acb3a2264de6fc1e516ed4574028cc4a94e9fa6'
 
-  head 'https://code.google.com/p/plowshare/', :using => :git
-
   conflicts_with 'plowshare'
 
   depends_on 'recode'

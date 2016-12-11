@@ -6,8 +6,6 @@ class Postgis < Formula
   url 'http://download.osgeo.org/postgis/source/postgis-2.0.4.tar.gz'
   sha1 '34d5d88faed11e800ec480742e3a80ba460e1400'
 
-  head 'http://svn.osgeo.org/postgis/trunk/'
-
   option 'with-gui', 'Build shp2pgsql-gui in addition to command line tools'
 
   keg_only 'Avoid conflict with main PostGIS package'
