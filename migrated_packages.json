@@ -866,5 +866,12 @@
     "file_without_extension": "ruby182",
     "original_filename": "ruby182.rb",
     "migrated_filename": "ruby.rb"
+  },
+  {
+    "classname_with_version": "OpenMpi16",
+    "package_at_version": "open-mpi@16",
+    "file_without_extension": "open-mpi16",
+    "original_filename": "open-mpi16.rb",
+    "migrated_filename": "open-mpi.rb"
   }
 ]
