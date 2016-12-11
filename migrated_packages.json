@@ -1440,5 +1440,12 @@
     "file_without_extension": "v8-315",
     "original_filename": "v8-315.rb",
     "migrated_filename": "v8.rb"
+  },
+  {
+    "classname_with_version": "Libpqxx3",
+    "package_at_version": "libpqxx@3",
+    "file_without_extension": "libpqxx3",
+    "original_filename": "libpqxx3.rb",
+    "migrated_filename": "libpqxx.rb"
   }
 ]
