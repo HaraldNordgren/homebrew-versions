@@ -2,8 +2,8 @@ class Mysql < Formula
   version "55"
   desc "Open source relational database management system"
   homepage "http://dev.mysql.com/doc/refman/5.5/en/"
-  url "https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.40.tar.gz"
-  sha256 "4d3721761a31c28866e8ee0fde47558a3e9047aaef3b89135ae8d45eebb74960"
+  url "https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.44.tar.gz"
+  sha256 "85f05b257db39e63c82ff4b5ce4e0c6d2b07560b5fc1646d47d7ae48eab3e5de"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
