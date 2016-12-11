@@ -1538,5 +1538,19 @@
     "file_without_extension": "cmake31",
     "original_filename": "cmake31.rb",
     "migrated_filename": "cmake.rb"
+  },
+  {
+    "classname_with_version": "Hive010",
+    "package_at_version": "hive@010",
+    "file_without_extension": "hive010",
+    "original_filename": "hive010.rb",
+    "migrated_filename": "hive.rb"
+  },
+  {
+    "classname_with_version": "Hive011",
+    "package_at_version": "hive@011",
+    "file_without_extension": "hive011",
+    "original_filename": "hive011.rb",
+    "migrated_filename": "hive.rb"
   }
 ]
