@@ -1,18 +1,17 @@
-require 'formula'
+require "formula"
 
 class Jenkins < Formula
   version "lts"
-  homepage 'http://jenkins-ci.org/#stable'
-  url "http://mirrors.jenkins-ci.org/war-stable/1.565.3/jenkins.war"
-  sha1 "d45e2d14430517453d96adff81abb58bd981fe81"
-  conflicts_with 'jenkins',
-    :because => 'both use the same data directory: $HOME/.jenkins'
+  homepage "http://jenkins-ci.org/#stable"
+  url "http://mirrors.jenkins-ci.org/war-stable/1.580.1/jenkins.war"
+  sha1 "b9320b2c1ea28247f035bbf0f313948e8a735b78"
 
   def install
     libexec.install "jenkins.war"
+    bin.write_jar_script libexec/"jenkins.war", "jenkins-lts"
   end
 
-  plist_options :manual => "java -jar #{HOMEBREW_PREFIX}/opt/jenkins-lts/libexec/jenkins.war"
+  plist_options :manual => "jenkins-lts"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
