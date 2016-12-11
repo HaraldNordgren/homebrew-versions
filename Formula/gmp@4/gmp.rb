@@ -6,15 +6,16 @@ class Gmp < Formula
   url 'ftp://ftp.gmplib.org/pub/gmp-4.3.2/gmp-4.3.2.tar.bz2'
   sha1 'c011e8feaf1bb89158bd55eaabd7ef8fdd101a2c'
 
+  keg_only "Conflicts with gmp in main repository."
+
   option '32-bit'
   option 'skip-check', 'Do not run `make check` to verify libraries'
 
-  def install
-    # Reports of problems using gcc 4.0 on Leopard
-    # https://github.com/mxcl/homebrew/issues/issue/2302
-    # Also force use of 4.2 on 10.6 in case a user has changed the default
-    ENV.gcc_4_2
+  fails_with :gcc_4_0 do
+    cause "Reports of problems using gcc 4.0 on Leopard: https://github.com/mxcl/homebrew/issues/issue/2302"
+  end
 
+  def install
     args = ["--prefix=#{prefix}", "--enable-cxx"]
 
     # Build 32-bit where appropriate, and help configure find 64-bit CPUs
