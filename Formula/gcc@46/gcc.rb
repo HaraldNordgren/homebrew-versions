@@ -42,10 +42,10 @@ class Gcc < Formula
   depends_on 'cloog-ppl@015'
   depends_on 'ecj' if build.include? 'enable-java' or build.include? 'enable-all-languages'
 
-  def install
-    # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
-    cxxstdlib_check :skip
+  # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
+  cxxstdlib_check :skip
 
+  def install
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete 'LD'
 
