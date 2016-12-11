@@ -209,7 +209,7 @@ class Llvm < Formula
     end
 
     if build.with? 'libcxx'
-      include_path = HOMEBREW_PREFIX/"lib/llvm-#{ver}/lib/c++/v1"
+      include_path = HOMEBREW_PREFIX/"lib/llvm-#{ver}/include/c++/v1"
       libs_path = HOMEBREW_PREFIX/"lib/llvm-#{ver}/usr/lib"
       s += <<-EOS.undent
 
