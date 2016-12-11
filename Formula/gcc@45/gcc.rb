@@ -2,6 +2,14 @@ require 'formula'
 
 class Gcc < Formula
   version "45"
+  def arch
+    `uname -m`.chomp
+  end
+
+  def osmajor
+    `uname -r`.chomp
+  end
+
   homepage 'http://gcc.gnu.org'
   url 'http://ftpmirror.gnu.org/gcc/gcc-4.5.4/gcc-4.5.4.tar.bz2'
   mirror 'http://ftp.gnu.org/gnu/gcc/gcc-4.5.4/gcc-4.5.4.tar.bz2'
@@ -23,49 +31,12 @@ class Gcc < Formula
   depends_on 'ecj' if build.include? 'enable-java' or build.include? 'enable-all-languages'
 
   def install
-    # Force 64-bit on systems that use it. Build failures reported for some
-    # systems when this is not done.
-    ENV.m64 if MacOS.prefer_64_bit?
-
     # GCC will suffer build errors if forced to use a particular linker.
     ENV.delete 'LD'
-
-    # This is required on systems running a version newer than 10.6, and
-    # it's probably a good idea regardless.
-    #
-    # https://trac.macports.org/ticket/27237
-    ENV.append 'CXXFLAGS', '-U_GLIBCXX_DEBUG -U_GLIBCXX_DEBUG_PEDANTIC'
 
     gmp = Formula.factory 'gmp'
     mpfr = Formula.factory 'mpfr'
     libmpc = Formula.factory 'libmpc'
-
-    # Sandbox the GCC lib, libexec and include directories so they don't wander
-    # around telling small children there is no Santa Claus. This results in a
-    # partially keg-only brew following suggestions outlined in the "How to
-    # install multiple versions of GCC" section of the GCC FAQ:
-    #     http://gcc.gnu.org/faq.html#multiple
-    gcc_prefix = prefix + 'gcc'
-
-    args = [
-      # Sandbox everything...
-      "--prefix=#{gcc_prefix}",
-      # ...except the stuff in share...
-      "--datarootdir=#{share}",
-      # ...and the binaries...
-      "--bindir=#{bin}",
-      # ...which are tagged with a suffix to distinguish them.
-      "--program-suffix=-#{version.to_s.slice(/\d\.\d/)}",
-      "--with-gmp=#{gmp.prefix}",
-      "--with-mpfr=#{mpfr.prefix}",
-      "--with-mpc=#{libmpc.prefix}",
-      "--with-system-zlib",
-      "--enable-stage1-checking",
-      "--enable-plugin",
-      "--disable-lto"
-    ]
-
-    args << '--disable-nls' unless build.include? 'enable-nls'
 
     if build.include? 'enable-all-languages'
       # Everything but Ada, which requires a pre-existing GCC Ada compiler
@@ -82,6 +53,35 @@ class Gcc < Formula
       languages << 'objc' if build.include? 'enable-objc'
       languages << 'obj-c++' if build.include? 'enable-objcxx'
     end
+
+    # Sandbox the GCC lib, libexec and include directories so they don't wander
+    # around telling small children there is no Santa Claus. This results in a
+    # partially keg-only brew following suggestions outlined in the "How to
+    # install multiple versions of GCC" section of the GCC FAQ:
+    #     http://gcc.gnu.org/faq.html#multiple
+    gcc_prefix = prefix + 'gcc'
+
+    args = [
+      "--build=#{arch}-apple-darwin#{osmajor}",
+      # Sandbox everything...
+      "--prefix=#{gcc_prefix}",
+      # ...except the stuff in share...
+      "--datarootdir=#{share}",
+      # ...and the binaries...
+      "--bindir=#{bin}",
+      # ...which are tagged with a suffix to distinguish them.
+      "--enable-languages=#{languages.join(',')}",
+      "--program-suffix=-#{version.to_s.slice(/\d\.\d/)}",
+      "--with-gmp=#{gmp.opt_prefix}",
+      "--with-mpfr=#{mpfr.opt_prefix}",
+      "--with-mpc=#{libmpc.opt_prefix}",
+      "--with-system-zlib",
+      "--enable-stage1-checking",
+      "--enable-plugin",
+      "--disable-lto"
+    ]
+
+    args << '--disable-nls' unless build.include? 'enable-nls'
 
     if build.include? 'enable-java' or build.include? 'enable-all-languages'
       ecj = Formula.factory 'ecj'
@@ -102,7 +102,7 @@ class Gcc < Formula
         args << "--with-sysroot=#{MacOS.sdk_path}"
       end
 
-      system '../configure', "--enable-languages=#{languages.join(',')}", *args
+      system '../configure', *args
 
       if build.include? 'enable-profiled-build'
         # Takes longer to build, may bug out. Provided for those who want to
