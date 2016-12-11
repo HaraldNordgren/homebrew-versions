@@ -5,6 +5,13 @@ class Node < Formula
   sha1 "31f564bf34c64b07cae3b9a88a87b4a08bab4dc5"
   revision 1
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha1 "81590f60b9165f186e8ebbff5453127fb1f4861b" => :yosemite
+    sha1 "84e9e2e1e6f74e4b956ea334c43c2a73ffc7b97b" => :mavericks
+    sha1 "4949d439daa73b284348aa63ed43266dd0d4a725" => :mountain_lion
+  end
+
   option "with-debug", "Build with debugger hooks"
 
   deprecated_option "enable-debug" => "with-debug"
