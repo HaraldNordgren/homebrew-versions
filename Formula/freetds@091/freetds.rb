@@ -5,6 +5,12 @@ class Freetds < Formula
   url "ftp://ftp.freetds.org/pub/freetds/stable/freetds-0.91.112.tar.gz"
   sha256 "be4f04ee57328c32e7e7cd7e2e1483e535071cec6101e46b9dd15b857c5078ed"
 
+  bottle do
+    sha256 "55c1bb525c855bc3684082ab45cd52bca491f69f3288a7811d321ee15df79693" => :yosemite
+    sha256 "959d10ae87e9135979e0e3819b38e0def9195d85fa66daaf96ed40c834dd7cf1" => :mavericks
+    sha256 "748d584c119cb5a6e8b6269256c70bf646f9af37f42859014dd7f77902347ff7" => :mountain_lion
+  end
+
   option :universal
   option "with-msdblib", "Enable Microsoft behavior in the DB-Library API where it diverges from Sybase's"
   option "with-sybase-compat", "Enable close compatibility with Sybase's ABI, at the expense of other features"
