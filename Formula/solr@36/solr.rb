@@ -19,6 +19,9 @@ class Solr < Formula
   def install
     libexec.install Dir['*']
     (bin+'solr36').write script
+    (var+'logs'+name).mkpath
+    (etc+name).mkpath
+    (etc+name).install Dir[libexec+'example/multicore'] unless (etc+name+'multicore').exist?
   end
 
   def caveats; <<-EOS.undent
@@ -27,6 +30,33 @@ class Solr < Formula
 
     See the solr homepage for more setup information:
       brew home solr
+    EOS
+  end
+
+  def plist; <<-EOS.undent
+      <?xml version="1.0" encoding="UTF-8"?>
+      <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+      <plist version="1.0">
+      <dict>
+          <key>Label</key>
+          <string>#{plist_name}</string>
+          <key>ProgramArguments</key>
+          <array>
+            <string>/usr/bin/java</string>
+            <string>-Djetty.home=#{libexec}/example</string>
+            <string>-Djetty.logs=#{var}/logs/#{name}</string>
+            <string>-Dsolr.solr.home=#{etc+name+'multicore'}</string>
+            <string>-jar</string>
+            <string>#{libexec}/example/start.jar</string>
+          </array>
+          <key>ServiceDescription</key>
+          <string>Solr</string>
+          <key>WorkingDirectory</key>
+          <string>#{HOMEBREW_PREFIX}</string>
+          <key>RunAtLoad</key>
+          <true/>
+      </dict>
+      </plist>
     EOS
   end
 end
