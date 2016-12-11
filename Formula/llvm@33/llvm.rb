@@ -28,6 +28,18 @@ class Llvm < Formula
     resource 'libcxx' do
       url 'http://llvm.org/svn/llvm-project/libcxx/branches/release_33', :using => :svn
     end
+
+    if MacOS.version <= :snow_leopard
+      # Not tarball release for libc++abi yet. Using latest branch.
+      resource 'libcxxabi' do
+        url 'http://llvm.org/svn/llvm-project/libcxxabi/branches/release_32', :using => :svn
+      end
+
+      resource 'clang-unwind-patch' do
+        url 'http://llvm.org/viewvc/llvm-project/cfe/trunk/lib/Headers/unwind.h?r1=172666&r2=189535&view=patch', :using => :nounzip
+        sha1 'b40f6dba4928add36945c50e5b89ca0988147cd2'
+      end if MacOS.version <= :snow_leopard
+    end
   end
 
   option :universal
@@ -70,6 +82,18 @@ class Llvm < Formula
     sha1 '7bea00bc1031bf3bf6c248e57c1f4e0874c18c04'
   end
 
+  if MacOS.version <= :snow_leopard
+    # Not tarball release for libc++abi yet. Using latest branch.
+    resource 'libcxxabi' do
+      url 'http://llvm.org/svn/llvm-project/libcxxabi/branches/release_32', :using => :svn
+    end
+
+    resource 'clang-unwind-patch' do
+      url 'http://llvm.org/viewvc/llvm-project/cfe/trunk/lib/Headers/unwind.h?r1=172666&r2=189535&view=patch', :using => :nounzip
+      sha1 'b40f6dba4928add36945c50e5b89ca0988147cd2'
+    end if MacOS.version <= :snow_leopard
+  end
+
   env :std if build.universal?
 
   def ver; '3.3'; end # version suffix
@@ -83,11 +107,31 @@ class Llvm < Formula
       raise '"--with-libcxx" requires "--with-clang".'
     end
 
-    (buildpath/'tools/polly').install resource('polly')
-    (buildpath/'tools/clang').install resource('clang') if build.with? 'clang'
-    (buildpath/'tools/clang/tools/extra').install resource('clang-tools-extra') if build.with? 'clang'
-    (buildpath/'projects/compiler-rt').install resource('compiler-rt') if build.with? 'asan'
-    (buildpath/'projects/libcxx').install resource('libcxx') if build.with? 'libcxx'
+    if build.with? 'libcxx' and not build.include? 'rtti'
+      raise '"--with-libcxx" requires "rtti".'
+    end
+
+    polly_buildpath = buildpath/'tools/polly'
+    clang_buildpath = buildpath/'tools/clang'
+    clang_tools_extra_buildpath = buildpath/'tools/clang/tools/extra'
+    compiler_rt_buildpath = buildpath/'projects/compiler-rt'
+    libcxx_buildpath = buildpath/'projects/libcxx'
+    libcxxabi_buildpath = buildpath/'libcxxabi' # build failure if put in projects due to no Makefile
+
+    polly_buildpath.install resource('polly')
+    clang_buildpath.install resource('clang') if build.with? 'clang'
+    clang_tools_extra_buildpath.install resource('clang-tools-extra') if build.with? 'clang'
+    compiler_rt_buildpath.install resource('compiler-rt') if build.with? 'asan'
+    libcxx_buildpath.install resource('libcxx') if build.with? 'libcxx'
+
+    # On Snow Leopard and below libc++abi is not shipped but needed for libc++.
+    if MacOS.version <= :snow_leopard and build.with? 'libcxx'
+      libcxxabi_buildpath.install resource('libcxxabi')
+      buildpath.install resource('clang-unwind-patch')
+      cd clang_buildpath do
+        system "patch -p2 -N < #{buildpath}/unwind.h"
+      end
+    end
 
     if build.universal?
       ENV['UNIVERSAL'] = '1'
@@ -125,21 +169,53 @@ class Llvm < Formula
     system 'make', 'VERBOSE=1'
     system 'make', 'VERBOSE=1', 'install'
 
+    # Snow Leopard is not shipped with libc++abi. Manually build here.
+    cd libcxxabi_buildpath/'lib' do
+      # Set rpath to save user from setting DYLD_LIBRARY_PATH
+      inreplace libcxxabi_buildpath/'lib/buildit', '-install_name /usr/lib/libc++abi.dylib', "-install_name #{install_prefix}/usr/lib/libc++abi.dylib"
+
+      ENV['CC'] = "#{install_prefix}/bin/clang"
+      ENV['CXX'] = "#{install_prefix}/bin/clang++"
+      ENV['TRIPLE'] = "*-apple-*"
+      system "./buildit"
+      # Install libs.
+      (install_prefix/'usr/lib/').install libcxxabi_buildpath/'lib/libc++abi.dylib'
+      # Install headers.
+      cp libcxxabi_buildpath/'include/cxxabi.h', install_prefix/'lib/c++/v1/'
+    end if MacOS.version <= :snow_leopard and build.with? 'libcxx'
+
     # Putting libcxx in projects only ensures that headers are installed.
     # Manually "make install" to actually install the shared libs.
-    cd buildpath/'projects/libcxx' do
+    cd libcxx_buildpath do
+      if MacOS.version <= :snow_leopard
+        # Snow Leopard make rules hardcode libc++ and libc++abi path.
+        # Change to Cellar path here.
+        inreplace libcxx_buildpath/'lib/buildit', '-install_name /usr/lib/libc++.1.dylib', "-install_name #{install_prefix}/usr/lib/libc++.1.dylib"
+        inreplace libcxx_buildpath/'lib/buildit', '-Wl,-reexport_library,/usr/lib/libc++abi.dylib', "-Wl,-reexport_library,#{install_prefix}/usr/lib/libc++abi.dylib"
+      end
+
       libcxx_make_args = [
-        # The following flags are needed so it can be installed correctly.
+        # Use the built clang for building
         "CC=#{install_prefix}/bin/clang",
         "CXX=#{install_prefix}/bin/clang++",
+        # Properly set deployment target, which is needed for Snow Leopard
+        "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
+        # The following flags are needed so it can be installed correctly.
         "DSTROOT=#{install_prefix}",
-        "SYMROOT=#{buildpath}/projects/libcxx"
+        "SYMROOT=#{libcxx_buildpath}"
       ]
+
+      # On Snow Leopard and older system libc++abi is not shipped but
+      # needed here. It is hard to tweak environment settings to change
+      # include path as libc++ uses a custom build script, so just
+      # symlink the needed header here.
+      ln_s libcxxabi_buildpath/'include/cxxabi.h', libcxx_buildpath/'include' if MacOS.version <= :snow_leopard
+
       system 'make', 'install', *libcxx_make_args
     end if build.with? 'libcxx'
 
     # Install Clang tools
-    (share/"clang-#{ver}/tools").install buildpath/'tools/clang/tools/scan-build', buildpath/'tools/clang/tools/scan-view' if build.with? 'clang'
+    (share/"clang-#{ver}/tools").install clang_buildpath/'tools/scan-build', clang_buildpath/'tools/scan-view' if build.with? 'clang'
 
     if python
       # Install llvm python bindings.
@@ -147,8 +223,8 @@ class Llvm < Formula
       python.site_packages.install buildpath/"bindings/python/llvm-#{ver}"
       # Install clang tools and bindings if requested.
       if build.with? 'clang'
-        mv buildpath/'tools/clang/bindings/python/clang', buildpath/"tools/clang/bindings/python/clang-#{ver}"
-        python.site_packages.install buildpath/"tools/clang/bindings/python/clang-#{ver}"
+        mv clang_buildpath/'bindings/python/clang', clang_buildpath/"bindings/python/clang-#{ver}"
+        python.site_packages.install clang_buildpath/"bindings/python/clang-#{ver}"
       end
     end
 
@@ -184,12 +260,15 @@ class Llvm < Formula
     end
 
     if build.with? 'libcxx'
-      include_path = HOMEBREW_PREFIX/"lib/llvm-#{ver}/c++/v1"
+      include_path = HOMEBREW_PREFIX/"lib/llvm-#{ver}/lib/c++/v1"
       libs_path = HOMEBREW_PREFIX/"lib/llvm-#{ver}/usr/lib"
       s += <<-EOS.undent
 
-      To link to libc++ built here, please adjust your $CXX as following:
-      clang++-#{ver} -stdlib=libc++ -nostdinc++ -I#{include_path} -L#{libs_path}
+      To link to libc++ built here, please adjust your environment as follow:
+
+        CXX="clang++-#{ver} -stdlib=libc++"
+        CXXFLAGS="${CXXFLAGS} -nostdinc++ -I#{include_path}"
+        LDFLAGS="${LDFLAGS} -L#{libs_path}"
       EOS
     end
     s
