@@ -5,6 +5,13 @@ class Boot2docker < Formula
   # Please update the version of docker too
   url "https://github.com/boot2docker/boot2docker-cli.git", :tag => "v1.3.3", :revision => "81bd2efb357cf84edb928883c0df43b1334e2860"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "b268164d3c91753992d5d9488ca83120bc3d478c90bc9d399afcdf445c767270" => :yosemite
+    sha256 "06c0cb4720e6c8c74227b40fe695ccd54d29e32158b798afadaebc8f29720520" => :mavericks
+    sha256 "7522d7280b9e0d2cf877e0e5ec35ca381bde400ce95b0965888ce08aa6f0e024" => :mountain_lion
+  end
+
   depends_on "docker@133" => :recommended
   depends_on "go" => :build
 
