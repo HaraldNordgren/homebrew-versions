@@ -24,6 +24,14 @@ class Cmake < Formula
   url "http://www.cmake.org/files/v3.0/cmake-3.0.2.tar.gz"
   sha256 "6b4ea61eadbbd9bec0ccb383c29d1f4496eacc121ef7acf37c7a24777805693e"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    cellar :any
+    sha256 "71b46be0b22a43368e8beddeb50c758d281684597bfb578c0e883151c968869f" => :yosemite
+    sha256 "5cbd2d245b6bb71480ac15d901d2caa8558f4429d2535fbef662e53431679cb2" => :mavericks
+    sha256 "21a42c38e5b78dac6598d3eedf7b26e1c856410614384ca747e277428254a4a8" => :mountain_lion
+  end
+
   option "without-docs", "Don't build man pages"
   depends_on :python => :build if MacOS.version <= :snow_leopard && build.with?("docs")
 
