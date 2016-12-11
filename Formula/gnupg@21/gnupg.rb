@@ -1,9 +1,9 @@
 class Gnupg < Formula
   version "21"
   homepage "https://www.gnupg.org/"
-  url "ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.3.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.3.tar.bz2"
-  sha256 "213e7fb0d74bb4e53a2d3153f309ddc077528f2cfffa2af85f2a20cc7875c8ed"
+  url "ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.4.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.4.tar.bz2"
+  sha256 "64127eedd868510f2bccccb22c507a4878ffa07495db16a0f976c67f56426cb0"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
@@ -46,12 +46,6 @@ class Gnupg < Formula
         :because => "fwknop expects to use a `gpgme` with Homebrew/Homebrew's gnupg2."
   conflicts_with "gpgme",
         :because => "gpgme currently requires 1.x.x or 2.0.x."
-
-  # Remove this patch with next release.
-  patch do
-    url "http://git.gnupg.org/cgi-bin/gitweb.cgi?p=gnupg.git;a=patch;h=454f60399c7318fffd3de2afadd58c7a490178bd"
-    sha256 "d837aa2c3be98ecde7b7101827fcf2c67f61d5134b20c14aa649a7115c182498"
-  end
 
   def install
     (var/"run").mkpath
