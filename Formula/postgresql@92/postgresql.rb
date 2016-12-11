@@ -7,9 +7,9 @@ class Postgresql < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
-    sha256 "ad079845fe44982d242e2da927ff82dc12da0b4ee1c7a634357dee7861dc9586" => :yosemite
-    sha256 "97803ef59590a22155ba4bbc023fec615eb22ad7ea51d0709041c3095de817e0" => :mavericks
-    sha256 "a4f8130dd553c41fd629c56182d20b03332b03e6292b571938d8fff2a139a796" => :mountain_lion
+    sha256 "40eafbdf891fd0fc0b78e9eab9eaa9cf9468a88a9c491aa81ea0dd557f509623" => :yosemite
+    sha256 "27bbf8b2264982a0a1456129e66b58d5ecfb3bb25d3290f13e1295a39c6d42e4" => :mavericks
+    sha256 "2af24cc10f8a6bffdf3f53b7bd9d46bed173b922846d887d840c434e1efba95b" => :mountain_lion
   end
 
   option "32-bit"
