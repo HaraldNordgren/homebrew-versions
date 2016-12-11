@@ -1342,5 +1342,19 @@
     "file_without_extension": "node010",
     "original_filename": "node010.rb",
     "migrated_filename": "node.rb"
+  },
+  {
+    "classname_with_version": "Boot2docker141",
+    "package_at_version": "boot2docker@141",
+    "file_without_extension": "boot2docker141",
+    "original_filename": "boot2docker141.rb",
+    "migrated_filename": "boot2docker.rb"
+  },
+  {
+    "classname_with_version": "Docker141",
+    "package_at_version": "docker@141",
+    "file_without_extension": "docker141",
+    "original_filename": "docker141.rb",
+    "migrated_filename": "docker.rb"
   }
 ]
