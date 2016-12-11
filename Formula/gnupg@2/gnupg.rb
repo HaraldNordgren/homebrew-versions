@@ -13,6 +13,7 @@ class Gnupg < Formula
   depends_on 'pinentry'
   depends_on 'pth'
   depends_on 'dirmngr' => :optional
+  depends_on 'libusb-compat' => :optional
 
   def options
     [['--with-gpg-link', 'Create a symlink from "gpg" to "gpg2"']]
@@ -22,7 +23,12 @@ class Gnupg < Formula
     (var+'run').mkpath
     inreplace 'common/homedir.c', '/var/run', '#{var}/run'
 
-    system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
+    # so we don't use Clang's internal stdint.h
+    ENV['gl_cv_absolute_stdint_h'] = '/usr/include/stdint.h'
+
+    system "./configure", "--prefix=#{prefix}",
+                          "--disable-dependency-tracking",
+                          "--enable-symcryptrun"
     system "make"
     system "make check"
     system "make install"
