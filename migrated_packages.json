@@ -1496,5 +1496,12 @@
     "file_without_extension": "boost150",
     "original_filename": "boost150.rb",
     "migrated_filename": "boost.rb"
+  },
+  {
+    "classname_with_version": "Pandoc1131",
+    "package_at_version": "pandoc@1131",
+    "file_without_extension": "pandoc1131",
+    "original_filename": "pandoc1131.rb",
+    "migrated_filename": "pandoc.rb"
   }
 ]
