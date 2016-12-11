@@ -1027,5 +1027,12 @@
     "file_without_extension": "zeromq3",
     "original_filename": "zeromq3.rb",
     "migrated_filename": "zeromq.rb"
+  },
+  {
+    "classname_with_version": "Rabbitmq30",
+    "package_at_version": "rabbitmq@30",
+    "file_without_extension": "rabbitmq30",
+    "original_filename": "rabbitmq30.rb",
+    "migrated_filename": "rabbitmq.rb"
   }
 ]
