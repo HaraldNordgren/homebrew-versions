@@ -5,6 +5,14 @@ class Libuv < Formula
   sha1 "9f06392ebcbfd25e029d700c869ade8581ec2895"
   head "https://github.com/libuv/libuv.git", :branch => "v0.10"
 
+  bottle do
+    root_url "https://downloads.sf.net/project/machomebrew/Bottles/versions"
+    cellar :any
+    sha1 "772fe584a53138a540ceefb469592c2c5279035e" => :yosemite
+    sha1 "fd8edf4c95c801eb474566ca7980c759929f4a64" => :mavericks
+    sha1 "89bab70004d9e2458c2664caaaadcd49163839e2" => :mountain_lion
+  end
+
   conflicts_with "libuv"
 
   option :universal
