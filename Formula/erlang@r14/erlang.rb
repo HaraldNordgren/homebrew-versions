@@ -29,6 +29,8 @@ class Erlang < Formula
   # may as well skip bin too, everything is just shell scripts
   skip_clean ['lib', 'bin']
 
+  fails_with(:llvm) { build 2334 }
+
   def options
     [
       ['--disable-hipe', "Disable building hipe; fails on various OS X systems."],
@@ -37,8 +39,6 @@ class Erlang < Formula
       ['--no-docs', 'Do not install documentation.']
     ]
   end
-
-  fails_with_llvm :build => 2334
 
   def install
     ohai "Compilation may take a very long time; use `brew install -v erlang` to see progress"

@@ -18,6 +18,11 @@ class Erlang < Formula
   # may as well skip bin too, everything is just shell scripts
   skip_clean ['lib', 'bin']
 
+  fails_with :llvm do
+    build 2326
+    cause "See http://github.com/mxcl/homebrew/issues/issue/120"
+  end
+
   def options
     [
       ['--disable-hipe', "Disable building hipe; fails on various OS X systems."],
@@ -27,7 +32,6 @@ class Erlang < Formula
 
   def install
     ENV.deparallelize
-    fails_with_llvm "See http://github.com/mxcl/homebrew/issues/issue/120", :build => 2326
 
     system "./otp_build autoconf" if File.exist? "otp_build"
 
