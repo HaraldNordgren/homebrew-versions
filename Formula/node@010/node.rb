@@ -8,9 +8,9 @@ class Node < Formula
   revision 1
 
   bottle do
-    sha256 "e4242ae9393f9a103ddd64cd01d18f3d5b5a9cbb476d29921a2ad9502a7b6397" => :yosemite
-    sha256 "738a4e3db5efcf9165b2f896e2ba589f1098a7f16dea695cddc12a5c8d92f8f4" => :mavericks
-    sha256 "bfa978f1da864b66080244fd2485ad67d58cf4f78cb9d6f4c60781a08733dfaf" => :mountain_lion
+    sha256 "bbf490a0c3320e14162283df0a74b3200e76feb0d83902702cecc9eb9fc6d56d" => :el_capitan
+    sha256 "2077f70db7eb6e9bea15a9ef7e67ce33568d63e10a00336f8b17432b47c5bf9d" => :yosemite
+    sha256 "7891021bd39c0ec7dcbfd4ca4ae16d927cb4d05fd10a761cf641da5dc15642fb" => :mavericks
   end
 
   deprecated_option "enable-debug" => "with-debug"
