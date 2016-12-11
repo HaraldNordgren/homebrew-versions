@@ -93,7 +93,8 @@ class Gcc < Formula
       "--with-mpfr=#{mpfr.prefix}",
       "--with-mpc=#{libmpc.prefix}",
       "--with-system-zlib",
-      "--enable-stage1-checking"
+      "--enable-stage1-checking",
+      "--enable-plugin"
     ]
 
     args << '--disable-nls' unless nls?
@@ -141,6 +142,9 @@ class Gcc < Formula
       # deja-gnu formula must be installed in order to do this.
 
       system 'make install'
+
+      # `make install` neglects to transfer an essential plugin header file.
+      Pathname.new(Dir[gcc_prefix.join *%w[** plugin include config]].first).install '../gcc/config/darwin-sections.def'
     end
   end
 end
