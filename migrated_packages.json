@@ -1083,5 +1083,12 @@
     "file_without_extension": "ansible14",
     "original_filename": "ansible14.rb",
     "migrated_filename": "ansible.rb"
+  },
+  {
+    "classname_with_version": "JbossForge1",
+    "package_at_version": "jboss-forge@1",
+    "file_without_extension": "jboss-forge1",
+    "original_filename": "jboss-forge1.rb",
+    "migrated_filename": "jboss-forge.rb"
   }
 ]
