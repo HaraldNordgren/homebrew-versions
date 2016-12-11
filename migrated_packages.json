@@ -194,5 +194,12 @@
     "file_without_extension": "erlang-r14",
     "original_filename": "erlang-r14.rb",
     "migrated_filename": "erlang.rb"
+  },
+  {
+    "classname_with_version": "Nu0",
+    "package_at_version": "nu@0",
+    "file_without_extension": "nu0",
+    "original_filename": "nu0.rb",
+    "migrated_filename": "nu.rb"
   }
 ]
