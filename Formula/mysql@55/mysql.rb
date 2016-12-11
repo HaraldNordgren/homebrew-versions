@@ -8,6 +8,7 @@ class Mysql < Formula
 
   depends_on 'cmake' => :build
   depends_on 'pidof' unless MacOS.version >= :mountain_lion
+  depends_on "openssl"
 
   option :universal
   option 'with-tests', 'Build with unit tests'
