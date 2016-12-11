@@ -1685,5 +1685,12 @@
     "file_without_extension": "docker150",
     "original_filename": "docker150.rb",
     "migrated_filename": "docker.rb"
+  },
+  {
+    "classname_with_version": "Go13",
+    "package_at_version": "go@13",
+    "file_without_extension": "go13",
+    "original_filename": "go13.rb",
+    "migrated_filename": "go.rb"
   }
 ]
