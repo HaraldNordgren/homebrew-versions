@@ -26,6 +26,7 @@ class Subversion < Formula
   depends_on 'sqlite'
   depends_on :python => :optional
   depends_on 'openssl'
+  depends_on :apr => :build
 
   # Building Ruby bindings requires libtool
   depends_on 'libtool' => :build if build.include? 'ruby'
