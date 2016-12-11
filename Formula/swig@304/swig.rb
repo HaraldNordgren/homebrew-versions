@@ -4,6 +4,13 @@ class Swig < Formula
   url "https://downloads.sourceforge.net/project/swig/swig/swig-3.0.4/swig-3.0.4.tar.gz"
   sha1 "088b2fb1f3167703f79fb187fdb3b80513426eb1"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha1 "bc391261c3756a86e485d64eb5008805bfaaf1cb" => :yosemite
+    sha1 "2e9bf66bd42ec87b09943dc0b37836d634b92228" => :mavericks
+    sha1 "888f62e53a4c68143ea28fbbfe70560cbd6de868" => :mountain_lion
+  end
+
   option :universal
 
   depends_on "pcre"
