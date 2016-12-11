@@ -131,5 +131,12 @@
     "file_without_extension": "gawk3",
     "original_filename": "gawk3.rb",
     "migrated_filename": "gawk.rb"
+  },
+  {
+    "classname_with_version": "Gsl114",
+    "package_at_version": "gsl@114",
+    "file_without_extension": "gsl114",
+    "original_filename": "gsl114.rb",
+    "migrated_filename": "gsl.rb"
   }
 ]
