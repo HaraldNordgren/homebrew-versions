@@ -1195,5 +1195,12 @@
     "file_without_extension": "riak132",
     "original_filename": "riak132.rb",
     "migrated_filename": "riak.rb"
+  },
+  {
+    "classname_with_version": "Kafka080",
+    "package_at_version": "kafka@080",
+    "file_without_extension": "kafka080",
+    "original_filename": "kafka080.rb",
+    "migrated_filename": "kafka.rb"
   }
 ]
