@@ -1552,5 +1552,12 @@
     "file_without_extension": "hive011",
     "original_filename": "hive011.rb",
     "migrated_filename": "hive.rb"
+  },
+  {
+    "classname_with_version": "Thrift090",
+    "package_at_version": "thrift@090",
+    "file_without_extension": "thrift090",
+    "original_filename": "thrift090.rb",
+    "migrated_filename": "thrift.rb"
   }
 ]
