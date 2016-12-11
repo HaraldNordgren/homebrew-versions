@@ -1839,5 +1839,12 @@
     "file_without_extension": "docker171",
     "original_filename": "docker171.rb",
     "migrated_filename": "docker.rb"
+  },
+  {
+    "classname_with_version": "Libxc21",
+    "package_at_version": "libxc@21",
+    "file_without_extension": "libxc21",
+    "original_filename": "libxc21.rb",
+    "migrated_filename": "libxc.rb"
   }
 ]
