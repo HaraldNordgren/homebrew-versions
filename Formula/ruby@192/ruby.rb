@@ -23,7 +23,7 @@ class Ruby < Formula
     args = %W[--prefix=#{prefix}
               --enable-shared]
 
-    args << "--program-suffix=192" if build.include? 'with-suffix'
+    args << "--program-suffix=192" if build.with? 'suffix'
     args << "--with-arch=x86_64,i386" if build.universal?
 
     # Put gem, site and vendor folders in the HOMEBREW_PREFIX
@@ -39,7 +39,7 @@ class Ruby < Formula
     system "./configure", *args
     system "make"
     system "make install"
-    system "make install-doc" if build.include? 'with-doc'
+    system "make install-doc" if build.with? 'doc'
 
   end
 

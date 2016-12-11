@@ -50,7 +50,7 @@ class Node < Formula
   option 'without-npm', 'npm will not be installed'
   option 'with-shared-libs', 'Use Homebrew V8 and system OpenSSL, zlib'
 
-  depends_on NpmNotInstalled unless build.without? 'npm'
+  depends_on NpmNotInstalled if build.with? 'npm'
   depends_on PythonVersion
   depends_on 'v8' if build.with? 'shared-libs'
 
@@ -79,12 +79,12 @@ class Node < Formula
     end
 
     args << "--debug" if build.include? 'enable-debug'
-    args << "--without-npm" if build.include? 'without-npm'
+    args << "--without-npm" if build.without? 'npm'
 
     system "./configure", *args
     system "make install"
 
-    unless build.include? 'without-npm'
+    if build.with? 'npm'
       (lib/"node_modules/npm/npmrc").write(npmrc)
     end
   end
@@ -108,7 +108,7 @@ class Node < Formula
   end
 
   def caveats
-    if build.include? 'without-npm'
+    if build.without? 'npm'
       <<-EOS.undent
         Homebrew has NOT installed npm. We recommend the following method of
         installation:

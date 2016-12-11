@@ -3,8 +3,8 @@ require 'formula'
 class Redis < Formula
   version "1310"
   homepage 'http://redis.io/'
-  url 'https://github.com/antirez/redis/tarball/v1.3.10'
-  sha1 'e4d22d8b0df0e9d686069a40bff4b91219c68676'
+  url 'https://github.com/antirez/redis/archive/v1.3.10.tar.gz'
+  sha1 '5fff0785362faa3e21691a442d262734abc85c3f'
 
   fails_with :llvm do
     build 2334

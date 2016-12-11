@@ -27,8 +27,8 @@ class Ruby < Formula
     args = %W[--prefix=#{prefix} --enable-shared]
     args << "--program-suffix=20" if build.with? "suffix"
     args << "--with-arch=#{Hardware::CPU.universal_archs.join(',')}" if build.universal?
-    args << "--with-out-ext=tk" unless build.with? "tcltk"
-    args << "--disable-install-doc" unless build.with? "doc"
+    args << "--with-out-ext=tk" if build.without? "tcltk"
+    args << "--disable-install-doc" if build.without? "doc"
     args << "--disable-dtrace" unless MacOS::CLT.installed?
 
     paths = []

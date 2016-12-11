@@ -11,15 +11,11 @@ class Ruby < Formula
   option 'with-doc', 'Install documentation'
   option 'with-tcltk', 'Install with Tcl/Tk support'
 
-  if build.universal?
-    depends_on 'autoconf' => :build
-  end
-
   depends_on 'pkg-config' => :build
   depends_on 'readline'
   depends_on 'gdbm'
   depends_on 'libyaml'
-  depends_on :x11 if build.include? 'with-tcltk'
+  depends_on :x11 if build.with? 'tcltk'
 
   fails_with :llvm do
     build 2326
@@ -29,10 +25,10 @@ class Ruby < Formula
     args = ["--prefix=#{prefix}",
             "--enable-shared"]
 
-    args << "--program-suffix=193" if build.include? "with-suffix"
+    args << "--program-suffix=193" if build.with? "suffix"
     args << "--with-arch=x86_64,i386" if build.universal?
-    args << "--disable-tcltk-framework" <<  "--with-out-ext=tcl" <<  "--with-out-ext=tk" unless build.include? "with-tcltk"
-    args << "--disable-install-doc" unless build.include? "with-doc"
+    args << "--disable-tcltk-framework" <<  "--with-out-ext=tcl" <<  "--with-out-ext=tk" if build.without? "tcltk"
+    args << "--disable-install-doc" if build.without? "doc"
 
     # Put gem, site and vendor folders in the HOMEBREW_PREFIX
     ruby_lib = HOMEBREW_PREFIX/"lib/ruby"
@@ -47,7 +43,7 @@ class Ruby < Formula
     system "./configure", *args
     system "make"
     system "make install"
-    system "make install-doc" if build.include? "with-doc"
+    system "make install-doc" if build.with? "doc"
 
   end
 

@@ -45,8 +45,8 @@ class Mysql < Formula
       "--with-partition"]
 
     configure_args << "--without-server" if build.include? 'client-only'
-    configure_args << "--with-embedded-server" if build.include? 'with-embedded'
-    configure_args << "--with-charset=utf8" if build.include? 'with-utf8-default'
+    configure_args << "--with-embedded-server" if build.with? 'embedded'
+    configure_args << "--with-charset=utf8" if build.with? 'utf8-default'
 
     system "./configure", *configure_args
     system "make install"
@@ -54,8 +54,8 @@ class Mysql < Formula
     ln_s "#{libexec}/mysqld", bin
     ln_s "#{share}/mysql/mysql.server", bin
 
-    (prefix+'mysql-test').rmtree unless build.include? 'with-tests' # save 66MB!
-    (prefix+'sql-bench').rmtree unless build.include? 'with-bench'
+    (prefix+'mysql-test').rmtree if build.without? 'tests' # save 66MB!
+    (prefix+'sql-bench').rmtree if build.without? 'bench'
   end
 
   def caveats; <<-EOS.undent
