@@ -7,29 +7,23 @@ require 'formula'
 # some credit to http://github.com/maddox/magick-installer
 # NOTE please be aware that the GraphicsMagick formula derives this formula
 
-def ghostscript_srsly?
-  ARGV.include? '--with-ghostscript'
-end
-
 class ImagemagickRuby < Formula
   version "186"
   homepage 'http://www.imagemagick.org'
   url 'http://image_magick.veidrodis.com/image_magick/ImageMagick-6.5.9-8.tar.bz2'
   sha1 'bb292ff860cebf76bfed9df68289abb76d408e34'
 
+  option 'with-ghostcript', 'Enable-ghostscript support'
+
   depends_on 'jpeg'
   depends_on 'libwmf' => :optional
   depends_on 'libtiff' => :optional
   depends_on 'little-cms' => :optional
   depends_on 'jasper' => :optional
-  depends_on 'ghostscript' => :recommended if ghostscript_srsly?
+  depends_on 'ghostscript' => :recommended
   depends_on :libpng
 
   skip_clean :la
-
-  def options
-    [['--with-ghostscript', 'Enable ghostscript support']]
-  end
 
   def fix_configure
     # versioned stuff in main tree is pointless for us
@@ -47,7 +41,7 @@ class ImagemagickRuby < Formula
      args << "--disable-openmp" if MacOS.version < 10.6   # libgomp unavailable
      args << '--without-ghostscript' \
           << "--with-gs-font-dir=#{HOMEBREW_PREFIX}/share/ghostscript/fonts" \
-             unless ghostscript_srsly?
+             unless build.with? "ghostscript"
      return args
   end
 
