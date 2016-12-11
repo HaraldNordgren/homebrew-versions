@@ -68,6 +68,9 @@ class Redis < Formula
   end
 
   test do
+    # This previously wasn't bottled. Make sure it is.
+    assert File.exist?(HOMEBREW_PREFIX/"etc/redis28.conf")
+
     system "#{bin}/redis28-server", "--version"
   end
 end
