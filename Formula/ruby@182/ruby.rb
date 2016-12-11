@@ -67,14 +67,6 @@ class Ruby < Formula
     system "make"
     system "make install"
   end
-
-  def caveats; <<-EOS.undent
-    NOTE: By default, gem installed binaries will be placed into:
-      #{opt_prefix}/bin
-
-    You may want to add this to your PATH.
-    EOS
-  end
 end
 
 __END__
