@@ -21,20 +21,20 @@ class TkCheck < Requirement
 end
 
 class Setuptools < Formula
-  url 'https://pypi.python.org/packages/source/s/setuptools/setuptools-0.9.7.tar.gz'
-  sha1 'c56c5cc55b678c25a0a06f25a122f6492d62e2d3'
+  url 'https://pypi.python.org/packages/source/s/setuptools/setuptools-1.1.6.tar.gz'
+  sha1 '4a8863e8196704759a5800afbcf33a94b802ac88'
 end
 
 class Pip < Formula
-  url 'https://pypi.python.org/packages/source/p/pip/pip-1.4.tar.gz'
-  sha1 '3149dc77c66b77d02497205fca5df56ae9d3e753'
+  url 'https://pypi.python.org/packages/source/p/pip/pip-1.4.1.tar.gz'
+  sha1 '9766254c7909af6d04739b4a7732cc29e9a48cb0'
 end
 
 class Python < Formula
   version "32"
   homepage 'http://www.python.org/'
-  url 'http://python.org/ftp/python/3.2.3/Python-3.2.3.tar.bz2'
-  sha1 '4c2d562a0681ba27bc920500050e2f08de224311'
+  url 'http://python.org/ftp/python/3.2.5/Python-3.2.5.tar.bz2'
+  sha1 '6bd2714704995bc84fc9b8e3019205bf75d44969'
   VER='3.2'  # The <major>.<minor> is used so often.
 
   depends_on TkCheck
