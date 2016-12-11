@@ -1818,5 +1818,12 @@
     "file_without_extension": "jruby9000",
     "original_filename": "jruby9000.rb",
     "migrated_filename": "jruby.rb"
+  },
+  {
+    "classname_with_version": "Mapnik2",
+    "package_at_version": "mapnik@2",
+    "file_without_extension": "mapnik2",
+    "original_filename": "mapnik2.rb",
+    "migrated_filename": "mapnik.rb"
   }
 ]
