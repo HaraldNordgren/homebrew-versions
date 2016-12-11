@@ -51,11 +51,10 @@ class Llvm < Formula
   end
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
-    revision 2
-    sha1 "6adfcaab7da01d0a1b7ba4042adc68a72f85e499" => :yosemite
-    sha1 "08862631691b8f902d892e2989f1b221d6df805c" => :mavericks
-    sha1 "1c16e56e151fadee3cb3d7fde1491b1ad6864456" => :mountain_lion
+    revision 3
+    sha256 "a99221cf62ab11932850d3624d7eb77e0860144b10ce55fb6ec77f4399177b74" => :yosemite
+    sha256 "19bfc9ec664794803ae904785350ab5c19aa7b072fdcf721f3583a813fac1b90" => :mavericks
+    sha256 "682cf46205edcda196fa77b8a27add9152f03faab91d781c3c4934302e14b1a3" => :mountain_lion
   end
 
   head do
