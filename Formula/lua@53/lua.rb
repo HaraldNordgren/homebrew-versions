@@ -7,10 +7,10 @@ class Lua < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
-    revision 1
-    sha256 "545b910d9214772d38aff4bda9bc9b75ce24d4b92a6ee1b2b321b63740187964" => :yosemite
-    sha256 "5af1b8f06ff335e3344d5a133eb3bcd4fd795857c8dfd4ac889a6ac8b40e1a83" => :mavericks
-    sha256 "dd857f57b6f44f50b74988a71485ae8e0d98caf1ec72b44ab2d6a650d4451732" => :mountain_lion
+    revision 2
+    sha256 "367718f0c325ae2802af9a6486674337af61489d8d7409c3bed6a76e4faa2d75" => :yosemite
+    sha256 "e77d5dd14b92886a18d1255e268cdd1ffa9faf43f0f7f452db28cd6cba45760b" => :mavericks
+    sha256 "99325ae62913906b17420fff7c92fcea598c707a5f88c04aaf74ee6de0bf2949" => :mountain_lion
   end
 
   fails_with :llvm do
