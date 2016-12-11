@@ -9,7 +9,7 @@ end
 class ScalaCompletion < Formula
   homepage 'http://www.scala-lang.org/'
   url 'https://raw.github.com/scala/scala-dist/27bc0c25145a83691e3678c7dda602e765e13413/completion.d/2.9.1/scala'
-  version '2.9.3'
+  version '2.9.1'
   sha1 'e2fd99fe31a9fb687a2deaf049265c605692c997'
 end
 
