@@ -418,5 +418,12 @@
     "file_without_extension": "coq83",
     "original_filename": "coq83.rb",
     "migrated_filename": "coq.rb"
+  },
+  {
+    "classname_with_version": "Jetty76",
+    "package_at_version": "jetty@76",
+    "file_without_extension": "jetty76",
+    "original_filename": "jetty76.rb",
+    "migrated_filename": "jetty.rb"
   }
 ]
