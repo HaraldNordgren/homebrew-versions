@@ -19,6 +19,14 @@ or (if it is the only version installed) linked after it is installed.
   depends_on :xcode
   depends_on :macos => :lion
 
+  # Actually works with pre-503 clang, but we don't have a way to
+  # express this yet.
+  # clang 5.1 (build 503) removed support for Objective C GC, which
+  # appledoc 2.2 requires to build.
+  # It's actually possible to build with GC disabled, but not advisable.
+  # See: https://github.com/tomaz/appledoc/issues/439
+  fails_with :clang
+
   def install
     xcodebuild "-project", "appledoc.xcodeproj",
                "-target", "appledoc",
