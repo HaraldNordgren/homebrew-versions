@@ -1587,5 +1587,12 @@
     "file_without_extension": "boot2docker133",
     "original_filename": "boot2docker133.rb",
     "migrated_filename": "boot2docker.rb"
+  },
+  {
+    "classname_with_version": "Swig2",
+    "package_at_version": "swig@2",
+    "file_without_extension": "swig2",
+    "original_filename": "swig2.rb",
+    "migrated_filename": "swig.rb"
   }
 ]
