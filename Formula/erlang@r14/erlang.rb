@@ -22,23 +22,12 @@ class Erlang < Formula
   option 'time', '`brew test --time` to include a time-consuming test'
   option 'no-docs', 'Do not install documentation'
 
-  # We can't strip the beam executables or any plugins, there isn't really
-  # anything else worth stripping and it takes a really, long time to run
-  # `file` over everything in lib because there is almost 4000 files (and
-  # really erlang guys! what's with that?! Most of them should be in share/erlang!)
-  # may as well skip bin too, everything is just shell scripts
-  skip_clean ['lib', 'bin']
 
-  fails_with(:llvm) { build 2334 }
+  fails_with :llvm
 
   def install
     ohai "Compilation may take a very long time; use `brew install -v erlang` to see progress"
     ENV.deparallelize
-    if ENV.compiler == :llvm
-      # Don't use optimizations. Fixes build on Lion/Xcode 4.2
-      ENV.remove_from_cflags /-O./
-      ENV.append_to_cflags '-O0'
-    end
 
     # Do this if building from a checkout to generate configure
     system "./otp_build autoconf" if File.exist? "otp_build"
