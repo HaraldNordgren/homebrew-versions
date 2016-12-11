@@ -117,5 +117,12 @@
     "file_without_extension": "solr14",
     "original_filename": "solr14.rb",
     "migrated_filename": "solr.rb"
+  },
+  {
+    "classname_with_version": "Gmp4",
+    "package_at_version": "gmp@4",
+    "file_without_extension": "gmp4",
+    "original_filename": "gmp4.rb",
+    "migrated_filename": "gmp.rb"
   }
 ]
