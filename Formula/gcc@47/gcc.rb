@@ -27,6 +27,13 @@ class Gcc < Formula
 
   head "svn://gcc.gnu.org/svn/gcc/branches/gcc-4_7-branch"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha1 "777237d7a300319a7b2b83dee6f5156975aace44" => :yosemite
+    sha1 "bf6f7e967f2ef84e334939695c03ebaf0ddbf62f" => :mavericks
+    sha1 "b906176ebbbe42371495c5cdea6fa7f85505827e" => :mountain_lion
+  end
+
   option "with-fortran", "Build the gfortran compiler"
   option "with-java", "Build the gcj compiler"
   option "with-all-languages", "Enable all compilers and languages, except Ada"
