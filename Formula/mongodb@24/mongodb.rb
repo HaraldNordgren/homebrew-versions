@@ -14,13 +14,13 @@ class Mongodb < Formula
   depends_on 'scons' => :build
   depends_on 'openssl' => :optional
 
-  def install
-    # When 2.6 is released this conditional can be removed.
-    if MacOS.version < :mavericks
-      option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
-      depends_on "boost" => :optional
-    end
+  # When 2.6 is released this conditional can be removed.
+  if MacOS.version < :mavericks
+    option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
+    depends_on "boost" => :optional
+  end
 
+  def install
     args = ["--prefix=#{prefix}", "-j#{ENV.make_jobs}"]
 
     cxx = ENV.cxx
