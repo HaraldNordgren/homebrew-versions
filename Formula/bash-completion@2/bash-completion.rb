@@ -7,9 +7,11 @@ class BashCompletion < Formula
   revision 2
 
   bottle do
-    sha256 "6f33a41b2cf3b2f7b5377fc03c3878537a97c1d71f405c24f3e2e4f91ea99d8a" => :yosemite
-    sha256 "d664af0a49745230030965c62b7842c7fc94b65394b3a80f0b693e4855b59848" => :mavericks
-    sha256 "40a9bbf11f9b53bb0e2d95c560eb90a793e09b62b9f85c17cbd739812fd107cf" => :mountain_lion
+    cellar :any
+    revision 1
+    sha256 "914804199dc8adf2e3e6522fc60a1ec76c502167c946bc95a6ad2fdda5d4f54e" => :yosemite
+    sha256 "237eec834214fe7dd6b40b262af906165a376c771bf364b0a572443688fd7f00" => :mavericks
+    sha256 "a0913ef676c878af34c2c5fc57e0337aadcb0634a45fac6a8066039996ada5f5" => :mountain_lion
   end
 
   conflicts_with "bash-completion"
