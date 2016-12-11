@@ -1,57 +1,38 @@
-require 'formula'
-
-class ErlangR16Manuals < Formula
-  url 'http://erlang.org/download/otp_doc_man_R16B01.tar.gz'
-  sha1 '57ef01620386108db83ef13921313e600d351d44'
-end
-
-class ErlangR16Htmls < Formula
-  url 'http://erlang.org/download/otp_doc_html_R16B01.tar.gz'
-  sha1 '6741e15e0b3e58736987e38fb8803084078ff99f'
-end
-
-class ErlangR16HeadManuals < Formula
-  url 'http://erlang.org/download/otp_doc_man_R16B01.tar.gz'
-  sha1 '57ef01620386108db83ef13921313e600d351d44'
-end
-
-class ErlangR16HeadHtmls < Formula
-  url 'http://erlang.org/download/otp_doc_html_R16B01.tar.gz'
-  sha1 '6741e15e0b3e58736987e38fb8803084078ff99f'
-end
+require "formula"
 
 class Erlang < Formula
   version "r16"
-  homepage 'http://www.erlang.org'
-  # Download tarball from GitHub; it is served faster than the official tarball.
-  url 'https://github.com/erlang/otp/archive/OTP_R16B01.tar.gz'
-  sha1 'ddbff080ee39c50b86b847514c641f0a9aab0333'
+  homepage "http://www.erlang.org"
+  url "http://www.erlang.org/download/otp_src_R16B03-1.tar.gz"
+  sha1 "c2634ea0c078500f1c6a1369f4be59a6d14673e0"
 
-  # remove the autoreconf if possible
-  depends_on :automake
-  depends_on :libtool
-  depends_on 'unixodbc' if MacOS.version >= :mavericks
-  depends_on 'wxmac' => :optional
-  depends_on 'fop' => :optional
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
+  depends_on "openssl"
+  depends_on "unixodbc" if MacOS.version >= :mavericks
+  depends_on "fop" => :optional # enables building PDF docs
+  depends_on "wxmac" => :recommended # for GUI apps like observer
 
-  fails_with :llvm do
-    build 2334
-  end
+  fails_with :llvm
 
   option 'disable-hipe', "Disable building hipe; fails on various OS X systems"
   option 'halfword', 'Enable halfword emulator (64-bit builds only)'
   option 'time', '`brew test --time` to include a time-consuming test'
   option 'no-docs', 'Do not install documentation'
 
-  def install
-    ohai "Compilation takes a long time; use `brew install -v erlang` to see progress" unless ARGV.verbose?
+  resource 'man' do
+    url 'http://erlang.org/download/otp_doc_man_R16B03-1.tar.gz'
+    sha1 'afde5507a389734adadcd4807595f8bc76ebde1b'
+  end
 
-    if ENV.compiler == :llvm
-      # Don't use optimizations. Fixes build on Lion/Xcode 4.2
-      ENV.remove_from_cflags /-O./
-      ENV.append_to_cflags '-O0'
-    end
-    ENV.append "FOP", "#{HOMEBREW_PREFIX}/bin/fop" if build.with? 'fop'
+  resource 'html' do
+    url 'http://erlang.org/download/otp_doc_html_R16B03-1.tar.gz'
+    sha1 'a2c0d2b7b9abe6214aff4c75ecc6be62042924e6'
+  end
+
+  def install
+    ohai "Compilation takes a long time; use `brew install -v erlang-r16` to see progress" unless ARGV.verbose?
 
     # Do this if building from a checkout to generate configure
     system "./otp_build autoconf" if File.exist? "otp_build"
@@ -65,7 +46,6 @@ class Erlang < Formula
             "--enable-smp-support"]
 
     args << "--with-dynamic-trace=dtrace" unless MacOS.version == :leopard or not MacOS::CLT.installed?
-    args << "--with-wx-config=#{HOMEBREW_PREFIX}/bin/wx-config" if build.with? 'wxmac'
 
     unless build.include? 'disable-hipe'
       # HIPE doesn't strike me as that reliable on OS X
@@ -79,22 +59,14 @@ class Erlang < Formula
       args << "--enable-halfword-emulator" if build.include? 'halfword' # Does not work with HIPE yet. Added for testing only
     end
 
-    inreplace "./erts/configure", "erl_xcomp_isysroot=\n", "erl_xcomp_isysroot='#{MacOS.sdk_path}'\n" if MacOS.version >= :mavericks
     system "./configure", *args
     system "make"
     ENV.j1 # Install is not thread-safe; can try to create folder twice and fail
     system "make install"
 
     unless build.include? 'no-docs'
-      manuals = build.head? ? ErlangR16HeadManuals : ErlangR16Manuals
-      manuals.new.brew {
-        man.install Dir['man/*']
-        # erl -man expects man pages in lib/erlang/man
-        (lib+'erlang').install_symlink man
-      }
-
-      htmls = build.head? ? ErlangR16HeadHtmls : ErlangR16Htmls
-      htmls.new.brew { doc.install Dir['*'] }
+      resource("man").stage { man.install Dir["man/*"] }
+      resource("html").stage { doc.install Dir["*"] }
     end
   end
 
@@ -102,9 +74,9 @@ class Erlang < Formula
     `#{bin}/erl -noshell -eval 'crypto:start().' -s init stop`
 
     # This test takes some time to run, but per bug #120 should finish in
-    # "less than 20 minutes". It takes about 20 seconds on a Mac Pro (2009).
-    if build.include? "time" && !build.head?
-      `#{bin}/dialyzer --build_plt -r #{lib}/erlang/lib/kernel-2.16.2/ebin/`
+    # "less than 20 minutes". It takes a few minutes on a Mac Pro (2009).
+    if build.include? "time"
+      `#{bin}/dialyzer --build_plt -r #{lib}/erlang/lib/kernel-2.15/ebin/`
     end
   end
 end
