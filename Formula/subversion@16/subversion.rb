@@ -1,11 +1,11 @@
 require 'formula'
 
-def build_java?; ARGV.include? "--java"; end
-def build_perl?; ARGV.include? "--perl"; end
-def build_python?; ARGV.include? "--python"; end
-def build_ruby?; ARGV.include? "--ruby"; end
-def build_universal?; ARGV.build_universal?; end
-def with_unicode_path?; ARGV.include? '--unicode-path'; end
+def build_java?; build.include? "java"; end
+def build_perl?; build.include? "perl"; end
+def build_python?; build.include? "python"; end
+def build_ruby?; build.include? "ruby"; end
+def build_universal?; build.universal?; end
+def with_unicode_path?; build.include? 'unicode-path'; end
 
 # On 10.5 we need newer versions of apr, neon etc.
 # On 10.6 we only need a newer version of neon
@@ -25,16 +25,12 @@ class Subversion < Formula
   # On Snow Leopard, build a new neon. For Leopard, the deps above include this.
   depends_on 'neon' if MacOS.version >= :snow_leopard
 
-  def options
-    [
-      ['--java', 'Build Java bindings.'],
-      ['--perl', 'Build Perl bindings.'],
-      ['--python', 'Build Python bindings.'],
-      ['--ruby', 'Build Ruby bindings.'],
-      ['--universal', 'Build as a Universal Intel binary.'],
-      ['--unicode-path', 'Include support for OS X unicode (but see caveats!)']
-    ]
-  end
+  option :universal
+  option 'java', 'Build Java bindings'
+  option 'perl', 'Build Perl bindings'
+  option 'python', 'Build Python bindings'
+  option 'ruby', 'Build Ruby bindings'
+  option 'unicode-path', 'Include support for OS X unicode (see caveats)'
 
   def patches
     # Patch to find Java headers
