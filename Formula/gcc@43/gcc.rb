@@ -70,7 +70,7 @@ class Gcc < Formula
       "--prefix=#{gcc_prefix}",
       # ...except the stuff in share...
       "--datadir=#{share}",
-      "--mandir=#{share}/man",
+      "--mandir=#{man}",
       # ...and the binaries...
       "--bindir=#{bin}",
       # ...which are tagged with a suffix to distinguish them.
