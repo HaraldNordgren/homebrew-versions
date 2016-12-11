@@ -11,9 +11,10 @@ class Thrift < Formula
 
   bottle do
     cellar :any
-    sha256 "dea7ccc0fb965a709abddfad87d5ecb886e0b5d2f4618622d320f259bccf7aed" => :yosemite
-    sha256 "a9b9bf0bb4039b83d80b617d20f9a185b2f771c4e72284843c29253bd3fbbdcb" => :mavericks
-    sha256 "9c83d58ec3c0b0dc1477dc5c3496ba793893441790e7827e5020a5e775e993d5" => :mountain_lion
+    revision 1
+    sha256 "f655ec1f7bfec1b92b805394bee8495f5fb169ae46a0a7f3fec15d367983acba" => :el_capitan
+    sha256 "ae37814213b3f3c6089784c26a008dd9159005fa1cd1625c169e45b57bf97d16" => :yosemite
+    sha256 "dc59998ede12cd4dd30bbaf9689b17bc12f44f2e9a198e1e55e91305e55e5678" => :mavericks
   end
 
   # These patches are 0.9.0-specific and can go away once a newer version is release
