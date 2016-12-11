@@ -1,5 +1,6 @@
 class Tomcat < Formula
   version "7"
+  desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
   url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-7/v7.0.63/bin/apache-tomcat-7.0.63.tar.gz"
   sha256 "b5d878a17de2421a078d8907583076b507e67dbf1567c6f4346d70c88473f8ad"
