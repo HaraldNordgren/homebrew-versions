@@ -37,7 +37,9 @@ class Ruby < Formula
     system "make"
     system "make install"
     system "make install-doc" if build.with? "doc"
+  end
 
+  def post_install
     (lib/"ruby/#{abi_version}/rubygems/defaults/operating_system.rb").write rubygems_config
   end
 
@@ -51,6 +53,7 @@ class Ruby < Formula
         alias :old_default_dir :default_dir
         alias :old_default_path :default_path
         alias :old_default_bindir :default_bindir
+        alias :old_ruby :ruby
       end
 
       def self.default_dir
@@ -100,6 +103,10 @@ class Ruby < Formula
 
       def self.default_bindir
         "#{HOMEBREW_PREFIX}/bin"
+      end
+
+      def self.ruby
+        "#{opt_bin}/ruby#{"193" if build.with? "suffix"}"
       end
     end
     EOS
