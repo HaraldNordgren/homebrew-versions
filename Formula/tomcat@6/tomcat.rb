@@ -3,8 +3,8 @@ require 'formula'
 class Tomcat < Formula
   version "6"
   homepage 'http://tomcat.apache.org/'
-  url 'http://archive.apache.org/dist/tomcat/tomcat-6/v6.0.33/bin/apache-tomcat-6.0.33.tar.gz'
-  sha1 '004bed8b2e231d3913249680a3b40d1f7f612f71'
+  url 'http://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-6/v6.0.36/bin/apache-tomcat-6.0.36.tar.gz'
+  sha1 'bfbc3944f0b2f87890e61bf31583ddb7cdf20fc0'
 
   skip_clean :all
 
