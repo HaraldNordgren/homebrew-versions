@@ -6,7 +6,7 @@ class Appledoc < Formula
   version "22"
   homepage "http://appledoc.gentlebytes.com/"
   url "https://github.com/tomaz/appledoc/archive/2.2.1.tar.gz"
-  sha1 "a25d9ce876c4f7ee88d82b4532956d2c94b5d2e9"
+  sha256 "0ec881f667dfe70d565b7f1328e9ad4eebc8699ee6dcd381f3bd0ccbf35c0337"
 
   bottle do
     revision 1

@@ -36,7 +36,7 @@ class Boost < Formula
 
     # https://svn.boost.org/trac/boost/ticket/8841
     if (build.with? "mpi") && (build.with? "single")
-      fail <<-EOS.undent
+      raise <<-EOS.undent
         Building MPI support for both single and multi-threaded flavors
         is not supported.  Please use "--with-mpi" together with
         "--without-single".

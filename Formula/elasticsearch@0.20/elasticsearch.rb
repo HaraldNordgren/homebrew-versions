@@ -1,10 +1,8 @@
-require 'formula'
-
 class Elasticsearch < Formula
   version "0.20"
-  homepage 'https://www.elastic.co/products/elasticsearch'
-  url 'https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-0.20.6.tar.gz'
-  sha256 '534b9fdb2fa9031f539b19cc4cfc1345bbbb013a285a21105ca87348b96b3389'
+  homepage "https://www.elastic.co/products/elasticsearch"
+  url "https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-0.20.6.tar.gz"
+  sha256 "534b9fdb2fa9031f539b19cc4cfc1345bbbb013a285a21105ca87348b96b3389"
 
   bottle do
     cellar :any
@@ -14,7 +12,7 @@ class Elasticsearch < Formula
   end
 
   def cluster_name
-    "elasticsearch_#{ENV['USER']}"
+    "elasticsearch_#{ENV["USER"]}"
   end
 
   def install
@@ -22,11 +20,11 @@ class Elasticsearch < Formula
     rm_f Dir["bin/*.bat"]
 
     # Move libraries to `libexec` directory
-    libexec.install Dir['lib/*.jar']
-    (libexec/'sigar').install Dir['lib/sigar/*.{jar,dylib}']
+    libexec.install Dir["lib/*.jar"]
+    (libexec/"sigar").install Dir["lib/sigar/*.{jar,dylib}"]
 
     # Install everything else into package directory
-    prefix.install Dir['*']
+    prefix.install Dir["*"]
 
     # Remove unnecessary files
     rm_f Dir["#{lib}/sigar/*"]
@@ -47,14 +45,14 @@ class Elasticsearch < Formula
 
     inreplace "#{bin}/elasticsearch.in.sh" do |s|
       # Configure ES_HOME
-      s.sub!  /#\!\/bin\/sh\n/, "#!/bin/sh\n\nES_HOME=#{prefix}"
+      s.sub! /#\!\/bin\/sh\n/, "#!/bin/sh\n\nES_HOME=#{prefix}"
       # Configure ES_CLASSPATH paths to use libexec instead of lib
       s.gsub! /ES_HOME\/lib\//, "ES_HOME/libexec/"
     end
 
     inreplace "#{bin}/plugin" do |s|
       # Add the proper ES_CLASSPATH configuration
-      s.sub!  /SCRIPT="\$0"/, %Q|SCRIPT="$0"\nES_CLASSPATH=#{libexec}|
+      s.sub! /SCRIPT="\$0"/, %(SCRIPT="$0"\nES_CLASSPATH=#{libexec})
       # Replace paths to use libexec instead of lib
       s.gsub! /\$ES_HOME\/lib\//, "$ES_CLASSPATH/"
     end

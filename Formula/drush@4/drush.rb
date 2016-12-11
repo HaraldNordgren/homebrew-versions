@@ -1,15 +1,13 @@
-require 'formula'
-
 class Drush < Formula
   version "4"
-  homepage 'https://github.com/drush-ops/drush'
-  url 'http://ftp.drupal.org/files/projects/drush-7.x-4.6.tar.gz'
-  sha1 '51d7a7743342cb3dabb201b4c5433ab3da06fb40'
+  homepage "https://github.com/drush-ops/drush"
+  url "http://ftp.drupal.org/files/projects/drush-7.x-4.6.tar.gz"
+  sha256 "c8f5a165c1624b023aaa74b4fd852da1dc426bd08f7cf1af328fe16e7de27d8d"
 
   keg_only "Conflicts with drush in main repository."
 
   def install
-    libexec.install Dir['*']
-    bin.install_symlink libexec+'drush'
+    libexec.install Dir["*"]
+    bin.install_symlink libexec+"drush"
   end
 end

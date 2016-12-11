@@ -1,10 +1,8 @@
-require 'formula'
-
 class Clojure < Formula
   version "14"
-  homepage 'http://clojure.org/'
-  url 'http://repo1.maven.org/maven2/org/clojure/clojure/1.4.0/clojure-1.4.0.zip'
-  sha1 '34daf1bb035aba4c0e5ff3b4afef837d21700e72'
+  homepage "http://clojure.org/"
+  url "http://repo1.maven.org/maven2/org/clojure/clojure/1.4.0/clojure-1.4.0.zip"
+  sha256 "27a5a151d5cc1bc3e52dff47c66111e637fefeb42d9bedfa1284a1a31d080171"
 
   def script; <<-EOS.undent
     #!/bin/sh
@@ -29,8 +27,8 @@ class Clojure < Formula
   def install
     prefix.install jar
     (prefix+jar).chmod(0644) # otherwise it's 0600
-    (prefix+'classes').mkpath
-    (bin+'clj').write script
+    (prefix+"classes").mkpath
+    (bin+"clj").write script
   end
 
   def caveats; <<-EOS.undent

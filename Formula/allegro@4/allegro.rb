@@ -1,10 +1,8 @@
-require "formula"
-
 class Allegro < Formula
   version "4"
   homepage "http://www.allegro.cc"
   url "https://downloads.sourceforge.net/project/alleg/allegro/4.4.2/allegro-4.4.2.tar.gz"
-  sha1 "ae0c15d2cb6b0337ef388dc98cefc620883720df"
+  sha256 "1b21e7577dbfada02d85ca4510bd22fedaa6ce76fde7f4838c7c1276eb840fdc"
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
@@ -15,6 +13,6 @@ class Allegro < Formula
 
   def install
     system "cmake", ".", *std_cmake_args
-    system "make install"
+    system "make", "install"
   end
 end

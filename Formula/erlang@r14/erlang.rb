@@ -1,11 +1,9 @@
-require 'formula'
-
 class Erlang < Formula
   version "r14"
-  homepage 'http://www.erlang.org'
+  homepage "http://www.erlang.org"
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url 'https://github.com/erlang/otp/archive/OTP_R14B04.tar.gz'
-  sha1 '4c8f1dcb5cc9e39e7637a8022a93588823076f0e'
+  url "https://github.com/erlang/otp/archive/OTP_R14B04.tar.gz"
+  sha256 "6f11a10b9cd9a2a6480e7c387ea475394262e02b2b1b55269f3df3eb4b70fca0"
   revision 1
 
   bottle do
@@ -14,9 +12,9 @@ class Erlang < Formula
     sha256 "6a83f8d9920adffab06d16601cad43153a138c46a4bd9b4d98aa8c19293d1342" => :mountain_lion
   end
 
-  option 'disable-hipe', 'Disable building hipe; fails on various OS X systems'
-  option 'halfword', 'Enable halfword emulator (64-bit builds only)'
-  option 'no-docs', 'Do not install documentation'
+  option "disable-hipe", "Disable building hipe; fails on various OS X systems"
+  option "halfword", "Enable halfword emulator (64-bit builds only)"
+  option "no-docs", "Do not install documentation"
 
   # Detection of odbc header files seems to be broken, so let the formula user
   # decide whether or not this is needed.
@@ -28,14 +26,14 @@ class Erlang < Formula
   depends_on "unixodbc" if build.with? "odbc"
   depends_on "openssl"
 
-  resource 'man' do
-    url 'http://erlang.org/download/otp_doc_man_R14B04.tar.gz'
-    sha1 '41f4ea59c9622e39b30882e173983252b6faca81'
+  resource "man" do
+    url "http://erlang.org/download/otp_doc_man_R14B04.tar.gz"
+    sha256 "8514511e8a8ac3f3f67db06f333548edf283d9a8afcbc9e9eeca7b1af9a107da"
   end
 
-  resource 'html' do
-    url 'http://erlang.org/download/otp_doc_html_R14B04.tar.gz'
-    sha1 '86f76adee9bf953e5578d7998fda9e7dfc0d43f5'
+  resource "html" do
+    url "http://erlang.org/download/otp_doc_html_R14B04.tar.gz"
+    sha256 "3b066d23d82667e2d0477856b22ea94262d65baf7366babe1c10d8bddc28ab5a"
   end
 
   # This applies a patch from the Erlbrew project
@@ -61,16 +59,16 @@ class Erlang < Formula
             "--enable-shared-zlib",
             "--enable-smp-support"]
 
-    unless build.include? 'disable-hipe'
+    unless build.include? "disable-hipe"
       # HIPE doesn't strike me as that reliable on OS X
       # http://syntatic.wordpress.com/2008/06/12/macports-erlang-bus-error-due-to-mac-os-x-1053-update/
       # http://www.erlang.org/pipermail/erlang-patches/2008-September/000293.html
-      args << '--enable-hipe'
+      args << "--enable-hipe"
     end
 
     if MacOS.prefer_64_bit?
       args << "--enable-darwin-64bit"
-      args << "--enable-halfword-emulator" if build.include? 'halfword' # Does not work with HIPE yet. Added for testing only
+      args << "--enable-halfword-emulator" if build.include? "halfword" # Does not work with HIPE yet. Added for testing only
     end
 
     # Detection of odbc library and headers is slightly flaky, so be explicit about
@@ -80,9 +78,9 @@ class Erlang < Formula
     system "./configure", *args
     touch "lib/wx/SKIP" if MacOS.version >= :snow_leopard
     system "make"
-    system "make install"
+    system "make", "install"
 
-    unless build.include? 'no-docs'
+    unless build.include? "no-docs"
       resource("man").stage { man.install Dir["man/*"] }
       resource("html").stage { doc.install Dir["*"] }
     end

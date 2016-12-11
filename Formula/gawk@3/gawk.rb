@@ -24,6 +24,6 @@ class Gawk < Formula
 
   test do
     output = pipe_output("#{bin}/gawk '{ gsub(/Macro/, \"Home\"); print }' -", "Macrobrew")
-    assert_equal 'Homebrew', output.strip
+    assert_equal "Homebrew", output.strip
   end
 end

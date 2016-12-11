@@ -1,14 +1,12 @@
-require "formula"
-
 class AndroidNdk < Formula
-  homepage "http://developer.android.com/sdk/ndk/index.html"
+  homepage "https://developer.android.com/sdk/ndk/index.html"
 
   if MacOS.prefer_64_bit?
-    url "http://dl.google.com/android/ndk/android-ndk-r10c-darwin-x86_64.bin"
-    sha1 "a136ca2ad87771422c2cfa9474196cd29ffd9bb1"
+    url "https://dl.google.com/android/ndk/android-ndk-r10c-darwin-x86_64.bin"
+    sha256 "420079521294dc81e532b34bb4ffe8c94c14dbad15696f0a662fbdbea298c17b"
   else
-    url "http://dl.google.com/android/ndk/android-ndk-r10c-darwin-x86.bin"
-    sha1 "b083f9a1a4dd66d55ced8ea41eea6a0a91ea1ac9"
+    url "https://dl.google.com/android/ndk/android-ndk-r10c-darwin-x86.bin"
+    sha256 "19a7437a047a9200e40ec52bd5144b2492db0e1b7a5381c7988e645b42bf7d74"
   end
 
   version "r10c"
@@ -46,10 +44,10 @@ class AndroidNdk < Formula
     If this is unacceptable you should uninstall.
 
     License information at:
-    http://developer.android.com/sdk/terms.html
+    https://developer.android.com/sdk/terms.html
 
     Software and System requirements at:
-    http://developer.android.com/sdk/ndk/index.html#requirements
+    https://developer.android.com/sdk/ndk/index.html#requirements
 
     For more documentation on Android NDK, please check:
       #{prefix}/docs

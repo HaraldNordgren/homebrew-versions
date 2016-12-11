@@ -32,7 +32,7 @@ class Boost < Formula
   deprecated_option "with-icu" => "with-icu4c"
 
   depends_on :python => :recommended
-  depends_on UniversalPython if build.universal? and build.with? "python"
+  depends_on UniversalPython if build.universal? && build.with?("python")
   depends_on "icu4c" => :optional
   depends_on :mpi => [:cc, :cxx, :optional]
 

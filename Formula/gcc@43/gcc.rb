@@ -45,7 +45,7 @@ class Gcc < Formula
   depends_on MaximumMacOSRequirement => :mavericks
   depends_on "gmp@4"
   depends_on "mpfr@2"
-  depends_on "ecj"  if build.with?("java") || build.with?("all-languages")
+  depends_on "ecj" if build.with?("java") || build.with?("all-languages")
 
   # Fix building on darwin10
   patch :p0 do
@@ -123,7 +123,7 @@ class Gcc < Formula
       # raise errors. But still a good idea to include.
       "--disable-werror",
       "--with-pkgversion=Homebrew #{name} #{pkg_version} #{build.used_options*" "}".strip,
-      "--with-bugurl=https://github.com/Homebrew/homebrew-versions/issues",
+      "--with-bugurl=https://github.com/Homebrew/homebrew-versions/issues"
     ]
 
     args << "--disable-nls" if build.without? "nls"
@@ -176,7 +176,7 @@ class Gcc < Formula
         "#{lib}/logging.properties",
         "#{lib}/security/classpath.security",
         "#{lib}/i386/logging.properties",
-        "#{lib}/i386/security/classpath.security",
+        "#{lib}/i386/security/classpath.security"
       ]
 
       config_files.each do |file|
