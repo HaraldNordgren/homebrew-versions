@@ -1,8 +1,9 @@
 class Glfw < Formula
   version "3"
+  desc "Multi-platform library for OpenGL applications"
   homepage "http://www.glfw.org/"
-  url "https://downloads.sourceforge.net/project/glfw/glfw/3.1.1/glfw-3.1.1.tar.bz2"
-  sha256 "4a8516223c1df079efb398754f4533af7e943188ea9b5222e7f27c25e4822d61"
+  url "https://github.com/glfw/glfw/archive/3.1.2.tar.gz"
+  sha256 "6ac642087682aaf7f8397761a41a99042b2c656498217a1c63ba9706d1eef122"
 
   bottle do
     sha256 "039df5a5929bdbdc6b20cf5fb3fffcff4d7a6360e76a2878e43152d993e7566c" => :yosemite
@@ -10,12 +11,12 @@ class Glfw < Formula
     sha256 "e75bdc4478ee0510be626b78ff1f0862de8ff9fea26d9b4432ce2b7967c9b80c" => :mountain_lion
   end
 
-  depends_on "cmake" => :build
-
   option :universal
   option "without-shared-library", "Build static library only (defaults to building dylib only)"
   option "with-examples", "Build examples"
   option "with-tests", "Build test programs"
+
+  depends_on "cmake" => :build
 
   deprecated_option "build-examples" => "with-examples"
   deprecated_option "static" => "without-shared-library"
@@ -39,6 +40,7 @@ class Glfw < Formula
 
     system "cmake", *args
     system "make", "install"
+    libexec.install Dir["examples/*"] if build.with? "examples"
     libexec.install Dir["tests/*"] if build.with? "tests"
   end
 
@@ -62,11 +64,11 @@ class Glfw < Formula
 end
 
 __END__
-diff -u a/CMakeLists.txt b/CMakeLists.txt
-index
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8f0d665..9a12f74 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -357,12 +357,7 @@
+@@ -466,12 +466,7 @@ endforeach()
  #--------------------------------------------------------------------
  # Choose library output name
  #--------------------------------------------------------------------
@@ -79,4 +81,4 @@ index
 +set(GLFW_LIB_NAME glfw3)
 
  #--------------------------------------------------------------------
- # Add subdirectories
+ # Create generated files
