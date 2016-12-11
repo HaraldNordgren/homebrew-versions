@@ -2,9 +2,9 @@ class Gnupg < Formula
   version "21"
   desc "GNU Privacy Guard: a free PGP replacement"
   homepage "https://www.gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.8.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.8.tar.bz2"
-  sha256 "a3b8d01e4690715d42e8f289493c85413766f3fa935e4fe7e5ff5b0f6e2781a3"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.9.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.9.tar.bz2"
+  sha256 "1cb7633a57190beb66f9249cb7446603229b273d4d89331b75c652fa4a29f7b6"
 
   bottle do
     sha256 "13af9ba15ab9f46f05974ce36e28e83b205a740409ef799e8937edea0099caa7" => :el_capitan
