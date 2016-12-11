@@ -761,5 +761,12 @@
     "file_without_extension": "cloog018",
     "original_filename": "cloog018.rb",
     "migrated_filename": "cloog.rb"
+  },
+  {
+    "classname_with_version": "Llvm34",
+    "package_at_version": "llvm@34",
+    "file_without_extension": "llvm34",
+    "original_filename": "llvm34.rb",
+    "migrated_filename": "llvm.rb"
   }
 ]
