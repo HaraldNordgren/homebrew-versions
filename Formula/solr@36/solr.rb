@@ -3,13 +3,13 @@ require 'formula'
 class Solr < Formula
   version "36"
   homepage 'http://lucene.apache.org/solr/'
-  url 'http://apache.mirrors.tds.net/lucene/solr/3.6.2'
-  sha1 'ed246c505ef8674c7b4ed9af52616ebd8b9e41d8'
+  url 'http://archive.apache.org/dist/lucene/solr/3.6.2/apache-solr-3.6.2.tgz'
+  sha1 '3a1a40542670ea6efec246a081053732c5503ec1'
 
   def script; <<-EOS.undent
     #!/bin/sh
     if [ -z "$1" ]; then
-      echo "Usage: $ solr path/to/config/dir"
+      echo "Usage: $ solr36 path/to/config/dir"
     else
       cd #{libexec}/example && java -Dsolr.solr.home=$1 -jar start.jar
     fi
@@ -18,7 +18,7 @@ class Solr < Formula
 
   def install
     libexec.install Dir['*']
-    (bin+'solr').write script
+    (bin+'solr36').write script
   end
 
   def caveats; <<-EOS.undent
