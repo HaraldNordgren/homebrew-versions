@@ -6,6 +6,13 @@ class Bind < Formula
   sha1 "19b53e60ed632f2063b2d630eabfb7234900bca6"
   version "9.9.6-P2"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha1 "f1fabf596923ebbb0791f18f80dc326aa8c630d9" => :yosemite
+    sha1 "10c2062aa87fa79f96d4e29479578cca78acea33" => :mavericks
+    sha1 "84c96a1b12f0d3293828fb2c2f2cc11653ad07d4" => :mountain_lion
+  end
+
   depends_on "openssl"
 
   def install
