@@ -621,5 +621,12 @@
     "file_without_extension": "gcc44",
     "original_filename": "gcc44.rb",
     "migrated_filename": "gcc.rb"
+  },
+  {
+    "classname_with_version": "Gcc46",
+    "package_at_version": "gcc@46",
+    "file_without_extension": "gcc46",
+    "original_filename": "gcc46.rb",
+    "migrated_filename": "gcc.rb"
   }
 ]
