@@ -1,26 +1,27 @@
 class Gdal < Formula
   version "111"
   homepage "http://www.gdal.org/"
-  url "http://download.osgeo.org/gdal/1.11.1/gdal-1.11.1.tar.gz"
-  sha256 "f46b5944a8cabc8516673f231f466131cdfd2cdc6677dbee5d96ec7fc58a3340"
 
   stable do
+    url "http://download.osgeo.org/gdal/1.11.1/gdal-1.11.1.tar.gz"
+    sha256 "f46b5944a8cabc8516673f231f466131cdfd2cdc6677dbee5d96ec7fc58a3340"
+
     # REMOVE when 1.11.2 is released
     # Fix segfault when executing OGR2SQLITE_Register() when compiled against sqlite 3.8.7
     # See: http://trac.osgeo.org/gdal/ticket/5725, https://github.com/OSGeo/gdal/commit/12d3b98
     # Fixes issue with QGIS's Save as... for vector layers: http://hub.qgis.org/issues/11526
     patch :p2 do
       url "https://github.com/OSGeo/gdal/commit/12d3b984a052c59ee336f952902b82ace01ba31c.diff"
-      sha1 "844bb827327f9c64918499f3cce3ded9414952c4"
+      sha256 "f255bf89933c6a275726293983e29f23ba878c30b024b544cc7a70ce3eb92894"
     end
   end
+
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
     sha256 "d08566f01643c65667522d287fa57b6bc3fb57ae64e4e3cc28d77e5d90b09f3f" => :yosemite
     sha256 "da2e1aa7e76345c2b37e30597252c3e26ac66cbc9f88a9a706cbf1a86691df9d" => :mavericks
     sha256 "ed26f48d1045fadca9eae03442470b996deb7ae6cf7ded44ded9e095bfa25544" => :mountain_lion
   end
-
 
   option "with-complete", "Use additional Homebrew libraries to provide more drivers."
   option "with-opencl", "Build with OpenCL acceleration."
@@ -41,14 +42,11 @@ class Gdal < Formula
   depends_on "libgeotiff"
   depends_on "proj"
   depends_on "geos"
-
   depends_on "sqlite" # To ensure compatibility with SpatiaLite.
   depends_on "freexl"
   depends_on "libspatialite"
-
   depends_on "postgresql" => :optional
   depends_on "mysql" => :optional
-
   depends_on "homebrew/science/armadillo" => :optional
 
   if build.with? "libkml"
@@ -79,12 +77,12 @@ class Gdal < Formula
 
   # Extra linking libraries in configure test of armadillo may throw warning
   # see: https://trac.osgeo.org/gdal/ticket/5455
-  # including prefix lib dir added by Homebrew:
-  #    ld: warning: directory not found for option '-L/usr/local/Cellar/gdal/1.11.0/lib'
-  patch do
-    url "https://gist.githubusercontent.com/dakcarto/7abad108aa31a1e53fb4/raw/b56887208fd91d0434d5a901dae3806fb1bd32f8/gdal-armadillo.patch"
-    sha1 "3af1cae94a977d55541adba0d86c697d77bd1320"
-  end if build.with? "armadillo"
+  if build.with? "armadillo"
+    patch do
+      url "https://gist.githubusercontent.com/dakcarto/7abad108aa31a1e53fb4/raw/b56887208fd91d0434d5a901dae3806fb1bd32f8/gdal-armadillo.patch"
+      sha256 "e6880b9256abe2c289f4b1196792a626c689772390430c36976c0c5e0f339124"
+    end
+  end
 
   resource "numpy" do
     url "https://downloads.sourceforge.net/project/numpy/NumPy/1.8.1/numpy-1.8.1.tar.gz"
@@ -156,6 +154,7 @@ class Gdal < Formula
       webp
       poppler
     ]
+
     if build.with? "complete"
       supported_backends.delete "liblzma"
       args << "--with-liblzma=yes"
@@ -303,17 +302,15 @@ class Gdal < Formula
   def caveats
     if build.with? "mdb"
       <<-EOS.undent
-
       To have a functional MDB driver, install supporting .jar files in:
         `/Library/Java/Extensions/`
 
-      See: `http://www.gdal.org/ogr/drv_mdb.html`
+      See: http://www.gdal.org/ogr/drv_mdb.html
       EOS
     end
   end
 
   test do
-    # basic tests to see if third-party dylibs are loading OK
     system "#{bin}/gdalinfo", "--formats"
     system "#{bin}/ogrinfo", "--formats"
   end
