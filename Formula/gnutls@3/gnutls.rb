@@ -21,11 +21,6 @@ class Gnutls < Formula
       headers, executables, and other files.
       EOS
 
-  # Fix an "undeclared identifier" error with clang
-  def patches
-    "http://git.savannah.gnu.org/cgit/gnutls.git/patch/?id=3b91334247"
-  end
-
   def install
     ENV.append 'LDFLAGS', '-ltasn1'
 
