@@ -1,44 +1,5 @@
 require 'formula'
 
-def cxx?
-  ARGV.include? '--enable-cxx'
-end
-
-def fortran?
-  ARGV.include? '--enable-fortran'
-end
-
-def java?
-  ARGV.include? '--enable-java'
-end
-
-def objc?
-  ARGV.include? '--enable-objc'
-end
-
-def objcxx?
-  ARGV.include? '--enable-objcxx'
-end
-
-def build_everything?
-  ARGV.include? '--enable-all-languages'
-end
-
-def nls?
-  ARGV.include? '--enable-nls'
-end
-
-def profiledbuild?
-  ARGV.include? '--enable-profiled-build'
-end
-
-class Ecj < Formula
-  # Little Known Fact: ecj, Eclipse Java Complier, is required in order to
-  # produce a gcj compiler that can actually parse Java source code.
-  url 'ftp://sourceware.org/pub/java/ecj-4.5.jar'
-  sha1 '58c1d79c64c8cd718550f32a932ccfde8d1e6449'
-end
-
 class Gcc < Formula
   version "45"
   homepage 'http://gcc.gnu.org'
@@ -46,22 +7,20 @@ class Gcc < Formula
   mirror 'http://ftp.gnu.org/gnu/gcc/gcc-4.5.3/gcc-4.5.3.tar.bz2'
   sha1 '73c45dfda5eef6b124be53e56828b5925198cc1b'
 
+  option 'enable-cxx', 'Build the g++ compiler'
+  option 'enable-fortran', 'Build the gfortran compiler'
+  option 'enable-java', 'Buld the gcj compiler'
+  option 'enable-objc', 'Enable Objective-C language support'
+  option 'enable-objcxx', 'Enable Objective-C++ language support'
+  option 'enable-all-languages', 'Enable all compilers and languages, except Ada'
+  option 'enable-nls', 'Build with native language support'
+  option 'enable-profiled-build', 'Make use of profile guided optimization when bootstrapping GCC'
+  option 'enable-multilib', 'Build with multilib support'
+
   depends_on 'gmp'
   depends_on 'libmpc'
   depends_on 'mpfr'
-
-  def options
-    [
-      ['--enable-cxx', 'Build the g++ compiler'],
-      ['--enable-fortran', 'Build the gfortran compiler'],
-      ['--enable-java', 'Buld the gcj compiler'],
-      ['--enable-objc', 'Enable Objective-C language support'],
-      ['--enable-objcxx', 'Enable Objective-C++ language support'],
-      ['--enable-all-languages', 'Enable all compilers and languages, except Ada'],
-      ['--enable-nls', 'Build with natural language support'],
-      ['--enable-profiled-build', 'Make use of profile guided optimization when bootstrapping GCC']
-    ]
-  end
+  depends_on 'ecj' if build.include? 'enable-java' or build.include? 'enable-all-languages'
 
   # Dont strip compilers.
   skip_clean :all
@@ -109,7 +68,7 @@ class Gcc < Formula
       "--disable-lto"
     ]
 
-    args << '--disable-nls' unless nls?
+    args << '--disable-nls' unless build.include? 'enable-nls'
 
     if build_everything?
       # Everything but Ada, which requires a pre-existing GCC Ada compiler
@@ -120,28 +79,35 @@ class Gcc < Formula
       # here.
       languages = %w[c]
 
-      languages << 'c++' if cxx?
-      languages << 'fortran' if fortran?
-      languages << 'java' if java?
-      languages << 'objc' if objc?
-      languages << 'obj-c++' if objcxx?
+      languages << 'c++' if build.include? 'enable-cxx'
+      languages << 'fortran' if build.include? 'enable-fortran'
+      languages << 'java' if build.include? 'enable-java'
+      languages << 'objc' if build.include? 'enable-objc'
+      languages << 'obj-c++' if build.include? 'enable-objcxx'
     end
 
-    if java? or build_everything?
-      source_dir = Pathname.new Dir.pwd
+    if build.include? 'enable-java' or build.include? 'enable-all-languages'
+      ecj = Formula.factory 'ecj'
+      args << "--with-ecj-jar=#{ecj.opt_prefix}/share/java/ecj.jar"
+    end
 
-      Ecj.new.brew do |ecj|
-        # Copying ecj.jar into the toplevel of the GCC source tree will cause
-        # gcc to automagically package it into the installation. It *must* be
-        # named ecj.jar and not ecj-version.jar in order for this to happen.
-        mv "ecj-#{ecj.version}.jar", (source_dir + 'ecj.jar')
-      end
+    if build.include? 'enable-multilib'
+      args << '--enable-multilib'
+    else
+      args << '--disable-multilib'
     end
 
     mkdir 'build' do
+      unless MacOS::CLT.installed?
+        # For Xcode-only systems, we need to tell the sysroot path.
+        # 'native-system-header's will be appended
+        args << "--with-native-system-header-dir=/usr/include"
+        args << "--with-sysroot=#{MacOS.sdk_path}"
+      end
+
       system '../configure', "--enable-languages=#{languages.join(',')}", *args
 
-      if profiledbuild?
+      if build.include? 'enable-profiled-build'
         # Takes longer to build, may bug out. Provided for those who want to
         # optimise all the way to 11.
         system 'make profiledbootstrap'
@@ -156,6 +122,9 @@ class Gcc < Formula
 
       # `make install` neglects to transfer an essential plugin header file.
       Pathname.new(Dir[gcc_prefix.join *%w[** plugin include config]].first).install '../gcc/config/darwin-sections.def'
+
+      # Remove conflicting manpages in man7
+      man7.rmtree
     end
   end
 end
