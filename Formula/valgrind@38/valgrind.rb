@@ -5,6 +5,10 @@ class Valgrind < Formula
   url "http://valgrind.org/downloads/valgrind-3.8.1.tar.bz2"
   sha256 "473be00576bed311a662b277a2bfbe97d9cca4058e68619a0e420c9fc19958db"
 
+  bottle do
+    sha256 "0dcc7f6f685a66c2fb66f4dc9ecb716a7cf5bab1bc6a63bf16f2f7f0c2c0513a" => :mountain_lion
+  end
+
   depends_on :macos => :snow_leopard
   depends_on MaximumMacOSRequirement => :mountain_lion
 
