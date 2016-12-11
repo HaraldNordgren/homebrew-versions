@@ -432,5 +432,12 @@
     "file_without_extension": "automake112",
     "original_filename": "automake112.rb",
     "migrated_filename": "automake.rb"
+  },
+  {
+    "classname_with_version": "Ruby193",
+    "package_at_version": "ruby@193",
+    "file_without_extension": "ruby193",
+    "original_filename": "ruby193.rb",
+    "migrated_filename": "ruby.rb"
   }
 ]
