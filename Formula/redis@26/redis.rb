@@ -1,8 +1,9 @@
 class Redis < Formula
   version "26"
+  desc "Persistent key-value database, built-in net interface"
   homepage "http://redis.io/"
-  url "https://redis.googlecode.com/files/redis-2.6.14.tar.gz"
-  sha1 "f56a5d4891e94ebd89f7e63c3e9151d1106dedd5"
+  url "http://download.redis.io/releases/redis-2.6.17.tar.gz"
+  sha256 "5a65b54bb6deef2a8a4fabd7bd6962654a5d35787e68f732f471bbf117f4768e"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
