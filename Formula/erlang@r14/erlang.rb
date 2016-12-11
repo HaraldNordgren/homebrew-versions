@@ -14,8 +14,8 @@ class Erlang < Formula
   version "r14"
   homepage 'http://www.erlang.org'
   # Download tarball from GitHub; it is served faster than the official tarball.
-  url 'https://github.com/erlang/otp/tarball/OTP_R14B04'
-  sha1 'fd260c63da0caa0f4b129d052e8305190e30cf33'
+  url 'https://github.com/erlang/otp/archive/OTP_R14B04.tar.gz'
+  sha1 '4c8f1dcb5cc9e39e7637a8022a93588823076f0e'
 
   bottle do
     url 'https://downloads.sf.net/project/machomebrew/Bottles/erlang-R14B04-bottle.tar.gz'
