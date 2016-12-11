@@ -25,6 +25,13 @@ class Gcc < Formula
   mirror "https://ftp.gnu.org/gnu/gcc/gcc-4.5.4/gcc-4.5.4.tar.bz2"
   sha1 "cb692e6ddd1ca41f654e2ff24b1b57f09f40e211"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha1 "1e2e710d2d20b6ba378b7b4e3d211fb482e73ff7" => :yosemite
+    sha1 "16a25ceb27a579ac02209a8056a13de268a63e40" => :mavericks
+    sha1 "fe4459e2e4874d4f4be687acef73fa92dd2eb821" => :mountain_lion
+  end
+
   option "with-fortran", "Build the gfortran compiler"
   option "with-java", "Build the gcj compiler"
   option "with-all-languages", "Enable all compilers and languages, except Ada"
