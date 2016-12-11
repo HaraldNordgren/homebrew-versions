@@ -1090,5 +1090,12 @@
     "file_without_extension": "jboss-forge1",
     "original_filename": "jboss-forge1.rb",
     "migrated_filename": "jboss-forge.rb"
+  },
+  {
+    "classname_with_version": "Openjpeg20",
+    "package_at_version": "openjpeg@20",
+    "file_without_extension": "openjpeg20",
+    "original_filename": "openjpeg20.rb",
+    "migrated_filename": "openjpeg.rb"
   }
 ]
