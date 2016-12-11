@@ -120,21 +120,16 @@ class Llvm < Formula
       raise 'The Python bindings need the shared library.'
     end
 
-    polly_buildpath = buildpath/'tools/polly'
-    clang_buildpath = buildpath/'tools/clang'
-    clang_tools_extra_buildpath = buildpath/'tools/clang/tools/extra'
-    lld_buildpath = buildpath/'tools/lld'
-    compiler_rt_buildpath = buildpath/'projects/compiler-rt'
-    libcxx_buildpath = buildpath/'projects/libcxx'
-    libcxxabi_buildpath = buildpath/'libcxxabi' # build failure if put in projects due to no Makefile
+    clang_buildpath = buildpath/"tools/clang"
+    libcxx_buildpath = buildpath/"projects/libcxx"
+    libcxxabi_buildpath = buildpath/"libcxxabi" # build failure if put in projects due to no Makefile
 
-    polly_buildpath.install resource('polly')
-    clang_buildpath.install resource('clang')
-    clang_tools_extra_buildpath.install resource('clang-tools-extra')
-    libcxx_buildpath.install resource('libcxx')
-
-    lld_buildpath.install resource('lld') if build.with? 'lld'
-    compiler_rt_buildpath.install resource('compiler-rt') if build.with? 'asan'
+    clang_buildpath.install resource("clang")
+    libcxx_buildpath.install resource("libcxx")
+    (buildpath/"tools/polly").install resource("polly")
+    (buildpath/"tools/clang/tools/extra").install resource("clang-tools-extra")
+    (buildpath/"tools/lld").install resource("lld") if build.with? "lld"
+    (buildpath/"projects/compiler-rt").install resource("compiler-rt") if build.with? "asan"
 
     # On Snow Leopard and below libc++abi is not shipped but needed for libc++.
     libcxxabi_buildpath.install resource('libcxxabi') if MacOS.version <= :snow_leopard
