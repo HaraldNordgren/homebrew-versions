@@ -74,9 +74,6 @@ class Postgresql < Formula
       ENV.append "CFLAGS", `uuid-config --cflags`.strip
       ENV.append "LDFLAGS", `uuid-config --ldflags`.strip
       ENV.append "LIBS", `uuid-config --libs`.strip
-    elsif build.devel?
-      # Apple's UUID implementation is compatible with e2fs NOT bsd
-      args << "--with-uuid=e2fs"
     end
 
     if build.build_32_bit?
