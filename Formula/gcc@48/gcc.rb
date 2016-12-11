@@ -34,7 +34,13 @@ class Gcc < Formula
     sha256 "637925afb747497b4a7569b0f3a5d8d10eb65ffb4c90206f44938439a9c465e0" => :mountain_lion
   end
 
-  if MacOS.version >= :el_capitan
+  if MacOS.version >= :yosemite
+    # Fixes build on El Capitan
+    # https://trac.macports.org/ticket/48471
+    patch :p0 do
+      url "https://raw.githubusercontent.com/Homebrew/patches/dcfc5a2e6/gcc48/define_non_standard_clang_macros.patch"
+      sha256 "e727383c9186fdc36f804c69ad550f5cfd2b996e37083be94c0c9aa8fde226ee"
+    end
     # Fixes build with Xcode 7.
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=66523
     patch do
