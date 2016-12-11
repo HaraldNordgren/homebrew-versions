@@ -1300,5 +1300,12 @@
     "file_without_extension": "ruby21",
     "original_filename": "ruby21.rb",
     "migrated_filename": "ruby.rb"
+  },
+  {
+    "classname_with_version": "Libuv0",
+    "package_at_version": "libuv@0",
+    "file_without_extension": "libuv0",
+    "original_filename": "libuv0.rb",
+    "migrated_filename": "libuv.rb"
   }
 ]
