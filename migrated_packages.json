@@ -1573,5 +1573,12 @@
     "file_without_extension": "objective-caml312",
     "original_filename": "objective-caml312.rb",
     "migrated_filename": "objective-caml.rb"
+  },
+  {
+    "classname_with_version": "Camlp5606",
+    "package_at_version": "camlp5@606",
+    "file_without_extension": "camlp5-606",
+    "original_filename": "camlp5-606.rb",
+    "migrated_filename": "camlp5.rb"
   }
 ]
