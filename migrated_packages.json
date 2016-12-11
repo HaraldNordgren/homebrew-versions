@@ -1482,5 +1482,12 @@
     "file_without_extension": "gnuplot4",
     "original_filename": "gnuplot4.rb",
     "migrated_filename": "gnuplot.rb"
+  },
+  {
+    "classname_with_version": "Mongodb26",
+    "package_at_version": "mongodb@26",
+    "file_without_extension": "mongodb26",
+    "original_filename": "mongodb26.rb",
+    "migrated_filename": "mongodb.rb"
   }
 ]
