@@ -1,25 +1,18 @@
 require 'formula'
-require 'hardware'
 
 class Postgresql < Formula
   version "8"
   homepage 'http://www.postgresql.org/'
-  url 'http://ftp.postgresql.org/pub/source/v8.4.12/postgresql-8.4.12.tar.gz'
-  sha1 '53a17cd0f104bcad112925d3c6fc2e29e1f89c8e'
+  url 'http://ftp.postgresql.org/pub/source/v8.4.15/postgresql-8.4.15.tar.gz'
+  sha1 'aab1ed9b4b2631ec32789ca213cb8ebe326bcc42'
 
   depends_on 'readline'
-  depends_on 'libxml2' if MACOS_VERSION < 10.6 # Leopard libxml is too old
+  depends_on 'libxml2' if MacOS.version == :leopard
   depends_on 'ossp-uuid'
 
-  def options
-    [
-      ['--no-python', 'Build without Python support.'],
-      ['--no-perl', 'Build without Perl support.']
-    ]
-  end
+  option 'no-python', 'Build without Python support'
+  option 'no-perl', 'Build without Perl support'
 
-  skip_clean :all
-  
   # Fix build on 10.8 Mountain Lion
   # https://github.com/mxcl/homebrew/commit/cd77baf2e2f75b4ae141414bf8ff6d5c732e2b9a
   def patches
@@ -27,7 +20,7 @@ class Postgresql < Formula
   end
 
   def install
-    ENV.libxml2 if MACOS_VERSION >= 10.6
+    ENV.libxml2 if MacOS.version >= :snow_leopard
 
     args = ["--disable-debug",
             "--prefix=#{prefix}",
@@ -38,21 +31,18 @@ class Postgresql < Formula
             "--with-openssl",
             "--with-libxml", "--with-libxslt"]
 
-    args << "--with-python" unless ARGV.include? '--no-python'
-    args << "--with-perl" unless ARGV.include? '--no-perl'
+    args << "--with-python" unless build.include? 'no-python'
+    args << "--with-perl" unless build.include? 'no-perl'
 
     args << "--with-ossp-uuid"
     ENV.append 'CFLAGS', `uuid-config --cflags`.strip
     ENV.append 'LDFLAGS', `uuid-config --ldflags`.strip
     ENV.append 'LIBS', `uuid-config --libs`.strip
 
-    if snow_leopard_64? and not ARGV.include? '--no-python'
+    if snow_leopard_64? and not build.include? 'no-python'
       args << "ARCHFLAGS='-arch x86_64'"
       check_python_arch
     end
-
-    # Fails on Core Duo with O4 and O3
-    ENV.O2 if Hardware.intel_family == :core
 
     system "./configure", *args
     system "make install"
