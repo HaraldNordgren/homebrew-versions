@@ -26,6 +26,7 @@ class Gcc < Formula
   url "http://ftpmirror.gnu.org/gcc/gcc-4.9.2/gcc-4.9.2.tar.bz2"
   mirror "ftp://gcc.gnu.org/pub/gcc/releases/gcc-4.9.2/gcc-4.9.2.tar.bz2"
   sha1 "79dbcb09f44232822460d80b033c962c0237c6d8"
+  revision 1
 
   head 'svn://gcc.gnu.org/svn/gcc/branches/gcc-4_9-branch'
 
@@ -71,6 +72,7 @@ class Gcc < Formula
     args = [
       "--build=#{arch}-apple-darwin#{osmajor}",
       "--prefix=#{prefix}",
+      "--libdir=#{lib}/gcc/#{version_suffix}",
       "--enable-languages=#{languages.join(',')}",
       # Make most executables versioned to avoid conflicts.
       "--program-suffix=-#{version_suffix}",
@@ -80,10 +82,6 @@ class Gcc < Formula
       "--with-cloog=#{Formula["cloog018"].opt_prefix}",
       "--with-isl=#{Formula["isl011"].opt_prefix}",
       "--with-system-zlib",
-      # This ensures lib, libexec, include are sandboxed so that they
-      # don't wander around telling little children there is no Santa
-      # Claus.
-      "--enable-version-specific-runtime-libs",
       "--enable-libstdcxx-time=yes",
       "--enable-stage1-checking",
       "--enable-checking=release",
@@ -114,6 +112,11 @@ class Gcc < Formula
     else
       args << '--enable-multilib'
     end
+
+    # Ensure correct install names when linking against libgcc_s;
+    # see discussion in https://github.com/Homebrew/homebrew/pull/34303
+    inreplace "libgcc/config/t-slibgcc-darwin", "@shlib_slibdir@", "#{HOMEBREW_PREFIX}/lib/gcc/#{version_suffix}"
+
 
     mkdir 'build' do
       unless MacOS::CLT.installed?
