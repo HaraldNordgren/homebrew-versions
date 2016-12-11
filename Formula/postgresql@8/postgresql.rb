@@ -19,6 +19,12 @@ class Postgresql < Formula
   end
 
   skip_clean :all
+  
+  # Fix build on 10.8 Mountain Lion
+  # https://github.com/mxcl/homebrew/commit/cd77baf2e2f75b4ae141414bf8ff6d5c732e2b9a
+  def patches
+    DATA
+  end
 
   def install
     ENV.libxml2 if MACOS_VERSION >= 10.6
@@ -153,3 +159,18 @@ To install gems without sudo, see the Homebrew wiki.
     EOPLIST
   end
 end
+
+__END__
+ # If we don't have a shared library and the platform doesn't allow it
+--- a/contrib/uuid-ossp/uuid-ossp.c	2012-07-30 18:34:53.000000000 -0700
++++ b/contrib/uuid-ossp/uuid-ossp.c	2012-07-30 18:35:03.000000000 -0700
+@@ -9,6 +9,8 @@
+  *-------------------------------------------------------------------------
+  */
+ 
++#define _XOPEN_SOURCE
++
+ #include "postgres.h"
+ #include "fmgr.h"
+ #include "utils/builtins.h"
+
