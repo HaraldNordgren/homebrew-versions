@@ -250,5 +250,26 @@
     "file_without_extension": "play12",
     "original_filename": "play12.rb",
     "migrated_filename": "play.rb"
+  },
+  {
+    "classname_with_version": "Ruby192",
+    "package_at_version": "ruby@192",
+    "file_without_extension": "ruby192",
+    "original_filename": "ruby192.rb",
+    "migrated_filename": "ruby.rb"
+  },
+  {
+    "classname_with_version": "Grails137",
+    "package_at_version": "grails@137",
+    "file_without_extension": "grails137",
+    "original_filename": "grails137.rb",
+    "migrated_filename": "grails.rb"
+  },
+  {
+    "classname_with_version": "LlvmGcc28",
+    "package_at_version": "llvm-gcc@28",
+    "file_without_extension": "llvm-gcc28",
+    "original_filename": "llvm-gcc28.rb",
+    "migrated_filename": "llvm-gcc.rb"
   }
 ]
