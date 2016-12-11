@@ -1650,5 +1650,12 @@
     "file_without_extension": "gnutls34",
     "original_filename": "gnutls34.rb",
     "migrated_filename": "gnutls.rb"
+  },
+  {
+    "classname_with_version": "LibmongoclientLegacy",
+    "package_at_version": "libmongoclient@legacy",
+    "file_without_extension": "libmongoclient-legacy",
+    "original_filename": "libmongoclient-legacy.rb",
+    "migrated_filename": "libmongoclient.rb"
   }
 ]
