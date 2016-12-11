@@ -88,7 +88,7 @@ class Llvm < Formula
 
   def caveats
     if build.with? 'clang'
-      "Extra tools are installed in #{HOMEBREW_PREFIX/"share/clang-#{version}"}."
+      "Extra tools are installed in #{HOMEBREW_PREFIX}/share/clang-#{version}."
     end
   end
 end
