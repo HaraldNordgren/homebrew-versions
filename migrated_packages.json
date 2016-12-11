@@ -677,5 +677,19 @@
     "file_without_extension": "cvsps2",
     "original_filename": "cvsps2.rb",
     "migrated_filename": "cvsps.rb"
+  },
+  {
+    "classname_with_version": "Llvm33",
+    "package_at_version": "llvm@33",
+    "file_without_extension": "llvm33",
+    "original_filename": "llvm33.rb",
+    "migrated_filename": "llvm.rb"
+  },
+  {
+    "classname_with_version": "Llvm32",
+    "package_at_version": "llvm@32",
+    "file_without_extension": "llvm32",
+    "original_filename": "llvm32.rb",
+    "migrated_filename": "llvm.rb"
   }
 ]
