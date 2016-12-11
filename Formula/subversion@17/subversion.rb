@@ -153,7 +153,7 @@ class Subversion < Formula
       bin.install_symlink bin/"svn-tools"/prog
     end
 
-    python do
+    if build.with? 'python'
       system "make swig-py"
       system "make install-swig-py"
     end
@@ -197,8 +197,6 @@ class Subversion < Formula
 
   def caveats
     s = ""
-
-    s += python.standard_caveats if python
 
     if build.include? 'perl'
       s += <<-EOS.undent
