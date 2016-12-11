@@ -3,7 +3,7 @@ require 'formula'
 class Libpng < Formula
   version "12"
   homepage 'http://www.libpng.org/pub/png/libpng.html'
-  url 'http://downloads.sourceforge.net/project/libpng/libpng12/1.2.50/libpng-1.2.50.tar.gz'
+  url 'https://downloads.sourceforge.net/project/libpng/libpng12/1.2.50/libpng-1.2.50.tar.gz'
   sha1 'aeb8afdfed3a8be46c9a7be4aa853bce73f03d9e'
 
   keg_only :provided_by_osx

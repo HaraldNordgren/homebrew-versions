@@ -3,7 +3,7 @@ require 'formula'
 class Glfw < Formula
   version "3"
   homepage 'http://www.glfw.org/'
-  url 'http://downloads.sourceforge.net/project/glfw/glfw/3.0.4/glfw-3.0.4.tar.bz2'
+  url 'https://downloads.sourceforge.net/project/glfw/glfw/3.0.4/glfw-3.0.4.tar.bz2'
   sha1 '7a033b38bf9949fdc7036233ab03b61ba9d930c0'
 
   depends_on 'cmake' => :build

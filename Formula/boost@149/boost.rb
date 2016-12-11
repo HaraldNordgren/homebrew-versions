@@ -15,7 +15,7 @@ end
 class Boost < Formula
   version "149"
   homepage 'http://www.boost.org'
-  url 'http://downloads.sourceforge.net/project/boost/boost/1.49.0/boost_1_49_0.tar.bz2'
+  url 'https://downloads.sourceforge.net/project/boost/boost/1.49.0/boost_1_49_0.tar.bz2'
   sha1 '26a52840e9d12f829e3008589abf0a925ce88524'
 
   keg_only "Boost 1.49 is provided for software that doesn't compile against newer versions."
