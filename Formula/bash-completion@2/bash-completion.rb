@@ -3,8 +3,8 @@ require 'formula'
 class BashCompletion < Formula
   version "2"
   homepage 'http://bash-completion.alioth.debian.org/'
-  url 'http://bash-completion.alioth.debian.org/files/bash-completion-2.0.tar.bz2'
-  sha256 'e5a490a4301dfb228361bdca2ffca597958e47dd6056005ef9393a5852af5804'
+  url 'http://bash-completion.alioth.debian.org/files/bash-completion-2.1.tar.bz2'
+  sha256 '2b606804a7d5f823380a882e0f7b6c8a37b0e768e72c3d4107c51fbe8a46ae4f'
 
   conflicts_with 'bash-completion'
 
