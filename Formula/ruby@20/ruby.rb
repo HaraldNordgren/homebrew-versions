@@ -5,9 +5,9 @@ class Ruby < Formula
   sha256 "3c3782e313d1ec3ed06c104eafd133cc54ff5183b991786ece9e957fd6cf1cb9"
 
   bottle do
-    sha256 "e9b01603d66cc5553ca7f9d3594fc0ce6d186aea4c85aaa1af1c241404452e39" => :yosemite
-    sha256 "0e79ce291d4f661d7872f7deb1d809a419a7c6599483a422bc7787049f0cebb0" => :mavericks
-    sha256 "6840f190b6a853a2fa885f24cf60b203424aa2a7eb887ab5f051848f072de30e" => :mountain_lion
+    sha256 "c92517fd6503e01b4bd8bae36cdda4d7bc60db6a224fe8724882e7f79c1a681b" => :yosemite
+    sha256 "b6a6fbecd9a5d3961ca9eba812034e1983277216de4f7dba6aa3380ca94ae6f9" => :mavericks
+    sha256 "196821bd9c37392b670fea9249a4401cf696727f80d03945bc4f9ae56f45ce74" => :mountain_lion
   end
 
   option :universal
