@@ -1377,5 +1377,12 @@
     "file_without_extension": "redis26",
     "original_filename": "redis26.rb",
     "migrated_filename": "redis.rb"
+  },
+  {
+    "classname_with_version": "Docker133",
+    "package_at_version": "docker@133",
+    "file_without_extension": "docker133",
+    "original_filename": "docker133.rb",
+    "migrated_filename": "docker.rb"
   }
 ]
