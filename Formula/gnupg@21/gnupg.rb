@@ -59,6 +59,7 @@ class Gnupg < Formula
       --sbindir=#{bin}
       --sysconfdir=#{etc}
       --enable-symcryptrun
+      --with-pinentry-pgm=#{Formula["pinentry"].opt_bin}/pinentry
     ]
 
     args << "--with-readline=#{Formula["readline"].opt_prefix}" if build.with? "readline"
