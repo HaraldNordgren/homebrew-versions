@@ -1,17 +1,18 @@
-require 'formula'
-
 class Valgrind < Formula
   version "38"
-  homepage 'http://www.valgrind.org/'
-  url 'http://valgrind.org/downloads/valgrind-3.8.1.tar.bz2'
-  sha1 'aa7a3b0b9903f59a11ae518874852e8ccb12751c'
+  desc "Dynamic analysis tools"
+  homepage "http://www.valgrind.org/"
+  url "http://valgrind.org/downloads/valgrind-3.8.1.tar.bz2"
+  sha256 "473be00576bed311a662b277a2bfbe97d9cca4058e68619a0e420c9fc19958db"
 
   depends_on :macos => :snow_leopard
+  depends_on MaximumMacOSRequirement => :mountain_lion
+
   env :std if :macos == :snow_leopard
 
   # Valgrind needs vcpreload_core-*-darwin.so to have execute permissions.
   # See #2150 for more information.
-  skip_clean 'lib/valgrind'
+  skip_clean "lib/valgrind"
 
   # 1: For Xcode-only systems, we have to patch hard-coded paths, use xcrun &
   #    add missing CFLAGS. See: https://bugs.kde.org/show_bug.cgi?id=295084
@@ -19,19 +20,22 @@ class Valgrind < Formula
   #    https://bugs.kde.org/show_bug.cgi?id=307415
   patch do
     url "https://gist.githubusercontent.com/2bits/3784836/raw/f046191e72445a2fc8491cb6aeeabe84517687d9/patch1.diff"
-    sha1 "a2252d977302a37873b0f2efe8aa4a4fed2eb2c2"
+    sha256 "1e50a732c695303ca2edab4d423c4c3ff77d54cf64d358bac65297491a587731"
   end
 
-  patch do
-    url "https://gist.githubusercontent.com/2bits/3784930/raw/dc8473c0ac5274f6b7d2eb23ce53d16bd0e2993a/patch2.diff"
-    sha1 "6e57aa087fafd178b594e22fd0e00ea7c0eed438"
-  end if MacOS.version == :lion
+  if MacOS.version == :lion
+    patch do
+      url "https://gist.githubusercontent.com/2bits/3784930/raw/dc8473c0ac5274f6b7d2eb23ce53d16bd0e2993a/patch2.diff"
+      sha256 "b381b5f5bfc544214c2d88d49066ed806596838375a9b2397abe588aaa6c2ed0"
+    end
+  end
 
   def install
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
     ]
+
     if MacOS.prefer_64_bit?
       args << "--enable-only64bit" << "--build=amd64-darwin"
     else
@@ -39,8 +43,8 @@ class Valgrind < Formula
     end
 
     system "./configure", *args
-    system 'make'
-    system "make install"
+    system "make"
+    system "make", "install"
   end
 
   test do
