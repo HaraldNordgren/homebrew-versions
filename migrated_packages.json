@@ -75,5 +75,12 @@
     "file_without_extension": "python31",
     "original_filename": "python31.rb",
     "migrated_filename": "python.rb"
+  },
+  {
+    "classname_with_version": "Mysql51",
+    "package_at_version": "mysql@51",
+    "file_without_extension": "mysql51",
+    "original_filename": "mysql51.rb",
+    "migrated_filename": "mysql.rb"
   }
 ]
