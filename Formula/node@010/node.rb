@@ -1,6 +1,7 @@
 # Note that x.even are stable releases, x.odd are devel releases
 class Node < Formula
   version "010"
+  desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v0.10.38/node-v0.10.38.tar.gz"
   sha256 "513da8ed5e48abefdfab664f1cabc160238d314a0481148804aff8fc6552b78b"
@@ -28,8 +29,8 @@ class Node < Formula
   end
 
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-2.8.3.tgz"
-    sha256 "81089fbb9f71286d2fd41423fbb171a92a126709d6a4b5d7c5ae02475a393838"
+    url "https://registry.npmjs.org/npm/-/npm-2.11.0.tgz"
+    sha256 "c35f1b89705d63e76c8548647b0fa016e0bedee899a51ba93895db1d5eda940b"
   end
 
   def install
