@@ -247,15 +247,10 @@ class Llvm < Formula
     end
 
     # Install Clang tools
-    (share/"clang-#{ver}/tools").install buildpath/'tools/clang/tools/scan-build', buildpath/'tools/clang/tools/scan-view'
+    (share/"clang-#{ver}/tools").install Dir["tools/clang/tools/scan-{build,view}"]
 
     if build.with? "python"
-      # Install llvm python bindings.
-      mv buildpath/'bindings/python/llvm', buildpath/"bindings/python/llvm-#{ver}"
-      (lib+'python2.7/site-packages').install buildpath/"bindings/python/llvm-#{ver}"
-      # Install clang tools and bindings if requested.
-      mv clang_buildpath/'bindings/python/clang', clang_buildpath/"bindings/python/clang-#{ver}"
-      (lib+'python2.7/site-packages').install clang_buildpath/"bindings/python/clang-#{ver}"
+      (lib/"python2.7/site-packages").install "bindings/python/llvm" => "llvm-#{ver}", clang_buildpath/"bindings/python/clang" => "clang-#{ver}"
     end
 
     # Link executables to bin and add suffix to avoid conflicts
