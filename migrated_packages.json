@@ -950,5 +950,12 @@
     "file_without_extension": "phantomjs182",
     "original_filename": "phantomjs182.rb",
     "migrated_filename": "phantomjs.rb"
+  },
+  {
+    "classname_with_version": "Zeromq32",
+    "package_at_version": "zeromq@32",
+    "file_without_extension": "zeromq32",
+    "original_filename": "zeromq32.rb",
+    "migrated_filename": "zeromq.rb"
   }
 ]
