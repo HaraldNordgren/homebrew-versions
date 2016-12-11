@@ -3,7 +3,6 @@ class Openssl < Formula
   desc "OpenSSL SSL/TLS cryptography library"
   homepage "https://openssl.org"
   url "https://www.openssl.org/source/openssl-1.0.1p.tar.gz"
-  mirror "https://raw.githubusercontent.com/DomT4/LibreMirror/master/OpenSSL/openssl-1.0.1p.tar.gz"
   sha256 "bd5ee6803165c0fb60bbecbacacf244f1f90d2aa0d71353af610c29121e9b2f1"
 
   bottle do
@@ -23,7 +22,7 @@ class Openssl < Formula
   def arch_args
     {
       :x86_64 => %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128],
-      :i386   => %w[darwin-i386-cc],
+      :i386   => %w[darwin-i386-cc]
     }
   end
 
