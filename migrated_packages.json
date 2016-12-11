@@ -1748,5 +1748,12 @@
     "file_without_extension": "jython253",
     "original_filename": "jython253.rb",
     "migrated_filename": "jython.rb"
+  },
+  {
+    "classname_with_version": "Docker162",
+    "package_at_version": "docker@162",
+    "file_without_extension": "docker162",
+    "original_filename": "docker162.rb",
+    "migrated_filename": "docker.rb"
   }
 ]
