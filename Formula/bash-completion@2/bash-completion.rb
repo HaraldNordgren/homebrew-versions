@@ -9,10 +9,19 @@ class BashCompletion < Formula
   conflicts_with 'bash-completion'
 
   # All three fix issues with GNU extended regexs
-  def patches
-    ["http://anonscm.debian.org/gitweb/?p=bash-completion/bash-completion.git;a=patch;h=f230cfddbd12b8c777040e33bac1174c0e2898af",
-     "http://anonscm.debian.org/gitweb/?p=bash-completion/bash-completion.git;a=patch;h=3ac523f57e8d26e0943dfb2fd22f4a8879741c60",
-     "http://anonscm.debian.org/gitweb/?p=bash-completion/bash-completion.git;a=patch;h=50ae57927365a16c830899cc1714be73237bdcb2"]
+  patch do
+    url "http://anonscm.debian.org/gitweb/?p=bash-completion/bash-completion.git;a=patch;h=f230cfddbd12b8c777040e33bac1174c0e2898af"
+    sha1 "0805407d8221281eed569e102fd8f81292b54e31"
+  end
+
+  patch do
+    url "http://anonscm.debian.org/gitweb/?p=bash-completion/bash-completion.git;a=patch;h=3ac523f57e8d26e0943dfb2fd22f4a8879741c60"
+    sha1 "9fd6805b60b1ee5093e8b8cac2191df640905aa6"
+  end
+
+  patch do
+    url "http://anonscm.debian.org/gitweb/?p=bash-completion/bash-completion.git;a=patch;h=50ae57927365a16c830899cc1714be73237bdcb2"
+    sha1 "e14ac827a59f48eb05e7da60b6fce996be1a34f4"
   end
 
   def compdir
