@@ -85,8 +85,6 @@ class Llvm < Formula
   depends_on 'cloog@018'
   depends_on 'libffi' => :recommended
 
-  env :std if build.universal?
-
   def ver; '3.3'; end # version suffix
 
   def install
@@ -128,6 +126,7 @@ class Llvm < Formula
     end
 
     if build.universal?
+      ENV.permit_arch_flags
       ENV['UNIVERSAL'] = '1'
       ENV['UNIVERSAL_ARCH'] = Hardware::CPU.universal_archs.join(' ')
     end

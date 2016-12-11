@@ -19,8 +19,6 @@ class Llvm < Formula
     sha1 '19f33b187a50d22fda2a6f9ed989699a9a9efd62'
   end
 
-  env :std if build.universal?
-
   def install
     if build.with? "python" and build.include? 'disable-shared'
       raise 'The Python bindings need the shared library.'
@@ -29,6 +27,7 @@ class Llvm < Formula
     (buildpath/'tools/clang').install resource('clang') if build.with? 'clang'
 
     if build.universal?
+      ENV.permit_arch_flags
       ENV['UNIVERSAL'] = '1'
       ENV['UNIVERSAL_ARCH'] = Hardware::CPU.universal_archs.join(' ')
     end

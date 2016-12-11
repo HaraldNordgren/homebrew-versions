@@ -34,8 +34,6 @@ class Llvm < Formula
     sha1 'b82b3650db710642dfce0c98a49fc0b866b6f152'
   end
 
-  env :std if build.universal?
-
   def install
     if build.with? "python" and build.include? 'disable-shared'
       raise 'The Python bindings need the shared library.'
@@ -46,6 +44,7 @@ class Llvm < Formula
     (buildpath/'projects/compiler-rt').install resource('compiler-rt') if build.with? 'asan'
 
     if build.universal?
+      ENV.permit_arch_flags
       ENV['UNIVERSAL'] = '1'
       ENV['UNIVERSAL_ARCH'] = Hardware::CPU.universal_archs.join(' ')
     end

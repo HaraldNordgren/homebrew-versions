@@ -28,8 +28,6 @@ class PerconaServer < Formula
   conflicts_with 'percona-server',
     :because => "percona-server55 and percona-server install the same binaries."
 
-  env :std if build.universal?
-
   fails_with :llvm do
     build 2334
     cause "https://github.com/mxcl/homebrew/issues/issue/144"
@@ -84,7 +82,10 @@ class PerconaServer < Formula
     args << "-DWITH_READLINE=yes" unless build.include? 'with-libedit'
 
     # Make universal for binding to universal applications
-    args << "-DCMAKE_OSX_ARCHITECTURES='i386;x86_64'" if build.universal?
+    if build.universal?
+      ENV.universal_binary
+      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
+    end
 
     # Build with local infile loading support
     args << "-DENABLED_LOCAL_INFILE=1" if build.include? 'enable-local-infile'

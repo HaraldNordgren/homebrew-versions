@@ -11,8 +11,6 @@ class Zeromq < Formula
   depends_on 'pkg-config' => :build
   depends_on 'libpgm' if build.include? 'with-pgm'
 
-  env :std if build.universal?
-
   fails_with :llvm do
     build 2326
     cause "Segfault while linking"
@@ -56,6 +54,7 @@ class Zeromq < Formula
 
   def install
     if build.universal?
+      ENV.permit_arch_flags
       build_fat
     else
       do_config

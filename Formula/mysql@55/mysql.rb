@@ -20,8 +20,6 @@ class Mysql < Formula
 
   keg_only 'Conflicts with mysql, mariadb, percona-server, mysql-cluster, etc.'
 
-  env :std if build.universal?
-
   fails_with :llvm do
     build 2326
     cause "https://github.com/mxcl/homebrew/issues/issue/144"
@@ -70,7 +68,10 @@ class Mysql < Formula
     args << "-DWITH_BLACKHOLE_STORAGE_ENGINE=1" if build.include? 'with-blackhole-storage-engine'
 
     # Make universal for binding to universal applications
-    args << "-DCMAKE_OSX_ARCHITECTURES='i386;x86_64'" if build.universal?
+    if build.universal?
+      ENV.universal_binary
+      args << "-DCMAKE_OSX_ARCHITECTURES=#{Hardware::CPU.universal_archs.as_cmake_arch_flags}"
+    end
 
     # Build with local infile loading support
     args << "-DENABLED_LOCAL_INFILE=1" if build.include? 'enable-local-infile'
