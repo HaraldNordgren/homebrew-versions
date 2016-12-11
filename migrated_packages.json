@@ -1272,5 +1272,12 @@
     "file_without_extension": "qt52",
     "original_filename": "qt52.rb",
     "migrated_filename": "qt.rb"
+  },
+  {
+    "classname_with_version": "Ledger26",
+    "package_at_version": "ledger@26",
+    "file_without_extension": "ledger26",
+    "original_filename": "ledger26.rb",
+    "migrated_filename": "ledger.rb"
   }
 ]
