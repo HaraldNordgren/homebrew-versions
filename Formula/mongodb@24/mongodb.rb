@@ -4,6 +4,14 @@ class Mongodb < Formula
   url "https://fastdl.mongodb.org/src/mongodb-src-r2.4.12.tar.gz"
   sha256 "b239a065a1197f811a3908bdee8d535564b94f2d79da893935e38831ebbac8b3"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    cellar :any
+    sha256 "004b4e3bfdb5ee0c00b5568383b5012059d057cc30248f5604afd34fd3cb8382" => :yosemite
+    sha256 "c6310fd5ea6f665c1d6aec573024b729c912865fcad25ce6723a293bcde82db7" => :mavericks
+    sha256 "d3d6d653817a8e6127d9efa62d0f7338c67d15217acb323b5ad49ae853a719da" => :mountain_lion
+  end
+
   patch do
     url "https://github.com/mongodb/mongo/commit/be4bc7.diff"
     sha256 "63592bb33dbe1662425a4a323a6ad33a6aa25d8e3c28b2bc48e34df57361eeed"
