@@ -22,10 +22,7 @@ class Mapnik < Formula
       "#include <boost/filesystem/operations.hpp>",
       "#define BOOST_FILESYSTEM_VERSION 2\n#include <boost/filesystem/operations.hpp>"
 
-    icu = Formula.factory("icu4c")
-    system "scons",
-        "PREFIX=#{prefix}",
-        "ICU_INCLUDES=#{icu.include}", "ICU_LIBS=#{icu.lib}",
-        "install"
+    icu = Formula["icu4c"]
+    scons "PREFIX=#{prefix}", "ICU_INCLUDES=#{icu.include}", "ICU_LIBS=#{icu.lib}", "install"
   end
 end

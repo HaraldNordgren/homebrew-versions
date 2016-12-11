@@ -97,9 +97,9 @@ class Llvm < Formula
       # As of LLVM 3.1, attempting to build ocaml bindings with Homebrew's
       # OCaml 3.12.1 results in errors.
       "--disable-bindings",
-      "--with-gmp=#{Formula.factory('gmp').opt_prefix}",
-      "--with-isl=#{Formula.factory('isl').opt_prefix}",
-      "--with-cloog=#{Formula.factory('cloog').opt_prefix}"
+      "--with-gmp=#{Formula["gmp"].opt_prefix}",
+      "--with-isl=#{Formula["isl"].opt_prefix}",
+      "--with-cloog=#{Formula["cloog"].opt_prefix}"
     ]
 
     if build.include? 'all-targets'

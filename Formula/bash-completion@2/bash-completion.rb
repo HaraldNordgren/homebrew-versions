@@ -39,7 +39,7 @@ class BashCompletion < Formula
         #{compdir}
       bash-completion will automatically source it when you invoke `brew`.
 
-      Any completion scripts in #{Formula.factory("bash-completion").compdir}
+      Any completion scripts in #{Formula["bash-completion"].compdir}
       will continue to be sourced as well.
     EOS
   end

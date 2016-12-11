@@ -8,17 +8,17 @@ class Appledoc < Formula
   url 'https://github.com/tomaz/appledoc/archive/v2.0.6.tar.gz'
   sha1 '3d76172339cbfea24ef53f55e2452cc78930413e'
 
-  depends_on :xcode # For working xcodebuild.
+  depends_on :xcode
 
   def install
-    system "xcodebuild", "-project", "appledoc.xcodeproj",
-                         "-target", "appledoc",
-                         "-configuration", "Release",
-                         "clean", "install",
-                         "SYMROOT=build",
-                         "DSTROOT=build",
-                         "INSTALL_PATH=/bin",
-                         "OTHER_CFLAGS='-DCOMPILE_TIME_DEFAULT_TEMPLATE_PATH=@\"#{prefix}/Templates\"'"
+    xcodebuild "-project", "appledoc.xcodeproj",
+               "-target", "appledoc",
+               "-configuration", "Release",
+               "clean", "install",
+               "SYMROOT=build",
+               "DSTROOT=build",
+               "INSTALL_PATH=/bin",
+               "OTHER_CFLAGS='-DCOMPILE_TIME_DEFAULT_TEMPLATE_PATH=@\"#{prefix}/Templates\"'"
     bin.install "build/bin/appledoc"
     prefix.install "Templates/"
   end

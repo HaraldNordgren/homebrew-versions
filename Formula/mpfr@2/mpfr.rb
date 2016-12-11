@@ -23,7 +23,7 @@ class Mpfr < Formula
   end
 
   def install
-    gmp4 = Formula.factory 'gmp4'
+    gmp4 = Formula["gmp4"]
 
     args = [
       "--disable-dependency-tracking",

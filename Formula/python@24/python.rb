@@ -28,8 +28,8 @@ class Python < Formula
   def install
     # The system readline is broken (bus error), and the formula is keg_only.
     # It seems presumptuous to `brew link readline`. So:
-    ENV['CC'] = ["gcc", "-I#{Formula.factory('readline').prefix}/include",
-                 "-L#{Formula.factory('readline').prefix}/lib"].join(" ")
+    ENV['CC'] = ["gcc", "-I#{Formula["readline"].prefix}/include",
+                 "-L#{Formula["readline"].prefix}/lib"].join(" ")
 
     system "./configure", "--prefix=#{prefix}", "--disable-tk",
       "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}", "--enable-ipv6",

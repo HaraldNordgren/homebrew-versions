@@ -57,7 +57,7 @@ class Boost < Formula
     bargs = ["--prefix=#{prefix}", "--libdir=#{lib}"]
 
     if build.with? 'icu'
-      icu4c_prefix = Formula.factory('icu4c').opt_prefix
+      icu4c_prefix = Formula["icu4c"].opt_prefix
       bargs << "--with-icu=#{icu4c_prefix}"
     else
       bargs << '--without-icu'

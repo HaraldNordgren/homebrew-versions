@@ -34,11 +34,11 @@ class Ruby < Formula
     paths = []
 
     paths.concat %w[readline gdbm libffi].map { |dep|
-      Formula.factory(dep).opt_prefix if build.with? dep
+      Formula[dep].opt_prefix if build.with? dep
     }.compact
 
     paths.concat %w[libyaml openssl].map { |dep|
-      Formula.factory(dep).opt_prefix
+      Formula[dep].opt_prefix
     }
 
     args << "--with-opt-dir=#{paths.join(":")}"
