@@ -187,5 +187,12 @@
     "file_without_extension": "python26",
     "original_filename": "python26.rb",
     "migrated_filename": "python.rb"
+  },
+  {
+    "classname_with_version": "ErlangR14",
+    "package_at_version": "erlang@r14",
+    "file_without_extension": "erlang-r14",
+    "original_filename": "erlang-r14.rb",
+    "migrated_filename": "erlang.rb"
   }
 ]
