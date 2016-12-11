@@ -4,30 +4,30 @@ class Llvm < Formula
   version "34"
   homepage  'http://llvm.org/'
   head do
-    url 'http://llvm.org/git/llvm.git'
+    url 'http://llvm.org/svn/llvm-project/llvm/branches/release_34', :using => :svn
 
     resource 'clang' do
-      url 'http://llvm.org/git/clang.git'
+      url 'http://llvm.org/svn/llvm-project/cfe/branches/release_34', :using => :svn
     end
 
     resource 'clang-tools-extra' do
-      url 'http://llvm.org/git/clang-tools-extra.git'
+      url 'http://llvm.org/svn/llvm-project/clang-tools-extra/branches/release_34', :using => :svn
     end
 
     resource 'compiler-rt' do
-      url 'http://llvm.org/git/compiler-rt.git'
+      url 'http://llvm.org/svn/llvm-project/compiler-rt/branches/release_34', :using => :svn
     end
 
     resource 'polly' do
-      url 'http://llvm.org/git/polly.git'
+      url 'http://llvm.org/svn/llvm-project/polly/branches/release_34', :using => :svn
     end
 
     resource 'libcxx' do
-      url 'http://llvm.org/git/libcxx.git'
+      url 'http://llvm.org/svn/llvm-project/libcxx/branches/release_34', :using => :svn
     end
 
     resource 'libcxxabi' do
-      url 'http://llvm.org/git/libcxxabi.git'
+      url 'http://llvm.org/svn/llvm-project/libcxxabi/branches/release_32', :using => :svn
     end if MacOS.version <= :snow_leopard
   end
 
