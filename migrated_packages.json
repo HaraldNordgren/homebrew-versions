@@ -803,5 +803,12 @@
     "file_without_extension": "maven30",
     "original_filename": "maven30.rb",
     "migrated_filename": "maven.rb"
+  },
+  {
+    "classname_with_version": "Postgresql2",
+    "package_at_version": "postgresql@92",
+    "file_without_extension": "postgresql92",
+    "original_filename": "postgresql92.rb",
+    "migrated_filename": "postgresql.rb"
   }
 ]
