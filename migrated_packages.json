@@ -201,5 +201,12 @@
     "file_without_extension": "nu0",
     "original_filename": "nu0.rb",
     "migrated_filename": "nu.rb"
+  },
+  {
+    "classname_with_version": "Node04",
+    "package_at_version": "node@04",
+    "file_without_extension": "node04",
+    "original_filename": "node04.rb",
+    "migrated_filename": "node.rb"
   }
 ]
