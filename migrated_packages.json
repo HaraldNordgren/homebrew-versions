@@ -1328,5 +1328,12 @@
     "file_without_extension": "hadoop252",
     "original_filename": "hadoop252.rb",
     "migrated_filename": "hadoop.rb"
+  },
+  {
+    "classname_with_version": "Hadoop25",
+    "package_at_version": "hadoop@25",
+    "file_without_extension": "hadoop25",
+    "original_filename": "hadoop25.rb",
+    "migrated_filename": "hadoop.rb"
   }
 ]
