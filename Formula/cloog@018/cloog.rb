@@ -16,6 +16,7 @@ class Cloog < Formula
     args = [
       "--prefix=#{prefix}",
       "--disable-dependency-tracking",
+      "--disable-silent-rules",
       "--with-gmp-prefix=#{Formula.factory("gmp4").opt_prefix}",
       "--with-isl-prefix=#{Formula.factory("isl011").opt_prefix}"
     ]
