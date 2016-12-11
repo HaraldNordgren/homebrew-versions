@@ -474,5 +474,12 @@
     "file_without_extension": "gcc48",
     "original_filename": "gcc48.rb",
     "migrated_filename": "gcc.rb"
+  },
+  {
+    "classname_with_version": "Eigen2",
+    "package_at_version": "eigen@2",
+    "file_without_extension": "eigen2",
+    "original_filename": "eigen2.rb",
+    "migrated_filename": "eigen.rb"
   }
 ]
