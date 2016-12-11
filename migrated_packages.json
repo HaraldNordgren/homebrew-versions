@@ -558,5 +558,12 @@
     "file_without_extension": "gst-plugins-bad010",
     "original_filename": "gst-plugins-bad010.rb",
     "migrated_filename": "gst-plugins-bad.rb"
+  },
+  {
+    "classname_with_version": "Gcc43",
+    "package_at_version": "gcc@43",
+    "file_without_extension": "gcc43",
+    "original_filename": "gcc43.rb",
+    "migrated_filename": "gcc.rb"
   }
 ]
