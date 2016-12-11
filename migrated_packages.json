@@ -698,5 +698,12 @@
     "file_without_extension": "jenkins-lts",
     "original_filename": "jenkins-lts.rb",
     "migrated_filename": "jenkins.rb"
+  },
+  {
+    "classname_with_version": "Llvm31",
+    "package_at_version": "llvm@31",
+    "file_without_extension": "llvm31",
+    "original_filename": "llvm31.rb",
+    "migrated_filename": "llvm.rb"
   }
 ]
