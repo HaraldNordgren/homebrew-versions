@@ -6,6 +6,12 @@ class Gegl < Formula
   mirror "https://mirrors.kernel.org/debian/pool/main/g/gegl/gegl_0.2.0.orig.tar.bz2"
   sha256 "df2e6a0d9499afcbc4f9029c18d9d1e0dd5e8710a75e17c9b1d9a6480dd8d426"
 
+  bottle do
+    sha256 "14115d50a45db389363bff603b9c2d9d74ecd01caad2e6758bae664168ff6a0f" => :yosemite
+    sha256 "5ce386ef6e4245047afac0ee6c069b737c494a1adb8bf8250997d6545785a701" => :mavericks
+    sha256 "58a60436bd7aa4d5eb0724ea856a5013a9cbc38f269564a8a52724e34d96005d" => :mountain_lion
+  end
+
   option :universal
 
   depends_on "intltool" => :build
