@@ -2,8 +2,8 @@ class Node < Formula
   version "08"
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v0.8.26/node-v0.8.26.tar.gz"
-  sha1 "2ec960bcc8cd38da271f83c1b2007c12da5153b3"
-  revision 2
+  sha256 "d873216685774b96139af534ce015077d2c93ddfc4e3596e128853f3c08a5413"
+  revision 3
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
@@ -19,6 +19,7 @@ class Node < Formula
   deprecated_option "enable-debug" => "with-debug"
 
   depends_on :python => :build
+  depends_on "pkg-config" => :build
   depends_on "openssl"
   depends_on "v8" => :optional
 
@@ -27,8 +28,8 @@ class Node < Formula
   end
 
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-2.7.0.tgz"
-    sha256 "bb209f8e829a5d702a04a8b63f2576bdcad8271bdad2577caaaaf34e2d45d56a"
+    url "https://registry.npmjs.org/npm/-/npm-2.7.6.tgz"
+    sha256 "a9445167f68a42ffcdaa36f9f5c14a954237fce6898555c362e8785261fd72a1"
   end
 
   # Fixes double-free issue. See https://github.com/joyent/node/issues/6427
