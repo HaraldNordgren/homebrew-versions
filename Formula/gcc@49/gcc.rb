@@ -30,9 +30,10 @@ class Gcc < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
-    sha1 "be9c9f04d24611cdcd5558c6af79acf1ac3b25e4" => :yosemite
-    sha1 "8dc1db43666d0424579cce5ead09658f46d25790" => :mavericks
-    sha1 "f1416eeec1ebb74e133f43656ccdb03b3992210b" => :mountain_lion
+    revision 1
+    sha256 "2b1284fe314224509aa629a667cd0e00b276a9c44c5fd4cecc337d47faf4dbcc" => :yosemite
+    sha256 "6698beb47cbd336a31dd0a70ef1392be5233aa37d1f69b848dc29f162ddb50d2" => :mavericks
+    sha256 "e42520bc6bf6ea48b49092d1ab773be6e41acafa5f48370874512344cd9f8c90" => :mountain_lion
   end
 
   option "with-fortran", "Build the gfortran compiler"
