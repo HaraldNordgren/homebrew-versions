@@ -54,7 +54,7 @@ class BashCompletion < Formula
   end
 
   def post_install
-    compdir.install_symlink HOMEBREW_CONTRIB/"brew_bash_completion.sh" => "brew"
+    compdir.realpath.install_symlink HOMEBREW_CONTRIB/"brew_bash_completion.sh" => "brew"
   end
 
   def caveats; <<-EOS.undent
