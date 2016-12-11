@@ -13,6 +13,8 @@ class Gnupg < Formula
     sha256 "03bfc7c9116649ed00af8232a7edf6dee1eaaea887d56563b45cd1dc3a625bf5" => :mountain_lion
   end
 
+  option "with-gpgsplit", "Additionally install the gpgsplit utility"
+
   head do
     url "git://git.gnupg.org/gnupg.git"
 
@@ -89,6 +91,9 @@ class Gnupg < Formula
     system "make"
     system "make", "check"
     system "make", "install"
+
+    bin.install "tools/gpgsplit" => "gpgsplit2" if build.with? "gpgsplit"
+
     # Conflicts with a manpage from the 1.x formula, and
     # gpg-zip isn't installed by this formula anyway
     rm man1/"gpg-zip.1"
