@@ -1,5 +1,6 @@
 class Gnupg < Formula
   version "21"
+  desc "GNU Privacy Guard: a free PGP replacement"
   homepage "https://www.gnupg.org/"
   url "ftp://ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.4.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.4.tar.bz2"
@@ -112,7 +113,7 @@ class Gnupg < Formula
       https://www.gnupg.org/faq/whats-new-in-2.1.html
 
     If you are upgrading to gnupg21 from gnupg2 you should execute:
-      `killall gpg-agent && gpg-agent --daemon --use-standard-socket`
+      `killall gpg-agent && gpg-agent --daemon`
     After install. See:
       https://github.com/Homebrew/homebrew-versions/issues/681
     EOS
