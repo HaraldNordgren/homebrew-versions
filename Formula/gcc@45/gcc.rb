@@ -143,7 +143,7 @@ class Gcc < Formula
       system 'make install'
 
       # `make install` neglects to transfer an essential plugin header file.
-      Pathname.new(Dir[gcc_prefix.join *%w[** plugin include config]].first).install '../gcc/config/darwin-sections.def'
+      Pathname.new(Dir[gcc_prefix.join *%w[** plugin include config]].first).install '../gcc/config/darwin-sections.def' if MacOS.version > :tiger
 
       # Remove conflicting manpages in man7
       man7.rmtree
