@@ -89,5 +89,12 @@
     "file_without_extension": "allegro5",
     "original_filename": "allegro5.rb",
     "migrated_filename": "allegro.rb"
+  },
+  {
+    "classname_with_version": "Allegro4",
+    "package_at_version": "allegro@4",
+    "file_without_extension": "allegro4",
+    "original_filename": "allegro4.rb",
+    "migrated_filename": "allegro.rb"
   }
 ]
