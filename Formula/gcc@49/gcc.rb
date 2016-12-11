@@ -42,6 +42,12 @@ class Gcc < Formula
   depends_on 'isl@011'
   depends_on 'ecj' if build.include? 'enable-java' or build.include? 'enable-all-languages'
 
+  # Fixes build on 10.4; fixed upstream, will be in next release
+  # See: http://gcc.gnu.org/bugzilla/show_bug.cgi?id=58710
+  def patches
+    "http://repo.or.cz/w/official-gcc.git/patch/2ee407b0577ea538556be3af464a27ef6e501db7"
+  end unless build.head?
+
   def install
     # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
     cxxstdlib_check :skip
