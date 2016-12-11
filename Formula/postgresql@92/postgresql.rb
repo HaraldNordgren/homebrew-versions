@@ -85,7 +85,7 @@ class Postgresql < Formula
     unless (archs_for_command(framework_python)).include? :x86_64
       opoo "Detected a framework Python that does not have 64-bit support in:"
       puts <<-EOS.undent
-          #{framework_python}
+        #{framework_python}
 
         The configure script seems to prefer this version of Python over any others,
         so you may experience linker problems as described in:
@@ -99,19 +99,19 @@ class Postgresql < Formula
 
   def caveats
     s = <<-EOS.undent
-        initdb #{var}/postgres -E utf8    # create a database
-        postgres -D #{var}/postgres       # serve that database
-        PGDATA=#{var}/postgres postgres   # …alternatively
+      initdb #{var}/postgres -E utf8    # create a database
+      postgres -D #{var}/postgres       # serve that database
+      PGDATA=#{var}/postgres postgres   # …alternatively
 
-    If builds of PostgreSQL 9 are failing and you have version 8.x installed,
-    you may need to remove the previous version first. See:
-      https://github.com/mxcl/homebrew/issues/issue/2510
+      If builds of PostgreSQL 9 are failing and you have version 8.x installed,
+      you may need to remove the previous version first. See:
+        https://github.com/mxcl/homebrew/issues/issue/2510
 
-    To migrate existing data from a previous major version (pre-9.2) of PostgreSQL, see:
-      http://www.postgresql.org/docs/9.2/static/upgrading.html
+      To migrate existing data from a previous major version (pre-9.2) of PostgreSQL, see:
+        http://www.postgresql.org/docs/9.2/static/upgrading.html
 
-    Some machines may require provisioning of shared memory:
-      http://www.postgresql.org/docs/9.2/static/kernel-resources.html#SYSVIPC
+      Some machines may require provisioning of shared memory:
+        http://www.postgresql.org/docs/9.2/static/kernel-resources.html#SYSVIPC
     EOS
 
     s << "\n" << gem_caveats if MacOS.prefer_64_bit?
