@@ -62,6 +62,8 @@ class Gcc < Formula
     sha1 "49e335d085567467155ea6512ffa959a18eab0ef"
   end
 
+  fails_with :llvm
+
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 

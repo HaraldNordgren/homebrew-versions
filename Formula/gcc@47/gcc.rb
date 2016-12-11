@@ -45,6 +45,8 @@ class Gcc < Formula
   depends_on 'ecj' if build.include? 'enable-java' or build.include? 'enable-all-languages'
   depends_on MaximumMacOSRequirement => :mavericks
 
+  fails_with :llvm
+
   # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
   cxxstdlib_check :skip
 
