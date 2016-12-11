@@ -145,6 +145,10 @@ class Gcc < Formula
     # Rename man7.
     Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
 
+    # Even when suffixes are appended, the info pages conflict when
+    # install-info is run. TODO fix this.
+    info.rmtree
+
     # Since GCC 4.9 java properties are properly sandboxed.
   end
 
