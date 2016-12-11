@@ -1790,5 +1790,12 @@
     "file_without_extension": "gradle24",
     "original_filename": "gradle24.rb",
     "migrated_filename": "gradle.rb"
+  },
+  {
+    "classname_with_version": "Antlr3",
+    "package_at_version": "antlr@3",
+    "file_without_extension": "antlr3",
+    "original_filename": "antlr3.rb",
+    "migrated_filename": "antlr.rb"
   }
 ]
