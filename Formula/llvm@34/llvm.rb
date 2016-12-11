@@ -3,15 +3,14 @@ require 'formula'
 class Llvm < Formula
   version "34"
   homepage  'http://llvm.org/'
-  revision 1
 
   stable do
-    url 'http://llvm.org/releases/3.4.1/llvm-3.4.1.src.tar.gz'
-    sha1 '3711baa6f5ef9df07418ce76039fc3848a7bde7c'
+    url 'http://llvm.org/releases/3.4.2/llvm-3.4.2.src.tar.gz'
+    sha1 'c5287384d0b95ecb0fd7f024be2cdfb60cd94bc9'
 
     resource 'clang' do
-      url 'http://llvm.org/releases/3.4.1/cfe-3.4.1.src.tar.gz'
-      sha1 'ecd38fa89e837e6cb8305b8d05e88baecb0bda55'
+      url 'http://llvm.org/releases/3.4.2/cfe-3.4.2.src.tar.gz'
+      sha1 'add5420b10c3c3a38c4dc2322f8b64ba0a5def97'
     end
 
     resource 'clang-tools-extra' do
@@ -30,8 +29,8 @@ class Llvm < Formula
     end
 
     resource 'libcxx' do
-      url 'http://llvm.org/releases/3.4/libcxx-3.4.src.tar.gz'
-      sha1 'c45333dce3e6bdac2583682417c03b6bb149ceb0'
+      url 'http://llvm.org/releases/3.4.2/libcxx-3.4.2.src.tar.gz'
+      sha1 '7daa55bd1e9d87c3657d08d14d6f83566e6a1c04'
     end
   end
 
