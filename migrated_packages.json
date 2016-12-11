@@ -796,5 +796,12 @@
     "file_without_extension": "hadoop0202",
     "original_filename": "hadoop0202.rb",
     "migrated_filename": "hadoop.rb"
+  },
+  {
+    "classname_with_version": "Maven30",
+    "package_at_version": "maven@30",
+    "file_without_extension": "maven30",
+    "original_filename": "maven30.rb",
+    "migrated_filename": "maven.rb"
   }
 ]
