@@ -1097,5 +1097,12 @@
     "file_without_extension": "openjpeg20",
     "original_filename": "openjpeg20.rb",
     "migrated_filename": "openjpeg.rb"
+  },
+  {
+    "classname_with_version": "Lua51",
+    "package_at_version": "lua@51",
+    "file_without_extension": "lua51",
+    "original_filename": "lua51.rb",
+    "migrated_filename": "lua.rb"
   }
 ]
