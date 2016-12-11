@@ -5,6 +5,13 @@ class Mysql < Formula
   sha256 "05ebe21305408b24407d14b77607a3e5ffa3c300e03f1359d3066f301989dcb5"
   revision 1
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "6989edf73c784591fbb5f14b41fcfafa71bdf68f698dcd59bb8160d3191d5517" => :yosemite
+    sha256 "699205759212320098a2c5228b03bdb1fbc14d3e55d230a059101b8473a32388" => :mavericks
+    sha256 "6f49eb8d424865b232382096bc9f42e9457fb6f3d96131d49510d61402ad0161" => :mountain_lion
+  end
+
   option :universal
   option "with-tests", "Keep tests when installing"
   option "with-bench", "Keep benchmark app when installing"
