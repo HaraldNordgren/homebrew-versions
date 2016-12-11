@@ -15,6 +15,7 @@ class Glfw < Formula
 
   def patches
     # make library name consistent
+    # Fix conflicting typedefs
     DATA
   end
 
@@ -55,3 +56,21 @@ index
  
  #--------------------------------------------------------------------
  # Add subdirectories
+diff --git a/deps/GL/glext.h b/deps/GL/glext.h
+index 6cd79a2..acb4698 100644
+--- a/deps/GL/glext.h
++++ b/deps/GL/glext.h
+@@ -4130,8 +4130,13 @@
+ 
+ #ifndef GL_ARB_vertex_buffer_object
+ #define GL_ARB_vertex_buffer_object 1
++#if defined(__APPLE__)
++typedef long GLsizeiptrARB;
++typedef long GLintptrARB;
++#else
+ typedef ptrdiff_t GLsizeiptrARB;
+ typedef ptrdiff_t GLintptrARB;
++#endif
+ #define GL_BUFFER_SIZE_ARB                0x8764
+ #define GL_BUFFER_USAGE_ARB               0x8765
+ #define GL_ARRAY_BUFFER_ARB               0x8892
