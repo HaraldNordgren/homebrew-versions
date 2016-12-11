@@ -4,6 +4,14 @@ class Zeromq < Formula
   url "http://download.zeromq.org/zeromq-3.2.5.tar.gz"
   sha256 "09653e56a466683edb2f87ee025c4de55b8740df69481b9d7da98748f0c92124"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    cellar :any
+    sha256 "616493db0ef76c1f55d93fa7cc3b253fe6237d06ea57cfd9d25e28c1c4823ee7" => :yosemite
+    sha256 "fdaf595b9d71b5e0ff1485b938fa8ed6cd1766f8944b1d2afa790dfaae5853b1" => :mavericks
+    sha256 "28d6eab45c2a388ae1a25703889b4e0477f3c1d8e9fb9fc868b9884f9f735d49" => :mountain_lion
+  end
+
   option :universal
   option "with-pgm", "Build with PGM extension"
 
