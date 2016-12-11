@@ -1867,5 +1867,12 @@
     "file_without_extension": "freetds091",
     "original_filename": "freetds091.rb",
     "migrated_filename": "freetds.rb"
+  },
+  {
+    "classname_with_version": "Node012",
+    "package_at_version": "node@012",
+    "file_without_extension": "node012",
+    "original_filename": "node012.rb",
+    "migrated_filename": "node.rb"
   }
 ]
