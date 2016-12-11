@@ -21,6 +21,7 @@ class Gcc < Formula
 
   homepage "https://gcc.gnu.org"
   url "ftp://gcc.gnu.org/pub/gcc/snapshots/5-20150405/gcc-5-20150405.tar.bz2"
+  mirror "http://robotlab.itk.ppke.hu/gcc/snapshots/5-20150405/gcc-5-20150405.tar.bz2"
   sha256 "53b9dc0478d0ee327bf68a76de088e7f947c4a6376c13b30f2d65950c9c37ee6"
   version "5-20150405"
 
@@ -157,14 +158,11 @@ class Gcc < Formula
     # Handle conflicts between GCC formulae.
 
     # Since GCC 4.8 libffi stuff are no longer shipped.
-
     # Rename man7.
     Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
-
     # Even when suffixes are appended, the info pages conflict when
     # install-info is run. fix this.
     info.rmtree
-
     # Since GCC 4.9 java properties are properly sandboxed.
   end
 
