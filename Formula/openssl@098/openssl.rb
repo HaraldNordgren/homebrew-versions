@@ -1,10 +1,9 @@
-require "formula"
-
 class Openssl < Formula
   version "098"
   homepage "https://www.openssl.org"
-  url "https://www.openssl.org/source/openssl-0.9.8zd.tar.gz"
-  sha256 "59266dcfb0be0fbe6181edead044ac3edaf83bc58991f264dcf532b01d531ee3"
+  url "https://www.openssl.org/source/openssl-0.9.8ze.tar.gz"
+  mirror "https://raw.githubusercontent.com/DomT4/LibreMirror/master/OpenSSL/openssl-0.9.8ze.tar.gz"
+  sha256 "ee3da602826e975b47e4d7af8a27be8258c160876194898c58881eab814b55b8"
 
   bottle do
     root_url "https://downloads.sf.net/project/machomebrew/Bottles/versions"
@@ -36,5 +35,15 @@ class Openssl < Formula
     system "make"
     system "make", "test"
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"
+  end
+
+  test do
+    (testpath/"testfile.txt").write("This is a test file")
+    expected_checksum = "91b7b0b1e27bfbf7bc646946f35fa972c47c2d32"
+    system "#{bin}/openssl", "dgst", "-sha1", "-out", "checksum.txt", "testfile.txt"
+    open("checksum.txt") do |f|
+      checksum = f.read(100).split("=").last.strip
+      assert_equal checksum, expected_checksum
+    end
   end
 end
