@@ -1,8 +1,8 @@
 class Tomcat < Formula
   version "7"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-7/v7.0.61/bin/apache-tomcat-7.0.61.tar.gz"
-  sha256 "2528ad7434e44ab1198b5692d5f831ac605051129119fd81a00d4c75abe1c0e0"
+  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-7/v7.0.62/bin/apache-tomcat-7.0.62.tar.gz"
+  sha256 "a787ea12e163e78ccebbb9662d7da78e707aef051d15af9ab5be20489adf1f6d"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
@@ -15,9 +15,9 @@ class Tomcat < Formula
   option "with-fulldocs", "Install full documentation locally"
 
   resource "fulldocs" do
-    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-7/v7.0.61/bin/apache-tomcat-7.0.61-fulldocs.tar.gz"
-    version "7.0.61"
-    sha256 "30f0ccc080a46dd7fc2dfaccd3f3b8efdec5d5d42e235637e1de518a77ea86f3"
+    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-7/v7.0.62/bin/apache-tomcat-7.0.62-fulldocs.tar.gz"
+    version "7.0.62"
+    sha256 "46aa0412c1d0f041757e1e8dc9a0561507e3586a400165eafe4479e5adb5e86b"
   end
 
   # Keep log folders
