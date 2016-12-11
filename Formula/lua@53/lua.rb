@@ -1,9 +1,9 @@
 class Lua < Formula
   version "53"
   homepage "http://www.lua.org/"
-  url "http://www.lua.org/ftp/lua-5.3.0.tar.gz"
-  mirror "https://raw.githubusercontent.com/DomT4/LibreMirror/master/Lua/lua-5.3.0.tar.gz"
-  sha256 "ae4a5eb2d660515eb191bfe3e061f2b8ffe94dce73d32cfd0de090ddcc0ddb01"
+  url "http://www.lua.org/ftp/lua-5.3.1.tar.gz"
+  mirror "https://raw.githubusercontent.com/DomT4/LibreMirror/master/Lua/lua-5.3.1.tar.gz"
+  sha256 "072767aad6cc2e62044a66e8562f51770d941e972dc1e4068ba719cd8bffac17"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
@@ -19,7 +19,7 @@ class Lua < Formula
   end
 
   option :universal
-  option "with-default-names", "Don't version-suffix the Lua installation. Conflicts with Homebrew/Lua"
+  option "with-default-names", "Don't version-suffix the Lua installation. Conflicts with Homebrew's Lua"
   option "without-luarocks", "Don't build with Luarocks support embedded"
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
@@ -75,11 +75,11 @@ class Lua < Formula
 
         system "./configure", "--prefix=#{libexec}", "--rocks-tree=#{HOMEBREW_PREFIX}",
                               "--sysconfdir=#{etc}/luarocks53", "--with-lua=#{lua_prefix}",
-                              "--lua-version=5.3", "--versioned-rocks-dir", "--force-config=#{etc}/luarocks53"
+                              "--lua-version=5.3", "--versioned-rocks-dir"
         system "make", "build"
         system "make", "install"
 
-        (share+"lua/5.3/luarocks").install_symlink Dir["#{libexec}/share/lua/5.3/luarocks/*"]
+        (share/"lua/5.3/luarocks").install_symlink Dir["#{libexec}/share/lua/5.3/luarocks/*"]
         bin.install_symlink libexec/"bin/luarocks-5.3"
         bin.install_symlink libexec/"bin/luarocks-admin-5.3"
 
@@ -96,7 +96,7 @@ class Lua < Formula
 
   def pc_file; <<-EOS.undent
     V= 5.3
-    R= 5.3.0
+    R= 5.3.1
     prefix=#{HOMEBREW_PREFIX}
     INSTALL_BIN= ${prefix}/bin
     INSTALL_INC= ${prefix}/include/lua-5.3
@@ -110,7 +110,7 @@ class Lua < Formula
 
     Name: Lua
     Description: An Extensible Extension Language
-    Version: 5.3.0
+    Version: 5.3.1
     Requires:
     Libs: -L${libdir} -llua -lm
     Cflags: -I${includedir}
