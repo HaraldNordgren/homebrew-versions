@@ -1,15 +1,12 @@
-require "formula"
-
 class Kafka < Formula
   version "080"
-  homepage 'http://kafka.apache.org'
-  url 'https://archive.apache.org/dist/kafka/0.8.0/kafka-0.8.0-src.tgz'
-  sha1 '051e72b9ed9c3342c4e1210ffa9a9f4364171f26'
+  desc "Publish-subscribe messaging rethought as a distributed commit log"
+  homepage "https://kafka.apache.org"
+  url "https://archive.apache.org/dist/kafka/0.8.0/kafka-0.8.0-src.tgz"
+  sha256 "f4b7229671aba98dba9a882244cb597aab8a9018631575d28e119725a01cfc9a"
 
-  depends_on 'zookeeper'
-
-  conflicts_with 'kafka',
-                 :because => 'kafka080 and kafka install the same binaries.'
+  depends_on "zookeeper"
+  depends_on :java => "1.7+"
 
   def install
     system "./sbt", "update"
@@ -30,16 +27,15 @@ class Kafka < Formula
     inreplace "config/zookeeper.properties",
               "dataDir=/tmp/zookeeper", "dataDir=#{data}/zookeeper"
 
-    libexec.install %w(contrib core examples lib perf system_test)
+    libexec.install %w[contrib core examples lib perf system_test]
 
     prefix.install "bin"
-    bin.env_script_all_files(libexec/"bin", :JAVA_HOME => "`/usr/libexec/java_home`")
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("1.7+"))
 
-    (etc+"kafka").install Dir["config/*"]
+    (etc/"kafka").install Dir["config/*"]
   end
 
-  def caveats;
-    <<-EOS.undent
+  def caveats; <<-EOS.undent
     To start Kafka, ensure that ZooKeeper is running and then execute:
       kafka-server-start.sh #{etc}/kafka/server.properties
     EOS
