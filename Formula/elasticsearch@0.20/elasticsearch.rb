@@ -6,6 +6,14 @@ class Elasticsearch < Formula
   url 'https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-0.20.6.tar.gz'
   sha256 '534b9fdb2fa9031f539b19cc4cfc1345bbbb013a285a21105ca87348b96b3389'
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    cellar :any
+    sha256 "03e039c3fee2e353a249dfa81949b4a0bcd8b3d71141a49f6bbc6e2273947d76" => :yosemite
+    sha256 "5e1d0bf4f521ef49b1b224e26ced2dd5130bf05d67d7c5a6582e10a18839e70e" => :mavericks
+    sha256 "45fabce6fab8381dfbdc0f42ad9478b5f84fef7fcb86b4b82bcb35d5623896b8" => :mountain_lion
+  end
+
   def cluster_name
     "elasticsearch_#{ENV['USER']}"
   end
