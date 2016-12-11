@@ -8,6 +8,13 @@ class Cloog < Formula
   mirror 'ftp://gcc.gnu.org/pub/gcc/infrastructure/cloog-0.18.0.tar.gz'
   sha1 '85f620a26aabf6a934c44ca40a9799af0952f863'
 
+  bottle do
+    url 'cf10ded3221cd5dae2c2980f6635da02716f62f4' => :tiger_g3
+    url 'c8d8b01d1ae10e786b6999720c8054cb5de7a033' => :tiger_altivec
+    url 'b9cbf9174d588eaf1a6020c7ad66398b252c197d' => :leopard_g3
+    url '2f8758bad04c058f2416d61c9cd87cafe94c27ea' => :leopard_altivec
+  end
+
   keg_only 'Conflicts with cloog in main repository.'
 
   depends_on 'pkg-config' => :build
