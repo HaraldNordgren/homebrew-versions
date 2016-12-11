@@ -25,7 +25,7 @@ class PerconaServer < Formula
   conflicts_with 'mysql-cluster',
     :because => "percona-server55 and mysql-cluster install the same binaries."
 
-  conflicts_with 'percona-server'
+  conflicts_with 'percona-server',
     :because => "percona-server55 and percona-server install the same binaries."
 
   env :std if build.universal?
