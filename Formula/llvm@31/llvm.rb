@@ -1,11 +1,5 @@
 require 'formula'
 
-class Clang < Formula
-  homepage  'http://llvm.org/'
-  url       'http://llvm.org/releases/3.1/clang-3.1.src.tar.gz'
-  sha1      '19f33b187a50d22fda2a6f9ed989699a9a9efd62'
-end
-
 class Llvm < Formula
   version "31"
   homepage  'http://llvm.org/'
@@ -20,6 +14,11 @@ class Llvm < Formula
 
   depends_on :python => :recommended
 
+  resource 'clang' do
+    url 'http://llvm.org/releases/3.1/clang-3.1.src.tar.gz'
+    sha1 '19f33b187a50d22fda2a6f9ed989699a9a9efd62'
+  end
+
   env :std if build.universal?
 
   def install
@@ -27,9 +26,7 @@ class Llvm < Formula
       raise 'The Python bindings need the shared library.'
     end
 
-    Clang.new('clang').brew do
-      (buildpath/'tools/clang').install Dir['*']
-    end if build.with? 'clang'
+    (buildpath/'tools/clang').install resource('clang') if build.with? 'clang'
 
     if build.universal?
       ENV['UNIVERSAL'] = '1'

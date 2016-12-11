@@ -1,35 +1,5 @@
 require 'formula'
 
-class Clang < Formula
-  homepage  'http://llvm.org/'
-  url       'http://llvm.org/releases/3.3/cfe-3.3.src.tar.gz'
-  sha1      'ccd6dbf2cdb1189a028b70bcb8a22509c25c74c8'
-end
-
-class ClangToolsExtra < Formula
-  homepage  'http://llvm.org/'
-  url       'http://llvm.org/releases/3.3/clang-tools-extra-3.3.src.tar.gz'
-  sha1      '6f7af9ba8014f7e286a02e4ae2e3f2017b8bfac2'
-end
-
-class CompilerRt < Formula
-  homepage  'http://llvm.org/'
-  url       'http://llvm.org/releases/3.3/compiler-rt-3.3.src.tar.gz'
-  sha1      '745386ec046e3e49742e1ecb6912c560ccd0a002'
-end
-
-class Polly < Formula
-  homepage  'http://llvm.org'
-  url       'http://llvm.org/releases/3.3/polly-3.3.src.tar.gz'
-  sha1      'eb75f5674fedf77425d16c9c0caec04961f03e04'
-end
-
-class Libcxx < Formula
-  homepage  'http://llvm.org'
-  url       'http://llvm.org/releases/3.3/libcxx-3.3.src.tar.gz'
-  sha1      '7bea00bc1031bf3bf6c248e57c1f4e0874c18c04'
-end
-
 class Llvm < Formula
   version "33"
   homepage  'http://llvm.org/'
@@ -51,6 +21,31 @@ class Llvm < Formula
   depends_on 'cloog@018'
   depends_on 'libffi' => :recommended
 
+  resource 'clang' do
+    url 'http://llvm.org/releases/3.3/cfe-3.3.src.tar.gz'
+    sha1 'ccd6dbf2cdb1189a028b70bcb8a22509c25c74c8'
+  end
+
+  resource 'clang-tools-extra' do
+    url 'http://llvm.org/releases/3.3/clang-tools-extra-3.3.src.tar.gz'
+    sha1 '6f7af9ba8014f7e286a02e4ae2e3f2017b8bfac2'
+  end
+
+  resource 'compiler-rt' do
+    url 'http://llvm.org/releases/3.3/compiler-rt-3.3.src.tar.gz'
+    sha1 '745386ec046e3e49742e1ecb6912c560ccd0a002'
+  end
+
+  resource 'polly' do
+    url 'http://llvm.org/releases/3.3/polly-3.3.src.tar.gz'
+    sha1 'eb75f5674fedf77425d16c9c0caec04961f03e04'
+  end
+
+  resource 'libcxx' do
+    url       'http://llvm.org/releases/3.3/libcxx-3.3.src.tar.gz'
+    sha1      '7bea00bc1031bf3bf6c248e57c1f4e0874c18c04'
+  end
+
   env :std if build.universal?
 
   def install
@@ -58,25 +53,11 @@ class Llvm < Formula
       raise 'The Python bindings need the shared library.'
     end
 
-    Clang.new('clang').brew do
-      (buildpath/'tools/clang').install Dir['*']
-    end if build.with? 'clang'
-
-    ClangToolsExtra.new('clang-tools-extra').brew do
-      (buildpath/'tools/clang/tools/extra').install Dir['*']
-    end if build.with? 'clang'
-
-    CompilerRt.new("compiler-rt").brew do
-      (buildpath/'projects/compiler-rt').install Dir['*']
-    end if build.with? 'asan'
-
-    Libcxx.new('libcxx').brew do
-      (buildpath/'projects/libcxx').install Dir['*']
-    end if build.with? 'libcxx'
-
-    Polly.new('polly').brew do
-      (buildpath/'tools/polly').install Dir['*']
-    end
+    (buildpath/'tools/polly').install resource('polly')
+    (buildpath/'tools/clang').install resource('clang') if build.with? 'clang'
+    (buildpath/'tools/clang/tools/extra').install resource('clang-tools-extra') if build.with? 'clang'
+    (buildpath/'projects/compiler-rt').install resource('compiler-rt') if build.with? 'asan'
+    (buildpath/'projects/libcxx').install resource('libcxx') if build.with? 'libcxx'
 
     if build.universal?
       ENV['UNIVERSAL'] = '1'

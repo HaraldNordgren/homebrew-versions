@@ -1,23 +1,5 @@
 require 'formula'
 
-class Clang < Formula
-  homepage  'http://llvm.org/'
-  url       'http://llvm.org/releases/3.2/clang-3.2.src.tar.gz'
-  sha1      'b0515298c4088aa294edc08806bd671f8819f870'
-end
-
-class CompilerRt < Formula
-  homepage  'http://llvm.org/'
-  url       'http://llvm.org/releases/3.2/compiler-rt-3.2.src.tar.gz'
-  sha1      '718c0249a00e928f8bba32c84771da998ea4d42f'
-end
-
-class Polly < Formula
-  homepage  'http://llvm.org'
-  url       'http://llvm.org/releases/3.2/polly-3.2.src.tar.gz'
-  sha1      'b82b3650db710642dfce0c98a49fc0b866b6f152'
-end
-
 class Llvm < Formula
   version "32"
   homepage  'http://llvm.org/'
@@ -37,6 +19,21 @@ class Llvm < Formula
   depends_on 'isl@011'
   depends_on 'cloog@018'
 
+  resource 'clang' do
+    url 'http://llvm.org/releases/3.2/clang-3.2.src.tar.gz'
+    sha1 'b0515298c4088aa294edc08806bd671f8819f870'
+  end
+
+  resource 'compiler-rt' do
+    url 'http://llvm.org/releases/3.2/compiler-rt-3.2.src.tar.gz'
+    sha1 '718c0249a00e928f8bba32c84771da998ea4d42f'
+  end
+
+  resource 'polly' do
+    url 'http://llvm.org/releases/3.2/polly-3.2.src.tar.gz'
+    sha1 'b82b3650db710642dfce0c98a49fc0b866b6f152'
+  end
+
   env :std if build.universal?
 
   def install
@@ -44,17 +41,9 @@ class Llvm < Formula
       raise 'The Python bindings need the shared library.'
     end
 
-    Clang.new('clang').brew do
-      (buildpath/'tools/clang').install Dir['*']
-    end if build.with? 'clang'
-
-    CompilerRt.new("compiler-rt").brew do
-      (buildpath/'projects/compiler-rt').install Dir['*']
-    end if build.with? 'asan'
-
-    Polly.new('polly').brew do
-      (buildpath/'tools/polly').install Dir['*']
-    end
+    (buildpath/'tools/polly').install resource('polly')
+    (buildpath/'tools/clang').install resource('clang') if build.with? 'clang'
+    (buildpath/'projects/compiler-rt').install resource('compiler-rt') if build.with? 'asan'
 
     if build.universal?
       ENV['UNIVERSAL'] = '1'
