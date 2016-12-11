@@ -572,5 +572,12 @@
     "file_without_extension": "mariadb10",
     "original_filename": "mariadb10.rb",
     "migrated_filename": "mariadb.rb"
+  },
+  {
+    "classname_with_version": "Elasticsearch020",
+    "package_at_version": "elasticsearch@0.20",
+    "file_without_extension": "elasticsearch-0.20",
+    "original_filename": "elasticsearch-0.20.rb",
+    "migrated_filename": "elasticsearch.rb"
   }
 ]
