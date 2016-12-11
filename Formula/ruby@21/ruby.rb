@@ -1,8 +1,8 @@
 class Ruby < Formula
   version "21"
   homepage "https://www.ruby-lang.org/"
-  url "http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.5.tar.bz2"
-  sha256 "0241b40f1c731cb177994a50b854fb7f18d4ad04dcefc18acc60af73046fb0a9"
+  url "http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.6.tar.bz2"
+  sha256 "7b5233be35a4a7fbd64923e42efb70b7bebd455d9d6f9d4001b3b3a6e0aa6ce9"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
