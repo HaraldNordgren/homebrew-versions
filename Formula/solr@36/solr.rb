@@ -1,6 +1,7 @@
 class Solr < Formula
   version "36"
-  homepage "http://lucene.apache.org/solr/"
+  desc "Enterprise search platform from Apache Lucene project"
+  homepage "https://lucene.apache.org/solr/"
   url "https://archive.apache.org/dist/lucene/solr/3.6.2/apache-solr-3.6.2.tgz"
   sha256 "537426dcbdd0dc82dd5bf16b48b6bcaf87cb4049c1245eea8dcb79eeaf3e7ac6"
 
