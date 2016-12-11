@@ -887,5 +887,12 @@
     "file_without_extension": "percona-server55",
     "original_filename": "percona-server55.rb",
     "migrated_filename": "percona-server.rb"
+  },
+  {
+    "classname_with_version": "Postgis20",
+    "package_at_version": "postgis@20",
+    "file_without_extension": "postgis20",
+    "original_filename": "postgis20.rb",
+    "migrated_filename": "postgis.rb"
   }
 ]
