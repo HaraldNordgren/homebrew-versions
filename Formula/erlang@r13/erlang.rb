@@ -1,10 +1,5 @@
 require 'formula'
 
-class ErlangR13Manuals < Formula
-  url 'http://www.erlang.org/download/otp_doc_man_R13B04.tar.gz'
-  sha1 '660e52302d270138f8e9f2f2b6a562026998012c'
-end
-
 class Erlang < Formula
   homepage 'http://www.erlang.org'
   # Download from GitHub. Much faster than official tarball.
@@ -24,6 +19,11 @@ class Erlang < Formula
   fails_with :llvm do
     build 2326
     cause "See http://github.com/mxcl/homebrew/issues/issue/120"
+  end
+
+  resource 'man' do
+    url 'http://www.erlang.org/download/otp_doc_man_R13B04.tar.gz'
+    sha1 '660e52302d270138f8e9f2f2b6a562026998012c'
   end
 
   def install
@@ -52,8 +52,7 @@ class Erlang < Formula
     system "make"
     system "make install"
 
-    manuals = ErlangR13Manuals
-    manuals.new.brew { man.install Dir['man/*'] }
+    resource("man").stage { man.install Dir["man/*"] }
   end
 
   test do
