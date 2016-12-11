@@ -1286,5 +1286,12 @@
     "file_without_extension": "android-ndk-r10c",
     "original_filename": "android-ndk-r10c.rb",
     "migrated_filename": "android-ndk.rb"
+  },
+  {
+    "classname_with_version": "Bind99",
+    "package_at_version": "bind@99",
+    "file_without_extension": "bind99",
+    "original_filename": "bind99.rb",
+    "migrated_filename": "bind.rb"
   }
 ]
