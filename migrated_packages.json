@@ -341,5 +341,12 @@
     "file_without_extension": "lua52",
     "original_filename": "lua52.rb",
     "migrated_filename": "lua.rb"
+  },
+  {
+    "classname_with_version": "Redis24",
+    "package_at_version": "redis@24",
+    "file_without_extension": "redis24",
+    "original_filename": "redis24.rb",
+    "migrated_filename": "redis.rb"
   }
 ]
