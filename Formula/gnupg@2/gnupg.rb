@@ -12,8 +12,11 @@ class Gnupg < Formula
   depends_on 'libassuan'
   depends_on 'pinentry'
   depends_on 'pth'
+  depends_on 'dirmngr' => :optional
 
   def install
+    inreplace 'common/homedir.c', '/var/run', '#{var}/run'
+
     system "./configure", "--prefix=#{prefix}",
                           "--disable-dependency-tracking"
     system "make"
