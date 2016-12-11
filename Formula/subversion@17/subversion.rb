@@ -36,13 +36,13 @@ class Subversion < Formula
   env :userpaths if (build.include? 'perl') or (build.include? 'ruby')
 
   # Patch for Subversion handling of OS X UTF-8-MAC filename.
-  patch do
+  patch :p0 do
     url "https://gist.githubusercontent.com/jeffstyr/3044094/raw/1648c28f6133bcbb68b76b42669b0dc237c02dba/patch-path.c.diff"
     sha1 "c8caab0f06e96f3c9f3ed39c798190387612c43c"
   end if build.include? "unicode-path"
 
   # Patch to prevent '-arch ppc' from being pulled in from Perl's $Config{ccflags}
-  patch :DATA if build.include? "perl"
+  patch :p0, :DATA if build.include? "perl"
 
   # When building Perl or Ruby bindings, need to use a compiler that
   # recognizes GCC-style switches, since that's what the system languages
