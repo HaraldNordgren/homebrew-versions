@@ -35,6 +35,10 @@ class ImagemagickRuby < Formula
     path.extname == '.la'
   end
 
+  def options
+    [['--with-ghostscript', 'Enable ghostscript support']]
+  end
+
   def fix_configure
     # versioned stuff in main tree is pointless for us
     inreplace 'configure', '${PACKAGE_NAME}-${PACKAGE_VERSION}', '${PACKAGE_NAME}'
