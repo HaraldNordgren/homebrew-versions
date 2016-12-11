@@ -5,6 +5,13 @@ class Node < Formula
   sha1 "2ec960bcc8cd38da271f83c1b2007c12da5153b3"
   revision 1
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha1 "b4229aa8a4d2f130258b6f92b1cd469acfb4114c" => :yosemite
+    sha1 "000361be8872875766613a9241a3d038ea1cc4e9" => :mavericks
+    sha1 "3725269cdcc01b8c87456e3bd8d54b3f73c80f71" => :mountain_lion
+  end
+
   option "with-debug", "Build with debugger hooks"
   option "without-npm", "npm will not be installed"
   option "with-system-zlib", "Use the system zlib rather than the bundled"
