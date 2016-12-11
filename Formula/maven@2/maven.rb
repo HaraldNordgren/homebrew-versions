@@ -21,7 +21,7 @@ class Maven < Formula
     end
   end
 
-  def cavets; <<-EOS.undent
+  def caveats; <<-EOS.undent
     WARNING: This older version will conflict with Maven if installed at the
     same time.
     EOS
