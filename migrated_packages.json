@@ -1517,5 +1517,12 @@
     "file_without_extension": "pandoc-citeproc05",
     "original_filename": "pandoc-citeproc05.rb",
     "migrated_filename": "pandoc-citeproc.rb"
+  },
+  {
+    "classname_with_version": "Cmake28",
+    "package_at_version": "cmake@28",
+    "file_without_extension": "cmake28",
+    "original_filename": "cmake28.rb",
+    "migrated_filename": "cmake.rb"
   }
 ]
