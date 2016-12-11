@@ -1,10 +1,10 @@
 require 'formula'
 
 class Gcc < Formula
+  version "48"
   homepage 'http://gcc.gnu.org'
-  url 'ftp://gcc.gnu.org/pub/gcc/snapshots/4.8.0-RC-20130316/gcc-4.8.0-RC-20130316.tar.bz2'
-  version '4.8-RC'
-  sha1 '390a283980f2a1752b4084fd756f739f6ed5b0e1'
+  url 'ftp://gcc.gnu.org/pub/gcc/releases/gcc-4.8.0/gcc-4.8.0.tar.bz2'
+  sha1 'b4ee6e9bdebc65223f95067d0cc1a634b59dad72'
 
   head 'svn://gcc.gnu.org/svn/gcc/branches/gcc-4_8-branch'
 
