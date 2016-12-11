@@ -8,19 +8,16 @@ class Node < Formula
 
   head 'https://github.com/joyent/node.git'
 
-  # Leopard OpenSSL is not new enough, so use our keg-only one
+  option 'enable-debug', 'Build with debugger hooks'
+
   depends_on 'openssl' if MacOS.version == :leopard
 
   fails_with :llvm do
     build 2326
   end
 
-  def options
-    [["--enable-debug", "Build with debugger hooks."]]
-  end
-
   def install
-    unless ARGV.build_devel?
+    unless build.devel?
       inreplace 'wscript' do |s|
         s.gsub! '/usr/local', HOMEBREW_PREFIX
         s.gsub! '/opt/local/lib', '/usr/lib'
@@ -29,7 +26,7 @@ class Node < Formula
 
     # Why skip npm install? Read https://github.com/mxcl/homebrew/pull/8784.
     args = ["--prefix=#{prefix}", "--without-npm"]
-    args << "--debug" if ARGV.include? '--enable-debug'
+    args << "--debug" if build.include? 'enable-debug'
 
     system "./configure", *args
     system "make install"
