@@ -3,8 +3,8 @@ require 'formula'
 class Lua < Formula
   version "52"
   homepage 'http://www.lua.org/'
-  url 'http://www.lua.org/ftp/lua-5.2.1.tar.gz'
-  sha1 '6bb1b0a39b6a5484b71a83323c690154f86b2021'
+  url 'http://www.lua.org/ftp/lua-5.2.2.tar.gz'
+  sha1 '0857e41e5579726a4cb96732e80d7aa47165eaf5'
 
   fails_with :llvm do
     build 2326
