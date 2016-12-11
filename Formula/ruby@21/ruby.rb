@@ -4,6 +4,13 @@ class Ruby < Formula
   url "http://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.5.tar.bz2"
   sha256 "0241b40f1c731cb177994a50b854fb7f18d4ad04dcefc18acc60af73046fb0a9"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "6848246a798b9deba5dc927235adbc095c8e6fccf88b235b1ad24cf2775bb4a7" => :yosemite
+    sha256 "653a71df782e1d130b1191eb7af9d66c4fc25c77f0f230e4e098b9b094406235" => :mavericks
+    sha256 "421404c07132b055ddadc2931b11911398be3c533d4496756547af5b98dc11f1" => :mountain_lion
+  end
+
   option :universal
   option "with-suffix", "Suffix commands with '21'"
   option "with-doc", "Install documentation"
