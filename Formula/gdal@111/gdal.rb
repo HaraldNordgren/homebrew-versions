@@ -14,6 +14,13 @@ class Gdal < Formula
       sha1 "844bb827327f9c64918499f3cce3ded9414952c4"
     end
   end
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "d08566f01643c65667522d287fa57b6bc3fb57ae64e4e3cc28d77e5d90b09f3f" => :yosemite
+    sha256 "da2e1aa7e76345c2b37e30597252c3e26ac66cbc9f88a9a706cbf1a86691df9d" => :mavericks
+    sha256 "ed26f48d1045fadca9eae03442470b996deb7ae6cf7ded44ded9e095bfa25544" => :mountain_lion
+  end
+
 
   option "with-complete", "Use additional Homebrew libraries to provide more drivers."
   option "with-opencl", "Build with OpenCL acceleration."
