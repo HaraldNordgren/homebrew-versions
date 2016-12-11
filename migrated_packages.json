@@ -467,5 +467,12 @@
     "file_without_extension": "erlang-r15",
     "original_filename": "erlang-r15.rb",
     "migrated_filename": "erlang.rb"
+  },
+  {
+    "classname_with_version": "Gcc48",
+    "package_at_version": "gcc@48",
+    "file_without_extension": "gcc48",
+    "original_filename": "gcc48.rb",
+    "migrated_filename": "gcc.rb"
   }
 ]
