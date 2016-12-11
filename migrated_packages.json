@@ -1216,5 +1216,12 @@
     "file_without_extension": "android-ndk-r9d",
     "original_filename": "android-ndk-r9d.rb",
     "migrated_filename": "android-ndk.rb"
+  },
+  {
+    "classname_with_version": "Isl012",
+    "package_at_version": "isl@012",
+    "file_without_extension": "isl012",
+    "original_filename": "isl012.rb",
+    "migrated_filename": "isl.rb"
   }
 ]
