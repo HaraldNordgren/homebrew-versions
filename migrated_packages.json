@@ -1489,5 +1489,12 @@
     "file_without_extension": "mongodb26",
     "original_filename": "mongodb26.rb",
     "migrated_filename": "mongodb.rb"
+  },
+  {
+    "classname_with_version": "Boost150",
+    "package_at_version": "boost@150",
+    "file_without_extension": "boost150",
+    "original_filename": "boost150.rb",
+    "migrated_filename": "boost.rb"
   }
 ]
