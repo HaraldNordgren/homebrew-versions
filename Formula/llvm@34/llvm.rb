@@ -51,6 +51,9 @@ class Llvm < Formula
   def ver; '3.4'; end # version suffix
 
   def install
+    # LLVM installs its own standard library which confuses stdlib checking.
+    cxxstdlib_check :skip
+
     if python and build.include? 'disable-shared'
       raise 'The Python bindings need the shared library.'
     end
