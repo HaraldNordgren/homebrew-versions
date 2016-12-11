@@ -1874,5 +1874,12 @@
     "file_without_extension": "node012",
     "original_filename": "node012.rb",
     "migrated_filename": "node.rb"
+  },
+  {
+    "classname_with_version": "ApacheSpark141",
+    "package_at_version": "apache-spark@141",
+    "file_without_extension": "apache-spark141",
+    "original_filename": "apache-spark141.rb",
+    "migrated_filename": "apache-spark.rb"
   }
 ]
