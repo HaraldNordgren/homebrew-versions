@@ -86,6 +86,12 @@ class Python < Formula
   end
 
   def install
+    # Python 2.5-2.7 requires -fwrapv for proper Decimal division with Clang. See:
+    # https://github.com/mxcl/homebrew/pull/10487
+    # http://stackoverflow.com/questions/7590137/dividing-decimals-yields-invalid-results-in-python-2-5-to-2-7
+    # https://trac.macports.org/changeset/87442
+    ENV.append 'EXTRA_CFLAGS', '-fwrapv'
+
     validate_options
 
     args = ["--prefix=#{prefix}"]
