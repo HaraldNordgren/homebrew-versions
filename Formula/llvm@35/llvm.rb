@@ -1,5 +1,3 @@
-require 'formula'
-
 class Llvm < Formula
   version "35"
   homepage  'http://llvm.org/'
@@ -106,7 +104,6 @@ class Llvm < Formula
   depends_on "libtool"  => :build
   depends_on "pkg-config" => :build
 
-  depends_on :python => :recommended
   depends_on 'gmp'
   depends_on 'libffi' => :recommended
 
@@ -122,10 +119,6 @@ class Llvm < Formula
   def install
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
-
-    if build.with? "python" and build.include? 'disable-shared'
-      raise 'The Python bindings need the shared library.'
-    end
 
     clang_buildpath = buildpath/"tools/clang"
     libcxx_buildpath = buildpath/"projects/libcxx"
@@ -244,9 +237,8 @@ class Llvm < Formula
 
     (share/"clang-#{ver}/tools").install Dir["tools/clang/tools/scan-{build,view}"]
 
-    if build.with? "python"
-      (lib/"python2.7/site-packages").install "bindings/python/llvm" => "llvm-#{ver}", clang_buildpath/"bindings/python/clang" => "clang-#{ver}"
-    end
+    (lib/"python2.7/site-packages").install "bindings/python/llvm" => "llvm-#{ver}",
+      clang_buildpath/"bindings/python/clang" => "clang-#{ver}"
 
     Dir.glob(install_prefix/'bin/*') do |exec_path|
       basename = File.basename(exec_path)
