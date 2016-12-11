@@ -152,5 +152,12 @@
     "file_without_extension": "mapnik071",
     "original_filename": "mapnik071.rb",
     "migrated_filename": "mapnik.rb"
+  },
+  {
+    "classname_with_version": "Postgresql9",
+    "package_at_version": "postgresql@9",
+    "file_without_extension": "postgresql9",
+    "original_filename": "postgresql9.rb",
+    "migrated_filename": "postgresql.rb"
   }
 ]
