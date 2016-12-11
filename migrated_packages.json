@@ -978,5 +978,12 @@
     "file_without_extension": "jboss-as5",
     "original_filename": "jboss-as5.rb",
     "migrated_filename": "jboss-as.rb"
+  },
+  {
+    "classname_with_version": "GitTf202",
+    "package_at_version": "git-tf@2.0.2",
+    "file_without_extension": "git-tf-2.0.2",
+    "original_filename": "git-tf-2.0.2.rb",
+    "migrated_filename": "git-tf.rb"
   }
 ]
