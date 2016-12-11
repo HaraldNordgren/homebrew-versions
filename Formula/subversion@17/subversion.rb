@@ -80,7 +80,7 @@ class Subversion < Formula
       # scons ignores our compiler and flags unless explicitly passed
       args = %W[PREFIX=#{serf_prefix} GSSAPI=/usr CC=#{ENV.cc}
                 CFLAGS=#{ENV.cflags} LINKFLAGS=#{ENV.ldflags}]
-      args << "OPENSSL=#{Formula.factory('openssl').opt_prefix}" if build.with? 'with-homebrew-openssl'
+      args << "OPENSSL=#{Formula.factory('openssl').opt_prefix}" if build.with? 'homebrew-openssl'
       system "scons", *args
       system "scons install"
     end
