@@ -2,9 +2,8 @@ class Node < Formula
   version "08"
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v0.8.26/node-v0.8.26.tar.gz"
-  sha256 "d873216685774b96139af534ce015077d2c93ddfc4e3596e128853f3c08a5413"
-  revision 4
+  url "https://nodejs.org/dist/v0.8.28/node-v0.8.28.tar.gz"
+  sha256 "50e9a4282a741c923bd41c3ebb76698edbd7b1324024fe70cedc1e34b782d44f"
 
   bottle do
     sha256 "1c6f050a5a431e52f9734b081cf1986495a667e4e42d9d6813b2bc105564ee9f" => :yosemite
@@ -28,13 +27,9 @@ class Node < Formula
   end
 
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-2.12.1.tgz"
-    sha256 "6b6512c6f9097da193dfe046053d6d0483b5c5658dc0a763c1ba5609b6bbc16c"
+    url "https://registry.npmjs.org/npm/-/npm-2.14.4.tgz"
+    sha256 "c8b602de5d51f956aa8f9c34d89be38b2df3b7c25ff6588030eb8224b070db27"
   end
-
-  # Fixes double-free issue. See https://github.com/joyent/node/issues/6427
-  # Should be fixed if they ever do a v0.8 release.
-  patch :DATA
 
   def install
     # Lie to `xcode-select` for now to work around a GYP bug that affects
@@ -133,19 +128,3 @@ class Node < Formula
     end
   end
 end
-
-__END__
-diff --git a/deps/v8/src/spaces.h b/deps/v8/src/spaces.h
-index b0ecc5d..d76d77d 100644
---- a/deps/v8/src/spaces.h
-+++ b/deps/v8/src/spaces.h
-@@ -321,7 +321,8 @@ class MemoryChunk {
-   Space* owner() const {
-     if ((reinterpret_cast<intptr_t>(owner_) & kFailureTagMask) ==
-         kFailureTag) {
--      return reinterpret_cast<Space*>(owner_ - kFailureTag);
-+      return reinterpret_cast<Space*>(reinterpret_cast<intptr_t>(owner_) -
-+                                      kFailureTag);
-     } else {
-       return NULL;
-     }
