@@ -5,6 +5,14 @@ class Nasm < Formula
   url "http://www.nasm.us/pub/nasm/releasebuilds/2.11.06/nasm-2.11.06.tar.xz"
   sha256 "90f60d95a15b8a54bf34d87b9be53da89ee3d6213ea739fb2305846f4585868a"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    cellar :any
+    sha256 "bd94c4827a3fbc20d9e2534414f7879f41b6d886b260ee2d0494f0fc9af1ffcb" => :yosemite
+    sha256 "f8c7f1bfacddb71283e41054461063295bdcb2f16f2bdaa3eba9958993ff5bc8" => :mavericks
+    sha256 "f848949bb46ff121bc33937f1de53d8dd6fe8a4c46e8888104181a6966f7e62f" => :mountain_lion
+  end
+
   option :universal
 
   def install
