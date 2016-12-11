@@ -1321,5 +1321,12 @@
     "file_without_extension": "postgresql93",
     "original_filename": "postgresql93.rb",
     "migrated_filename": "postgresql.rb"
+  },
+  {
+    "classname_with_version": "Hadoop252",
+    "package_at_version": "hadoop@252",
+    "file_without_extension": "hadoop252",
+    "original_filename": "hadoop252.rb",
+    "migrated_filename": "hadoop.rb"
   }
 ]
