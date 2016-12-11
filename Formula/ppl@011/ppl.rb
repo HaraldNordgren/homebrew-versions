@@ -8,6 +8,7 @@ class Ppl < Formula
 
   keg_only 'Conflicts with ppl in main repository.'
 
+  depends_on 'homebrew/dupes/m4' => :build if MacOS.version < :leopard
   depends_on 'gmp@4'
 
   def install
