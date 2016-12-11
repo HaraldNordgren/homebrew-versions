@@ -3,7 +3,9 @@ require 'formula'
 class Cloog < Formula
   version "018"
   homepage 'http://www.cloog.org/'
-  url 'ftp://gcc.gnu.org/pub/gcc/infrastructure/cloog-0.18.0.tar.gz'
+  # Track gcc infrastructure releases.
+  url 'http://www.bastoul.net/cloog/pages/download/count.php3?url=./cloog-0.18.0.tar.gz'
+  mirror 'ftp://gcc.gnu.org/pub/gcc/infrastructure/cloog-0.18.0.tar.gz'
   sha1 '85f620a26aabf6a934c44ca40a9799af0952f863'
 
   keg_only 'Conflicts with cloog in main repository.'

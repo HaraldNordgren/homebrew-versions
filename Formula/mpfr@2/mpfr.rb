@@ -3,8 +3,9 @@ require 'formula'
 class Mpfr < Formula
   version "2"
   homepage 'http://www.mpfr.org/'
-  # Tracking legacy version on gcc ftp
-  url 'ftp://gcc.gnu.org/pub/gcc/infrastructure/mpfr-2.4.2.tar.bz2'
+  # Track gcc infrastructure releases.
+  url 'http://www.mpfr.org/mpfr-2.4.2/mpfr-2.4.2.tar.bz2'
+  mirror 'ftp://gcc.gnu.org/pub/gcc/infrastructure/mpfr-2.4.2.tar.bz2'
   sha1 '7ca93006e38ae6e53a995af836173cf10ee7c18c'
 
   depends_on 'gmp@4'
