@@ -271,5 +271,12 @@
     "file_without_extension": "llvm-gcc28",
     "original_filename": "llvm-gcc28.rb",
     "migrated_filename": "llvm-gcc.rb"
+  },
+  {
+    "classname_with_version": "Gnutls3",
+    "package_at_version": "gnutls@3",
+    "file_without_extension": "gnutls3",
+    "original_filename": "gnutls3.rb",
+    "migrated_filename": "gnutls.rb"
   }
 ]
