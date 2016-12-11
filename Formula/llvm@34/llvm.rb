@@ -3,37 +3,32 @@ require 'formula'
 class Clang < Formula
   homepage  'http://llvm.org/'
   head      'http://llvm.org/git/clang.git'
-  version   '3.4'
 end
 
 class ClangToolsExtra < Formula
   homepage  'http://llvm.org/'
   head      'http://llvm.org/git/clang-tools-extra.git'
-  version   '3.4'
 end
 
 class CompilerRt < Formula
   homepage  'http://llvm.org/'
   head      'http://llvm.org/git/compiler-rt.git'
-  version   '3.4'
 end
 
 class Polly < Formula
   homepage  'http://llvm.org'
   head      'http://llvm.org/git/polly.git'
-  version   '3.4'
 end
 
 class Libcxx < Formula
   homepage  'http://llvm.org'
   head      'http://llvm.org/git/libcxx.git'
-  version   '3.4'
 end
 
 class Llvm < Formula
+  version "34"
   homepage  'http://llvm.org/'
   head      'http://llvm.org/git/llvm.git'
-  version   '3.4'
 
   option :universal
   option 'with-libcxx', 'Build libc++ standard library support'
