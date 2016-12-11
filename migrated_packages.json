@@ -1356,5 +1356,12 @@
     "file_without_extension": "docker141",
     "original_filename": "docker141.rb",
     "migrated_filename": "docker.rb"
+  },
+  {
+    "classname_with_version": "Swig304",
+    "package_at_version": "swig@304",
+    "file_without_extension": "swig304",
+    "original_filename": "swig304.rb",
+    "migrated_filename": "swig.rb"
   }
 ]
