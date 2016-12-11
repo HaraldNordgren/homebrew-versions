@@ -1,8 +1,8 @@
 class Elasticsearch < Formula
   version "12"
-  homepage "http://www.elasticsearch.org"
-  url "https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.2.4.tar.gz"
-  sha1 "c8bbe1f1975ffb6774744fadd0abb78616e96904"
+  homepage "https://www.elastic.co/products/elasticsearch"
+  url "https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.2.4.tar.gz"
+  sha256 "07c298cb4dae634a2514f6022cd28533be0d86e3a2d0ad75ee6f24ff49b2e22f"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
