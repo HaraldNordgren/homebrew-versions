@@ -4,6 +4,13 @@ class Mongodb < Formula
   url "https://fastdl.mongodb.org/src/mongodb-src-r2.6.8.tar.gz"
   sha256 "1997f60d9de17320f22c604d8aa1cbe5f38d877142cd0e9130fe3dae7b311a06"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "91de28fa72e54e4f60cb2c6be4ddb37884eaf55f803368934951274345860a5c" => :yosemite
+    sha256 "03cb90826ab1f955341dcf67a9d4a332dab064a3bcd942a3d837c47c37f61d98" => :mavericks
+    sha256 "f4d1a30808766f159f68d767e4abf7fd835a33847b7c011d730df94740181a7d" => :mountain_lion
+  end
+
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
 
   depends_on "boost" => :optional
