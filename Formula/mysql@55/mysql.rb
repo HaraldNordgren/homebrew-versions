@@ -4,6 +4,13 @@ class Mysql < Formula
   url "https://dev.mysql.com/get/Downloads/MySQL-5.5/mysql-5.5.40.tar.gz"
   sha256 "4d3721761a31c28866e8ee0fde47558a3e9047aaef3b89135ae8d45eebb74960"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "d35ce8e4c573a2d39e313b308b10c56ed0f1436d36dc061c898a7d155d92c2ab" => :yosemite
+    sha256 "31e4a4f7997090780e7304c8f564caf7aec68907813067d63f51e5c389c8d244" => :mavericks
+    sha256 "fc21481e66b48f7d464b5eff77c50d7bc3b5b7a1c474f57cbe3dce34057a6a60" => :mountain_lion
+  end
+
   depends_on "cmake" => :build
   depends_on "pidof" unless MacOS.version >= :mountain_lion
   depends_on "openssl"
