@@ -1741,5 +1741,12 @@
     "file_without_extension": "ansible18",
     "original_filename": "ansible18.rb",
     "migrated_filename": "ansible.rb"
+  },
+  {
+    "classname_with_version": "Jython253",
+    "package_at_version": "jython@253",
+    "file_without_extension": "jython253",
+    "original_filename": "jython253.rb",
+    "migrated_filename": "jython.rb"
   }
 ]
