@@ -86,7 +86,9 @@ class Gcc < Formula
       "--enable-lto",
       # A no-op unless --HEAD is built because in head warnings will
       # raise errors. But still a good idea to include.
-      "--disable-werror"
+      "--disable-werror",
+      "--with-pkgversion=Homebrew #{name} #{pkg_version} #{build.used_options*" "}".strip,
+      "--with-bugurl=https://github.com/Homebrew/homebrew-versions/issues",
     ]
 
     # "Building GCC with plugin support requires a host that supports
