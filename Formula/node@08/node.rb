@@ -3,7 +3,7 @@ class Node < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v0.8.26/node-v0.8.26.tar.gz"
   sha1 "2ec960bcc8cd38da271f83c1b2007c12da5153b3"
-  revision 1
+  revision 2
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
@@ -27,8 +27,8 @@ class Node < Formula
   end
 
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-2.5.1.tgz"
-    sha1 "23e4b0fdd1ffced7d835780e692a9e5a0125bb02"
+    url "https://registry.npmjs.org/npm/-/npm-2.7.0.tgz"
+    sha256 "bb209f8e829a5d702a04a8b63f2576bdcad8271bdad2577caaaaf34e2d45d56a"
   end
 
   # Fixes double-free issue. See https://github.com/joyent/node/issues/6427
