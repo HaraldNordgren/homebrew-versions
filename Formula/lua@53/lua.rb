@@ -19,22 +19,12 @@ class Lua < Formula
   end
 
   option :universal
-  option "with-completion", "Enables advanced readline support"
   option "with-default-names", "Don't version-suffix the Lua installation. Conflicts with Homebrew/Lua"
   option "without-luarocks", "Don't build with Luarocks support embedded"
 
   # Be sure to build a dylib, or else runtime modules will pull in another static copy of liblua = crashy
   # See: https://github.com/Homebrew/homebrew/pull/5043
   patch :DATA
-
-  # completion provided by advanced readline power patch
-  # See http://lua-users.org/wiki/LuaPowerPatches
-  if build.with? "completion"
-    patch do
-      url "http://luajit.org/patches/lua-5.2.0-advanced_readline.patch"
-      sha256 "33d32d11fce4f85b88ce8f9bd54e6a6cbea376dfee3dbf8cdda3640e056bc29d"
-    end
-  end
 
   resource "luarocks" do
     url "https://github.com/keplerproject/luarocks/archive/v2.2.1.tar.gz"
@@ -58,6 +48,7 @@ class Lua < Formula
     system "make", "macosx", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}", "INSTALL_INC=#{include}/lua-5.3"
     system "make", "install", "INSTALL_TOP=#{prefix}", "INSTALL_MAN=#{man1}", "INSTALL_INC=#{include}/lua-5.3"
     (lib+"pkgconfig/lua.pc").write pc_file
+    include.install_symlink "lua-5.3" => "lua5.3"
 
     # Allows side-by-side-by-side-by-side Lua installations
     if build.without? "default-names"
@@ -67,10 +58,9 @@ class Lua < Formula
       mv "#{man1}/luac.1", "#{man1}/luac-5.3.1"
       mv "#{lib}/pkgconfig/lua.pc", "#{lib}/pkgconfig/lua5.3.pc"
 
-      ln_s "#{lib}/pkgconfig/lua5.3.pc", "#{lib}/pkgconfig/lua-5.3.pc"
-      ln_s "#{include}/lua-5.3", "#{include}/lua5.3"
-      ln_s "#{bin}/lua-5.3", "#{bin}/lua5.3"
-      ln_s "#{bin}/luac-5.3", "#{bin}/luac5.3"
+      bin.install_symlink "lua-5.3" => "lua5.3"
+      bin.install_symlink "luac-5.3" => "luac5.3"
+      (lib/"pkgconfig").install_symlink "lua5.3.pc" => "lua-5.3.pc"
 
       # Patches the pkg-config file to find the correct lib names
       inreplace lib/"pkgconfig/lua5.3.pc", "Libs: -L${libdir} -llua -lm", "Libs: -L${libdir} -llua5.3 -lm"
@@ -95,10 +85,10 @@ class Lua < Formula
 
         # This block ensures luarock exec scripts don't break across updates.
         inreplace libexec/"share/lua/5.3/luarocks/site_config.lua" do |s|
-          s.gsub! "#{HOMEBREW_CELLAR}/lua53/#{pkg_version}/libexec", "#{Formula["lua53"].opt_libexec}"
-          s.gsub! "#{HOMEBREW_CELLAR}/lua53/#{pkg_version}/include", "#{HOMEBREW_PREFIX}/include"
-          s.gsub! "#{HOMEBREW_CELLAR}/lua53/#{pkg_version}/lib", "#{HOMEBREW_PREFIX}/lib"
-          s.gsub! "#{HOMEBREW_CELLAR}/lua53/#{pkg_version}/bin", "#{HOMEBREW_PREFIX}/bin"
+          s.gsub! libexec.to_s, opt_libexec
+          s.gsub! include.to_s, "#{HOMEBREW_PREFIX}/include"
+          s.gsub! lib.to_s, "#{HOMEBREW_PREFIX}/lib"
+          s.gsub! bin.to_s, "#{HOMEBREW_PREFIX}/bin"
         end
       end
     end
