@@ -5,12 +5,12 @@ class Llvm < Formula
   homepage  'http://llvm.org/'
 
   stable do
-    url 'http://llvm.org/releases/3.4/llvm-3.4.src.tar.gz'
-    sha1 '10b1fd085b45d8b19adb9a628353ce347bc136b8'
+    url 'http://llvm.org/releases/3.4.1/llvm-3.4.1.src.tar.gz'
+    sha1 '3711baa6f5ef9df07418ce76039fc3848a7bde7c'
 
     resource 'clang' do
-      url 'http://llvm.org/releases/3.4/clang-3.4.src.tar.gz'
-      sha1 'a6a3c815dd045e9c13c7ae37d2cfefe65607860d'
+      url 'http://llvm.org/releases/3.4.1/clang-3.4.1.src.tar.gz'
+      sha1 'ecd38fa89e837e6cb8305b8d05e88baecb0bda55'
     end
 
     resource 'clang-tools-extra' do
