@@ -50,3 +50,17 @@ index 0af896d..20e6576 100755
    { $as_echo "$as_me:${as_lineno-$LINENO}: checking flex version $flex_version >= $flex_min_version" >&5
  $as_echo_n "checking flex version $flex_version >= $flex_min_version... " >&6; }
    if perl -w <<EOF
+diff --git a/gst/gstdatetime.c b/gst/gstdatetime.c
+index 60f709f..cdc7e75 100644
+--- a/gst/gstdatetime.c
++++ b/gst/gstdatetime.c
+@@ -21,8 +21,8 @@
+ #include "config.h"
+ #endif
+ 
+-#include "glib-compat-private.h"
+ #include "gst_private.h"
++#include "glib-compat-private.h"
+ #include "gstdatetime.h"
+ #include <glib.h>
+ #include <math.h>
