@@ -1636,5 +1636,12 @@
     "file_without_extension": "nettle3",
     "original_filename": "nettle3.rb",
     "migrated_filename": "nettle.rb"
+  },
+  {
+    "classname_with_version": "ApacheSpark121",
+    "package_at_version": "apache-spark@121",
+    "file_without_extension": "apache-spark121",
+    "original_filename": "apache-spark121.rb",
+    "migrated_filename": "apache-spark.rb"
   }
 ]
