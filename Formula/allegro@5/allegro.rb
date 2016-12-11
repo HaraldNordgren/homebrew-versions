@@ -17,7 +17,8 @@ class Allegro < Formula
   depends_on 'physfs' => :optional
 
   def install
-    system "cmake", ".", *std_cmake_args
+    args = std_cmake_args + ["-DWANT_DOCS=OFF"]
+    system "cmake", ".", *args
     system "make install"
   end
 
