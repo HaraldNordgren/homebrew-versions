@@ -4,46 +4,46 @@ class Llvm < Formula
 
   stable do
     url "http://llvm.org/releases/3.6.0/llvm-3.6.0.src.tar.xz"
-    sha1 "6eb2b7381d924bb3f267281c9058c817d825d824"
+    sha256 "b39a69e501b49e8f73ff75c9ad72313681ee58d6f430bfad4d81846fe92eb9ce"
 
     resource "clang" do
       url "http://llvm.org/releases/3.6.0/cfe-3.6.0.src.tar.xz"
-      sha1 "06b252867a3d118c95ca279fd3c4ac05f6730551"
+      sha256 "be0e69378119fe26f0f2f74cffe82b7c26da840c9733fe522ed3c1b66b11082d"
     end
 
     resource "clang-tools-extra" do
       url "http://llvm.org/releases/3.6.0/clang-tools-extra-3.6.0.src.tar.xz"
-      sha1 "30c6acd7404b9abf0338110818fba255d5744978"
+      sha256 "3aa949ba82913490a75697287d9ee8598c619fae0aa6bb8fddf0095ff51bc812"
     end
 
     resource "compiler-rt" do
       url "http://llvm.org/releases/3.6.0/compiler-rt-3.6.0.src.tar.xz"
-      sha1 "771cbf0535dce1ca3a3be022377781e32fdea70e"
+      sha256 "7f49fb79e5adcdce7dddaf973f1db130228dfb19e37a99a7f5365a6948b26b11"
     end
 
     resource "polly" do
       url "http://llvm.org/releases/3.6.0/polly-3.6.0.src.tar.xz"
-      sha1 "f87ce93a2d71b72412c6424f07afb3b4df42aad9"
+      sha256 "b6926fb0a63a497ecf8a229cd8630fe1c981e020728454d343a8f0d8a60c92f3"
     end
 
     resource "lld" do
       url "http://llvm.org/releases/3.6.0/lld-3.6.0.src.tar.xz"
-      sha1 "3d6e47c13e93530126eebc45f008d3dcaa6dd7d2"
+      sha256 "fb6f787188485b1fac17b73eed9db1dbc0481d6d1fbc273ea1fcd51fdb49a230"
     end
 
     resource "lldb" do
       url "http://llvm.org/releases/3.6.0/lldb-3.6.0.src.tar.xz"
-      sha1 "f92c4bb7d9f0431285d068668b10d62512f36f03"
+      sha256 "2b1ad1d42c4ea3fa2f9dd6db7c522d86e80891659b24dbb3d0d80386d8eaf0b2"
     end
 
     resource "libcxx" do
       url "http://llvm.org/releases/3.6.0/libcxx-3.6.0.src.tar.xz"
-      sha1 "5445194366ae2291092fd2204030cb3d01ad6272"
+      sha256 "299c1e82b0086a79c5c1aa1885ea3be3bbce6979aaa9b886409b14f9b387fbb7"
     end
 
     resource "libcxxabi" do
       url "http://llvm.org/releases/3.6.0/libcxxabi-3.6.0.src.tar.xz"
-      sha1 "b4bee624f82da67281f96596bc8523a8592ad1f0"
+      sha256 "f78bcfdb8015272f28d70f5546a544b5bdae5d92862711e8ecb9b24387d994f5"
     end if MacOS.version <= :snow_leopard
   end
 
@@ -53,7 +53,6 @@ class Llvm < Formula
     sha1 "81dc1ed654d01110988be1d38d0c8b4056cbd557" => :mavericks
     sha1 "71c7d6eb4428c81ea800336b7c022df72f7dd02f" => :mountain_lion
   end
-
 
   head do
     url "http://llvm.org/git/llvm.git", :branch => "release_36"
@@ -93,7 +92,7 @@ class Llvm < Formula
 
   resource "isl" do
     url "http://repo.or.cz/w/isl.git/snapshot/0698f8436c523ecc742b13a9b3aa337cc2421fa2.tar.gz"
-    sha1 "be4bfff65b9ab29785c4de414ca59c1abf70c626"
+    sha256 "d2b041d895f296936ef4cf3811b63fd6e3e5271ea97bb4b7406a743944a8a836"
   end
 
   patch :DATA
