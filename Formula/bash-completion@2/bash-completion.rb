@@ -5,6 +5,7 @@ class BashCompletion < Formula
   homepage 'http://bash-completion.alioth.debian.org/'
   url 'http://ftp.de.debian.org/debian/pool/main/b/bash-completion/bash-completion_2.1.orig.tar.bz2'
   sha256 '2b606804a7d5f823380a882e0f7b6c8a37b0e768e72c3d4107c51fbe8a46ae4f'
+  revision 1
 
   conflicts_with 'bash-completion'
 
@@ -23,6 +24,10 @@ class BashCompletion < Formula
     url "http://anonscm.debian.org/gitweb/?p=bash-completion/bash-completion.git;a=patch;h=50ae57927365a16c830899cc1714be73237bdcb2"
     sha1 "e14ac827a59f48eb05e7da60b6fce996be1a34f4"
   end
+
+  # https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=739835
+  # https://bugs.launchpad.net/ubuntu/+source/bash-completion/+bug/1289597
+  patch :DATA
 
   def compdir
     HOMEBREW_PREFIX/'share/bash-completion/completions'
@@ -55,3 +60,18 @@ class BashCompletion < Formula
     EOS
   end
 end
+
+__END__
+diff --git a/bash_completion b/bash_completion
+index 6d3ba76..5d9c645 100644
+--- a/bash_completion
++++ b/bash_completion
+@@ -707,7 +707,7 @@ _init_completion()
+         fi
+     done
+ 
+-    [[ $cword -eq 0 ]] && return 1
++    [[ $cword -le 0 ]] && return 1
+     prev=${words[cword-1]}
+ 
+     [[ ${split-} ]] && _split_longopt && split=true
