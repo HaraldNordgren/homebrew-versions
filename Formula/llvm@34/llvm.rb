@@ -125,7 +125,7 @@ class Llvm < Formula
       ENV['TRIPLE'] = "*-apple-*"
       system "./buildit"
       # Install libs.
-      (install_prefix/'usr/lib/').install libcxxabi_buildpath'/lib/libc++abi.dylib'
+      (install_prefix/'usr/lib/').install libcxxabi_buildpath/'lib/libc++abi.dylib'
       # Install headers.
       cp libcxxabi_buildpath/'include/cxxabi.h', install_prefix/'lib/c++/v1/'
     end if MacOS.version <= :snow_leopard and build.with? 'libcxx'
