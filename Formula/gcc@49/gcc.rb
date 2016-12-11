@@ -154,11 +154,4 @@ class Gcc < Formula
     base = File.basename(file, ext)
     File.rename file, "#{dir}/#{base}-#{suffix}#{ext}"
   end
-
-  def caveats; <<-EOS.undent
-    This is a snapshot of GCC trunk, which is in active development and
-    supposed to have bugs and should not be used in production
-    environment.
-    EOS
-  end
 end
