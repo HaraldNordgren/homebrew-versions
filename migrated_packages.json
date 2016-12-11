@@ -985,5 +985,12 @@
     "file_without_extension": "git-tf-2.0.2",
     "original_filename": "git-tf-2.0.2.rb",
     "migrated_filename": "git-tf.rb"
+  },
+  {
+    "classname_with_version": "Grails22",
+    "package_at_version": "grails@22",
+    "file_without_extension": "grails22",
+    "original_filename": "grails22.rb",
+    "migrated_filename": "grails.rb"
   }
 ]
