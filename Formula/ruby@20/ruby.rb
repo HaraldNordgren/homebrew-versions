@@ -1,8 +1,8 @@
 class Ruby < Formula
   version "20"
   homepage "https://www.ruby-lang.org/"
-  url "http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p645.tar.bz2"
-  sha256 "2dcdcf9900cb923a16d3662d067bc8c801997ac3e4a774775e387e883b3683e9"
+  url "https://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p647.tar.bz2"
+  sha256 "3c3782e313d1ec3ed06c104eafd133cc54ff5183b991786ece9e957fd6cf1cb9"
 
   bottle do
     sha256 "e9b01603d66cc5553ca7f9d3594fc0ce6d186aea4c85aaa1af1c241404452e39" => :yosemite
@@ -40,15 +40,14 @@ class Ruby < Formula
     args << "--disable-install-doc" if build.without? "doc"
     args << "--disable-dtrace" unless MacOS::CLT.installed?
 
-    paths = []
+    paths = [
+      Formula["libyaml"].opt_prefix,
+      Formula["openssl"].opt_prefix
+    ]
 
-    paths.concat %w[readline gdbm libffi].map { |dep|
-      Formula[dep].opt_prefix if build.with? dep
-    }.compact
-
-    paths.concat %w[libyaml openssl].map { |dep|
-      Formula[dep].opt_prefix
-    }
+    %w[readline gdbm gmp libffi].each do |dep|
+      paths << Formula[dep].opt_prefix if build.with? dep
+    end
 
     args << "--with-opt-dir=#{paths.join(":")}"
 
