@@ -4,6 +4,13 @@ class Elasticsearch < Formula
   url "https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-1.3.9.tar.gz"
   sha1 "ee6013d33d6371184fae970ff8f1c2d76c0834a0"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha1 "4acb7293988db4758456af6a9548ae66585a59b9" => :yosemite
+    sha1 "833cbed0257dddb0f3cd8754b56440ac04402797" => :mavericks
+    sha1 "ff97bb3f4c8f712e9c7811823a47dbbc59f08909" => :mountain_lion
+  end
+
   depends_on :java => "1.7+"
 
   def cluster_name
