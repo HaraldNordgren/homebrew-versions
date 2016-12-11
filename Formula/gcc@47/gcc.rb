@@ -23,7 +23,7 @@ class Gcc < Formula
   homepage "https://gcc.gnu.org"
   url "http://ftpmirror.gnu.org/gcc/gcc-4.7.4/gcc-4.7.4.tar.bz2"
   mirror "https://ftp.gnu.org/gnu/gcc/gcc-4.7.4/gcc-4.7.4.tar.bz2"
-  sha1 "f3359a157b3536f289c155363f1736a2c9b414db"
+  sha256 "92e61c6dc3a0a449e62d72a38185fda550168a86702dea07125ebd3ec3996282"
 
   head "svn://gcc.gnu.org/svn/gcc/branches/gcc-4_7-branch"
 
@@ -77,8 +77,8 @@ class Gcc < Formula
 
   # Fix 10.10 issues: https://gcc.gnu.org/viewcvs/gcc?view=revision&revision=215251
   patch :p0 do
-    url "https://trac.macports.org/export/126996/trunk/dports/lang/gcc48/files/patch-10.10.diff"
-    sha1 "4fb0ededa7b8105c3bdffa15469b589b272b7788"
+    url "https://raw.githubusercontent.com/Homebrew/patches/7293b7d3/gcc47/patch-10.10.diff"
+    sha256 "61e5d0f18db59220cbd99717e9b644c1d0f3502b09ada746b60850cacda07328"
   end
 
   def install
