@@ -10,6 +10,9 @@ class Allegro < Formula
   depends_on "pkg-config" => :build
   depends_on "libvorbis" => :optional
 
+  # Uses APIs no longer present on 10.9+
+  depends_on MaximumMacOSRequirement => :mountain_lion
+
   def install
     system "cmake", ".", *std_cmake_args
     system "make install"
