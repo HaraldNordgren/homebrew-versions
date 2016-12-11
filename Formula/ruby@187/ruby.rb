@@ -4,6 +4,13 @@ class Ruby < Formula
   url "http://cache.ruby-lang.org/pub/ruby/1.8/ruby-1.8.7-p374.tar.bz2"
   sha256 "b4e34703137f7bfb8761c4ea474f7438d6ccf440b3d35f39cc5e4d4e239c07e3"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "9169de1b6e0b913d950a0e25640d65cc707355b660f2742b8fbfa0b4001a83cc" => :yosemite
+    sha256 "cc65723819e16bb61dfcac8f09cee14e559b9ed69d8461e040d65a47697ff00f" => :mavericks
+    sha256 "62e380e8125f84e1e0978d44a50025c285d3a308d91ae3f1be36551ab0ec1c56" => :mountain_lion
+  end
+
   # Otherwise it fails when building bigdecimal by trying to load
   # files from the system ruby instead of the one it's building
   env :std
