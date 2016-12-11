@@ -5,7 +5,7 @@ class CodesignRequirement < Requirement
   satisfy(:build_env => false) do
     mktemp do
       touch "llvm_check.txt"
-      quiet_system "/usr/bin/codesign", "-s", "lldb_codesign", "llvm_check.txt"
+      quiet_system "/usr/bin/codesign", "-s", "lldb_codesign", "--dryrun", "llvm_check.txt"
     end
   end
 
@@ -130,7 +130,7 @@ class Llvm < Formula
   option "without-assertions", "Speeds up LLVM, but provides less debug information"
 
   # required to build isl
-  depends_on "libtool"  => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
 
   depends_on "gmp"
