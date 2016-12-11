@@ -33,7 +33,6 @@ class Llvm < Formula
   end
 
   bottle do
-    root_url "https://downloads.sf.net/project/machomebrew/Bottles/versions"
     revision 1
     sha1 "997027d21b72c66a01e163b7d5f9b5aeabd75f53" => :yosemite
     sha1 "57d9f470f78f2f6a4f6258a228f54c1dbadd11ca" => :mavericks
