@@ -1,8 +1,8 @@
 class Libmongoclient < Formula
   version "legacy"
   homepage "https://www.mongodb.org"
-  url "https://github.com/mongodb/mongo-cxx-driver/archive/legacy-1.0.3.tar.gz"
-  sha256 "9d1da2d5bc258ceb5f6a58cd5a8893aabdec768e7771ede270a36fbf4b4491d2"
+  url "https://github.com/mongodb/mongo-cxx-driver/archive/legacy-1.0.4.tar.gz"
+  sha256 "a348c27ac1629a0e4f5871cd599b25b740be97a3bf4a2bd4490cf93ad23d484a"
 
   head "https://github.com/mongodb/mongo-cxx-driver.git", :branch => "legacy"
 
@@ -44,5 +44,21 @@ class Libmongoclient < Formula
     args << "--libc++" if MacOS.version >= :mavericks
 
     scons *args
+  end
+
+  test do
+    (testpath/"test.cpp").write <<-EOS.undent
+      #include <mongo/client/dbclient.h>
+
+      int main() {
+          mongo::DBClientConnection c;
+          mongo::client::initialize();
+          return 0;
+      }
+    EOS
+    system ENV.cxx, "-L#{lib}", "-lmongoclient",
+           "-L#{Formula["boost"].opt_lib}", "-lboost_system",
+           testpath/"test.cpp", "-o", testpath/"test"
+    system "./test"
   end
 end
