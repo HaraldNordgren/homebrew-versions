@@ -5,6 +5,13 @@ class Zeromq < Formula
   url "http://download.zeromq.org/zeromq-4.0.5.tar.gz"
   sha256 "3bc93c5f67370341428364ce007d448f4bb58a0eaabd0a60697d8086bc43342b"
 
+  bottle do
+    cellar :any
+    sha256 "675e48dfb203cf6d3e08660e9481cabf43759147cf3a0ef61240cba96df04a6e" => :el_capitan
+    sha256 "7bc06564f4a0e31fc1e390926ed86e79298dee6edc49e6710a9dcac62679744f" => :yosemite
+    sha256 "910a39ad58338eed771327083b5ec97f95dc77339e7e6ff246b2380ce5cacfcc" => :mavericks
+  end
+
   patch do
     # enable --without-libsodium on libzmq < 4.1
     # zeromq/zeromq4-x#105
