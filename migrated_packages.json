@@ -1902,5 +1902,12 @@
     "file_without_extension": "android-ndk-r10d",
     "original_filename": "android-ndk-r10d.rb",
     "migrated_filename": "android-ndk.rb"
+  },
+  {
+    "classname_with_version": "Gradle26",
+    "package_at_version": "gradle@26",
+    "file_without_extension": "gradle26",
+    "original_filename": "gradle26.rb",
+    "migrated_filename": "gradle.rb"
   }
 ]
