@@ -439,5 +439,12 @@
     "file_without_extension": "ruby193",
     "original_filename": "ruby193.rb",
     "migrated_filename": "ruby.rb"
+  },
+  {
+    "classname_with_version": "Clojure14",
+    "package_at_version": "clojure@14",
+    "file_without_extension": "clojure14",
+    "original_filename": "clojure14.rb",
+    "migrated_filename": "clojure.rb"
   }
 ]
