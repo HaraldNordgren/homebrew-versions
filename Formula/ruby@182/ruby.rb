@@ -10,7 +10,7 @@ class Ruby < Formula
   keg_only :provided_by_osx
 
   option :universal
-  option 'with-suffix', 'Suffix commands with "20"'
+  option 'with-suffix', 'Suffix commands with "182"'
   option 'with-doc', 'Install documentation'
   option 'with-tcltk', 'Install with Tcl/Tk support'
 
@@ -37,7 +37,7 @@ class Ruby < Formula
     ENV.prepend 'LDFLAGS', '-L.'
 
     args = %W[--prefix=#{prefix} --mandir=#{man} --enable-shared]
-    args << "--program-suffix=20" if build.with? "suffix"
+    args << "--program-suffix=182" if build.with? "suffix"
     args << "--with-arch=#{Hardware::CPU.universal_archs.join(',')}" if build.universal?
     args << "--with-out-ext=tk" if build.without? "tcltk"
     args << "--disable-install-doc" if build.without? "doc"
