@@ -3,7 +3,8 @@ require 'formula'
 class Subversion < Formula
   version "17"
   homepage 'http://subversion.apache.org/'
-  url 'http://apache.fayea.com/apache-mirror/subversion/subversion-1.7.11.tar.bz2'
+  url 'http://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.7.11.tar.bz2'
+  mirror 'http://archive.apache.org/dist/subversion/subversion-1.7.11.tar.bz2'
   sha1 'd82e187803043b74c072cd5a861ac02e4a027684'
 
   option :universal
