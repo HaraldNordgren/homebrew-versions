@@ -3,8 +3,8 @@ require 'formula'
 class Ruby < Formula
   version "20"
   homepage 'https://www.ruby-lang.org/'
-  url 'http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p353.tar.bz2'
-  sha256 '3de4e4d9aff4682fa4f8ed2b70bd0d746fae17452fc3d3a8e8f505ead9105ad9'
+  url 'http://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p451.tar.bz2'
+  sha256 '5bf8a1c7616286b9dbc962912c3f58e67bc3a70306ca90b0882ef0bd442e02f5'
 
   option :universal
   option 'with-suffix', 'Suffix commands with "20"'
