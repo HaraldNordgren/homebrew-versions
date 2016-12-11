@@ -7,32 +7,32 @@ class Llvm < Formula
   sha1      'c6c22d5593419e3cb47cbcf16d967640e5cce133'
 
   head do
-    url 'http://llvm.org/svn/llvm-project/llvm/branches/release_33', :using => :svn
+    url 'http://llvm.org/git/llvm.git', :branch => 'release_33'
 
     resource 'clang' do
-      url 'http://llvm.org/svn/llvm-project/cfe/branches/release_33', :using => :svn
+      url 'http://llvm.org/git/clang.git', :branch => 'release_33'
     end
 
     resource 'clang-tools-extra' do
-      url 'http://llvm.org/svn/llvm-project/clang-tools-extra/branches/release_33', :using => :svn
+      url 'http://llvm.org/git/clang-tools-extra.git', :branch => 'release_33'
     end
 
     resource 'compiler-rt' do
-      url 'http://llvm.org/svn/llvm-project/compiler-rt/branches/release_33', :using => :svn
+      url 'http://llvm.org/git/compiler-rt.git', :branch => 'release_33'
     end
 
     resource 'polly' do
-      url 'http://llvm.org/svn/llvm-project/polly/branches/release_33', :using => :svn
+      url 'http://llvm.org/git/polly.git', :branch => 'release_33'
     end
 
     resource 'libcxx' do
-      url 'http://llvm.org/svn/llvm-project/libcxx/branches/release_33', :using => :svn
+      url 'http://llvm.org/git/libcxx.git', :branch => 'release_33'
     end
 
     if MacOS.version <= :snow_leopard
       # Not tarball release for libc++abi yet. Using latest branch.
       resource 'libcxxabi' do
-        url 'http://llvm.org/svn/llvm-project/libcxxabi/branches/release_32', :using => :svn
+        url 'http://llvm.org/git/libcxxabi.git', :branch => 'release_32'
       end
 
       resource 'clang-unwind-patch' do
