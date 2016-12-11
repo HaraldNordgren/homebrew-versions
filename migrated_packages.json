@@ -1657,5 +1657,12 @@
     "file_without_extension": "libmongoclient-legacy",
     "original_filename": "libmongoclient-legacy.rb",
     "migrated_filename": "libmongoclient.rb"
+  },
+  {
+    "classname_with_version": "Gecode373",
+    "package_at_version": "gecode@373",
+    "file_without_extension": "gecode373",
+    "original_filename": "gecode373.rb",
+    "migrated_filename": "gecode.rb"
   }
 ]
