@@ -3,16 +3,16 @@ require 'formula'
 class Scala < Formula
   version "210"
   homepage 'http://www.scala-lang.org/'
-  url 'http://www.scala-lang.org/files/archive/scala-2.10.4.tgz'
-  sha1 '970f779f155719838e81a267a7418a958fd4c13f'
+  url 'http://www.scala-lang.org/files/archive/scala-2.10.5.tgz'
+  sha1 'e981301c06e3d06f4b24c0b983fe0bc3ca86b850'
 
   keg_only 'Conflicts with scala in main repository.'
 
   option 'with-docs', 'Also install library documentation'
 
   resource 'docs' do
-    url 'http://www.scala-lang.org/files/archive/scala-docs-2.10.4.zip'
-    sha1 '7ad47f9634fd2f452cadf35f7241102207c1a1cc'
+    url 'http://www.scala-lang.org/files/archive/scala-docs-2.10.5.zip'
+    sha1 '0c104c185de295d35a44e0d0b8e743ff49e4b87c'
   end
 
   resource 'completion' do
