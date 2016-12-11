@@ -2,9 +2,9 @@
 class Gnutls < Formula
   version "34"
   homepage "http://gnutls.org"
-  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.0.tar.xz"
-  mirror "http://mirrors.dotsrc.org/gcrypt/gnutls/v3.4/gnutls-3.4.0.tar.xz"
-  sha256 "b422544431bfb5c4e24a605b6c793ee34792cc791c1060562ab46eaf77f3472e"
+  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.1.tar.xz"
+  mirror "http://mirrors.dotsrc.org/gcrypt/gnutls/v3.4/gnutls-3.4.1.tar.xz"
+  sha256 "e9b5f58becf34756464216056cd5abbf04315eda80a374d02699dee83f80b12e"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
@@ -27,12 +27,6 @@ class Gnutls < Formula
   fails_with :llvm do
     build 2326
     cause "Undefined symbols when linking"
-  end
-
-  # Remove this on next release
-  patch do
-    url "https://gitlab.com/gnutls/gnutls/commit/facc875f5aeb9049326e3e5cbf583c84a026c6f3.diff"
-    sha256 "5c1a5efaac6a7a6c0ece1115b05df2d58a51c8589935f200f410eb44d8c49edd"
   end
 
   def install
