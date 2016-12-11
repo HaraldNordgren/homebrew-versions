@@ -23,8 +23,8 @@ class Gcc < Formula
   end
 
   homepage 'http://gcc.gnu.org'
-  url 'ftp://gcc.gnu.org/pub/gcc/releases/gcc-4.8.0/gcc-4.8.0.tar.bz2'
-  sha1 'b4ee6e9bdebc65223f95067d0cc1a634b59dad72'
+  url 'ftp://gcc.gnu.org/pub/gcc/releases/gcc-4.8.1/gcc-4.8.1.tar.bz2'
+  sha1 '4e655032cda30e1928fcc3f00962f4238b502169'
 
   head 'svn://gcc.gnu.org/svn/gcc/branches/gcc-4_8-branch'
 
