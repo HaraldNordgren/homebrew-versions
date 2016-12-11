@@ -19,10 +19,12 @@ class Postgresql < Formula
 
   option "without-python", "Build without Python support"
   option "without-perl", "Build without Perl support"
+  option "without-tcl", "Build without Tcl support"
   option "with-dtrace", "Build with DTrace support"
 
   deprecated_option "no-python" => "without-python"
   deprecated_option "no-perl" => "without-perl"
+  deprecated_option "no-tcl" => "without-tcl"
   deprecated_option "enable-dtrace" => "with-dtrace"
 
   # Fix uuid-ossp build issues: http://archives.postgresql.org/pgsql-general/2012-07/msg00654.php
@@ -48,6 +50,16 @@ class Postgresql < Formula
     args << "--with-ossp-uuid" if build.with? "ossp-uuid"
     args << "--with-python" if build.with? "python"
     args << "--with-perl" if build.with? "perl"
+
+    # The CLT is required to build tcl support on 10.7 and 10.8 because tclConfig.sh is not part of the SDK
+    if build.with?("tcl") && (MacOS.version >= :mavericks || MacOS::CLT.installed?)
+      args << "--with-tcl"
+
+      if File.exist?("#{MacOS.sdk_path}/usr/lib/tclConfig.sh")
+        args << "--with-tclconfig=#{MacOS.sdk_path}/usr/lib"
+      end
+    end
+
     args << "--enable-dtrace" if build.with? "dtrace"
 
     if build.with? "ossp-uuid"
