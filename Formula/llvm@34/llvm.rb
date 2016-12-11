@@ -67,6 +67,8 @@ class Llvm < Formula
     url 'http://llvm.org/git/libcxxabi.git', :branch => 'release_32'
   end if MacOS.version <= :snow_leopard
 
+  patch :DATA
+
   option :universal
   option 'with-asan', 'Include support for -faddress-sanitizer (from compiler-rt)'
   option 'disable-shared', "Don't build LLVM as a shared library"
@@ -203,3 +205,65 @@ class Llvm < Formula
     EOS
   end
 end
+
+__END__
+diff --git a/Makefile.rules b/Makefile.rules
+index fde77f9..3a9b81f 100644
+--- a/Makefile.rules
++++ b/Makefile.rules
+@@ -581,6 +581,17 @@ ifdef SHARED_LIBRARY
+ ifneq ($(HOST_OS), $(filter $(HOST_OS), Cygwin MingW))
+ ifneq ($(HOST_OS),Darwin)
+   LD.Flags += $(RPATH) -Wl,'$$ORIGIN'
++else
++  ifeq ($(DARWIN_MAJVERS),4)
++    LD.Flags += -Wl,-dylib_install_name
++  else
++    LD.Flags += -Wl,-install_name
++  endif
++  ifdef LOADABLE_MODULE
++    LD.Flags += -Wl,"$(PROJ_libdir)/$(LIBRARYNAME)$(SHLIBEXT)"
++  else
++    LD.Flags += -Wl,"$(PROJ_libdir)/$(SharedPrefix)$(LIBRARYNAME)$(SHLIBEXT)"
++  endif
+ endif
+ endif
+ endif
+diff --git a/tools/llvm-shlib/Makefile b/tools/llvm-shlib/Makefile
+index b912ea6..9c3a670 100644
+--- a/tools/llvm-shlib/Makefile
++++ b/tools/llvm-shlib/Makefile
+@@ -54,14 +54,6 @@ ifeq ($(HOST_OS),Darwin)
+     # extra options to override libtool defaults 
+     LLVMLibsOptions    := $(LLVMLibsOptions)  \
+                          -Wl,-dead_strip
+-
+-    # Mac OS X 10.4 and earlier tools do not allow a second -install_name on command line
+-    DARWIN_VERS := $(shell echo $(TARGET_TRIPLE) | sed 's/.*darwin\([0-9]*\).*/\1/')
+-    ifneq ($(DARWIN_VERS),8)
+-       LLVMLibsOptions    := $(LLVMLibsOptions)  \
+-                            -Wl,-install_name \
+-                            -Wl,"@rpath/lib$(LIBRARYNAME)$(SHLIBEXT)"
+-    endif
+ endif
+ 
+ ifeq ($(HOST_OS), $(filter $(HOST_OS), DragonFly Linux FreeBSD GNU/kFreeBSD OpenBSD GNU Bitrig))
+diff --git a/tools/lto/Makefile b/tools/lto/Makefile
+index cedbee1..3a18141 100644
+--- a/tools/lto/Makefile
++++ b/tools/lto/Makefile
+@@ -41,14 +41,6 @@ ifeq ($(HOST_OS),Darwin)
+     LLVMLibsOptions    := $(LLVMLibsOptions)  \
+                          -Wl,-dead_strip
+ 
+-    # Mac OS X 10.4 and earlier tools do not allow a second -install_name on command line
+-    DARWIN_VERS := $(shell echo $(TARGET_TRIPLE) | sed 's/.*darwin\([0-9]*\).*/\1/')
+-    ifneq ($(DARWIN_VERS),8)
+-       LLVMLibsOptions    := $(LLVMLibsOptions)  \
+-                            -Wl,-install_name \
+-                            -Wl,"@executable_path/../lib/lib$(LIBRARYNAME)$(SHLIBEXT)"
+-    endif
+-
+     # If we're doing an Apple-style build, add the LTO object path.
+     ifeq ($(RC_XBS),YES)
+        TempFile        := $(shell mkdir -p ${OBJROOT}/dSYMs ; mktemp ${OBJROOT}/dSYMs/llvm-lto.XXXXXX)

@@ -226,7 +226,7 @@ end
 
 __END__
 diff --git a/Makefile.rules b/Makefile.rules
-index f0c542b..ec05ac3 100644
+index f0c542b..f4da038 100644
 --- a/Makefile.rules
 +++ b/Makefile.rules
 @@ -571,9 +571,9 @@ ifeq ($(HOST_OS),Darwin)
@@ -241,4 +241,59 @@ index f0c542b..ec05ac3 100644
  
    LoadableModuleOptions := -Wl,-flat_namespace -Wl,-undefined,suppress
    SharedLinkOptions := -dynamiclib
-
+@@ -602,6 +602,17 @@ ifdef SHARED_LIBRARY
+ ifneq ($(HOST_OS), $(filter $(HOST_OS), Cygwin MingW))
+ ifneq ($(HOST_OS),Darwin)
+   LD.Flags += $(RPATH) -Wl,'$$ORIGIN'
++else
++  ifeq ($(DARWIN_MAJVERS),4)
++    LD.Flags += -Wl,-dylib_install_name
++  else
++    LD.Flags += -Wl,-install_name
++  endif
++  ifdef LOADABLE_MODULE
++    LD.Flags += -Wl,"$(PROJ_libdir)/$(LIBRARYNAME)$(SHLIBEXT)"
++  else
++    LD.Flags += -Wl,"$(PROJ_libdir)/$(SharedPrefix)$(LIBRARYNAME)$(SHLIBEXT)"
++  endif
+ endif
+ endif
+ endif
+diff --git a/tools/llvm-shlib/Makefile b/tools/llvm-shlib/Makefile
+index 6d6c6e9..c3d4d67 100644
+--- a/tools/llvm-shlib/Makefile
++++ b/tools/llvm-shlib/Makefile
+@@ -53,14 +53,6 @@ ifeq ($(HOST_OS),Darwin)
+     LLVMLibsOptions    := $(LLVMLibsOptions)  \
+                          -Wl,-dead_strip \
+                          -Wl,-seg1addr -Wl,0xE0000000 
+-
+-    # Mac OS X 10.4 and earlier tools do not allow a second -install_name on command line
+-    DARWIN_VERS := $(shell echo $(TARGET_TRIPLE) | sed 's/.*darwin\([0-9]*\).*/\1/')
+-    ifneq ($(DARWIN_VERS),8)
+-       LLVMLibsOptions    := $(LLVMLibsOptions)  \
+-                            -Wl,-install_name \
+-                            -Wl,"@executable_path/../lib/lib$(LIBRARYNAME)$(SHLIBEXT)"
+-    endif
+ endif
+ 
+ ifeq ($(HOST_OS), $(filter $(HOST_OS), Linux FreeBSD OpenBSD GNU Bitrig))
+diff --git a/tools/lto/Makefile b/tools/lto/Makefile
+index ab2e16e..dd2e13a 100644
+--- a/tools/lto/Makefile
++++ b/tools/lto/Makefile
+@@ -42,14 +42,6 @@ ifeq ($(HOST_OS),Darwin)
+                          -Wl,-dead_strip \
+                          -Wl,-seg1addr -Wl,0xE0000000 
+ 
+-    # Mac OS X 10.4 and earlier tools do not allow a second -install_name on command line
+-    DARWIN_VERS := $(shell echo $(TARGET_TRIPLE) | sed 's/.*darwin\([0-9]*\).*/\1/')
+-    ifneq ($(DARWIN_VERS),8)
+-       LLVMLibsOptions    := $(LLVMLibsOptions)  \
+-                            -Wl,-install_name \
+-                            -Wl,"@executable_path/../lib/lib$(LIBRARYNAME)$(SHLIBEXT)"
+-    endif
+-
+     # If we're doing an Apple-style build, add the LTO object path.
+     ifeq ($(RC_XBS),YES)
+        TempFile        := $(shell mkdir -p ${OBJROOT}/dSYMs ; mktemp ${OBJROOT}/dSYMs/llvm-lto.XXXXXX)
