@@ -25,7 +25,7 @@ class Erlang < Formula
   homepage 'http://www.erlang.org'
   # Download tarball from GitHub; it is served faster than the official tarball.
   url 'https://github.com/erlang/otp/archive/OTP_R15B03-1.tar.gz'
-  sha1 '5ba866722de79956b06966c232490d32bb7ba0a6'
+  sha1 '7843070f5d325f95ef13022fc416b22b6b14120d'
 
   # remove the autoreconf if possible
   depends_on :automake
