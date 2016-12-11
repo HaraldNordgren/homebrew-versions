@@ -2,13 +2,14 @@ require 'formula'
 
 class PerconaServer < Formula
   homepage 'http://www.percona.com'
-  url 'http://www.percona.com/redir/downloads/Percona-Server-5.5/Percona-Server-5.5.32-31.0/source/Percona-Server-5.5.32-rel31.0.tar.gz'
-  version '5.5.32-31.0'
-  sha1 'ec5bcf0acb7a6147c2b34b4b37d23da999c6218f'
+  url 'http://www.percona.com/downloads/Percona-Server-5.5/Percona-Server-5.5.41-37.0/source/tarball/percona-server-5.5.41-37.0.tar.gz'
+  version '5.5.41-37.0'
+  sha1 '74610892ba6402e8df04320db444d6dcc7cb2fe8'
 
   depends_on 'cmake' => :build
   depends_on 'readline'
   depends_on 'pidof'
+  depends_on 'openssl'
 
   option :universal
   option 'with-tests', 'Build with unit tests'
