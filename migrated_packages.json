@@ -1384,5 +1384,12 @@
     "file_without_extension": "docker133",
     "original_filename": "docker133.rb",
     "migrated_filename": "docker.rb"
+  },
+  {
+    "classname_with_version": "Openssl101",
+    "package_at_version": "openssl@101",
+    "file_without_extension": "openssl101",
+    "original_filename": "openssl101.rb",
+    "migrated_filename": "openssl.rb"
   }
 ]
