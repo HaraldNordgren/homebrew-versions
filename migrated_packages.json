@@ -1762,5 +1762,12 @@
     "file_without_extension": "boot2docker162",
     "original_filename": "boot2docker162.rb",
     "migrated_filename": "boot2docker.rb"
+  },
+  {
+    "classname_with_version": "Gegl02",
+    "package_at_version": "gegl@02",
+    "file_without_extension": "gegl02",
+    "original_filename": "gegl02.rb",
+    "migrated_filename": "gegl.rb"
   }
 ]
