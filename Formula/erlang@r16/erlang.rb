@@ -1,10 +1,8 @@
-require "formula"
-
 class Erlang < Formula
   version "r16"
   homepage "http://www.erlang.org"
   url "http://www.erlang.org/download/otp_src_R16B03-1.tar.gz"
-  sha1 "c2634ea0c078500f1c6a1369f4be59a6d14673e0"
+  sha256 "17ce53459bc5ceb34fc2da412e15ac8c23835a15fbd84e62c8d1852704747ee7"
   revision 2
 
   depends_on "autoconf" => :build
@@ -17,18 +15,22 @@ class Erlang < Formula
 
   fails_with :llvm
 
-  option 'disable-hipe', "Disable building hipe; fails on various OS X systems"
-  option 'halfword', 'Enable halfword emulator (64-bit builds only)'
-  option 'no-docs', 'Do not install documentation'
+  option "without-hipe", "Disable building hipe; fails on various OS X systems"
+  option "with-halfword", "Enable halfword emulator (64-bit builds only)"
+  option "without-docs", "Do not install documentation"
 
-  resource 'man' do
-    url 'http://erlang.org/download/otp_doc_man_R16B03-1.tar.gz'
-    sha1 'afde5507a389734adadcd4807595f8bc76ebde1b'
+  deprecated_option "disable-hipe" => "without-hipe"
+  deprecated_option "halfword" => "with-halfword"
+  deprecated_option "no-docs" => "without-docs"
+
+  resource "man" do
+    url "http://erlang.org/download/otp_doc_man_R16B03-1.tar.gz"
+    sha256 "0f31bc7d7215aa4b6834b1a565cd7d6e3173e3b392fb870254bae5136499c39d"
   end
 
-  resource 'html' do
-    url 'http://erlang.org/download/otp_doc_html_R16B03-1.tar.gz'
-    sha1 'a2c0d2b7b9abe6214aff4c75ecc6be62042924e6'
+  resource "html" do
+    url "http://erlang.org/download/otp_doc_html_R16B03-1.tar.gz"
+    sha256 "5381d4ffe654e3e943f004e2b91870bd83f0e46e261bb405c1cdf7de81bc0507"
   end
 
   def install
@@ -38,42 +40,42 @@ class Erlang < Formula
     system "./otp_build autoconf" if File.exist? "otp_build"
 
     args = %W[
-        --disable-debug
-        --prefix=#{prefix}
-        --enable-kernel-poll
-        --enable-threads
-        --enable-dynamic-ssl-lib
-        --with-ssl=#{Formula["openssl"].opt_prefix}
-        --enable-shared-zlib
-        --enable-smp-support
+      --disable-debug
+      --prefix=#{prefix}
+      --enable-kernel-poll
+      --enable-threads
+      --enable-dynamic-ssl-lib
+      --with-ssl=#{Formula["openssl"].opt_prefix}
+      --enable-shared-zlib
+      --enable-smp-support
     ]
 
-    args << "--with-dynamic-trace=dtrace" unless MacOS.version == :leopard or not MacOS::CLT.installed?
+    args << "--with-dynamic-trace=dtrace" unless MacOS.version == :leopard || !MacOS::CLT.installed?
 
-    unless build.include? 'disable-hipe'
+    if build.with? "hipe"
       # HIPE doesn't strike me as that reliable on OS X
       # http://syntatic.wordpress.com/2008/06/12/macports-erlang-bus-error-due-to-mac-os-x-1053-update/
       # http://www.erlang.org/pipermail/erlang-patches/2008-September/000293.html
-      args << '--enable-hipe'
+      args << "--enable-hipe"
     end
 
     if MacOS.prefer_64_bit?
       args << "--enable-darwin-64bit"
-      args << "--enable-halfword-emulator" if build.include? 'halfword' # Does not work with HIPE yet. Added for testing only
+      args << "--enable-halfword-emulator" if build.with? "halfword" # Does not work with HIPE yet. Added for testing only
     end
 
     system "./configure", *args
     system "make"
-    ENV.j1 # Install is not thread-safe; can try to create folder twice and fail
-    system "make install"
+    ENV.deparallelize # Install is not thread-safe; can try to create folder twice and fail
+    system "make", "install"
 
-    unless build.include? 'no-docs'
+    if build.with? "docs"
       resource("man").stage { man.install Dir["man/*"] }
       resource("html").stage { doc.install Dir["*"] }
     end
   end
 
   test do
-    system "#{bin}/erl", "-noshell", "-eval", "crypto:start().", "-s", "init", "stop"
+    system bin/"erl", "-noshell", "-eval", "crypto:start().", "-s", "init", "stop"
   end
 end
