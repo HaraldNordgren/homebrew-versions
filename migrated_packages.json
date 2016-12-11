@@ -306,5 +306,12 @@
     "file_without_extension": "jpeg6b",
     "original_filename": "jpeg6b.rb",
     "migrated_filename": "jpeg.rb"
+  },
+  {
+    "classname_with_version": "Grails13",
+    "package_at_version": "grails@13",
+    "file_without_extension": "grails13",
+    "original_filename": "grails13.rb",
+    "migrated_filename": "grails.rb"
   }
 ]
