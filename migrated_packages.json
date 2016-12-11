@@ -845,5 +845,12 @@
     "file_without_extension": "drush5",
     "original_filename": "drush5.rb",
     "migrated_filename": "drush.rb"
+  },
+  {
+    "classname_with_version": "Plowshare3",
+    "package_at_version": "plowshare@3",
+    "file_without_extension": "plowshare3",
+    "original_filename": "plowshare3.rb",
+    "migrated_filename": "plowshare.rb"
   }
 ]
