@@ -1223,5 +1223,12 @@
     "file_without_extension": "isl012",
     "original_filename": "isl012.rb",
     "migrated_filename": "isl.rb"
+  },
+  {
+    "classname_with_version": "Libdvdcss12",
+    "package_at_version": "libdvdcss@12",
+    "file_without_extension": "libdvdcss12",
+    "original_filename": "libdvdcss12.rb",
+    "migrated_filename": "libdvdcss.rb"
   }
 ]
