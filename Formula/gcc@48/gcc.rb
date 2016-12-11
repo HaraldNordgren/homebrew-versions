@@ -52,16 +52,17 @@ class Gcc < Formula
   depends_on 'isl@011'
   depends_on 'ecj' if build.include? 'enable-java' or build.include? 'enable-all-languages'
 
-  # The as that comes with Tiger isn't capable of dealing with the
-  # PPC asm that comes in libitm
-  depends_on 'cctools' => :build if MacOS.version < :leopard
+  if MacOS.version < :leopard
+    # The as that comes with Tiger isn't capable of dealing with the
+    # PPC asm that comes in libitm
+    depends_on 'cctools' => :build
+    # GCC 4.8.1 incorrectly determines that _Unwind_GetIPInfo is available on
+    # Tiger, resulting in a failed build
+    # Fixed upstream: http://gcc.gnu.org/bugzilla/show_bug.cgi?id=58710
+    patch :DATA
+  end
 
   fails_with :gcc_4_0
-
-  # GCC 4.8.1 incorrectly determines that _Unwind_GetIPInfo is available on
-  # Tiger, resulting in a failed build
-  # Fixed upstream: http://gcc.gnu.org/bugzilla/show_bug.cgi?id=58710
-  def patches; DATA; end if MacOS.version < :leopard
 
   def install
     # GCC bootstraps itself, so it is OK to have an incompatible C++ stdlib
