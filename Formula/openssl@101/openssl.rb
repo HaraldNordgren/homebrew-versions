@@ -5,6 +5,13 @@ class Openssl < Formula
   mirror "https://raw.githubusercontent.com/DomT4/LibreMirror/master/OpenSSL/openssl-1.0.1l.tar.gz"
   sha256 "b2cf4d48fe5d49f240c61c9e624193a6f232b5ed0baf010681e725963c40d1d4"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha1 "e1914252e1bb4208f633d193053a97cd8c0a42f4" => :yosemite
+    sha1 "9199ebad4eb20fcaff04103bc1c19f041ba348ff" => :mavericks
+    sha1 "858e31c9b99f985a80d396e807d3412839002756" => :mountain_lion
+  end
+
   option :universal
   option "without-check", "Skip build-time tests (not recommended)"
 
