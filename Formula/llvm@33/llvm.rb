@@ -107,9 +107,7 @@ class Llvm < Formula
     (buildpath/"tools/clang/tools/extra").install resource("clang-tools-extra")
     (buildpath/"projects/compiler-rt").install resource("compiler-rt") if build.with? "asan"
 
-    # On Snow Leopard and below libc++abi is not shipped but needed for libc++.
     if MacOS.version <= :snow_leopard
-      libcxxabi_buildpath.install resource('libcxxabi')
       buildpath.install resource('clang-unwind-patch')
       cd clang_buildpath do
         system "patch -p2 -N < #{buildpath}/unwind.h"
@@ -152,19 +150,23 @@ class Llvm < Formula
     system 'make', 'VERBOSE=1', 'install'
 
     # Snow Leopard is not shipped with libc++abi. Manually build here.
-    cd libcxxabi_buildpath/'lib' do
-      # Set rpath to save user from setting DYLD_LIBRARY_PATH
-      inreplace libcxxabi_buildpath/'lib/buildit', '-install_name /usr/lib/libc++abi.dylib', "-install_name #{install_prefix}/usr/lib/libc++abi.dylib"
+    if MacOS.version <= :snow_leopard
+      libcxxabi_buildpath.install resource("libcxxabi")
 
-      ENV['CC'] = "#{install_prefix}/bin/clang"
-      ENV['CXX'] = "#{install_prefix}/bin/clang++"
-      ENV['TRIPLE'] = "*-apple-*"
-      system "./buildit"
-      # Install libs.
-      (install_prefix/'usr/lib/').install libcxxabi_buildpath/'lib/libc++abi.dylib'
-      # Install headers.
-      cp libcxxabi_buildpath/'include/cxxabi.h', install_prefix/'lib/c++/v1/'
-    end if MacOS.version <= :snow_leopard
+      cd libcxxabi_buildpath/'lib' do
+        # Set rpath to save user from setting DYLD_LIBRARY_PATH
+        inreplace libcxxabi_buildpath/'lib/buildit', '-install_name /usr/lib/libc++abi.dylib', "-install_name #{install_prefix}/usr/lib/libc++abi.dylib"
+
+        ENV['CC'] = "#{install_prefix}/bin/clang"
+        ENV['CXX'] = "#{install_prefix}/bin/clang++"
+        ENV['TRIPLE'] = "*-apple-*"
+        system "./buildit"
+        # Install libs.
+        (install_prefix/'usr/lib/').install libcxxabi_buildpath/'lib/libc++abi.dylib'
+        # Install headers.
+        cp libcxxabi_buildpath/'include/cxxabi.h', install_prefix/'lib/c++/v1/'
+      end
+    end
 
     # Putting libcxx in projects only ensures that headers are installed.
     # Manually "make install" to actually install the shared libs.
