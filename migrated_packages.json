@@ -1034,5 +1034,12 @@
     "file_without_extension": "rabbitmq30",
     "original_filename": "rabbitmq30.rb",
     "migrated_filename": "rabbitmq.rb"
+  },
+  {
+    "classname_with_version": "Elasticsearch090",
+    "package_at_version": "elasticsearch@090",
+    "file_without_extension": "elasticsearch090",
+    "original_filename": "elasticsearch090.rb",
+    "migrated_filename": "elasticsearch.rb"
   }
 ]
