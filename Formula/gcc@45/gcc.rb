@@ -3,9 +3,9 @@ require 'formula'
 class Gcc < Formula
   version "45"
   homepage 'http://gcc.gnu.org'
-  url 'http://ftpmirror.gnu.org/gcc/gcc-4.5.3/gcc-4.5.3.tar.bz2'
-  mirror 'http://ftp.gnu.org/gnu/gcc/gcc-4.5.3/gcc-4.5.3.tar.bz2'
-  sha1 '73c45dfda5eef6b124be53e56828b5925198cc1b'
+  url 'http://ftpmirror.gnu.org/gcc/gcc-4.5.4/gcc-4.5.4.tar.bz2'
+  mirror 'http://ftp.gnu.org/gnu/gcc/gcc-4.5.4/gcc-4.5.4.tar.bz2'
+  sha1 'cb692e6ddd1ca41f654e2ff24b1b57f09f40e211'
 
   option 'enable-cxx', 'Build the g++ compiler'
   option 'enable-fortran', 'Build the gfortran compiler'
@@ -13,7 +13,7 @@ class Gcc < Formula
   option 'enable-objc', 'Enable Objective-C language support'
   option 'enable-objcxx', 'Enable Objective-C++ language support'
   option 'enable-all-languages', 'Enable all compilers and languages, except Ada'
-  option 'enable-nls', 'Build with native language support'
+  option 'enable-nls', 'Build with native language support (localization)'
   option 'enable-profiled-build', 'Make use of profile guided optimization when bootstrapping GCC'
   option 'enable-multilib', 'Build with multilib support'
 
