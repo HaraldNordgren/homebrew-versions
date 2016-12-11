@@ -49,9 +49,6 @@ class Subversion < Formula
   # For Serf
   depends_on "scons" => :build
 
-  conflicts_with "openssl",
-                 :because => "You must unlink Homebrew's OpenSSL to install. You should `brew link openssl` after install!"
-
   # If building bindings, allow non-system interpreters
   if build.with?("perl") || build.with?("ruby")
     env :userpaths
