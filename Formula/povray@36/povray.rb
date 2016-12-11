@@ -1,35 +1,38 @@
-require 'formula'
-
 class Povray < Formula
   version "36"
-  homepage 'http://www.povray.org/'
-  url 'http://www.povray.org/ftp/pub/povray/Official/Unix/povray-3.6.1.tar.bz2'
-  sha1 '1fab3ccbdedafbf77e3a66087709bbdf60bc643d'
+  homepage "http://www.povray.org/"
+  url "http://www.povray.org/ftp/pub/povray/Old-Versions/Official-3.62/Unix/povray-3.6.1.tar.bz2"
+  sha256 "4e8a7fecd44807343b6867e1f2440aa0e09613d6d69a7385ac48f4e5e7737a73"
 
-  depends_on 'libtiff' => :optional
-  depends_on 'jpeg' => :optional
+  depends_on "pkg-config" => :build
+  depends_on "jpeg"
+  depends_on "libtiff"
 
-  fails_with :llvm do
-    build 2326
-    cause "povray fails with 'terminate called after throwing an instance of int'"
-  end if MacOS.version == :leopard
+  conflicts_with "libpng",
+    :because => "causes fatal build error. You can and should `brew link libpng` again after installation"
+
+  if MacOS.version == :leopard
+    fails_with :llvm do
+      build 2326
+      cause "povray fails with 'terminate called after throwing an instance of int'"
+    end
+  end
 
   # povray has issues determining libpng version; can't get it to compile
   # against system libpng, but it works with its internal libpng.
   patch :p0 do
     url "https://trac.macports.org/export/97719/trunk/dports/graphics/povray/files/patch-configure"
-    sha1 "7e59f629e16dde0aea1ff0889dae4e0151526fe7"
+    sha256 "b98062784156ffe5fbc6b38a33d3819f45c759d2890e3ee18efbb3e505fe1e69"
   end
 
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "COMPILED_BY=homebrew",
-                          "--prefix=#{prefix}",
+                          "COMPILED_BY=Homebrew", "--prefix=#{prefix}",
                           "--mandir=#{man}"
-    system "make install"
+    system "make", "install"
   end
 
   test do
-    system "#{share}/povray-3.6/scripts/allscene.sh", "-o", "."
+    system bin/"povray", "-h"
   end
 end
