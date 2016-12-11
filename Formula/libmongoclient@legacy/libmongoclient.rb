@@ -7,9 +7,9 @@ class Libmongoclient < Formula
   head "https://github.com/mongodb/mongo-cxx-driver.git", :branch => "legacy"
 
   bottle do
-    sha256 "098e1f54a5ff0eefaa2f80bdb1c37792c9bfdebf49fc55f439a37143b6fa84bc" => :yosemite
-    sha256 "016a9dff9e4f0d12919eb135976eba568d890476e9cfc53f95039e3e467df49f" => :mavericks
-    sha256 "89f5e5dd0504b75c5d454536b0d604704c262e5791b0cc160e6a366eebcda827" => :mountain_lion
+    sha256 "fb2886f1ecad46bebeb2ac3ac2666f525e3e54feeaae01b8d05862529b04a5e0" => :yosemite
+    sha256 "cd74b412de1018cf908e4c177b1db0be870ba015ee34f5507f966e6f57d4328b" => :mavericks
+    sha256 "81ffc4dfe7fc6c6811897f282ee5859e394bd1ef0ea6e30b8e37885aa8b4d3ae" => :mountain_lion
   end
 
   option :cxx11
