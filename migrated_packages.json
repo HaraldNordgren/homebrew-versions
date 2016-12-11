@@ -1461,5 +1461,12 @@
     "file_without_extension": "virtuoso616",
     "original_filename": "virtuoso616.rb",
     "migrated_filename": "virtuoso.rb"
+  },
+  {
+    "classname_with_version": "Solr4",
+    "package_at_version": "solr@4",
+    "file_without_extension": "solr4",
+    "original_filename": "solr4.rb",
+    "migrated_filename": "solr.rb"
   }
 ]
