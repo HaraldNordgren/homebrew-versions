@@ -2,7 +2,7 @@ class Node < Formula
   version "04"
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/node-v0.4.12.tar.gz"
-  sha1 "1c6e34b90ad6b989658ee85e0d0cb16797b16460"
+  sha256 "c01af05b933ad4d2ca39f63cac057f54f032a4d83cff8711e42650ccee24fce4"
   revision 1
 
   bottle do
