@@ -8,6 +8,8 @@ class Appledoc < Formula
 
   depends_on :xcode
 
+  depends_on MaximumMacOSRequirement => :mountain_lion
+
   # It's actually possible to build with GC disabled, but not advisable.
   # See: https://github.com/tomaz/appledoc/issues/439
   fails_with :clang do
