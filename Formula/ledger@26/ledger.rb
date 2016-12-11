@@ -1,42 +1,49 @@
-require "formula"
-
 class Ledger < Formula
   version "26"
   homepage "http://ledger-cli.org"
   url "https://github.com/ledger/ledger/archive/v2.6.3.tar.gz"
-  sha1 "b04a69f10de9970a15e4e85abd515457904fc5a4"
+  sha256 "d5c244343f054c413b129f14e7020b731f43afb8bdf92c6bdb702a17a2e2aa3a"
 
+  depends_on "automake" => :build
+  depends_on "autoconf" => :build
+  depends_on "libtool" => :build
   depends_on "gettext"
   depends_on "pcre"
   depends_on "expat"
   depends_on "boost"
   depends_on "gmp"
-  depends_on "automake" => :build
-  depends_on "autoconf" => :build
-  depends_on "libtool" => :build
   depends_on "libofx" => :optional
   depends_on :python => :optional
 
-  option "debug", "Build with debugging symbols enabled"
+  option "with-debug", "Build with debugging symbols enabled"
+
+  deprecated_option "debug" => "with-debug"
 
   def install
-    # find Homebrew"s libpcre
+    # find Homebrew's libpcre
     ENV.append "LDFLAGS", "-L#{HOMEBREW_PREFIX}/lib"
 
-    args = []
+    args = %W[
+      --disable-debug
+      --disable-dependency-tracking
+      --prefix=#{prefix}
+    ]
+
     if build.with? "libofx"
       args << "--enable-ofx"
       # the libofx.h appears to have moved to a subdirectory
       ENV.append "CXXFLAGS", "-I#{Formula["libofx"].opt_include}/libofx"
     end
+
     args << "--enable-python" if build.with? "python"
-    args << "--enable-debug" if build.include?("debug")
+    args << "--enable-debug" if build.with? "debug"
+
     system "./autogen.sh"
-    system "./configure", "--disable-debug", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}", *args
+    system "./configure", *args
     system "make"
+
     ENV.deparallelize
-    system "make install"
+    system "make", "install"
     (share+"ledger/examples").install "sample.dat", "scripts"
   end
 
