@@ -7,9 +7,9 @@ class Nettle < Formula
 
   bottle do
     cellar :any
-    sha256 "e50d9eab1bbc727db7176ce14e64583e10305edf29f58478f44e81e67129f6fb" => :yosemite
-    sha256 "793f30f7cb3773776ad460a6cb65c63828d2030ebc6b09596f93c6925c22e95a" => :mavericks
-    sha256 "24923b41a6bd4a1c126dbc5ff2d202e7a49ff79d360654691b40503be06e5886" => :mountain_lion
+    sha256 "2db3415ff6544faed8598feabfc475f3ea957d07d33827aef6aeed4113ddde12" => :yosemite
+    sha256 "7cb14ed90e62a313c8142bc4859d9f2ec96a7361d9333a8c6dcf03313969c110" => :mavericks
+    sha256 "3da69c796e7dd4b4bcce4d5612806388ab0d5c5badfae82b0d2be8138525ff8d" => :mountain_lion
   end
 
   depends_on "gmp"
