@@ -6,6 +6,13 @@ class Erlang < Formula
   sha256 "a4b04786dbcf92446540104f5992c58e55baab606835fc0a087c5e22e7bab125"
   revision 1
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    sha256 "6e60e6bd0aff46d0b30365d6abe335d3ab6f235c63f6606151461eac98db2aaf" => :yosemite
+    sha256 "83ff1c045b09a3e97801d98a158d2eb31567452cdb56848a0bf969fc66adafc3" => :mavericks
+    sha256 "c84ff9de2082588a9a8f1a71a1435756394b128665c1926ff52a7db169e2f338" => :mountain_lion
+  end
+
   option "without-hipe", "Disable building hipe; fails on various OS X systems"
   option "without-docs", "Do not install documentation"
 
