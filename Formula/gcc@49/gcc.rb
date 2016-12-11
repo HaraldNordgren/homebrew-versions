@@ -33,7 +33,7 @@ class Gcc < Formula
   option 'enable-all-languages', 'Enable all compilers and languages, except Ada'
   option 'enable-nls', 'Build with native language support (localization)'
   option 'enable-profiled-build', 'Make use of profile guided optimization when bootstrapping GCC'
-  option 'enable-multilib', 'Build with multilib support'
+  option 'disable-multilib', 'Build with multilib support'
 
   depends_on 'gmp@4'
   depends_on 'libmpc@08'
@@ -109,10 +109,10 @@ class Gcc < Formula
       args << "--with-ecj-jar=#{Formula.factory('ecj').opt_prefix}/share/java/ecj.jar"
     end
 
-    if build.include? 'enable-multilib'
-      args << '--enable-multilib'
-    else
+    if build.include? 'disable-multilib'
       args << '--disable-multilib'
+    else
+      args << '--enable-multilib'
     end
 
     mkdir 'build' do
