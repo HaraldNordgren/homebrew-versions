@@ -397,5 +397,12 @@
     "file_without_extension": "zeromq22",
     "original_filename": "zeromq22.rb",
     "migrated_filename": "zeromq.rb"
+  },
+  {
+    "classname_with_version": "Scala29",
+    "package_at_version": "scala@29",
+    "file_without_extension": "scala29",
+    "original_filename": "scala29.rb",
+    "migrated_filename": "scala.rb"
   }
 ]
