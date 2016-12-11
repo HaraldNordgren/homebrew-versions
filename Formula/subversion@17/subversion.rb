@@ -3,9 +3,9 @@ require 'formula'
 class Subversion < Formula
   version "17"
   homepage 'http://subversion.apache.org/'
-  url 'http://www.apache.org/dyn/closer.cgi?path=subversion/subversion-1.7.13.tar.bz2'
-  mirror 'http://archive.apache.org/dist/subversion/subversion-1.7.13.tar.bz2'
-  sha1 '844bb756ec505edaa12b9610832bcd21567139f1'
+  url 'http://mirror.cogentco.com/pub/apache/subversion/subversion-1.7.14.tar.bz2'
+  mirror 'http://archive.apache.org/dist/subversion/subversion-1.7.14.tar.bz2'
+  sha1 'b35254a844d0b221a3fd8e80974ac75119d77b94'
 
   option :universal
   option 'java', 'Build Java bindings'
@@ -15,8 +15,8 @@ class Subversion < Formula
   option 'with-homebrew-openssl', 'Include OpenSSL support via Homebrew'
 
   resource 'serf' do
-    url 'http://serf.googlecode.com/files/serf-1.3.2.tar.bz2'
-    sha1 '90478cd60d4349c07326cb9c5b720438cf9a1b5d'
+    url 'http://serf.googlecode.com/files/serf-1.3.3.tar.bz2'
+    sha1 'b25c44a8651805f20f66dcaa76db08442ec4fa0e'
   end
 
   depends_on 'pkg-config' => :build
