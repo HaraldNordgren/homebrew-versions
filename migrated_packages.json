@@ -1118,5 +1118,12 @@
     "file_without_extension": "mkvtoolnix58",
     "original_filename": "mkvtoolnix58.rb",
     "migrated_filename": "mkvtoolnix.rb"
+  },
+  {
+    "classname_with_version": "Openjpeg21",
+    "package_at_version": "openjpeg@21",
+    "file_without_extension": "openjpeg21",
+    "original_filename": "openjpeg21.rb",
+    "migrated_filename": "openjpeg.rb"
   }
 ]
