@@ -1769,5 +1769,12 @@
     "file_without_extension": "gegl02",
     "original_filename": "gegl02.rb",
     "migrated_filename": "gegl.rb"
+  },
+  {
+    "classname_with_version": "Influxdb08",
+    "package_at_version": "influxdb@08",
+    "file_without_extension": "influxdb08",
+    "original_filename": "influxdb08.rb",
+    "migrated_filename": "influxdb.rb"
   }
 ]
