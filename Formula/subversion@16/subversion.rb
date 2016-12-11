@@ -1,12 +1,5 @@
 require 'formula'
 
-# On 10.5 we need newer versions of apr, neon etc.
-# On 10.6 we only need a newer version of neon
-class SubversionDeps < Formula
-  url 'http://subversion.tigris.org/downloads/subversion-deps-1.6.23.tar.bz2'
-  sha1 '6fe844c2bdc3c139a97f70b146e6a1e5ae2c26f0'
-end
-
 class Subversion < Formula
   version "16"
   homepage 'http://subversion.apache.org/'
@@ -24,6 +17,14 @@ class Subversion < Formula
   option 'python', 'Build Python bindings'
   option 'ruby', 'Build Ruby bindings'
   option 'unicode-path', 'Include support for OS X unicode (see caveats)'
+
+  # On 10.5 we need newer versions of apr, neon etc.
+  # On 10.6 we only need a newer version of neon
+  resource 'deps' do
+    url 'http://subversion.tigris.org/downloads/subversion-deps-1.6.23.tar.bz2'
+    sha1 '6fe844c2bdc3c139a97f70b146e6a1e5ae2c26f0'
+  end
+
 
   def build_java?; build.include? "java"; end
   def build_perl?; build.include? "perl"; end
@@ -48,8 +49,8 @@ class Subversion < Formula
 
   def setup_leopard
     # Slot dependencies into place
-    d=Pathname.getwd
-    SubversionDeps.new.brew { d.install Dir['*'] }
+    d = Pathname.getwd
+    resource("deps").stage { d.install Dir['*'] }
   end
 
   def check_neon_arch
