@@ -60,6 +60,14 @@ class Boost < Formula
       sha256 "cb134e3982e01ba5b3d5abe51cc8343c9e24ecd34aa4d81f5e8dd4461f593cf1"
     end
   end
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    cellar :any
+    sha256 "7ddd8eaf57ef85d2cbc5bfa04f6cac1aedfbf435cefdab2ccbf1d682c846248c" => :yosemite
+    sha256 "7a33b63b1e8c4afdb877cbb45b951c1867fb09ecd73f836478140cdce1ca8291" => :mavericks
+    sha256 "e9c02b26e9190d8da61e1acc46d2fb478ea8b836c4a463d5aed57d3c892c7432" => :mountain_lion
+  end
+
 
   keg_only "Conflicts with boost in main repository."
 
