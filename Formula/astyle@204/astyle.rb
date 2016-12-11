@@ -1,6 +1,6 @@
 class Astyle < Formula
   version "204"
-  desc "a source code indenter, formatter, and beautifier."
+  desc "Source code indenter, formatter, and beautifier."
   homepage "http://astyle.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/astyle/astyle/astyle%202.04/astyle_2.04_macosx.tar.gz"
   sha256 "e0ba90723463172fd8a063897092284993eeebb87c63cf26ee36f555b0d89368"
@@ -11,8 +11,6 @@ class Astyle < Formula
     sha256 "11f398760d41131a866bd23b6de721e6518e0c86c54fb867eb28ed95b508addc" => :mavericks
     sha256 "98fbe0b2ecc638bc09894bf6def96e9bcab59a501e1373582b8df5435cd7b188" => :mountain_lion
   end
-
-  conflicts_with "astyle"
 
   def install
     cd "src" do
