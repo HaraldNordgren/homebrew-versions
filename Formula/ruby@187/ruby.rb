@@ -1,8 +1,7 @@
 class Ruby < Formula
   version "187"
-  homepage "http://www.ruby-lang.org/en/"
-  url "http://ftp.ruby-lang.org/pub/ruby/1.8/ruby-1.8.7-p374.tar.bz2"
-  mirror "http://mirrorservice.org/sites/ftp.ruby-lang.org/pub/ruby/1.8/ruby-1.8.7-p374.tar.bz2"
+  homepage "https://www.ruby-lang.org/en/"
+  url "http://cache.ruby-lang.org/pub/ruby/1.8/ruby-1.8.7-p374.tar.bz2"
   sha256 "b4e34703137f7bfb8761c4ea474f7438d6ccf440b3d35f39cc5e4d4e239c07e3"
 
   # Otherwise it fails when building bigdecimal by trying to load
@@ -12,7 +11,7 @@ class Ruby < Formula
   keg_only :provided_by_osx
 
   option :universal
-  option "with-suffix", 'Suffix commands with "187"'
+  option "with-suffix", "Suffix commands with '187'"
   option "with-doc", "Install documentation"
 
   depends_on "pkg-config" => :build
@@ -41,7 +40,7 @@ class Ruby < Formula
     # OpenSSL is deprecated on OS X 10.8 and Ruby can't find the outdated
     # version (0.9.8r 8 Feb 2011) that ships with the system.
     # See discussion https://github.com/sstephenson/ruby-build/issues/304
-    # and https://github.com/mxcl/homebrew/pull/18054
+    # and https://github.com/homebrew/homebrew/pull/18054
     if MacOS.version >= :mountain_lion
       args << "--with-openssl-dir=#{Formula["openssl"].opt_prefix}"
     end
@@ -58,7 +57,7 @@ class Ruby < Formula
 
     system "./configure", *args
     system "make"
-    system "make install"
+    system "make", "install"
   end
 
   def caveats; <<-EOS.undent
@@ -67,5 +66,11 @@ class Ruby < Formula
 
     You may want to add this to your PATH.
     EOS
+  end
+
+  test do
+    output = `#{bin}/ruby -e "puts 'hello'"`
+    assert_equal "hello\n", output
+    assert_equal 0, $?.exitstatus
   end
 end
