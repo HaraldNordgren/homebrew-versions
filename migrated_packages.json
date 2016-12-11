@@ -1433,5 +1433,12 @@
     "file_without_extension": "sonar4",
     "original_filename": "sonar4.rb",
     "migrated_filename": "sonar.rb"
+  },
+  {
+    "classname_with_version": "V8315",
+    "package_at_version": "v8@315",
+    "file_without_extension": "v8-315",
+    "original_filename": "v8-315.rb",
+    "migrated_filename": "v8.rb"
   }
 ]
