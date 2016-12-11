@@ -999,5 +999,12 @@
     "file_without_extension": "gst-ffmpeg010",
     "original_filename": "gst-ffmpeg010.rb",
     "migrated_filename": "gst-ffmpeg.rb"
+  },
+  {
+    "classname_with_version": "Libgee08",
+    "package_at_version": "libgee@08",
+    "file_without_extension": "libgee08",
+    "original_filename": "libgee08.rb",
+    "migrated_filename": "libgee.rb"
   }
 ]
