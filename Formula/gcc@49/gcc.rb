@@ -28,7 +28,6 @@ class Gcc < Formula
 
   head 'svn://gcc.gnu.org/svn/gcc/trunk'
 
-  option 'enable-cxx', 'Build the g++ compiler'
   option 'enable-fortran', 'Build the gfortran compiler'
   option 'enable-java', 'Build the gcj compiler'
   option 'enable-objc', 'Enable Objective-C language support'
@@ -57,9 +56,8 @@ class Gcc < Formula
     else
       # The C compiler is always built, but additional defaults can be added
       # here.
-      languages = %w[c]
+      languages = %w[c c++]
 
-      languages << 'c++' if build.include? 'enable-cxx'
       languages << 'fortran' if build.include? 'enable-fortran'
       languages << 'java' if build.include? 'enable-java'
       languages << 'objc' if build.include? 'enable-objc'
