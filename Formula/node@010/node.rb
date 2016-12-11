@@ -5,6 +5,7 @@ class Node < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v0.10.39/node-v0.10.39.tar.gz"
   sha256 "68f8d8f9515c4e77e2a06034b742e19e9848c1fee5bcadedc1d68f3e4302df37"
+  revision 1
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
@@ -27,8 +28,8 @@ class Node < Formula
   end
 
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-2.11.3.tgz"
-    sha256 "2979f9512116537be0f91ca86a5bf02627c160ed0f5e7e696b665592acb4bd0b"
+    url "https://registry.npmjs.org/npm/-/npm-2.12.1.tgz"
+    sha256 "6b6512c6f9097da193dfe046053d6d0483b5c5658dc0a763c1ba5609b6bbc16c"
   end
 
   def install
@@ -102,13 +103,7 @@ class Node < Formula
   def caveats
     s = ""
 
-    if build.with? "npm"
-      s += <<-EOS.undent
-        If you update npm itself, do NOT use the npm update command.
-        The upstream-recommended way to update npm is:
-          npm install -g npm@latest
-      EOS
-    else
+    if build.without? "npm"
       s += <<-EOS.undent
         Homebrew has NOT installed npm. If you later install it, you should supplement
         your NODE_PATH with the npm module folder:
