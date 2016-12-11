@@ -13,6 +13,9 @@ class Phantomjs < Formula
 
   depends_on "openssl"
 
+  # https://github.com/Homebrew/homebrew/issues/42249
+  depends_on MaximumMacOSRequirement => :yosemite
+
   def install
     if MacOS.prefer_64_bit?
       inreplace "src/qt/preconfig.sh", "-arch x86", "-arch x86_64"
