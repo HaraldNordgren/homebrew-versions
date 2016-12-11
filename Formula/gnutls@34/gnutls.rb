@@ -6,6 +6,14 @@ class Gnutls < Formula
   mirror "http://mirrors.dotsrc.org/gcrypt/gnutls/v3.4/gnutls-3.4.0.tar.xz"
   sha256 "b422544431bfb5c4e24a605b6c793ee34792cc791c1060562ab46eaf77f3472e"
 
+  bottle do
+    root_url "https://homebrew.bintray.com/bottles-versions"
+    cellar :any
+    sha256 "272bcb3fc248f0f7173a8fa867e6398ff70f5fe57ed2b5affdac54a44c174ef4" => :yosemite
+    sha256 "20a2b304a5d72f8b5b52b60cc16162e35dec917d0b87b262152fe55becdd0330" => :mavericks
+    sha256 "20a9b14a422870a14ab0ef6cf6271bd1eafc63ab0983f1951b8d9cee1207f616" => :mountain_lion
+  end
+
   depends_on "pkg-config" => :build
   depends_on "libtasn1"
   depends_on "gmp"
