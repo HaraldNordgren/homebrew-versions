@@ -22,24 +22,15 @@ class Gcc < Formula
 
   desc "The GNU Compiler Collection"
   homepage "https://gcc.gnu.org"
-  url "http://ftpmirror.gnu.org/gcc/gcc-5.1.0/gcc-5.1.0.tar.bz2"
-  mirror "https://ftp.gnu.org/gnu/gcc/gcc-5.1.0/gcc-5.1.0.tar.bz2"
-  sha256 "b7dafdf89cbb0e20333dbf5b5349319ae06e3d1a30bf3515b5488f7e89dca5ad"
+  url "http://ftpmirror.gnu.org/gcc/gcc-5.2.0/gcc-5.2.0.tar.bz2"
+  mirror "https://ftp.gnu.org/gnu/gcc/gcc-5.2.0/gcc-5.2.0.tar.bz2"
+  sha256 "5f835b04b5f7dd4f4d2dc96190ec1621b8d89f2dc6f638f9f8bc1b1014ba8cad"
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
     sha256 "33062848404942474e87d51bb3dfa389d557c7a9c76f89d46741d757b8a10bd5" => :yosemite
     sha256 "d092279a7e0e069aacd09a63e4598593948400c4eb95b201912fbe08d242c4bc" => :mavericks
     sha256 "5cc7eaaab1dd29879109ccf896f91c691ba6267a997288ee526e3f21479a8f02" => :mountain_lion
-  end
-
-  if MacOS.version >= :el_capitan
-    # Fixes build with Xcode 7.
-    # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=66523
-    patch do
-      url "https://gcc.gnu.org/bugzilla/attachment.cgi?id=35773"
-      sha256 "db4966ade190fff4ed39976be8d13e84839098711713eff1d08920d37a58f5ec"
-    end
   end
 
   # GCC's Go compiler is not currently supported on Mac OS X.
