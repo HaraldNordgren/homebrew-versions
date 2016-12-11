@@ -593,5 +593,12 @@
     "file_without_extension": "ppl011",
     "original_filename": "ppl011.rb",
     "migrated_filename": "ppl.rb"
+  },
+  {
+    "classname_with_version": "Mpfr2",
+    "package_at_version": "mpfr@2",
+    "file_without_extension": "mpfr2",
+    "original_filename": "mpfr2.rb",
+    "migrated_filename": "mpfr.rb"
   }
 ]
