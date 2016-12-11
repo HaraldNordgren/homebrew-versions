@@ -19,12 +19,12 @@ class Mongodb < Formula
   depends_on "openssl" => :optional
 
   # Review this patch with each release.
-  # This modifies the SConstruct file to include 10.10 as an accepted build option.
-  if MacOS.version == :yosemite
-    patch do
-      url "https://raw.githubusercontent.com/DomT4/scripts/fbc0cda/Homebrew_Resources/Mongodb/mongoyosemite.diff"
-      sha1 "f4824e93962154aad375eb29527b3137d07f358c"
-    end
+  # This modifies the SConstruct file to include 10.10 and 10.11 as accepted build options.
+  if MacOS.version >= :yosemite
+   patch do
+     url "https://gist.githubusercontent.com/asmarques/4e4e66121dbe46a08933/raw/d6753551ff3849bf0fb5ca87c0a96e1255f4254d/mongodb26-elcapitan.diff"
+     sha256 "2f79588a8a15660908d8d071655541c9ab0ac425550b02dc454c861c75f86606"
+   end
   end
 
   def install
