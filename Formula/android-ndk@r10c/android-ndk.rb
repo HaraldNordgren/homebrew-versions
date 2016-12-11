@@ -1,5 +1,6 @@
 class AndroidNdk < Formula
   homepage "https://developer.android.com/sdk/ndk/index.html"
+  version "r10c"
 
   if MacOS.prefer_64_bit?
     url "https://dl.google.com/android/ndk/android-ndk-r10c-darwin-x86_64.bin"
@@ -9,7 +10,7 @@ class AndroidNdk < Formula
     sha256 "19a7437a047a9200e40ec52bd5144b2492db0e1b7a5381c7988e645b42bf7d74"
   end
 
-  version "r10c"
+  bottle :unneeded
 
   depends_on "android-sdk" => :recommended
 
