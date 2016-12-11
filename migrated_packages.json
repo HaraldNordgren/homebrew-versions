@@ -852,5 +852,12 @@
     "file_without_extension": "plowshare3",
     "original_filename": "plowshare3.rb",
     "migrated_filename": "plowshare.rb"
+  },
+  {
+    "classname_with_version": "Ruby186",
+    "package_at_version": "ruby@186",
+    "file_without_extension": "ruby186",
+    "original_filename": "ruby186.rb",
+    "migrated_filename": "ruby.rb"
   }
 ]
