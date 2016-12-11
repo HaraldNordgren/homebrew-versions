@@ -22,7 +22,7 @@ class Llvm < Formula
   env :std if build.universal?
 
   def install
-    if python and build.include? 'disable-shared'
+    if build.with? "python" and build.include? 'disable-shared'
       raise 'The Python bindings need the shared library.'
     end
 
@@ -59,14 +59,14 @@ class Llvm < Formula
     # Install Clang tools
     (share/"clang-#{version}/tools").install buildpath/'tools/clang/tools/scan-build', buildpath/'tools/clang/tools/scan-view' if build.with? 'clang'
 
-    if python
+    if build.with? "python"
       # Install llvm python bindings.
       mv buildpath/'bindings/python/llvm', buildpath/"bindings/python/llvm-#{version}"
-      python.site_packages.install buildpath/"bindings/python/llvm-#{version}"
+      (lib+'python2.7/site-packages').install buildpath/"bindings/python/llvm-#{version}"
       # Install clang tools and bindings if requested.
       if build.with? 'clang'
         mv buildpath/'tools/clang/bindings/python/clang', buildpath/"tools/clang/bindings/python/clang-#{version}"
-        python.site_packages.install buildpath/"tools/clang/bindings/python/clang-#{version}"
+        (lib+'python2.7/site-packages').install buildpath/"tools/clang/bindings/python/clang-#{version}"
       end
     end
 
@@ -90,17 +90,8 @@ class Llvm < Formula
   end
 
   def caveats
-    s = ''
-    s += python.standard_caveats if python
-
     if build.with? 'clang'
-      clang_tools_path = HOMEBREW_PREFIX/"share/clang-#{version}"
-      s += <<-EOS.undent
-
-      Extra tools are installed in #{clang_tools_path}.
-      EOS
+      "Extra tools are installed in #{HOMEBREW_PREFIX/"share/clang-#{version}"}."
     end
-    s
   end
-
 end
