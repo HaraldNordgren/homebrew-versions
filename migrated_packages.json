@@ -236,5 +236,12 @@
     "file_without_extension": "autoconf264",
     "original_filename": "autoconf264.rb",
     "migrated_filename": "autoconf.rb"
+  },
+  {
+    "classname_with_version": "Openssl098",
+    "package_at_version": "openssl@098",
+    "file_without_extension": "openssl098",
+    "original_filename": "openssl098.rb",
+    "migrated_filename": "openssl.rb"
   }
 ]
