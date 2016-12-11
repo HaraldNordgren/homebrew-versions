@@ -5,11 +5,10 @@ class Elasticsearch < Formula
   sha256 "dc28aa9e441cbc3282ecc9cb498bea219355887b102aac872bdf05d5977356e2"
 
   bottle do
-    root_url "https://homebrew.bintray.com/bottles-versions"
     cellar :any
-    sha256 "006b25e5ab46dda1e5cf5aa3056e6fde7bb9b4898691d12ab3e5c58326ff1178" => :yosemite
-    sha256 "9fae4f91acb8cb705cca7101628e550277bbdf37676f8408f0e7740a6c1ec6b7" => :mavericks
-    sha256 "c1c92e90c30eb09984eabd8829b43380bed03379bcb81f3f5a6273773c014d07" => :mountain_lion
+    sha256 "d2a1df0938267bcff1cfae6341392ec2d4869809e7adf868e8b3d54eb0908481" => :yosemite
+    sha256 "1d18d3bf86a1b6e17a9612d0178e12f70a68fffd0eddd0c956964226d48ef3b0" => :mavericks
+    sha256 "f3bb1bfc49b1a56ddfa485c8c032d3b39beb70cf0ed9df20c69d3dbff8a2abd2" => :mountain_lion
   end
 
   depends_on :java => "1.7+"
