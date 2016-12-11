@@ -8,9 +8,9 @@ class Bind < Formula
 
   bottle do
     root_url "https://homebrew.bintray.com/bottles-versions"
-    sha1 "f1fabf596923ebbb0791f18f80dc326aa8c630d9" => :yosemite
-    sha1 "10c2062aa87fa79f96d4e29479578cca78acea33" => :mavericks
-    sha1 "84c96a1b12f0d3293828fb2c2f2cc11653ad07d4" => :mountain_lion
+    sha1 "f6d747018fa54f5bae36b3ef9b6fae55dfd4f258" => :yosemite
+    sha1 "8dd7a6d5193a39c2ceb97f03b252007cb630127f" => :mavericks
+    sha1 "e595bafb76ca37fb8ea683e2b649a88e11a492f7" => :mountain_lion
   end
 
   depends_on "openssl"
