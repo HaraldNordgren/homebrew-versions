@@ -964,5 +964,12 @@
     "file_without_extension": "phantomjs192",
     "original_filename": "phantomjs192.rb",
     "migrated_filename": "phantomjs.rb"
+  },
+  {
+    "classname_with_version": "Bison27",
+    "package_at_version": "bison@27",
+    "file_without_extension": "bison27",
+    "original_filename": "bison27.rb",
+    "migrated_filename": "bison.rb"
   }
 ]
