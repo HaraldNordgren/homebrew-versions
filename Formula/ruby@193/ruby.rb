@@ -3,8 +3,8 @@ require 'formula'
 class Ruby < Formula
   version "193"
   homepage 'http://www.ruby-lang.org/en/'
-  url 'http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p392.tar.bz2'
-  sha256 '5a7334dfdf62966879bf539b8a9f0b889df6f3b3824fb52a9303c3c3d3a58391'
+  url 'http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p448.tar.bz2'
+  sha256 'a7372230357bfff8e4525fb8019046da521561fe66b02c25d8efc10c9877bc91'
 
   option :universal
   option 'with-suffix', 'Suffix commands with "193"'
