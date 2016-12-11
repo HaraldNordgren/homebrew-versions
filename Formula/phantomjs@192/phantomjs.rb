@@ -1,14 +1,12 @@
-require 'formula'
-
 class Phantomjs < Formula
   version "192"
-  homepage 'http://www.phantomjs.org/'
-  url 'https://phantomjs.googlecode.com/files/phantomjs-1.9.2-macosx.zip'
-  sha1 '36357dc95c0676fb4972420ad25455f49a8f3331'
+  homepage "http://www.phantomjs.org/"
+  url "https://phantomjs.googlecode.com/files/phantomjs-1.9.2-macosx.zip"
+  sha256 "85a1ddc5c5acb630abbfdc10617b5b248856d400218a9ec14872c7e1afef6698"
 
   depends_on :macos => :snow_leopard
 
   def install
-    bin.install 'bin/phantomjs'
+    bin.install "bin/phantomjs"
   end
 end
