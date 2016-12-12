@@ -16,6 +16,11 @@ class Jenkins < Formula
     bin.write_jar_script libexec/"jenkins-cli.jar", "jenkins-lts-cli"
   end
 
+  def caveats; <<-EOS.undent
+    Note: When using launchctl the port will be 8080.
+    EOS
+  end
+
   plist_options :manual => "jenkins-lts"
 
   def plist; <<-EOS.undent
@@ -41,20 +46,18 @@ class Jenkins < Formula
     EOS
   end
 
-  def caveats; <<-EOS.undent
-    Note: When using launchctl the port will be 8080.
-    EOS
-  end
-
   test do
     ENV["JENKINS_HOME"] = testpath
+    ENV.append "_JAVA_OPTIONS", "-Djava.io.tmpdir=#{testpath}"
+
     pid = fork do
       exec "#{bin}/jenkins-lts"
     end
     sleep 60
 
     begin
-      assert_match /"mode":"NORMAL"/, shell_output("curl localhost:8080/api/json")
+      output = shell_output("curl localhost:8080/")
+      assert_match(/Welcome to Jenkins!|Unlock Jenkins|Authentication required/, output)
     ensure
       Process.kill("SIGINT", pid)
       Process.wait(pid)
