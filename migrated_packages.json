@@ -1951,5 +1951,12 @@
     "file_without_extension": "gradle28",
     "original_filename": "gradle28.rb",
     "migrated_filename": "gradle.rb"
+  },
+  {
+    "classname_with_version": "Mysql56",
+    "package_at_version": "mysql@56",
+    "file_without_extension": "mysql56",
+    "original_filename": "mysql56.rb",
+    "migrated_filename": "mysql.rb"
   }
 ]
