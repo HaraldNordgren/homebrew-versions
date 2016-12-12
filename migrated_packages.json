@@ -2119,5 +2119,12 @@
     "file_without_extension": "elasticsearch22",
     "original_filename": "elasticsearch22.rb",
     "migrated_filename": "elasticsearch.rb"
+  },
+  {
+    "classname_with_version": "Logstash22",
+    "package_at_version": "logstash@22",
+    "file_without_extension": "logstash22",
+    "original_filename": "logstash22.rb",
+    "migrated_filename": "logstash.rb"
   }
 ]
