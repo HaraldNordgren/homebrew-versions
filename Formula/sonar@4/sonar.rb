@@ -1,8 +1,9 @@
 class Sonar < Formula
   version "4"
+  desc "Manage code quality"
   homepage "http://www.sonarqube.org/"
   url "http://dist.sonar.codehaus.org/sonarqube-4.5.4.zip"
-  sha1 "755d93b58d8fe88f4e7e99eb11930254128bc5c1"
+  sha256 "c72f833d290da237e967a34d6ed03d7f33c97ec90f4c0b77209dfd8a3100ae44"
 
   bottle do
     sha256 "c3a82451cb70a5411fc7c617d468637286ba21920de10ebe8a72e1ecdee329dd" => :yosemite
@@ -53,6 +54,6 @@ class Sonar < Formula
   end
 
   test do
-    assert_match /SonarQube/, pipe_output("#{bin}/sonar status")
+    assert_match "SonarQube", pipe_output("#{bin}/sonar status")
   end
 end
