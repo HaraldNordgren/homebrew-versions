@@ -1,5 +1,6 @@
 class Unison < Formula
   version "240"
+  desc "Unison file synchronizer"
   homepage "http://www.cis.upenn.edu/~bcpierce/unison/"
   url "http://www.seas.upenn.edu/~bcpierce/unison/download/releases/unison-2.40.128/unison-2.40.128.tar.gz"
   sha256 "5a1ea828786b9602f2a42c2167c9e7643aba2c1e20066be7ce46de4779a5ca54"
