@@ -2399,5 +2399,12 @@
     "file_without_extension": "kafka090",
     "original_filename": "kafka090.rb",
     "migrated_filename": "kafka.rb"
+  },
+  {
+    "classname_with_version": "Logstash24",
+    "package_at_version": "logstash@24",
+    "file_without_extension": "logstash24",
+    "original_filename": "logstash24.rb",
+    "migrated_filename": "logstash.rb"
   }
 ]
