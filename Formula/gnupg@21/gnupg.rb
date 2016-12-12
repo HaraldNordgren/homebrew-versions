@@ -5,6 +5,7 @@ class Gnupg < Formula
   url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.10.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.10.tar.bz2"
   sha256 "93bd58d81771a4fa488566e5d2e13b1fd7afc86789401eb41731882abfd26cf9"
+  revision 1
 
   bottle do
     sha256 "33867078e4d9afc6810eb0da76ee8d0b282cef574ab3875a94af3e14a6244e5d" => :el_capitan
@@ -26,16 +27,16 @@ class Gnupg < Formula
   depends_on "sqlite" => :build if MacOS.version == :mavericks
   depends_on "npth"
   depends_on "gnutls"
-  depends_on "homebrew/fuse/encfs" => :optional
   depends_on "libgpg-error"
   depends_on "libgcrypt"
   depends_on "libksba"
   depends_on "libassuan"
   depends_on "pinentry"
-  depends_on "libusb-compat" => :recommended
-  depends_on "readline" => :optional
   depends_on "gettext"
   depends_on "adns"
+  depends_on "libusb-compat" => :recommended
+  depends_on "readline" => :optional
+  depends_on "homebrew/fuse/encfs" => :optional
 
   conflicts_with "gnupg2",
         :because => "GPG2.1.x is incompatible with the 2.0.x branch."
