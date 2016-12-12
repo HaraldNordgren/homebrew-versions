@@ -2014,5 +2014,12 @@
     "file_without_extension": "gcc6",
     "original_filename": "gcc6.rb",
     "migrated_filename": "gcc.rb"
+  },
+  {
+    "classname_with_version": "Cassandra22",
+    "package_at_version": "cassandra@22",
+    "file_without_extension": "cassandra22",
+    "original_filename": "cassandra22.rb",
+    "migrated_filename": "cassandra.rb"
   }
 ]
