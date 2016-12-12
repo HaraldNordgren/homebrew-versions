@@ -124,6 +124,7 @@ class Llvm < Formula
   option "without-shared", "Don't build LLVM as a shared library"
   option "without-assertions", "Speeds up LLVM, but provides less debug information"
 
+  depends_on "gnu-sed" => :build
   depends_on "gmp"
   depends_on "libffi" => :recommended
   depends_on :python => :optional
@@ -146,6 +147,8 @@ class Llvm < Formula
   fails_with :llvm
 
   def install
+    # One of llvm makefiles relies on gnu sed behavior to generate CMake modules correctly
+    ENV.prepend_path "PATH", "#{Formula["gnu-sed"].opt_libexec}/gnubin"
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
 
@@ -270,6 +273,8 @@ class Llvm < Formula
   end
 
   test do
+    # test for sed errors since some llvm makefiles assume that sed understands '\n' which is true for gnu sed and not for bsd sed
+    assert_no_match /PATH\)n/, (lib/"llvm-3.7/share/llvm/cmake/LLVMConfig.cmake").read
     system "#{bin}/llvm-config-#{ver}", "--version"
   end
 end
