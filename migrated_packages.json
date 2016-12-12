@@ -2035,5 +2035,12 @@
     "file_without_extension": "ruby22",
     "original_filename": "ruby22.rb",
     "migrated_filename": "ruby.rb"
+  },
+  {
+    "classname_with_version": "Ansible19",
+    "package_at_version": "ansible@19",
+    "file_without_extension": "ansible19",
+    "original_filename": "ansible19.rb",
+    "migrated_filename": "ansible.rb"
   }
 ]
