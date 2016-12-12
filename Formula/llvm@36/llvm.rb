@@ -19,7 +19,7 @@ end
 
 class Llvm < Formula
   version "36"
-  desc "A modular and reusable compiler system"
+  desc "Modular and reusable compiler system"
   homepage "http://llvm.org/"
 
   stable do
@@ -95,7 +95,7 @@ class Llvm < Formula
     end
 
     resource "lld" do
-      url "http://llvm.org/git/lld.git"
+      url "http://llvm.org/git/lld.git", :branch => "release_36"
     end
 
     resource "lldb" do
@@ -112,13 +112,6 @@ class Llvm < Formula
       end
     end
   end
-
-  resource "isl" do
-    url "http://isl.gforge.inria.fr/isl-0.14.1.tar.gz"
-    sha256 "bd15d06d050a92a6720fc7e2a58022a3fd1a73c4996cc358ba50864fd5e86c35"
-  end
-
-  patch :DATA
 
   option :universal
   option "with-lld", "Build LLD linker"
@@ -141,6 +134,13 @@ class Llvm < Formula
     depends_on "swig"
     depends_on CodesignRequirement
   end
+
+  resource "isl" do
+    url "http://isl.gforge.inria.fr/isl-0.14.1.tar.gz"
+    sha256 "bd15d06d050a92a6720fc7e2a58022a3fd1a73c4996cc358ba50864fd5e86c35"
+  end
+
+  patch :DATA
 
   # version suffix
   def ver
