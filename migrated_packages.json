@@ -2112,5 +2112,12 @@
     "file_without_extension": "android-ndk-r10e",
     "original_filename": "android-ndk-r10e.rb",
     "migrated_filename": "android-ndk.rb"
+  },
+  {
+    "classname_with_version": "Elasticsearch22",
+    "package_at_version": "elasticsearch@22",
+    "file_without_extension": "elasticsearch22",
+    "original_filename": "elasticsearch22.rb",
+    "migrated_filename": "elasticsearch.rb"
   }
 ]
