@@ -2,8 +2,8 @@ class Node < Formula
   version "4-lts"
   desc "JavaScript runtime built on Chrome's V8 engine"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v4.2.6/node-v4.2.6.tar.gz"
-  sha256 "ea5e357db8817052b17496d607c719d809ed1383e8fcf7c8ffc5214e705aefdd"
+  url "https://nodejs.org/dist/v4.3.0/node-v4.3.0.tar.gz"
+  sha256 "18504ac6d903cd061f60a29dafcda416a078112f3404d23a7901c41a8e9706b9"
   head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
 
   bottle do
@@ -59,6 +59,8 @@ class Node < Formula
       ENV.prepend_path "PATH", bin
       # set log level temporarily for npm's `make install`
       ENV["NPM_CONFIG_LOGLEVEL"] = "verbose"
+      # unset prefix temporarily for npm's `make install`
+      ENV.delete "NPM_CONFIG_PREFIX"
 
       cd buildpath/"npm_install" do
         system "./configure", "--prefix=#{libexec}/npm"
