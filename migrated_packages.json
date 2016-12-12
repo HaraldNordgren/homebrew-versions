@@ -2259,5 +2259,12 @@
     "file_without_extension": "docker111",
     "original_filename": "docker111.rb",
     "migrated_filename": "docker.rb"
+  },
+  {
+    "classname_with_version": "Boost160",
+    "package_at_version": "boost@160",
+    "file_without_extension": "boost160",
+    "original_filename": "boost160.rb",
+    "migrated_filename": "boost.rb"
   }
 ]
