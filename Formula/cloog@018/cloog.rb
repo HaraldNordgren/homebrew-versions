@@ -1,5 +1,6 @@
 class Cloog < Formula
   version "018"
+  desc "Generate code for scanning Z-polyhedra"
   homepage "http://www.cloog.org/"
   # Track gcc infrastructure releases.
   url "http://www.bastoul.net/cloog/pages/download/count.php3?url=./cloog-0.18.0.tar.gz"
@@ -24,15 +25,11 @@ class Cloog < Formula
   depends_on "isl@011"
 
   def install
-    args = [
-      "--prefix=#{prefix}",
-      "--disable-dependency-tracking",
-      "--disable-silent-rules",
-      "--with-gmp-prefix=#{Formula["gmp4"].opt_prefix}",
-      "--with-isl-prefix=#{Formula["isl011"].opt_prefix}"
-    ]
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--disable-dependency-tracking",
+                          "--disable-silent-rules",
+                          "--with-gmp-prefix=#{Formula["gmp4"].opt_prefix}",
+                          "--with-isl-prefix=#{Formula["isl011"].opt_prefix}"
     system "make", "install"
   end
 
@@ -53,11 +50,7 @@ class Cloog < Formula
       0
     EOS
 
-    require "open3"
-    Open3.popen3("#{bin}/cloog", "/dev/stdin") do |stdin, stdout, _|
-      stdin.write(cloog_source)
-      stdin.close
-      assert_match /Generated from \/dev\/stdin by CLooG/, stdout.read
-    end
+    assert_match "Generated from /dev/stdin by CLooG",
+      pipe_output("#{bin}/cloog /dev/stdin", cloog_source)
   end
 end
