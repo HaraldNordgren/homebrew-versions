@@ -2,8 +2,8 @@ class Cassandra < Formula
   version "21"
   desc "Distributed key-value store"
   homepage "https://cassandra.apache.org"
-  url "https://archive.apache.org/dist/cassandra/2.1.7/apache-cassandra-2.1.7-bin.tar.gz"
-  sha256 "add1a34b8e07dacb16df6b8dbe50c66d77cb46b89f66424103e2fd4459b79089"
+  url "https://archive.apache.org/dist/cassandra/2.1.13/apache-cassandra-2.1.13-bin.tar.gz"
+  sha256 "102fffe21b1641696cbdaef0fb5a2fecf01f28da60c81a1dede06c2d8bdb6325"
 
   bottle do
     sha256 "2f587902fb5ec91721922bca36fd138ba5b323ab7da4be45bba05cab03372190" => :el_capitan
@@ -40,8 +40,8 @@ class Cassandra < Formula
   end
 
   resource "cassandra-driver" do
-    url "https://pypi.python.org/packages/source/c/cassandra-driver/cassandra-driver-2.5.1.tar.gz"
-    sha256 "98511b51f3565bf5836079ed31b7be681d5a17b5a98d1214aa64eb06e07bc18d"
+    url "https://pypi.python.org/packages/source/c/cassandra-driver/cassandra-driver-2.6.0.tar.gz"
+    sha256 "753505a02b4c6f9b5ef18dec36a13f17fb458c98925eea62c94a8839d5949717"
   end
 
   def install
