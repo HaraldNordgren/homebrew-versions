@@ -2140,5 +2140,12 @@
     "file_without_extension": "rebar3",
     "original_filename": "rebar3.rb",
     "migrated_filename": "rebar.rb"
+  },
+  {
+    "classname_with_version": "PerconaServer56",
+    "package_at_version": "percona-server@56",
+    "file_without_extension": "percona-server56",
+    "original_filename": "percona-server56.rb",
+    "migrated_filename": "percona-server.rb"
   }
 ]
