@@ -2147,5 +2147,12 @@
     "file_without_extension": "percona-server56",
     "original_filename": "percona-server56.rb",
     "migrated_filename": "percona-server.rb"
+  },
+  {
+    "classname_with_version": "Boost159",
+    "package_at_version": "boost@159",
+    "file_without_extension": "boost159",
+    "original_filename": "boost159.rb",
+    "migrated_filename": "boost.rb"
   }
 ]
