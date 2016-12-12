@@ -1,6 +1,7 @@
 require "formula"
 
 class Riak < Formula
+  desc "Distributed database"
   homepage "http://basho.com/riak/"
   url "http://s3.amazonaws.com/downloads.basho.com/riak/1.3/1.3.2/osx/10.8/riak-1.3.2-osx-x86_64.tar.gz"
   version "1.3.2"
