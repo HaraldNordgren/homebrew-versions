@@ -5,6 +5,7 @@
 # bitmask types.
 class Appledoc < Formula
   version "21"
+  desc "Objective-C API documentation generator"
   homepage "http://appledoc.gentlebytes.com/"
   url "https://github.com/tomaz/appledoc/archive/v2.1.tar.gz"
   sha256 "cfb014202bba878a72babf8bfce2d9ddb34b6226b09fa1c9742243af0118797a"
