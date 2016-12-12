@@ -1979,5 +1979,12 @@
     "file_without_extension": "elasticsearch20",
     "original_filename": "elasticsearch20.rb",
     "migrated_filename": "elasticsearch.rb"
+  },
+  {
+    "classname_with_version": "Libidn2",
+    "package_at_version": "libidn@2",
+    "file_without_extension": "libidn2",
+    "original_filename": "libidn2.rb",
+    "migrated_filename": "libidn.rb"
   }
 ]
