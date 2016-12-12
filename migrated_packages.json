@@ -1972,5 +1972,12 @@
     "file_without_extension": "llvm37",
     "original_filename": "llvm37.rb",
     "migrated_filename": "llvm.rb"
+  },
+  {
+    "classname_with_version": "Elasticsearch20",
+    "package_at_version": "elasticsearch@20",
+    "file_without_extension": "elasticsearch20",
+    "original_filename": "elasticsearch20.rb",
+    "migrated_filename": "elasticsearch.rb"
   }
 ]
