@@ -2420,5 +2420,12 @@
     "file_without_extension": "android-ndk-r12b",
     "original_filename": "android-ndk-r12b.rb",
     "migrated_filename": "android-ndk.rb"
+  },
+  {
+    "classname_with_version": "Scala211",
+    "package_at_version": "scala@211",
+    "file_without_extension": "scala211",
+    "original_filename": "scala211.rb",
+    "migrated_filename": "scala.rb"
   }
 ]
