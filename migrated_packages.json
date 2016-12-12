@@ -1937,5 +1937,12 @@
     "file_without_extension": "nifi021",
     "original_filename": "nifi021.rb",
     "migrated_filename": "nifi.rb"
+  },
+  {
+    "classname_with_version": "Elasticsearch17",
+    "package_at_version": "elasticsearch@17",
+    "file_without_extension": "elasticsearch17",
+    "original_filename": "elasticsearch17.rb",
+    "migrated_filename": "elasticsearch.rb"
   }
 ]
