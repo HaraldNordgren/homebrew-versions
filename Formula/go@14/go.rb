@@ -6,6 +6,12 @@ class Go < Formula
   version "1.4.3"
   sha256 "9947fc705b0b841b5938c48b22dc33e9647ec0752bae66e50278df4f23f64959"
 
+  bottle do
+    sha256 "95d01cdd45e3d7c3e4815429488a287a02080c9223e0c971437f920a4f7a4a83" => :el_capitan
+    sha256 "2373f1eca7b3dacad86d6f99022ca84370f183f34e0ff8be829edb2c9d3edbfd" => :yosemite
+    sha256 "ae7b1ddcec8f6ce729853b1ca52b51cbccdce696a1ea1d2bf276c09174adf1eb" => :mavericks
+  end
+
   option "with-cc-all", "Build with cross-compilers and runtime support for all supported platforms"
   option "with-cc-common", "Build with cross-compilers and runtime support for darwin, linux and windows"
   option "without-cgo", "Build without cgo"
