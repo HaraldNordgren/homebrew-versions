@@ -15,7 +15,7 @@ class Nettle < Formula
 
   depends_on "gmp"
 
-  keg_only "Conflicts with nettle in main repository and is not API compatible."
+  keg_only "Conflicts with nettle in main repository"
 
   def install
     system "./configure", "--disable-dependency-tracking",
