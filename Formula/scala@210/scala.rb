@@ -1,5 +1,6 @@
 class Scala < Formula
   version "210"
+  desc "Scala programming language"
   homepage "http://www.scala-lang.org/"
   url "http://www.scala-lang.org/files/archive/scala-2.10.5.tgz"
   sha256 "918daf7de186305ff3c47bd0e6b03e74d6648c5239c050687b57b8fac2f87eb2"
