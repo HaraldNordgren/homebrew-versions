@@ -2329,5 +2329,12 @@
     "file_without_extension": "elasticsearch23",
     "original_filename": "elasticsearch23.rb",
     "migrated_filename": "elasticsearch.rb"
+  },
+  {
+    "classname_with_version": "Gsl1",
+    "package_at_version": "gsl@1",
+    "file_without_extension": "gsl1",
+    "original_filename": "gsl1.rb",
+    "migrated_filename": "gsl.rb"
   }
 ]
