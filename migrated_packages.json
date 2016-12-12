@@ -2350,5 +2350,12 @@
     "file_without_extension": "varnish4",
     "original_filename": "varnish4.rb",
     "migrated_filename": "varnish.rb"
+  },
+  {
+    "classname_with_version": "Vim74",
+    "package_at_version": "vim@74",
+    "file_without_extension": "vim74",
+    "original_filename": "vim74.rb",
+    "migrated_filename": "vim.rb"
   }
 ]
