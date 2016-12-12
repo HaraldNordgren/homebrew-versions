@@ -1,8 +1,9 @@
 class PerconaServer < Formula
+  desc "Drop-in MySQL replacement"
   homepage "http://www.percona.com"
   url "http://www.percona.com/downloads/Percona-Server-5.5/Percona-Server-5.5.41-37.0/source/tarball/percona-server-5.5.41-37.0.tar.gz"
   version "5.5.41-37.0"
-  sha1 "74610892ba6402e8df04320db444d6dcc7cb2fe8"
+  sha256 "4de65ccbdd6c266f18339c2ea5427a15d90a8ce1ce1c7574aa2e72f685a10833"
 
   bottle do
     sha256 "eb50ddeafc7a393cd57c6dda8a14e75c3f2719d9b018293ed21b4e7a71983094" => :yosemite
@@ -10,16 +11,18 @@ class PerconaServer < Formula
     sha256 "2fff1e74f05e9679f9c995391eec856279e065d8d9c1598035b1963587b10468" => :mountain_lion
   end
 
-  depends_on "cmake" => :build
-  depends_on "readline"
-  depends_on "pidof"
-  depends_on "openssl"
-
   option :universal
   option "with-tests", "Build with unit tests"
   option "with-embedded", "Build the embedded server"
   option "with-libedit", "Compile with editline wrapper instead of readline"
-  option "enable-local-infile", "Build with local infile loading support"
+  option "with-local-infile", "Build with local infile loading support"
+
+  deprecated_option "enable-local-infile" => "with-local-infile"
+
+  depends_on "cmake" => :build
+  depends_on "readline"
+  depends_on "pidof"
+  depends_on "openssl"
 
   conflicts_with "mysql",
     :because => "percona-server55 and mysql install the same binaries."
@@ -67,7 +70,7 @@ class PerconaServer < Formula
       # PAM plugin is Linux-only at the moment
       "-DWITHOUT_AUTH_PAM=1",
       "-DWITHOUT_AUTH_PAM_COMPAT=1",
-      "-DWITHOUT_DIALOG=1"
+      "-DWITHOUT_DIALOG=1",
     ]
 
     # To enable unit testing at build, we need to download the unit testing suite
