@@ -1,9 +1,9 @@
 class Elasticsearch < Formula
   version "17"
-  desc "Distributed real-time search."
+  desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.7.3.tar.gz"
-  sha256 "af517611493374cfb2daa8897ae17e63e2efea4d0377d316baa351c1776a2bca"
+  url "https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.7.4.tar.gz"
+  sha256 "395f3417c26a6b36125f6a062c1129b454a961efea09151c692adc63562e5a94"
 
   bottle :unneeded
 
