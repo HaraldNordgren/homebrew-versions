@@ -4,6 +4,7 @@ class Lua < Formula
   homepage "http://www.lua.org/"
   url "http://www.lua.org/ftp/lua-5.3.2.tar.gz"
   sha256 "c740c7bb23a936944e1cc63b7c3c5351a8976d7867c5252c8854f7b2af9da68f"
+  revision 1
 
   bottle do
     cellar :any
