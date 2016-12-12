@@ -5,6 +5,12 @@ class Kibana < Formula
   url "https://github.com/elastic/kibana.git", :tag => "v4.2.2", :revision => "0a008cd5e312a99eeff403f9585af2d99a18758a"
   head "https://github.com/elastic/kibana.git"
 
+  bottle do
+    sha256 "a12906181ca0ee2f7e5fdf9be264a39fd316c6bf15a5568e3794766b5e1830e2" => :el_capitan
+    sha256 "efc19fef46cfecfb871df41d061b6ce0d7990659f0cd9995cc81da4d326a0734" => :yosemite
+    sha256 "3a3e79a0b5f98f506fa858dd1f71f10731f62175f1a134f65aeb6cd6a413d03e" => :mavericks
+  end
+
   resource "node" do
     url "https://nodejs.org/dist/v0.12.9/node-v0.12.9.tar.gz"
     sha256 "35daad301191e5f8dd7e5d2fbb711d081b82d1837d59837b8ee224c256cfe5e4"
