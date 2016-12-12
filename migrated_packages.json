@@ -2413,5 +2413,12 @@
     "file_without_extension": "postgresql95",
     "original_filename": "postgresql95.rb",
     "migrated_filename": "postgresql.rb"
+  },
+  {
+    "classname_with_version": "AndroidNdkR12b",
+    "package_at_version": "android-ndk@r12b",
+    "file_without_extension": "android-ndk-r12b",
+    "original_filename": "android-ndk-r12b.rb",
+    "migrated_filename": "android-ndk.rb"
   }
 ]
