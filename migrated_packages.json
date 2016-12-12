@@ -2021,5 +2021,12 @@
     "file_without_extension": "cassandra22",
     "original_filename": "cassandra22.rb",
     "migrated_filename": "cassandra.rb"
+  },
+  {
+    "classname_with_version": "Postgresql94",
+    "package_at_version": "postgresql@94",
+    "file_without_extension": "postgresql94",
+    "original_filename": "postgresql94.rb",
+    "migrated_filename": "postgresql.rb"
   }
 ]
