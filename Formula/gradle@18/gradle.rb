@@ -1,13 +1,13 @@
-require 'formula'
-
 class Gradle < Formula
   version "18"
-  homepage 'http://www.gradle.org/'
-  url 'http://services.gradle.org/distributions/gradle-1.8-bin.zip'
-  sha1 'f14299582a1ab6c1293a43697ecda4b2673e34b1'
+  homepage "https://www.gradle.org/"
+  url "https://downloads.gradle.org/distributions/gradle-1.8-bin.zip"
+  sha256 "a342bbfa15fd18e2482287da4959588f45a41b60910970a16e6d97959aea5703"
+
+  bottle :unneeded
 
   def install
     libexec.install %w[bin lib]
-    bin.install_symlink libexec+'bin/gradle'
+    bin.install_symlink libexec+"bin/gradle"
   end
 end
