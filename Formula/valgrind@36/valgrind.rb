@@ -20,7 +20,7 @@ class Valgrind < Formula
 
   patch do
     url "https://gist.githubusercontent.com/2bits/3784930/raw/dc8473c0ac5274f6b7d2eb23ce53d16bd0e2993a/patch2.diff"
-    sha1 "6e57aa087fafd178b594e22fd0e00ea7c0eed438"
+    sha256 "b381b5f5bfc544214c2d88d49066ed806596838375a9b2397abe588aaa6c2ed0"
   end if MacOS.version == :lion
 
   def install
