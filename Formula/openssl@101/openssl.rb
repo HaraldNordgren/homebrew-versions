@@ -1,9 +1,9 @@
 class Openssl < Formula
   version "101"
-  desc "OpenSSL SSL/TLS cryptography library"
+  desc "SSL/TLS cryptography library"
   homepage "https://openssl.org"
-  url "https://www.openssl.org/source/openssl-1.0.1p.tar.gz"
-  sha256 "bd5ee6803165c0fb60bbecbacacf244f1f90d2aa0d71353af610c29121e9b2f1"
+  url "https://www.openssl.org/source/openssl-1.0.1q.tar.gz"
+  sha256 "b3658b84e9ea606a5ded3c972a5517cd785282e7ea86b20c78aa4b773a047fb7"
 
   bottle do
     sha256 "0713e1db2896db21b0893c12dc156e89d6c25bcec781538d28793d74c94caee8" => :yosemite
