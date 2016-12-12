@@ -1,19 +1,18 @@
-require 'formula'
-
 class Postgis < Formula
   version "15"
-  homepage 'http://postgis.refractions.net'
-  url 'http://download.osgeo.org/postgis/source/postgis-1.5.8.tar.gz'
-  sha1 'a3637851ba9dd4f29576c9dc60254e9f53abc559'
+  desc "Adds support for geographic objects to PostgreSQL"
+  homepage "http://postgis.refractions.net"
+  url "http://download.osgeo.org/postgis/source/postgis-1.5.8.tar.gz"
+  sha256 "4896fdae2f814b88c3ca458b7d01d7eca7e9aca021599c817919f131a1b0d804"
 
   keg_only "Conflicts with postgis in main repository."
 
-  option 'with-gui', 'Build sh2pgsql-gui in addition to CLI tools'
+  option "with-gui", "Build sh2pgsql-gui in addition to CLI tools"
 
-  depends_on 'postgresql@9'
-  depends_on 'proj'
-  depends_on 'geos'
-  depends_on 'gtk+' if build.with? 'gui'
+  depends_on "postgresql@9"
+  depends_on "proj"
+  depends_on "geos"
+  depends_on "gtk+" if build.with? "gui"
 
   def install
     ENV.deparallelize
@@ -27,12 +26,12 @@ class Postgis < Formula
       # This is against Homebrew guidelines, but we have to do it as the
       # PostGIS plugin libraries can only be properly inserted into Homebrew's
       # Postgresql keg.
-      "--with-pgconfig=#{postgresql.bin}/pg_config"
+      "--with-pgconfig=#{postgresql.bin}/pg_config",
     ]
-    args << '--with-gui' if build.with? 'gui'
+    args << "--with-gui" if build.with? "gui"
 
-    system './configure', *args
-    system 'make'
+    system "./configure", *args
+    system "make"
 
     # __DON'T RUN MAKE INSTALL!__
     #
@@ -45,17 +44,17 @@ class Postgis < Formula
     # Install PostGIS plugin libraries into the Postgres keg so that they can
     # be loaded and so PostGIS databases will continue to function even if
     # PostGIS is removed.
-    postgresql.lib.install Dir['postgis/postgis*.so']
+    postgresql.lib.install Dir["postgis/postgis*.so"]
 
     # Stand-alone SQL files will be installed the share folder
-    postgis_sql = share + 'postgis'
+    postgis_sql = share + "postgis"
 
     bin.install %w[
       loader/pgsql2shp
       loader/shp2pgsql
       utils/new_postgis_restore.pl
     ]
-    bin.install 'loader/shp2pgsql-gui' if build.with? 'gui'
+    bin.install "loader/shp2pgsql-gui" if build.with? "gui"
 
     # Install PostGIS 1.x upgrade scripts
     postgis_sql.install %w[
@@ -84,7 +83,7 @@ class Postgis < Formula
     ]
   end
 
-  def caveats;
+  def caveats
     postgresql = Formula["postgresql9"]
 
     <<-EOS.undent
