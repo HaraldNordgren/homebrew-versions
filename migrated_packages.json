@@ -2007,5 +2007,12 @@
     "file_without_extension": "kibana42",
     "original_filename": "kibana42.rb",
     "migrated_filename": "kibana.rb"
+  },
+  {
+    "classname_with_version": "Gcc6",
+    "package_at_version": "gcc@6",
+    "file_without_extension": "gcc6",
+    "original_filename": "gcc6.rb",
+    "migrated_filename": "gcc.rb"
   }
 ]
