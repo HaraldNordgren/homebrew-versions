@@ -2,8 +2,8 @@ class Postgresql < Formula
   version "93"
   desc "Object-relational database system"
   homepage "http://www.postgresql.org/"
-  url "http://ftp.postgresql.org/pub/source/v9.3.9/postgresql-9.3.9.tar.bz2"
-  sha256 "f73bd0ec2028511732430beb22414a022d2114231366e8cbe78c149793910549"
+  url "https://ftp.postgresql.org/pub/source/v9.3.11/postgresql-9.3.11.tar.bz2"
+  sha256 "3d222a90c941d3a6c02c7c749fc9eb54ff20a1166570459d09c5476743496a21"
 
   bottle do
     sha256 "70ea1f08bfc9b37df07074e103726a0f4ca13a28898bc849f09556b8ceca732c" => :yosemite
@@ -39,6 +39,9 @@ class Postgresql < Formula
 
   def install
     ENV.libxml2 if MacOS.version >= :snow_leopard
+
+  ENV.prepend "LDFLAGS", "-L#{Formula["openssl"].opt_lib} -L#{Formula["readline"].opt_lib}"
+  ENV.prepend "CPPFLAGS", "-I#{Formula["openssl"].opt_include} -I#{Formula["readline"].opt_include}"
 
     args = %W[
       --disable-debug
