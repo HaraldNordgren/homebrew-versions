@@ -1,15 +1,11 @@
 class Elasticsearch < Formula
   version "0.20"
+  desc "Distributed real-time search & analytics engine for the cloud"
   homepage "https://www.elastic.co/products/elasticsearch"
   url "https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-0.20.6.tar.gz"
   sha256 "534b9fdb2fa9031f539b19cc4cfc1345bbbb013a285a21105ca87348b96b3389"
 
-  bottle do
-    cellar :any
-    sha256 "03e039c3fee2e353a249dfa81949b4a0bcd8b3d71141a49f6bbc6e2273947d76" => :yosemite
-    sha256 "5e1d0bf4f521ef49b1b224e26ced2dd5130bf05d67d7c5a6582e10a18839e70e" => :mavericks
-    sha256 "45fabce6fab8381dfbdc0f42ad9478b5f84fef7fcb86b4b82bcb35d5623896b8" => :mountain_lion
-  end
+  bottle :unneeded
 
   def cluster_name
     "elasticsearch_#{ENV["USER"]}"
@@ -58,6 +54,13 @@ class Elasticsearch < Formula
     end
   end
 
+  def post_install
+    # Make sure runtime directories exist
+    (var/"elasticsearch/#{cluster_name}").mkpath
+    (var/"log/elasticsearch").mkpath
+    (var/"lib/elasticsearch/plugins").mkpath
+  end
+
   def caveats; <<-EOS.undent
     Data:    #{var}/elasticsearch/#{cluster_name}/
     Logs:    #{var}/log/elasticsearch/#{cluster_name}.log
@@ -65,7 +68,7 @@ class Elasticsearch < Formula
     EOS
   end
 
-  plist_options :manual => "elasticsearch -f -D es.config=#{HOMEBREW_PREFIX}/opt/elasticsearch/config/elasticsearch.yml"
+  plist_options :manual => "elasticsearch -f -D es.config=#{HOMEBREW_PREFIX}/opt/elasticsearch-0.20/config/elasticsearch.yml"
 
   def plist; <<-EOS.undent
       <?xml version="1.0" encoding="UTF-8"?>
