@@ -2266,5 +2266,12 @@
     "file_without_extension": "boost160",
     "original_filename": "boost160.rb",
     "migrated_filename": "boost.rb"
+  },
+  {
+    "classname_with_version": "Bazel02",
+    "package_at_version": "bazel@02",
+    "file_without_extension": "bazel02",
+    "original_filename": "bazel02.rb",
+    "migrated_filename": "bazel.rb"
   }
 ]
