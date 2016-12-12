@@ -1,8 +1,10 @@
 class Hdf < Formula
   version "4"
+  desc "HDF version 4"
   homepage "http://www.hdfgroup.org"
   url "http://www.hdfgroup.org/ftp/HDF/releases/HDF4.2.11/src/hdf-4.2.11.tar.bz2"
   sha256 "bb0e900b8cc6bc89a5730abc97e654e7705e8e1fbc4e0d4477f417822428d99b"
+  revision 1
 
   bottle do
     sha256 "8ba0e3973461d87e378cebcfef7d6d73ceb49a999e47d8c19bd083f4f9d8cacf" => :yosemite
@@ -44,6 +46,7 @@ class Hdf < Formula
 
       # Remove stray ncdump executable as it conflicts with NetCDF.
       rm (bin+"ncdump")
+      rm (bin+"ncgen")
     end
   end
 
