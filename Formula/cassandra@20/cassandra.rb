@@ -5,6 +5,8 @@ class Cassandra < Formula
   url "https://archive.apache.org/dist/cassandra/2.0.11/apache-cassandra-2.0.11-bin.tar.gz"
   sha256 "f74c94e63c9dcb0cef6b627ea80ee0ad86da46ad7e7318bc6adf6821861d286b"
 
+  bottle :unneeded
+
   def install
     (var/"lib/cassandra").mkpath
     (var/"log/cassandra").mkpath
