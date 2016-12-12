@@ -1986,5 +1986,12 @@
     "file_without_extension": "libidn2",
     "original_filename": "libidn2.rb",
     "migrated_filename": "libidn.rb"
+  },
+  {
+    "classname_with_version": "Kettle54",
+    "package_at_version": "kettle@54",
+    "file_without_extension": "kettle54",
+    "original_filename": "kettle54.rb",
+    "migrated_filename": "kettle.rb"
   }
 ]
