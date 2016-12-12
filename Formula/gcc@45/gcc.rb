@@ -57,6 +57,10 @@ class Gcc < Formula
   depends_on "cloog-ppl@015"
   depends_on "ecj" if build.with?("java") || build.with?("all-languages")
 
+  # If someone wants to try and fix this, feel free to file a PR. Thanks!
+  # https://github.com/Homebrew/homebrew-versions/issues/1093
+  depends_on MaximumMacOSRequirement => :yosemite
+
   # Fix libffi for ppc, from MacPorts
   patch :p0 do
     url "https://trac.macports.org/export/110576/trunk/dports/lang/gcc45/files/ppc_fde_encoding.diff"
