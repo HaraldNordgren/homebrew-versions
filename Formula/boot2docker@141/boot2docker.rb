@@ -1,5 +1,6 @@
 class Boot2docker < Formula
   version "141"
+  desc "Lightweight Linux for Docker"
   homepage "https://github.com/boot2docker/boot2docker-cli"
   url "https://github.com/boot2docker/boot2docker-cli.git", :tag => "v1.4.1"
   head "https://github.com/boot2docker/boot2docker-cli.git"
