@@ -2084,5 +2084,12 @@
     "file_without_extension": "apache-spark15",
     "original_filename": "apache-spark15.rb",
     "migrated_filename": "apache-spark.rb"
+  },
+  {
+    "classname_with_version": "Go15",
+    "package_at_version": "go@15",
+    "file_without_extension": "go15",
+    "original_filename": "go15.rb",
+    "migrated_filename": "go.rb"
   }
 ]
