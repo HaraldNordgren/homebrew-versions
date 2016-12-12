@@ -2287,5 +2287,12 @@
     "file_without_extension": "clang-format38",
     "original_filename": "clang-format38.rb",
     "migrated_filename": "clang-format.rb"
+  },
+  {
+    "classname_with_version": "Spidermonkey45",
+    "package_at_version": "spidermonkey@45",
+    "file_without_extension": "spidermonkey45",
+    "original_filename": "spidermonkey45.rb",
+    "migrated_filename": "spidermonkey.rb"
   }
 ]
