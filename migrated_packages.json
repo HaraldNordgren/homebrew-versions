@@ -2434,5 +2434,12 @@
     "file_without_extension": "eigen32",
     "original_filename": "eigen32.rb",
     "migrated_filename": "eigen.rb"
+  },
+  {
+    "classname_with_version": "KubernetesCli13",
+    "package_at_version": "kubernetes-cli@13",
+    "file_without_extension": "kubernetes-cli13",
+    "original_filename": "kubernetes-cli13.rb",
+    "migrated_filename": "kubernetes-cli.rb"
   }
 ]
