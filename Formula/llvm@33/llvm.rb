@@ -1,35 +1,36 @@
 class Llvm < Formula
   version "33"
-  homepage  'http://llvm.org/'
+  desc "Next-gen compiler infrastructure"
+  homepage "http://llvm.org/"
   revision 1
 
   stable do
-    url 'http://llvm.org/releases/3.3/llvm-3.3.src.tar.gz'
-    sha1 'c6c22d5593419e3cb47cbcf16d967640e5cce133'
+    url "http://llvm.org/releases/3.3/llvm-3.3.src.tar.gz"
+    sha256 "68766b1e70d05a25e2f502e997a3cb3937187a3296595cf6e0977d5cd6727578"
 
-    resource 'clang' do
-      url 'http://llvm.org/releases/3.3/cfe-3.3.src.tar.gz'
-      sha1 'ccd6dbf2cdb1189a028b70bcb8a22509c25c74c8'
+    resource "clang" do
+      url "http://llvm.org/releases/3.3/cfe-3.3.src.tar.gz"
+      sha256 "b1b55de4ab3a57d3e0331a83e0284610191c77d924e3446498d9113d08dfb996"
     end
 
-    resource 'clang-tools-extra' do
-      url 'http://llvm.org/releases/3.3/clang-tools-extra-3.3.src.tar.gz'
-      sha1 '6f7af9ba8014f7e286a02e4ae2e3f2017b8bfac2'
+    resource "clang-tools-extra" do
+      url "http://llvm.org/releases/3.3/clang-tools-extra-3.3.src.tar.gz"
+      sha256 "728210c389dd03b8dd4d7a81c41a973c971d52c25b2f9b8996eb701ee8daf998"
     end
 
-    resource 'compiler-rt' do
-      url 'http://llvm.org/releases/3.3/compiler-rt-3.3.src.tar.gz'
-      sha1 '745386ec046e3e49742e1ecb6912c560ccd0a002'
+    resource "compiler-rt" do
+      url "http://llvm.org/releases/3.3/compiler-rt-3.3.src.tar.gz"
+      sha256 "0e2f3180d6316e6c43f064fdd406c5c6515e682c5f31c57c28335b68c7525423"
     end
 
-    resource 'polly' do
-      url 'http://llvm.org/releases/3.3/polly-3.3.src.tar.gz'
-      sha1 'eb75f5674fedf77425d16c9c0caec04961f03e04'
+    resource "polly" do
+      url "http://llvm.org/releases/3.3/polly-3.3.src.tar.gz"
+      sha256 "89e1f0b510a2cd02c4a0ed447bc68fb93229a7a9dbcd587c882596fc5a09c413"
     end
 
-    resource 'libcxx' do
-      url 'http://llvm.org/releases/3.3/libcxx-3.3.src.tar.gz'
-      sha1 '7bea00bc1031bf3bf6c248e57c1f4e0874c18c04'
+    resource "libcxx" do
+      url "http://llvm.org/releases/3.3/libcxx-3.3.src.tar.gz"
+      sha256 "c403ed18d2992719c794cdd760dc87a948b62a7c2a07beb39eb984dfeb1679f1"
     end
   end
 
@@ -41,38 +42,38 @@ class Llvm < Formula
   end
 
   head do
-    url 'http://llvm.org/git/llvm.git', :branch => 'release_33'
+    url "http://llvm.org/git/llvm.git", :branch => "release_33"
 
-    resource 'clang' do
-      url 'http://llvm.org/git/clang.git', :branch => 'release_33'
+    resource "clang" do
+      url "http://llvm.org/git/clang.git", :branch => "release_33"
     end
 
-    resource 'clang-tools-extra' do
-      url 'http://llvm.org/git/clang-tools-extra.git', :branch => 'release_33'
+    resource "clang-tools-extra" do
+      url "http://llvm.org/git/clang-tools-extra.git", :branch => "release_33"
     end
 
-    resource 'compiler-rt' do
-      url 'http://llvm.org/git/compiler-rt.git', :branch => 'release_33'
+    resource "compiler-rt" do
+      url "http://llvm.org/git/compiler-rt.git", :branch => "release_33"
     end
 
-    resource 'polly' do
-      url 'http://llvm.org/git/polly.git', :branch => 'release_33'
+    resource "polly" do
+      url "http://llvm.org/git/polly.git", :branch => "release_33"
     end
 
-    resource 'libcxx' do
-      url 'http://llvm.org/git/libcxx.git', :branch => 'release_33'
+    resource "libcxx" do
+      url "http://llvm.org/git/libcxx.git", :branch => "release_33"
     end
   end
 
   if MacOS.version <= :snow_leopard
     # Not tarball release for libc++abi yet. Using latest branch.
-    resource 'libcxxabi' do
-      url 'http://llvm.org/git/libcxxabi.git', :branch => 'release_32'
+    resource "libcxxabi" do
+      url "http://llvm.org/git/libcxxabi.git", :branch => "release_32"
     end
 
-    resource 'clang-unwind-patch' do
-      url 'http://llvm.org/viewvc/llvm-project/cfe/trunk/lib/Headers/unwind.h?r1=172666&r2=189535&view=patch', :using => :nounzip
-      sha1 'b40f6dba4928add36945c50e5b89ca0988147cd2'
+    resource "clang-unwind-patch" do
+      url "http://llvm.org/viewvc/llvm-project/cfe/trunk/lib/Headers/unwind.h?r1=172666&r2=189535&view=patch", :using => :nounzip
+      sha1 "b40f6dba4928add36945c50e5b89ca0988147cd2"
     end
   end
 
@@ -81,17 +82,24 @@ class Llvm < Formula
   patch :DATA
 
   option :universal
-  option 'with-asan', 'Include support for -faddress-sanitizer (from compiler-rt)'
-  option 'disable-shared', "Don't build LLVM as a shared library"
-  option 'all-targets', 'Build all target backends'
-  option 'disable-assertions', 'Speeds up LLVM, but provides less debug information'
+  option "with-asan", "Include support for -faddress-sanitizer (from compiler-rt)"
+  option "without-shared", "Don't build LLVM as a shared library"
+  option "with-all-targets", "Build all target backends"
+  option "without-assertions", "Speeds up LLVM, but provides less debug information"
 
-  depends_on 'gmp@4'
-  depends_on 'isl@011'
-  depends_on 'cloog@018'
-  depends_on 'libffi' => :recommended
+  deprecated_option "disable-shared" => "without-shared"
+  deprecated_option "all-targets" => "with-all-targets"
+  deprecated_option "disable-assertions" => "without-assertions"
 
-  def ver; '3.3'; end # version suffix
+  depends_on "gmp@4"
+  depends_on "isl@011"
+  depends_on "cloog@018"
+  depends_on "libffi" => :recommended
+
+  # version suffix
+  def ver
+    "3.3"
+  end
 
   # LLVM installs its own standard library which confuses stdlib checking.
   cxxstdlib_check :skip
@@ -108,7 +116,7 @@ class Llvm < Formula
     (buildpath/"projects/compiler-rt").install resource("compiler-rt") if build.with? "asan"
 
     if MacOS.version <= :snow_leopard
-      buildpath.install resource('clang-unwind-patch')
+      buildpath.install resource("clang-unwind-patch")
       cd clang_buildpath do
         system "patch -p2 -N < #{buildpath}/unwind.h"
       end
@@ -116,11 +124,11 @@ class Llvm < Formula
 
     if build.universal?
       ENV.permit_arch_flags
-      ENV['UNIVERSAL'] = '1'
-      ENV['UNIVERSAL_ARCH'] = Hardware::CPU.universal_archs.join(' ')
+      ENV["UNIVERSAL"] = "1"
+      ENV["UNIVERSAL_ARCH"] = Hardware::CPU.universal_archs.join(" ")
     end
 
-    ENV['REQUIRES_RTTI'] = '1'
+    ENV["REQUIRES_RTTI"] = "1"
 
     install_prefix = lib/"llvm-#{ver}"
 
@@ -130,35 +138,35 @@ class Llvm < Formula
       "--disable-bindings",
       "--with-gmp=#{Formula["gmp4"].opt_prefix}",
       "--with-isl=#{Formula["isl011"].opt_prefix}",
-      "--with-cloog=#{Formula["cloog018"].opt_prefix}"
+      "--with-cloog=#{Formula["cloog018"].opt_prefix}",
     ]
 
-    if build.include? 'all-targets'
-      args << '--enable-targets=all'
+    if build.include? "all-targets"
+      args << "--enable-targets=all"
     else
-      args << '--enable-targets=host'
+      args << "--enable-targets=host"
     end
 
-    args << "--enable-shared" unless build.include? 'disable-shared'
+    args << "--enable-shared" unless build.include? "disable-shared"
 
-    args << "--disable-assertions" if build.include? 'disable-assertions'
+    args << "--disable-assertions" if build.include? "disable-assertions"
 
-    args << "--enable-libffi" if build.with? 'libffi'
+    args << "--enable-libffi" if build.with? "libffi"
 
-    system './configure', *args
-    system 'make', 'VERBOSE=1'
-    system 'make', 'VERBOSE=1', 'install'
+    system "./configure", *args
+    system "make", "VERBOSE=1"
+    system "make", "VERBOSE=1", "install"
 
     if MacOS.version <= :snow_leopard
       libcxxabi_buildpath.install resource("libcxxabi")
 
-      cd libcxxabi_buildpath/'lib' do
+      cd libcxxabi_buildpath/"lib" do
         # Set rpath to save user from setting DYLD_LIBRARY_PATH
         inreplace "buildit", "-install_name /usr/lib/libc++abi.dylib", "-install_name #{install_prefix}/usr/lib/libc++abi.dylib"
 
-        ENV['CC'] = "#{install_prefix}/bin/clang"
-        ENV['CXX'] = "#{install_prefix}/bin/clang++"
-        ENV['TRIPLE'] = "*-apple-*"
+        ENV["CC"] = "#{install_prefix}/bin/clang"
+        ENV["CXX"] = "#{install_prefix}/bin/clang++"
+        ENV["TRIPLE"] = "*-apple-*"
         system "./buildit"
         (install_prefix/"usr/lib").install "libc++abi.dylib"
         cp libcxxabi_buildpath/"include/cxxabi.h", install_prefix/"lib/c++/v1"
@@ -188,7 +196,7 @@ class Llvm < Formula
       "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}",
       # The following flags are needed so it can be installed correctly.
       "DSTROOT=#{install_prefix}",
-      "SYMROOT=#{libcxx_buildpath}"
+      "SYMROOT=#{libcxx_buildpath}",
     ]
 
     system "make", "-C", libcxx_buildpath, "install", *libcxx_make_args
@@ -196,21 +204,17 @@ class Llvm < Formula
     (share/"clang-#{ver}/tools").install Dir["tools/clang/tools/scan-{build,view}"]
 
     (lib/"python2.7/site-packages").install "bindings/python/llvm" => "llvm-#{ver}",
-      clang_buildpath/"bindings/python/clang" => "clang-#{ver}"
+                                            clang_buildpath/"bindings/python/clang" => "clang-#{ver}"
 
-    Dir.glob(install_prefix/'bin/*') do |exec_path|
+    Dir.glob(install_prefix/"bin/*") do |exec_path|
       basename = File.basename(exec_path)
       bin.install_symlink exec_path => "#{basename}-#{ver}"
     end
 
-    Dir.glob(install_prefix/'share/man/man1/*') do |manpage|
+    Dir.glob(install_prefix/"share/man/man1/*") do |manpage|
       basename = File.basename(manpage, ".1")
       man1.install_symlink manpage => "#{basename}-#{ver}.1"
     end
-  end
-
-  test do
-    system "#{bin}/llvm-config-#{ver}", "--version"
   end
 
   def caveats; <<-EOS.undent
@@ -221,6 +225,10 @@ class Llvm < Formula
       CXXFLAGS="$CXXFLAGS -nostdinc++ -I#{opt_lib}/llvm-#{ver}/lib/c++/v1"
       LDFLAGS="$LDFLAGS -L#{opt_lib}/llvm-#{ver}/lib"
     EOS
+  end
+
+  test do
+    system "#{bin}/llvm-config-#{ver}", "--version"
   end
 end
 
