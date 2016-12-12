@@ -2357,5 +2357,12 @@
     "file_without_extension": "vim74",
     "original_filename": "vim74.rb",
     "migrated_filename": "vim.rb"
+  },
+  {
+    "classname_with_version": "Node6Lts",
+    "package_at_version": "node@6-lts",
+    "file_without_extension": "node6-lts",
+    "original_filename": "node6-lts.rb",
+    "migrated_filename": "node.rb"
   }
 ]
