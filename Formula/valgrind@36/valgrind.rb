@@ -1,14 +1,13 @@
-require 'formula'
-
 class Valgrind < Formula
   version "36"
-  homepage 'http://www.valgrind.org/'
+  desc "High-performance HTTP accelerator"
+  homepage "http://www.valgrind.org/"
   url "http://valgrind.org/downloads/valgrind-3.6.1.tar.bz2"
-  sha1 "6116ddca2708f56e0a2851bdfbe88e01906fa300"
+  sha256 "49bdcc4fbcf060049b5f0dcfd8a187a6e90e0b0e57309f633b64e44430726a0e"
 
   # Valgrind needs vcpreload_core-*-darwin.so to have execute permissions.
   # See #2150 for more information.
-  skip_clean 'lib/valgrind'
+  skip_clean "lib/valgrind"
 
   # 1: For Xcode-only systems, we have to patch hard-coded paths, use xcrun &
   #    add missing CFLAGS. See: https://bugs.kde.org/show_bug.cgi?id=295084
@@ -16,7 +15,7 @@ class Valgrind < Formula
   #    https://bugs.kde.org/show_bug.cgi?id=307415
   patch do
     url "https://gist.githubusercontent.com/2bits/3784836/raw/f046191e72445a2fc8491cb6aeeabe84517687d9/patch1.diff"
-    sha1 "a2252d977302a37873b0f2efe8aa4a4fed2eb2c2"
+    sha256 "1e50a732c695303ca2edab4d423c4c3ff77d54cf64d358bac65297491a587731"
   end
 
   patch do
@@ -36,8 +35,8 @@ class Valgrind < Formula
     end
 
     system "./configure", *args
-    system 'make'
-    system "make install"
+    system "make"
+    system "make", "install"
   end
 
   test do
