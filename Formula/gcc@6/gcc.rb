@@ -25,6 +25,12 @@ class Gcc < Formula
   url "ftp://gcc.gnu.org/pub/gcc/snapshots/6-20160103/gcc-6-20160103.tar.bz2"
   sha256 "1a5cd4a08b8579ebbab7667c1ebc01a51958a64cf1898720db28c6b8cd69155e"
 
+  bottle do
+    sha256 "ab63809a743630e5fc3a2afc9a6234d647e811cde0b6996c4a64ed2708473c58" => :el_capitan
+    sha256 "a276396207e1a6d837a14b696690b91e292819133b5d218ba24d4377ad0d5c80" => :yosemite
+    sha256 "be5d06edd18070bcab3e1a1751f846c41c5ee80a54745701797d0b588e4f04de" => :mavericks
+  end
+
   # GCC's Go compiler is not currently supported on Mac OS X.
   # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=46986
   option "with-fortran", "Build the gfortran compiler"
