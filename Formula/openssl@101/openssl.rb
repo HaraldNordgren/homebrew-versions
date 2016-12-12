@@ -2,8 +2,10 @@ class Openssl < Formula
   version "101"
   desc "SSL/TLS cryptography library"
   homepage "https://openssl.org"
-  url "https://www.openssl.org/source/openssl-1.0.1q.tar.gz"
-  sha256 "b3658b84e9ea606a5ded3c972a5517cd785282e7ea86b20c78aa4b773a047fb7"
+  url "https://www.openssl.org/source/openssl-1.0.1r.tar.gz"
+  mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.1r.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.1r.tar.gz"
+  sha256 "784bd8d355ed01ce98b812f873f8b2313da61df7c7b5677fcf2e57b0863a3346"
 
   bottle do
     sha256 "c43da2bf17fc2fc71033c59a76b55b3d38dc926ac66eb6b5ecbe83810f4ed982" => :el_capitan
@@ -11,18 +13,20 @@ class Openssl < Formula
     sha256 "619bfd8daee79375ec08391f8841bd075c173b91f14269e94058b443ee26e713" => :mavericks
   end
 
-  option :universal
-  option "without-check", "Skip build-time tests (not recommended)"
-
-  depends_on "makedepend" => :build
-
   keg_only :provided_by_osx,
     "Apple has deprecated use of OpenSSL in favor of its own TLS and crypto libraries"
+
+  option :universal
+  option "without-test", "Skip build-time tests (not recommended)"
+
+  deprecated_option "without-check" => "without-test"
+
+  depends_on "makedepend" => :build
 
   def arch_args
     {
       :x86_64 => %w[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128],
-      :i386   => %w[darwin-i386-cc]
+      :i386   => %w[darwin-i386-cc],
     }
   end
 
@@ -63,7 +67,7 @@ class Openssl < Formula
       system "make", "depend"
       system "make"
 
-      if (MacOS.prefer_64_bit? || arch == MacOS.preferred_arch) && build.with?("check")
+      if (MacOS.prefer_64_bit? || arch == MacOS.preferred_arch) && build.with?("test")
         system "make", "test"
       end
 
@@ -137,10 +141,9 @@ class Openssl < Formula
   end
 
   test do
-    # Check OpenSSL itself functions as expected.
     (testpath/"testfile.txt").write("This is a test file")
-    expected_checksum = "91b7b0b1e27bfbf7bc646946f35fa972c47c2d32"
-    system "#{bin}/openssl", "dgst", "-sha1", "-out", "checksum.txt", "testfile.txt"
+    expected_checksum = "e2d0fe1585a63ec6009c8016ff8dda8b17719a637405a4e23c0ff81339148249"
+    system "#{bin}/openssl", "dgst", "-sha256", "-out", "checksum.txt", "testfile.txt"
     open("checksum.txt") do |f|
       checksum = f.read(100).split("=").last.strip
       assert_equal checksum, expected_checksum
