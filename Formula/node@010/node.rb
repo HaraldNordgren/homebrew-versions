@@ -3,8 +3,8 @@ class Node < Formula
   version "010"
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v0.10.41/node-v0.10.41.tar.gz"
-  sha256 "79f694e2a5c42543b75d0c69f6860499d7593136d0f6b59e7163b9e66fb2c995"
+  url "https://nodejs.org/dist/v0.10.42/node-v0.10.42.tar.gz"
+  sha256 "ebc1d53698f80c5a7b0b948e1108d7858f93d2d9ebf4541c12688d85704de105"
   head "https://github.com/nodejs/node.git", :branch => "v0.10-staging"
 
   bottle do
@@ -56,9 +56,16 @@ class Node < Formula
       # set log level temporarily for npm's `make install`
       ENV["NPM_CONFIG_LOGLEVEL"] = "verbose"
 
+      # unset prefix temporarily for npm's `make install`
+      ENV.delete "NPM_CONFIG_PREFIX"
+
       cd buildpath/"npm_install" do
         system "./configure", "--prefix=#{libexec}/npm"
         system "make", "install"
+        # Remove manpage symlinks from the buildpath, they are breaking bottle
+        # creation. The real manpages are living in libexec/npm/lib/node_modules/npm/man/
+        # https://github.com/Homebrew/homebrew/pull/47081#issuecomment-165280470
+        rm_rf libexec/"npm/share/"
       end
 
       if build.with? "completion"
