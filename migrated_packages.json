@@ -2308,5 +2308,12 @@
     "file_without_extension": "srtp15",
     "original_filename": "srtp15.rb",
     "migrated_filename": "srtp.rb"
+  },
+  {
+    "classname_with_version": "ApacheSpark16",
+    "package_at_version": "apache-spark@16",
+    "file_without_extension": "apache-spark16",
+    "original_filename": "apache-spark16.rb",
+    "migrated_filename": "apache-spark.rb"
   }
 ]
