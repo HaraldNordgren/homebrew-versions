@@ -1,5 +1,6 @@
 class Raptor < Formula
   version "1"
+  desc "RDF parser toolkit"
   homepage "http://librdf.org/raptor/"
   url "http://download.librdf.org/source/raptor-1.4.21.tar.gz"
   mirror "https://mirrors.kernel.org/debian/pool/main/r/raptor/raptor_1.4.21.orig.tar.gz"
