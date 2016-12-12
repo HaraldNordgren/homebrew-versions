@@ -20,6 +20,7 @@ end
 
 class Cmake < Formula
   version "30"
+  desc "Cross-platform make"
   homepage "http://www.cmake.org/"
   url "http://www.cmake.org/files/v3.0/cmake-3.0.2.tar.gz"
   sha256 "6b4ea61eadbbd9bec0ccb383c29d1f4496eacc121ef7acf37c7a24777805693e"
