@@ -4,7 +4,7 @@ class Lua < Formula
   homepage "http://www.lua.org/"
   url "http://www.lua.org/ftp/lua-5.3.2.tar.gz"
   sha256 "c740c7bb23a936944e1cc63b7c3c5351a8976d7867c5252c8854f7b2af9da68f"
-  revision 1
+  revision 2
 
   bottle do
     cellar :any
@@ -64,7 +64,7 @@ class Lua < Formula
       (lib/"pkgconfig").install_symlink "lua5.3.pc" => "lua-5.3.pc"
 
       # Patches the pkg-config file to find the correct lib names
-      inreplace lib/"pkgconfig/lua5.3.pc", "Libs: -L${libdir} -llua -lm", "Libs: -L${libdir} -llua5.3 -lm"
+      inreplace lib/"pkgconfig/lua5.3.pc", "Libs: -L${libdir} -llua -lm", "Libs: -L${libdir} -llua.5.3 -lm"
     end
 
     # This resource must be handled after the main install, since there's a lua dep.
