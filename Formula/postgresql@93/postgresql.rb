@@ -6,9 +6,9 @@ class Postgresql < Formula
   sha256 "3d222a90c941d3a6c02c7c749fc9eb54ff20a1166570459d09c5476743496a21"
 
   bottle do
-    sha256 "70ea1f08bfc9b37df07074e103726a0f4ca13a28898bc849f09556b8ceca732c" => :yosemite
-    sha256 "f4bd484e2bf510a2b1e1b413a79496ffd3250e501f61af87738aed827181a6ea" => :mavericks
-    sha256 "a029295e7590100d8d2d902266cbffa36a2baff5014ff1515f96470c6f4cf99d" => :mountain_lion
+    sha256 "3f77f703545e68182e801e307b5abeeb0f7f10307d749d7a8d8a18d6f7d86d71" => :el_capitan
+    sha256 "81e0570eb6cf04d2b24063456f74e483d3770170d7af2c779072961461bbe88f" => :yosemite
+    sha256 "c8a15ccc4c74087c0870af121249ec1dfa82a9d2228f92e2428abfd8499a3734" => :mavericks
   end
 
   option "32-bit"
