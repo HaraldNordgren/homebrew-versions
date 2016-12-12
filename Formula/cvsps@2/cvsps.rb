@@ -2,7 +2,8 @@ class Cvsps < Formula
   version "2"
   desc "Create patchset information from CVS"
   homepage "http://www.catb.org/~esr/cvsps/"
-  url "http://www.cobite.com/cvsps/cvsps-2.1.tar.gz"
+  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/c/cvsps/cvsps_2.1.orig.tar.gz"
+  mirror "https://mirrorservice.org/sites/ftp.debian.org/debian/pool/main/c/cvsps/cvsps_2.1.orig.tar.gz"
   sha256 "91d3198b33463861a581686d5fcf99a5c484e7c4d819384c04fda9cafec1075a"
 
   bottle do
@@ -19,6 +20,6 @@ class Cvsps < Formula
 
   test do
     # an assert_match on shell_output hangs indefinitely, as does normal syntax usage.
-    assert_match /special hack for parsing the/, pipe_output("#{bin}/cvsps -h 2>&1")
+    assert_match "special hack for parsing the", pipe_output("#{bin}/cvsps -h 2>&1")
   end
 end
