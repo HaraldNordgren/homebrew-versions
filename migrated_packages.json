@@ -2196,5 +2196,12 @@
     "file_without_extension": "hive12",
     "original_filename": "hive12.rb",
     "migrated_filename": "hive.rb"
+  },
+  {
+    "classname_with_version": "Mongodb30",
+    "package_at_version": "mongodb@30",
+    "file_without_extension": "mongodb30",
+    "original_filename": "mongodb30.rb",
+    "migrated_filename": "mongodb.rb"
   }
 ]
