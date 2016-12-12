@@ -9,13 +9,10 @@ class Cloog < Formula
 
   bottle do
     cellar :any
-    sha256 "2a246c9d1cac00f85866d23ac9f4270335fc69131fe1b9fd72c6e756496ed72d" => :yosemite
-    sha256 "94abba0efbb32299a4a26ea1d961cac7c3fb35a5c26211578b50ef17226207ba" => :mavericks
-    sha256 "4270983ad42e6446088df5329427fc50a29e59986c07c0b184c9e8217bf31f23" => :mountain_lion
-    sha1 "cf10ded3221cd5dae2c2980f6635da02716f62f4" => :tiger_g3
-    sha1 "c8d8b01d1ae10e786b6999720c8054cb5de7a033" => :tiger_altivec
-    sha1 "b9cbf9174d588eaf1a6020c7ad66398b252c197d" => :leopard_g3
-    sha1 "2f8758bad04c058f2416d61c9cd87cafe94c27ea" => :leopard_altivec
+    revision 1
+    sha256 "95b8d981633d853151cae2efa07bcf6655e5af04dad88418087fc614de8f160d" => :el_capitan
+    sha256 "5befa09d6f42cebefe5085959a9d7267158bd9eb7a1d7d0a95c122c5377ccaa9" => :yosemite
+    sha256 "b64ee12cd97286090e012e25882119b82ce4dc9b8dbaacf7ac17f7570f327cfa" => :mavericks
   end
 
   keg_only "Conflicts with cloog in main repository."
