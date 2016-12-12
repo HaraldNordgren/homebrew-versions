@@ -1,5 +1,6 @@
 class Perl < Formula
   version "518"
+  desc "Highly capable, feature-rich programming language"
   homepage "https://www.perl.org/"
   url "http://www.cpan.org/src/5.0/perl-5.18.2.tar.gz"
   sha256 "7cbed5ef11900e8f68041215eea0de5e443d53393f84c41d5c9c69c150a4982f"
