@@ -1,5 +1,6 @@
 class Antlr < Formula
   version "2"
+  desc "ANother Tool for Language Recognition"
   homepage "http://www.antlr2.org"
   url "http://www.antlr2.org/download/antlr-2.7.7.tar.gz"
   sha256 "853aeb021aef7586bda29e74a6b03006bcb565a755c86b66032d8ec31b67dbb9"
@@ -13,22 +14,18 @@ class Antlr < Formula
   def install
     # C Sharp is explicitly disabled because the antlr configure script will
     # confuse the Chicken Scheme compiler, csc, for a C sharp compiler.
-    args = %W[
-      --prefix=#{prefix}
-      --disable-debug
-      --disable-csharp
-    ]
-
-    system "./configure", *args
+    system "./configure", "--prefix=#{prefix}",
+                          "--disable-debug",
+                          "--disable-csharp"
     system "make"
 
     libexec.install "antlr.jar"
     include.install "lib/cpp/antlr"
     lib.install "lib/cpp/src/libantlr.a"
 
-    (bin+"antlr2").write <<-EOS.undent
-    #!/bin/sh
-    java -classpath #{libexec}/antlr.jar antlr.Tool "$@"
+    (bin/"antlr2").write <<-EOS.undent
+      #!/bin/sh
+      java -classpath #{libexec}/antlr.jar antlr.Tool "$@"
     EOS
   end
 end
