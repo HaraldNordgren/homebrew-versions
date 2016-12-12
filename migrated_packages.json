@@ -2000,5 +2000,12 @@
     "file_without_extension": "kibana41",
     "original_filename": "kibana41.rb",
     "migrated_filename": "kibana.rb"
+  },
+  {
+    "classname_with_version": "Kibana42",
+    "package_at_version": "kibana@42",
+    "file_without_extension": "kibana42",
+    "original_filename": "kibana42.rb",
+    "migrated_filename": "kibana.rb"
   }
 ]
