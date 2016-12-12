@@ -1,26 +1,25 @@
-require 'formula'
-
 class Zeromq < Formula
   version "22"
-  homepage 'http://www.zeromq.org/'
-  url 'http://download.zeromq.org/zeromq-2.2.0.tar.gz'
-  sha1 'e4bc024c33d3e62f658640625e061ce4e8bd1ff1'
+  desc "High-performance, asynchronous messaging library"
+  homepage "http://www.zeromq.org/"
+  url "http://download.zeromq.org/zeromq-2.2.0.tar.gz"
+  sha256 "43904aeb9ea6844f72ca02e4e53bf1d481a1a0264e64979da761464e88604637"
 
-  keg_only 'Conflicts with zeromq in main repository.'
+  keg_only "Conflicts with zeromq in main repository."
 
-  depends_on 'pkg-config' => :build
-  depends_on 'libpgm' if build.with? 'pgm'
+  option :universal
+  option "with-pgm", "Build with PGM extension"
+
+  depends_on "pkg-config" => :build
+  depends_on "libpgm" if build.with? "pgm"
 
   fails_with :llvm do
     build 2326
     cause "Segfault while linking"
   end
 
-  option :universal
-  option 'with-pgm', 'Build with PGM extension'
-
   def pgm_flags
-    build.with?('pgm') ? '--with-system-pgm' : ''
+    build.with?("pgm") ? "--with-system-pgm" : ""
   end
 
   def build_fat
@@ -28,7 +27,7 @@ class Zeromq < Formula
     system "CFLAGS=\"$CFLAGS -arch i386\" CXXFLAGS=\"$CXXFLAGS -arch i386\" ./configure --disable-dependency-tracking --prefix='#{prefix}' #{pgm_flags}"
     system "make"
     mv "src/.libs", "src/libs-32"
-    system "make clean"
+    system "make", "clean"
 
     # make 64-bit
     system "CFLAGS=\"$CFLAGS -arch x86_64\" CXXFLAGS=\"$CXXFLAGS -arch x86_64\" ./configure --disable-dependency-tracking --prefix='#{prefix}' #{pgm_flags}"
@@ -43,10 +42,10 @@ class Zeromq < Formula
 
   def do_config
     args = ["--disable-dependency-tracking", "--prefix=#{prefix}"]
-    if build.with? 'pgm'
+    if build.with? "pgm"
       # Use HB libpgm-5.2 because their internal 5.1 is b0rked.
-      ENV['OpenPGM_CFLAGS'] = %x[pkg-config --cflags openpgm-5.2].chomp
-      ENV['OpenPGM_LIBS'] = %x[pkg-config --libs openpgm-5.2].chomp
+      ENV["OpenPGM_CFLAGS"] = `pkg-config --cflags openpgm-5.2`.chomp
+      ENV["OpenPGM_LIBS"] = `pkg-config --libs openpgm-5.2`.chomp
       args << "--with-system-pgm"
     end
     system "./configure", *args
@@ -61,7 +60,7 @@ class Zeromq < Formula
     end
 
     system "make"
-    system "make install"
+    system "make", "install"
   end
 
   def caveats; <<-EOS.undent
