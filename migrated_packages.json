@@ -2301,5 +2301,12 @@
     "file_without_extension": "zeromq40",
     "original_filename": "zeromq40.rb",
     "migrated_filename": "zeromq.rb"
+  },
+  {
+    "classname_with_version": "Srtp15",
+    "package_at_version": "srtp@15",
+    "file_without_extension": "srtp15",
+    "original_filename": "srtp15.rb",
+    "migrated_filename": "srtp.rb"
   }
 ]
