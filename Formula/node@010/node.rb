@@ -8,9 +8,9 @@ class Node < Formula
   head "https://github.com/nodejs/node.git", :branch => "v0.10-staging"
 
   bottle do
-    sha256 "67a181f3fc75f7e4d2513b63dca6025bdb3f3ff578d671552fba6eebdcb04486" => :el_capitan
-    sha256 "8b3611bf3dedfff63ed3d07d35739c1a8579e46cbfe9dc1dd26b25b9bbcf88e4" => :yosemite
-    sha256 "bf81843537f8a78c2525e0309a098077396ff5ae558ff1d28201560795d307f2" => :mavericks
+    sha256 "3a798e92a2560dfad8e170e8d93b5efb9cb38c34848e203fc0990809d27ae39d" => :el_capitan
+    sha256 "13a9b3b0caadc9cf566b93be092c9491c0cf5498c5e976d5690ff4de499fa10c" => :yosemite
+    sha256 "9a60572b71420a8150faa77ab43ccdc4838d186a4c853992c15a7cbf659f3605" => :mavericks
   end
 
   deprecated_option "enable-debug" => "with-debug"
