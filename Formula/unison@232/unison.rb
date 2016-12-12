@@ -1,8 +1,9 @@
 class Unison < Formula
   version "232"
+  desc "File synchronizer"
   homepage "http://www.cis.upenn.edu/~bcpierce/unison/"
   url "http://www.seas.upenn.edu/~bcpierce/unison//download/releases/unison-2.32.52/unison-2.32.52.tar.gz"
-  sha1 "68ea5709de4fcc2f9aef7b01b24637503b61b5ac"
+  sha256 "1542e5d4ad03e928260e061a8ff9d5e0bca3282481ed8bec5552de17a0270485"
 
   bottle do
     cellar :any
@@ -11,7 +12,7 @@ class Unison < Formula
     sha256 "de95b7deddbfe5d84ffa65e202bfd79ff8f8018386ef69f6f60d53ebf20d495f" => :mountain_lion
   end
 
-  depends_on "objective-caml"
+  depends_on "ocaml"
 
   # http://tech.groups.yahoo.com/group/unison-users/message/9348
   # required for building 2.32.52 with ocamlc 3.12.x
@@ -23,8 +24,8 @@ class Unison < Formula
   def install
     ENV.j1
     ENV.delete "CFLAGS" # ocamlopt reads CFLAGS but doesn't understand common options
-    system "make ./mkProjectInfo"
-    system "make UISTYLE=text"
+    system "make", "./mkProjectInfo"
+    system "make", "UISTYLE=text"
     bin.install "unison"
   end
 end
