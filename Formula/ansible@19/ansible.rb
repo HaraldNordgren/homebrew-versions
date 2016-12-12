@@ -7,6 +7,12 @@ class Ansible < Formula
 
   head "https://github.com/ansible/ansible.git", :branch => "stable-1.9"
 
+  bottle do
+    sha256 "ad695737f9386f4ed9090a76d81d7d066d6f48497e41f2f91e1dd8b7725bc56a" => :el_capitan
+    sha256 "143eb4be8db1ee45b7c9d9fd33b6144b3dd9a06c197e582a5156de9ea5432bf9" => :yosemite
+    sha256 "f23c0784c0a3e61acb3b3a1a984aca9e6c3b0ac2c5e6ff1ab12916ad94b6cdb5" => :mavericks
+  end
+
   depends_on :python if MacOS.version <= :snow_leopard
   depends_on "libyaml"
   depends_on "openssl"
