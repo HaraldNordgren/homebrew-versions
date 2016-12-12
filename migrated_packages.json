@@ -2070,5 +2070,12 @@
     "file_without_extension": "logstash21",
     "original_filename": "logstash21.rb",
     "migrated_filename": "logstash.rb"
+  },
+  {
+    "classname_with_version": "Cassandra21",
+    "package_at_version": "cassandra@21",
+    "file_without_extension": "cassandra21",
+    "original_filename": "cassandra21.rb",
+    "migrated_filename": "cassandra.rb"
   }
 ]
