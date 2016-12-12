@@ -2056,5 +2056,12 @@
     "file_without_extension": "elasticsearch21",
     "original_filename": "elasticsearch21.rb",
     "migrated_filename": "elasticsearch.rb"
+  },
+  {
+    "classname_with_version": "Kibana43",
+    "package_at_version": "kibana@43",
+    "file_without_extension": "kibana43",
+    "original_filename": "kibana43.rb",
+    "migrated_filename": "kibana.rb"
   }
 ]
