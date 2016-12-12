@@ -29,10 +29,9 @@ class Gcc < Formula
   head "svn://gcc.gnu.org/svn/gcc/branches/gcc-4_8-branch"
 
   bottle do
-    revision 2
-    sha256 "845912e98601c81ffe185cbde8b9f8af3b689b5de6bcca07c60a93f76354e366" => :el_capitan
-    sha256 "c6080201c7b306fcbe6b3d0c0664d355ff6c0b46751637555f969fd4ec6bff98" => :yosemite
-    sha256 "ef0d90237d1cf8fd6b835b11a45677c172189088764045166095591623fa0a33" => :mavericks
+    sha256 "5227dc6e44966ff9dc79be23fcff88cbe7a0248b9dc934ac0f2f35392385d20b" => :el_capitan
+    sha256 "cccfea975c7de301fc266ac654a662a0e3c0dcffdf25433b055afd4012965c5f" => :yosemite
+    sha256 "26ce03c32b8fd9f1be750b8cdc36d6405200e3a26ac646731aba562e93b27def" => :mavericks
   end
 
   if MacOS.version >= :yosemite
