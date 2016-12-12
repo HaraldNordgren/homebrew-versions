@@ -2,8 +2,8 @@ class Node < Formula
   version "012"
   desc "JavaScript runtime built on Chrome's V8 engine"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/download/release/v0.12.15/node-v0.12.15.tar.xz"
-  sha256 "f4ce0c4bb217a32d074916d291381b16e1b9a0bb2be0317ce28e471e0f42a0ac"
+  url "https://nodejs.org/download/release/v0.12.16/node-v0.12.16.tar.xz"
+  sha256 "4ce3a862eb28be752fbd65fe032c1d55cbbc1145af39292766eea701f67ba5f6"
   head "https://github.com/nodejs/node.git", branch: "v0.12-staging"
 
   bottle do
@@ -16,7 +16,7 @@ class Node < Formula
   option "without-npm", "npm will not be installed"
   option "without-completion", "npm bash completion will not be installed"
 
-  depends_on python: :build if MacOS.version <= :snow_leopard
+  depends_on :python => :build if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
   depends_on "openssl" => :optional
 
@@ -60,6 +60,10 @@ class Node < Formula
       cd buildpath/"npm_install" do
         system "./configure", "--prefix=#{libexec}/npm"
         system "make", "install"
+        # `package.json` has relative paths to the npm_install directory.
+        # This copies back over the vanilla `package.json` that is expected.
+        # https://github.com/Homebrew/homebrew/issues/46131#issuecomment-157845008
+        cp buildpath/"npm_install/package.json", libexec/"npm/lib/node_modules/npm"
         # Remove manpage symlinks from the buildpath, they are breaking bottle
         # creation. The real manpages are living in libexec/npm/lib/node_modules/npm/man/
         # https://github.com/Homebrew/homebrew/pull/47081#issuecomment-165280470
@@ -95,8 +99,8 @@ class Node < Formula
     ["man1", "man3", "man5", "man7"].each do |man|
       # Dirs must exist first: https://github.com/Homebrew/homebrew/issues/35969
       mkdir_p HOMEBREW_PREFIX/"share/man/#{man}"
-      rm_f Dir[HOMEBREW_PREFIX/"share/man/#{man}/{npm.,npm-,npmrc.}*"]
-      ln_sf Dir[libexec/"npm/lib/node_modules/npm/man/#{man}/npm*"], HOMEBREW_PREFIX/"share/man/#{man}"
+      rm_f Dir[HOMEBREW_PREFIX/"share/man/#{man}/{npm.,npm-,npmrc.,package.json.}*"]
+      ln_sf Dir[libexec/"npm/lib/node_modules/npm/man/#{man}/{npm,package.json}*"], HOMEBREW_PREFIX/"share/man/#{man}"
     end
 
     npm_root = node_modules/"npm"
