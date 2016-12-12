@@ -1,9 +1,9 @@
 class Elasticsearch < Formula
   version "20"
-  desc "RESTful, distributed search & analytics"
+  desc "Distributed search & analytics engine"
   homepage "https://www.elastic.co/products/elasticsearch"
-  url "https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.0.1/elasticsearch-2.0.1.tar.gz"
-  sha256 "7be4a6c717002057e422073ca8e957df8b4cb198bf2399a0d79f42121e34798b"
+  url "https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.0.2/elasticsearch-2.0.2.tar.gz"
+  sha256 "74113dffb178d0496af47072cb5c757d597cb0f8549230b9bdb07804d5a1fa3f"
 
   bottle :unneeded
 
