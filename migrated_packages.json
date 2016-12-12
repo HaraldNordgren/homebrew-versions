@@ -2392,5 +2392,12 @@
     "file_without_extension": "android-ndk-r11c",
     "original_filename": "android-ndk-r11c.rb",
     "migrated_filename": "android-ndk.rb"
+  },
+  {
+    "classname_with_version": "Kafka090",
+    "package_at_version": "kafka@090",
+    "file_without_extension": "kafka090",
+    "original_filename": "kafka090.rb",
+    "migrated_filename": "kafka.rb"
   }
 ]
