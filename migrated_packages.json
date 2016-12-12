@@ -2238,5 +2238,12 @@
     "file_without_extension": "erlang-r19",
     "original_filename": "erlang-r19.rb",
     "migrated_filename": "erlang.rb"
+  },
+  {
+    "classname_with_version": "ErlangR18",
+    "package_at_version": "erlang@r18",
+    "file_without_extension": "erlang-r18",
+    "original_filename": "erlang-r18.rb",
+    "migrated_filename": "erlang.rb"
   }
 ]
