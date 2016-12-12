@@ -2,8 +2,8 @@ class Node < Formula
   version "4-lts"
   desc "JavaScript runtime built on Chrome's V8 engine"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v4.2.3/node-v4.2.3.tar.gz"
-  sha256 "5008ade5feb4b089f59163f66bffddc113f27de5d78edf203e39435c2c5d554f"
+  url "https://nodejs.org/dist/v4.2.4/node-v4.2.4.tar.gz"
+  sha256 "4ee244ffede7328d9fa24c3024787e71225b7abaac49fe2b30e68b27460c10ec"
   head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
 
   bottle do
@@ -27,8 +27,8 @@ class Node < Formula
   end
 
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-2.14.7.tgz"
-    sha256 "54f3a5195a1e6b52fc954749e81f8abf1f7c8ca912b90ecf2b33581800d0f6a5"
+    url "https://registry.npmjs.org/npm/-/npm-2.14.12.tgz"
+    sha256 "6f3eba27b68c2ea9aa44e239d57f40edb18cc2e31bb6db08d181f726a79abd49"
   end
 
   resource "icu4c" do
@@ -64,6 +64,10 @@ class Node < Formula
       cd buildpath/"npm_install" do
         system "./configure", "--prefix=#{libexec}/npm"
         system "make", "install"
+        # Remove manpage symlinks from the buildpath, they are breaking bottle
+        # creation. The real manpages are living in libexec/npm/lib/node_modules/npm/man/
+        # https://github.com/Homebrew/homebrew/pull/47081#issuecomment-165280470
+        rm_rf libexec/"npm/share/"
       end
 
       if build.with? "completion"
