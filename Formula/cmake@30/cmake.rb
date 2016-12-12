@@ -38,7 +38,6 @@ class Cmake < Formula
   depends_on "qt" => :optional
 
   conflicts_with "cmake", :because => "both install a cmake binary"
-  conflicts_with "cmake28", :because => "both install a cmake binary"
   conflicts_with "cmake31", :because => "both install a cmake binary"
 
   resource "sphinx" do

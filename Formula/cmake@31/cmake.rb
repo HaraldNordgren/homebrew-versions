@@ -38,7 +38,6 @@ class Cmake < Formula
   depends_on "xz" # For LZMA
 
   conflicts_with "cmake", :because => "both install a cmake binary"
-  conflicts_with "cmake28", :because => "both install a cmake binary"
   conflicts_with "cmake30", :because => "both install a cmake binary"
 
   # The `with-qt` GUI option was removed due to circular dependencies if
