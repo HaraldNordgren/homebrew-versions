@@ -2203,5 +2203,12 @@
     "file_without_extension": "mongodb30",
     "original_filename": "mongodb30.rb",
     "migrated_filename": "mongodb.rb"
+  },
+  {
+    "classname_with_version": "Ansible20",
+    "package_at_version": "ansible@20",
+    "file_without_extension": "ansible20",
+    "original_filename": "ansible20.rb",
+    "migrated_filename": "ansible.rb"
   }
 ]
