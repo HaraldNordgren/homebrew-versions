@@ -30,9 +30,9 @@ class Gdal < Formula
   option "with-mdb", "Build with Access MDB driver (requires Java 1.6+ JDK/JRE, from Apple or Oracle)."
   option "with-libkml", "Build with Google's libkml driver (requires libkml --HEAD or >= 1.3)"
 
-  depends_on python: :optional
+  depends_on :python => :optional
   if build.with? "python"
-    depends_on fortran: :build
+    depends_on :fortran => :build
   end
 
   depends_on "libpng"
@@ -92,7 +92,7 @@ class Gdal < Formula
   resource "libkml" do
     # Until 1.3 is stable, use master branch
     url "https://github.com/google/libkml.git",
-        revision: "9b50572641f671194e523ad21d0171ea6537426e"
+        :revision => "9b50572641f671194e523ad21d0171ea6537426e"
     version "1.3-dev"
   end
 

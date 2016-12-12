@@ -23,7 +23,7 @@ class Spidermonkey < Formula
   depends_on "icu4c"
   depends_on "pkg-config" => :build
 
-  conflicts_with "narwhal", because: "both install a js binary"
+  conflicts_with "narwhal", :because => "both install a js binary"
 
   def install
     mkdir "brew-build" do

@@ -17,7 +17,7 @@ class ImagemagickRuby < Formula
   depends_on "jasper" => :optional
   depends_on "ghostscript" => :optional
   depends_on "libpng@12" # needs this old libpng. Not tested with 1.3 but 1.4 fails.
-  depends_on x11: :optional
+  depends_on :x11 => :optional
 
   def install
     ENV.deparallelize

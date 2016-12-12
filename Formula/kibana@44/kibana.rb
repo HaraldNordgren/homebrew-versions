@@ -2,7 +2,7 @@ class Kibana < Formula
   version "44"
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
-  url "https://github.com/elastic/kibana.git", tag: "v4.4.2", revision: "b0ef773a465d0eb27d192ca77f881eba90ef93d5"
+  url "https://github.com/elastic/kibana.git", :tag => "v4.4.2", :revision => "b0ef773a465d0eb27d192ca77f881eba90ef93d5"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
@@ -66,7 +66,7 @@ class Kibana < Formula
     (prefix/"installedPlugins").mkdir
   end
 
-  plist_options manual: "kibana"
+  plist_options :manual => "kibana"
 
   def caveats; <<-EOS.undent
     Config: #{etc}/kibana/

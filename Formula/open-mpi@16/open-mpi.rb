@@ -18,7 +18,7 @@ class OpenMpi < Formula
 
   keg_only "Conflicts with open-mpi in Homebrew/homebrew"
 
-  depends_on fortran: :recommended
+  depends_on :fortran => :recommended
 
   # Fixes error in tests, which makes them fail on clang.
   # Upstream ticket: https://svn.open-mpi.org/trac/ompi/ticket/4255

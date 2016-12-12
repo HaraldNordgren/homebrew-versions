@@ -5,7 +5,7 @@ class Ansible < Formula
   url "https://releases.ansible.com/ansible/ansible-1.9.6.tar.gz"
   sha256 "50773781b1e76f2885bbeb2351a97cf1c6a29239d3e073da939a104e7e81ee5d"
 
-  head "https://github.com/ansible/ansible.git", branch: "stable-1.9"
+  head "https://github.com/ansible/ansible.git", :branch => "stable-1.9"
 
   bottle do
     sha256 "61ebfb00dbe54ca22d2adcc1186d90589f564b8dd89e5c2fc61959cdd680ceb8" => :el_capitan
@@ -538,7 +538,7 @@ class Ansible < Formula
 
     man1.install Dir["docs/man/man1/*.1"]
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
+    bin.env_script_all_files(libexec/"bin", :PYTHONPATH => ENV["PYTHONPATH"])
   end
 
   def caveats; <<-EOS.undent

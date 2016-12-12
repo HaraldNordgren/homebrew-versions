@@ -20,7 +20,7 @@ class Influxdb < Formula
   depends_on "flex" => :build
   depends_on "go" => :build
   depends_on "gawk" => :build
-  depends_on hg: :build
+  depends_on :hg => :build
 
   def install
     ENV["GOPATH"] = buildpath
@@ -51,7 +51,7 @@ class Influxdb < Formula
     (var/"influxdb08/raft").mkpath
   end
 
-  plist_options manual: "influxdb -config=#{HOMEBREW_PREFIX}/etc/influxdb.conf"
+  plist_options :manual => "influxdb -config=#{HOMEBREW_PREFIX}/etc/influxdb.conf"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

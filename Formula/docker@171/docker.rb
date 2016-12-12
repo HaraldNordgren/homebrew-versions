@@ -3,8 +3,8 @@ class Docker < Formula
   desc "The Docker framework for containers"
   homepage "https://www.docker.com/"
   url "https://github.com/docker/docker.git",
-      tag: "v1.7.1",
-      revision: "786b29d4db80a6175e72b47a794ee044918ba734"
+      :tag => "v1.7.1",
+      :revision => "786b29d4db80a6175e72b47a794ee044918ba734"
 
   bottle do
     cellar :any

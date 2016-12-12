@@ -16,7 +16,7 @@ class Povray < Formula
   depends_on "libtiff"
 
   conflicts_with "libpng",
-    because: "causes fatal build error. You can and should `brew link libpng` again after installation"
+    :because => "causes fatal build error. You can and should `brew link libpng` again after installation"
 
   if MacOS.version == :leopard
     fails_with :llvm do

@@ -12,7 +12,7 @@ class Libxml < Formula
     sha256 "1ae08e74cf7b71d5c139db86a81f83098a4438546c70e030d3dc4552d49a404b" => :mountain_lion
   end
 
-  depends_on python: :optional
+  depends_on :python => :optional
 
   keg_only :provided_by_osx
 

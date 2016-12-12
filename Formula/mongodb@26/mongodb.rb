@@ -14,7 +14,7 @@ class Mongodb < Formula
 
   option "with-boost", "Compile using installed boost, not the version shipped with mongodb"
 
-  depends_on macos: :snow_leopard
+  depends_on :macos => :snow_leopard
   depends_on "scons" => :build
   depends_on "boost" => :optional
   depends_on "openssl" => :optional
@@ -71,7 +71,7 @@ class Mongodb < Formula
     EOS
   end
 
-  plist_options manual: "mongod --config #{HOMEBREW_PREFIX}/etc/mongod.conf"
+  plist_options :manual => "mongod --config #{HOMEBREW_PREFIX}/etc/mongod.conf"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

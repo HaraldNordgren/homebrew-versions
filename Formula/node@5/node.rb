@@ -16,7 +16,7 @@ class Node < Formula
   option "without-completion", "npm bash completion will not be installed"
   option "with-full-icu", "Build with full-icu (all locales) instead of small-icu (English only)"
 
-  depends_on python: :build if MacOS.version <= :snow_leopard
+  depends_on :python => :build if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
   depends_on "openssl" => :optional
 
@@ -26,7 +26,7 @@ class Node < Formula
   fails_with :gcc_4_0
   fails_with :gcc
   ("4.3".."4.7").each do |n|
-    fails_with gcc: n
+    fails_with :gcc => n
   end
 
   # We track major/minor from upstream Node releases.

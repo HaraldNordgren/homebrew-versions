@@ -88,7 +88,7 @@ class Cassandra < Formula
 
     bin.write_exec_script Dir["#{libexec}/bin/*"]
     rm bin/"cqlsh" # Remove existing exec script
-    (bin/"cqlsh").write_env_script libexec/"bin/cqlsh", PYTHONPATH: pypath
+    (bin/"cqlsh").write_env_script libexec/"bin/cqlsh", :PYTHONPATH => pypath
   end
 
   def plist; <<-EOS.undent

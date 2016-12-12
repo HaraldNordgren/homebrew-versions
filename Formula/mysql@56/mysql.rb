@@ -30,9 +30,9 @@ class Mysql < Formula
   deprecated_option "enable-debug" => "with-debug"
 
   conflicts_with "mysql-cluster", "mariadb", "percona-server",
-    because: "mysql, mariadb, and percona install the same binaries."
+    :because => "mysql, mariadb, and percona install the same binaries."
   conflicts_with "mysql-connector-c",
-    because: "both install MySQL client libraries"
+    :because => "both install MySQL client libraries"
 
   fails_with :llvm do
     build 2326
@@ -149,7 +149,7 @@ class Mysql < Formula
     EOS
   end
 
-  plist_options manual: "#{HOMEBREW_PREFIX}/opt/mysql56/bin/mysql.server start"
+  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/mysql56/bin/mysql.server start"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

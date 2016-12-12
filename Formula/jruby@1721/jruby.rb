@@ -5,11 +5,11 @@ class Jruby < Formula
   url "https://s3.amazonaws.com/jruby.org/downloads/1.7.21/jruby-bin-1.7.21.tar.gz"
   sha256 "9fe56ea173af451ef262faaee6fb90464002584dbacc2523147f809e9d3a1c8b"
 
-  depends_on java: "1.7+"
+  depends_on :java => "1.7+"
 
-  conflicts_with "jruby", because: "Differing version of the same formula"
-  conflicts_with "jruby168", because: "Differing version of the same formula"
-  conflicts_with "jruby9000", because: "Differing version of the same formula"
+  conflicts_with "jruby", :because => "Differing version of the same formula"
+  conflicts_with "jruby168", :because => "Differing version of the same formula"
+  conflicts_with "jruby9000", :because => "Differing version of the same formula"
 
   def install
     # Remove Windows files

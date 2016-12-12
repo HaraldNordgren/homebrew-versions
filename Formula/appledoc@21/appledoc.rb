@@ -16,7 +16,7 @@ class Appledoc < Formula
   EOS
 
   depends_on :xcode
-  depends_on macos: :lion
+  depends_on :macos => :lion
 
   depends_on MaximumMacOSRequirement => :mountain_lion
 
