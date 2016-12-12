@@ -1,15 +1,11 @@
 class Elasticsearch < Formula
   version "090"
+  desc "Distributed real-time search & analytics engine for the cloud"
   homepage "https://www.elastic.co/products/elasticsearch"
   url "https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-0.90.13.tar.gz"
   sha256 "82904d4c564fc893a1cfc0deb4526073900072a3f4667b995881a2ec5cdfdb43"
 
-  bottle do
-    cellar :any
-    sha256 "40c32b6fc4a72dfc08fc9b828f87f8752497a15bff279914edd739308139c206" => :yosemite
-    sha256 "9fda4444f8f94091dfaad505ece36e1918e6cd0552619c1ba202745350deefce" => :mavericks
-    sha256 "5ddf3c38b0d2c6e09f53d6094809514da7b468359032f0b208ad4c78ba1b6034" => :mountain_lion
-  end
+  bottle :unneeded
 
   def cluster_name
     "elasticsearch_#{ENV["USER"]}"
@@ -72,7 +68,7 @@ class Elasticsearch < Formula
     EOS
   end
 
-  plist_options :manual => "elasticsearch --config=#{HOMEBREW_PREFIX}/opt/elasticsearch/config/elasticsearch.yml"
+  plist_options :manual => "elasticsearch --config=#{HOMEBREW_PREFIX}/opt/elasticsearch090/config/elasticsearch.yml"
 
   def plist; <<-EOS.undent
       <?xml version="1.0" encoding="UTF-8"?>
