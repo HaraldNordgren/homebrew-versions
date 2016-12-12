@@ -1,6 +1,6 @@
 class Llvm < Formula
   version "35"
-  desc "A next-gen compiler infrastructure"
+  desc "Next-gen compiler infrastructure"
   homepage "http://llvm.org/"
 
   stable do
