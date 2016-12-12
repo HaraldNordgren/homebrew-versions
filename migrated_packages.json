@@ -2245,5 +2245,12 @@
     "file_without_extension": "erlang-r18",
     "original_filename": "erlang-r18.rb",
     "migrated_filename": "erlang.rb"
+  },
+  {
+    "classname_with_version": "Arangodb2",
+    "package_at_version": "arangodb@2",
+    "file_without_extension": "arangodb2",
+    "original_filename": "arangodb2.rb",
+    "migrated_filename": "arangodb.rb"
   }
 ]
