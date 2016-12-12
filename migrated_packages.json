@@ -2154,5 +2154,12 @@
     "file_without_extension": "boost159",
     "original_filename": "boost159.rb",
     "migrated_filename": "boost.rb"
+  },
+  {
+    "classname_with_version": "BoostPython159",
+    "package_at_version": "boost-python@159",
+    "file_without_extension": "boost-python159",
+    "original_filename": "boost-python159.rb",
+    "migrated_filename": "boost-python.rb"
   }
 ]
