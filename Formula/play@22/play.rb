@@ -1,10 +1,10 @@
-require "formula"
-
 class Play < Formula
   version "22"
-  homepage "http://www.playframework.org/"
-  url "http://downloads.typesafe.com/play/2.2.6/play-2.2.6.zip"
-  sha1 "8aacfdc19088f79f4dd3013c168e92affd741a39"
+  homepage "https://www.playframework.org/"
+  url "https://downloads.typesafe.com/play/2.2.6/play-2.2.6.zip"
+  sha256 "f6258544472aa9a581ddf5ea2e400ff256846e6fe8204d00f29689da45ced1a3"
+
+  bottle :unneeded
 
   conflicts_with "sox", :because => "both install `play` binaries"
 
