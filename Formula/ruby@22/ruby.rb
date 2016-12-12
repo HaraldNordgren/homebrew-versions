@@ -5,6 +5,12 @@ class Ruby < Formula
   url "https://cache.ruby-lang.org/pub/ruby/2.2/ruby-2.2.4.tar.bz2"
   sha256 "31203696adbfdda6f2874a2de31f7c5a1f3bcb6628f4d1a241de21b158cd5c76"
 
+  bottle do
+    sha256 "57bdc960d76726ab24b5654a8502acefd80948f8ef7d5fe08935e519e0fec2e4" => :el_capitan
+    sha256 "392e00420123e5d6d1115d303da198417af584941b4facf15628fdb0fa4d3c19" => :yosemite
+    sha256 "a69a702ddd072b186259b99bb7ebc7f216b2b76cce86d43273c2931005994997" => :mavericks
+  end
+
   keg_only :provided_by_osx
 
   option :universal
