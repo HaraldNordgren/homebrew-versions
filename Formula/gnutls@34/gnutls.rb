@@ -1,11 +1,12 @@
-# This formula tracks GnuTLS stable-next. This is currently the 3.4.x branch.
+# This formula tracks GnuTLS stable-next.
 class Gnutls < Formula
   version "34"
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "http://gnutls.org"
-  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.6.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.4/gnutls-3.4.6.tar.xz"
-  sha256 "feb559ed7fffa24d5aa40527054fae5cb7f7b66e9f2bebc2383a781dfa4d20ec"
+  url "ftp://ftp.gnutls.org/gcrypt/gnutls/v3.4/gnutls-3.4.8.tar.xz"
+  mirror "https://gnupg.org/ftp/gcrypt/gnutls/v3.4/gnutls-3.4.8.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.4/gnutls-3.4.8.tar.xz"
+  sha256 "e07c05dea525c6bf0dd8017fc5b89d886954f04fedf457ecd1ce488ac3b86ab7"
 
   bottle do
     cellar :any
@@ -23,7 +24,7 @@ class Gnutls < Formula
   depends_on "unbound" => :optional
   depends_on "libidn" => :optional
 
-  keg_only "Conflicts with GnuTLS in main repository and is not API compatible."
+  keg_only "Conflicts with GnuTLS in main repository."
 
   fails_with :llvm do
     build 2326
