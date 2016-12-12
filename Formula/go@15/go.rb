@@ -18,7 +18,7 @@ class Go < Formula
 
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
-    :revision => "d02228d1857b9f49cd0252788516ff5584266eb6"
+    revision: "d02228d1857b9f49cd0252788516ff5584266eb6"
   end
 
   resource "gobootstrap" do

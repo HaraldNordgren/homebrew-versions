@@ -58,22 +58,22 @@ class Llvm < Formula
   end
 
   head do
-    url "http://llvm.org/git/llvm.git", :branch => "release_35"
+    url "http://llvm.org/git/llvm.git", branch: "release_35"
 
     resource "clang" do
-      url "http://llvm.org/git/clang.git", :branch => "release_35"
+      url "http://llvm.org/git/clang.git", branch: "release_35"
     end
 
     resource "clang-tools-extra" do
-      url "http://llvm.org/git/clang-tools-extra.git", :branch => "release_35"
+      url "http://llvm.org/git/clang-tools-extra.git", branch: "release_35"
     end
 
     resource "compiler-rt" do
-      url "http://llvm.org/git/compiler-rt.git", :branch => "release_35"
+      url "http://llvm.org/git/compiler-rt.git", branch: "release_35"
     end
 
     resource "polly" do
-      url "http://llvm.org/git/polly.git", :branch => "release_35"
+      url "http://llvm.org/git/polly.git", branch: "release_35"
     end
 
     resource "lld" do
@@ -85,7 +85,7 @@ class Llvm < Formula
     end
 
     resource "libcxx" do
-      url "http://llvm.org/git/libcxx.git", :branch => "release_35"
+      url "http://llvm.org/git/libcxx.git", branch: "release_35"
     end
 
     if MacOS.version <= :snow_leopard
@@ -102,7 +102,7 @@ class Llvm < Formula
 
   resource "cloog" do
     url "http://repo.or.cz/cloog.git",
-    :revision => "22643c94eba7b010ae4401c347289f4f52b"
+    revision: "22643c94eba7b010ae4401c347289f4f52b"
   end
 
   patch :DATA
@@ -129,7 +129,7 @@ class Llvm < Formula
   depends_on "libffi" => :recommended
 
   depends_on "swig" if build.with? "lldb"
-  depends_on :python => :optional
+  depends_on python: :optional
 
   # version suffix
   def ver

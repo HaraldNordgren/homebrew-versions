@@ -58,7 +58,7 @@ class Arangodb < Formula
     s
   end
 
-  plist_options :manual => "#{HOMEBREW_PREFIX}/opt/arangodb2/sbin/arangod-2.8"
+  plist_options manual: "#{HOMEBREW_PREFIX}/opt/arangodb2/sbin/arangod-2.8"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

@@ -21,7 +21,7 @@ class Ledger < Formula
   depends_on "boost"
   depends_on "gmp"
   depends_on "libofx" => :optional
-  depends_on :python => :optional
+  depends_on python: :optional
 
   option "with-debug", "Build with debugging symbols enabled"
 

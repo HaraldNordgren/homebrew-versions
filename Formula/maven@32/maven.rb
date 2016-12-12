@@ -8,8 +8,8 @@ class Maven < Formula
 
   depends_on :java
 
-  conflicts_with "maven", :because => "Differing versions of same formula"
-  conflicts_with "mvnvm", :because => "Also installs a 'mvn' executable"
+  conflicts_with "maven", because: "Differing versions of same formula"
+  conflicts_with "mvnvm", because: "Also installs a 'mvn' executable"
 
   def install
     # Remove windows files

@@ -17,7 +17,7 @@ class V8 < Formula
 
   resource "gyp" do
     url "https://chromium.googlesource.com/external/gyp.git",
-        :revision => "f7bc250ccc4d619a1cf238db87e5979f89ff36d7"
+        revision: "f7bc250ccc4d619a1cf238db87e5979f89ff36d7"
   end
 
   def install

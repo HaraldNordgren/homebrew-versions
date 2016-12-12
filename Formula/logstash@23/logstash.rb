@@ -7,12 +7,12 @@ class Logstash < Formula
 
   head do
     url "https://github.com/elastic/logstash.git"
-    depends_on :java => "1.8"
+    depends_on java: "1.8"
   end
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on java: "1.7+"
 
   def install
     if build.head?

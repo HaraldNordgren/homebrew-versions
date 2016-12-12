@@ -17,7 +17,7 @@ class Leptonica < Formula
   depends_on "libtiff" => :optional
 
   conflicts_with "osxutils",
-    :because => "both leptonica and osxutils ship a `fileinfo` executable."
+    because: "both leptonica and osxutils ship a `fileinfo` executable."
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

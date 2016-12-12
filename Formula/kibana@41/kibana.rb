@@ -2,7 +2,7 @@ class Kibana < Formula
   version "41"
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
-  url "https://github.com/elastic/kibana.git", :tag => "v4.1.8", :revision => "e4f4c5bef5fbec91f0890bd08f6a622f6c4648ad"
+  url "https://github.com/elastic/kibana.git", tag: "v4.1.8", revision: "e4f4c5bef5fbec91f0890bd08f6a622f6c4648ad"
   head "https://github.com/elastic/kibana.git"
 
   bottle do
@@ -75,7 +75,7 @@ class Kibana < Formula
     EOS
   end
 
-  plist_options :manual => "kibana"
+  plist_options manual: "kibana"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

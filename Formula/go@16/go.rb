@@ -21,8 +21,8 @@ class Go < Formula
 
   resource "gotools" do
     url "https://go.googlesource.com/tools.git",
-        :branch => "release-branch.go1.6",
-        :revision => "c887be1b2ebd11663d4bf2fbca508c449172339e"
+        branch: "release-branch.go1.6",
+        revision: "c887be1b2ebd11663d4bf2fbca508c449172339e"
   end
 
   resource "gobootstrap" do

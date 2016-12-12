@@ -7,7 +7,7 @@ class Jenkins < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on java: "1.7+"
 
   def install
     system "jar", "xvf", "jenkins.war"
@@ -21,7 +21,7 @@ class Jenkins < Formula
     EOS
   end
 
-  plist_options :manual => "jenkins-lts"
+  plist_options manual: "jenkins-lts"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

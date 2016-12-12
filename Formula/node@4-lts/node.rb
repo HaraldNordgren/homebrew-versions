@@ -4,7 +4,7 @@ class Node < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v4.5.0/node-v4.5.0.tar.xz"
   sha256 "97b99d378c56802444208409568e2e66c46332897f06aead74d1ffbe733bd488"
-  head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
+  head "https://github.com/nodejs/node.git", branch: "v4.x-staging"
 
   bottle do
     sha256 "5c0373c7b369389a9c8fb89037160b74723b23e9d614d4e96f93b02b0ac6bf82" => :el_capitan
@@ -17,7 +17,7 @@ class Node < Formula
   option "without-completion", "npm bash completion will not be installed"
   option "with-full-icu", "Build with full-icu (all locales) instead of small-icu (English only)"
 
-  depends_on :python => :build if MacOS.version <= :snow_leopard
+  depends_on python: :build if MacOS.version <= :snow_leopard
   depends_on "pkg-config" => :build
   depends_on "openssl" => :optional
 

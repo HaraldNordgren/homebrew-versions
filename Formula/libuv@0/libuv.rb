@@ -4,7 +4,7 @@ class Libuv < Formula
   homepage "https://github.com/libuv/libuv"
   url "https://github.com/libuv/libuv/archive/v0.10.36.tar.gz"
   sha256 "421087044cab642f038c190f180d96d6a1157be89adb4630881930495b8f5228"
-  head "https://github.com/libuv/libuv.git", :branch => "v0.10"
+  head "https://github.com/libuv/libuv.git", branch: "v0.10"
 
   bottle do
     cellar :any

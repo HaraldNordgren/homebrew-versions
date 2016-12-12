@@ -10,7 +10,7 @@ class SeleniumServerStandalone < Formula
     bin.write_jar_script libexec/"selenium-server-standalone-2.45.0.jar", "selenium-server"
   end
 
-  plist_options :manual => "selenium-server -p 4444"
+  plist_options manual: "selenium-server -p 4444"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>

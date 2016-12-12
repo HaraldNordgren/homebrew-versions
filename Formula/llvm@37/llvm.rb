@@ -2,7 +2,7 @@ class CodesignRequirement < Requirement
   include FileUtils
   fatal true
 
-  satisfy(:build_env => false) do
+  satisfy(build_env: false) do
     mktemp do
       touch "llvm_check.txt"
       quiet_system "/usr/bin/codesign", "-s", "lldb_codesign", "--dryrun", "llvm_check.txt"
@@ -77,22 +77,22 @@ class Llvm < Formula
   end
 
   head do
-    url "http://llvm.org/git/llvm.git", :branch => "release_37"
+    url "http://llvm.org/git/llvm.git", branch: "release_37"
 
     resource "clang" do
-      url "http://llvm.org/git/clang.git", :branch => "release_37"
+      url "http://llvm.org/git/clang.git", branch: "release_37"
     end
 
     resource "clang-tools-extra" do
-      url "http://llvm.org/git/clang-tools-extra.git", :branch => "release_37"
+      url "http://llvm.org/git/clang-tools-extra.git", branch: "release_37"
     end
 
     resource "compiler-rt" do
-      url "http://llvm.org/git/compiler-rt.git", :branch => "release_37"
+      url "http://llvm.org/git/compiler-rt.git", branch: "release_37"
     end
 
     resource "polly" do
-      url "http://llvm.org/git/polly.git", :branch => "release_37"
+      url "http://llvm.org/git/polly.git", branch: "release_37"
     end
 
     resource "lld" do
@@ -100,16 +100,16 @@ class Llvm < Formula
     end
 
     resource "lldb" do
-      url "http://llvm.org/git/lldb.git", :branch => "release_37"
+      url "http://llvm.org/git/lldb.git", branch: "release_37"
     end
 
     resource "libcxx" do
-      url "http://llvm.org/git/libcxx.git", :branch => "release_37"
+      url "http://llvm.org/git/libcxx.git", branch: "release_37"
     end
 
     if MacOS.version <= :snow_leopard
       resource "libcxxabi" do
-        url "http://llvm.org/git/libcxxabi.git", :branch => "release_37"
+        url "http://llvm.org/git/libcxxabi.git", branch: "release_37"
       end
     end
   end
@@ -128,7 +128,7 @@ class Llvm < Formula
   depends_on "gnu-sed" => :build
   depends_on "gmp"
   depends_on "libffi" => :recommended
-  depends_on :python => :optional
+  depends_on python: :optional
 
   if build.with? "lldb"
     depends_on "swig"
