@@ -9,13 +9,10 @@ class Isl < Formula
 
   bottle do
     cellar :any
-    sha256 "9f4a6d0ff2f5cd7208a1c29c84eb6c452e6bcb7b7249b597507b1f0aad13e2ef" => :yosemite
-    sha256 "c1ebc3499a91cad85af852f293fc330f5bf4b168af031d1927f2183736246ca9" => :mavericks
-    sha256 "43d1e0023ea8c7df4199668c9cb76927c22756bbc7b0b7db5b047715db8d6001" => :mountain_lion
-    sha1 "49d0c81d3d0e72abe18e171b58e6159122ba07bc" => :tiger_g3
-    sha1 "7500d4495c2da2059b484d96190d8e563b01a357" => :tiger_altivec
-    sha1 "5cf2a19ddde50e65786a2d5957a0d0b20f1db94c" => :leopard_g3
-    sha1 "3c97c65cdacf43c0f310309a9b5f0a242fd7b925" => :leopard_altivec
+    revision 1
+    sha256 "13e867965cd3a068d7261b4f07cb9835f8f3e4661f27d151318a3b04fccacbd0" => :el_capitan
+    sha256 "6d59cb6e7fc0aa67ff5a0734d00aaf712f424dcd6094f29b0dbbfa5d5f205a98" => :yosemite
+    sha256 "d747feae5b551c03d783886fd3aa58a86ce04a73753d1d8347b196f953d54ddd" => :mavericks
   end
 
   keg_only "Conflicts with isl in main repository."
