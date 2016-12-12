@@ -1993,5 +1993,12 @@
     "file_without_extension": "kettle54",
     "original_filename": "kettle54.rb",
     "migrated_filename": "kettle.rb"
+  },
+  {
+    "classname_with_version": "Kibana41",
+    "package_at_version": "kibana@41",
+    "file_without_extension": "kibana41",
+    "original_filename": "kibana41.rb",
+    "migrated_filename": "kibana.rb"
   }
 ]
