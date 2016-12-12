@@ -2189,5 +2189,12 @@
     "file_without_extension": "docker110",
     "original_filename": "docker110.rb",
     "migrated_filename": "docker.rb"
+  },
+  {
+    "classname_with_version": "Hive12",
+    "package_at_version": "hive@12",
+    "file_without_extension": "hive12",
+    "original_filename": "hive12.rb",
+    "migrated_filename": "hive.rb"
   }
 ]
