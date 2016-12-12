@@ -2385,5 +2385,12 @@
     "file_without_extension": "elasticsearch24",
     "original_filename": "elasticsearch24.rb",
     "migrated_filename": "elasticsearch.rb"
+  },
+  {
+    "classname_with_version": "AndroidNdkR11c",
+    "package_at_version": "android-ndk@r11c",
+    "file_without_extension": "android-ndk-r11c",
+    "original_filename": "android-ndk-r11c.rb",
+    "migrated_filename": "android-ndk.rb"
   }
 ]
