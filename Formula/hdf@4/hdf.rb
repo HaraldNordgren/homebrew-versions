@@ -35,7 +35,7 @@ class Hdf < Formula
       "-DHDF4_ENABLE_SZIP_ENCODING=ON",
       "-DHDF4_ENABLE_SZIP_SUPPORT=ON",
       "-DHDF4_ENABLE_Z_LIB_SUPPORT=ON",
-      "-DHDF4_BUILD_FORTRAN=OFF"
+      "-DHDF4_BUILD_FORTRAN=OFF",
     ]
 
     mkdir "build" do

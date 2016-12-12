@@ -17,7 +17,6 @@ class Protobuf < Formula
     sha256 "3da3651216bd105e9611fa14ecffb591eebb20c79b261f5038d11f812f851137" => :mountain_lion
   end
 
-
   # this will double the build time approximately if enabled
   option "with-check", "Run build-time check"
 

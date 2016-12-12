@@ -68,8 +68,7 @@ class Mapnik < Formula
             "BOOST_LIBS=#{boost}/lib",
             "PROJ_INCLUDES=#{proj}/include",
             "PROJ_LIBS=#{proj}/lib",
-            "FREETYPE_CONFIG=#{freetype}/bin/freetype-config",
-           ]
+            "FREETYPE_CONFIG=#{freetype}/bin/freetype-config"]
 
     if build.with? "cairo"
       args << "CAIRO=True" # cairo paths will come from pkg-config

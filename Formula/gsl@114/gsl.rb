@@ -27,4 +27,3 @@ class Gsl < Formula
     system bin/"gsl-config", "--prefix", "--cflags", "--version"
   end
 end
-
