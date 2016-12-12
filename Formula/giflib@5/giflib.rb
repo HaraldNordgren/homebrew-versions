@@ -1,8 +1,9 @@
 class Giflib < Formula
   version "5"
+  desc "Library and utilities for processing GIFs"
   homepage "http://giflib.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/giflib/giflib-5.x/giflib-5.0.5.tar.bz2"
-  sha256 "606d8a366b1c625ab60d62faeca807a799a2b9e88cbdf2a02bfcdf4429bf8609"
+  url "https://downloads.sourceforge.net/project/giflib/giflib-5.1.1.tar.bz2"
+  sha256 "391014aceb21c8b489dc7b0d0b6a917c4e32cc014ce2426d47ca376d02fe2ffc"
 
   bottle do
     cellar :any
@@ -16,5 +17,9 @@ class Giflib < Formula
   def install
     system "./configure", "--prefix=#{prefix}", "--disable-dependency-tracking"
     system "make", "install"
+  end
+
+  test do
+    assert_match /Screen Size - Width = 1, Height = 1/, shell_output("#{bin}/giftext #{test_fixtures("test.gif")}")
   end
 end
