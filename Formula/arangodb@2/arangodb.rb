@@ -40,7 +40,6 @@ class Arangodb < Formula
     system "make", "install"
   end
 
-  # moving the "if" inside post_install does not work
   def post_install
     (var/"lib/arangodb").mkpath
     (var/"log/arangodb").mkpath
