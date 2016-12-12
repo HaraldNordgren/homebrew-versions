@@ -2042,5 +2042,12 @@
     "file_without_extension": "ansible19",
     "original_filename": "ansible19.rb",
     "migrated_filename": "ansible.rb"
+  },
+  {
+    "classname_with_version": "Subversion18",
+    "package_at_version": "subversion@18",
+    "file_without_extension": "subversion18",
+    "original_filename": "subversion18.rb",
+    "migrated_filename": "subversion.rb"
   }
 ]
