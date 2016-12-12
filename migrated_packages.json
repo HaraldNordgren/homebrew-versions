@@ -2098,5 +2098,12 @@
     "file_without_extension": "llvm38",
     "original_filename": "llvm38.rb",
     "migrated_filename": "llvm.rb"
+  },
+  {
+    "classname_with_version": "Qt55",
+    "package_at_version": "qt@55",
+    "file_without_extension": "qt55",
+    "original_filename": "qt55.rb",
+    "migrated_filename": "qt.rb"
   }
 ]
