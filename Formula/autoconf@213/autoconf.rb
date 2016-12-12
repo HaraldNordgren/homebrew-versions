@@ -1,5 +1,6 @@
 class Autoconf < Formula
   version "213"
+  desc "Automatic configure script builder"
   homepage "https://www.gnu.org/software/autoconf/"
   url "http://ftpmirror.gnu.org/autoconf/autoconf-2.13.tar.gz"
   mirror "https://ftp.gnu.org/gnu/autoconf/autoconf-2.13.tar.gz"
