@@ -2280,5 +2280,12 @@
     "file_without_extension": "go16",
     "original_filename": "go16.rb",
     "migrated_filename": "go.rb"
+  },
+  {
+    "classname_with_version": "ClangFormat38",
+    "package_at_version": "clang-format@38",
+    "file_without_extension": "clang-format38",
+    "original_filename": "clang-format38.rb",
+    "migrated_filename": "clang-format.rb"
   }
 ]
