@@ -2028,5 +2028,12 @@
     "file_without_extension": "postgresql94",
     "original_filename": "postgresql94.rb",
     "migrated_filename": "postgresql.rb"
+  },
+  {
+    "classname_with_version": "Ruby22",
+    "package_at_version": "ruby@22",
+    "file_without_extension": "ruby22",
+    "original_filename": "ruby22.rb",
+    "migrated_filename": "ruby.rb"
   }
 ]
