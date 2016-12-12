@@ -2,6 +2,7 @@ class Gdal < Formula
   version "111"
   desc "GDAL: Geospatial Data Abstraction Library"
   homepage "http://www.gdal.org/"
+  revision 1
 
   stable do
     url "http://download.osgeo.org/gdal/1.11.1/gdal-1.11.1.tar.gz"
