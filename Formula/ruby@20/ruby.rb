@@ -1,14 +1,18 @@
 class Ruby < Formula
   version "20"
+  desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
   url "https://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p647.tar.bz2"
   sha256 "3c3782e313d1ec3ed06c104eafd133cc54ff5183b991786ece9e957fd6cf1cb9"
+  revision 1
 
   bottle do
     sha256 "c92517fd6503e01b4bd8bae36cdda4d7bc60db6a224fe8724882e7f79c1a681b" => :yosemite
     sha256 "b6a6fbecd9a5d3961ca9eba812034e1983277216de4f7dba6aa3380ca94ae6f9" => :mavericks
     sha256 "196821bd9c37392b670fea9249a4401cf696727f80d03945bc4f9ae56f45ce74" => :mountain_lion
   end
+
+  keg_only :provided_by_osx
 
   option :universal
   option "with-suffix", "Suffix commands with '20'"
@@ -28,40 +32,80 @@ class Ruby < Formula
   end
 
   def install
-    args = %W[--prefix=#{prefix} --enable-shared]
+    args = %W[
+      --prefix=#{prefix}
+      --enable-shared
+      --with-sitedir=#{HOMEBREW_PREFIX}/lib/ruby/site_ruby
+      --with-vendordir=#{HOMEBREW_PREFIX}/lib/ruby/vendor_ruby
+    ]
 
     if build.universal?
       ENV.universal_binary
       args << "--with-arch=#{Hardware::CPU.universal_archs.join(",")}"
     end
 
-    args << "--program-suffix=20" if build.with? "suffix"
+    args << "--program-suffix=#{program_suffix}" if build.with? "suffix"
     args << "--with-out-ext=tk" if build.without? "tcltk"
     args << "--disable-install-doc" if build.without? "doc"
     args << "--disable-dtrace" unless MacOS::CLT.installed?
 
     paths = [
       Formula["libyaml"].opt_prefix,
-      Formula["openssl"].opt_prefix
+      Formula["openssl"].opt_prefix,
     ]
 
-    %w[readline gdbm gmp libffi].each do |dep|
+    %w[readline gdbm libffi].each do |dep|
       paths << Formula[dep].opt_prefix if build.with? dep
     end
 
     args << "--with-opt-dir=#{paths.join(":")}"
 
     system "./configure", *args
+
+    # Ruby has been configured to look in the HOMEBREW_PREFIX for the
+    # sitedir and vendordir directories; however we don't actually want to create
+    # them during the install.
+    #
+    # These directories are empty on install; sitedir is used for non-rubygems
+    # third party libraries, and vendordir is used for packager-provided libraries.
+    inreplace "tool/rbinstall.rb" do |s|
+      s.gsub! 'prepare "extension scripts", sitelibdir', ""
+      s.gsub! 'prepare "extension scripts", vendorlibdir', ""
+      s.gsub! 'prepare "extension objects", sitearchlibdir', ""
+      s.gsub! 'prepare "extension objects", vendorarchlibdir', ""
+    end
+
     system "make"
     system "make", "install"
   end
 
   def post_install
-    (lib/"ruby/#{abi_version}/rubygems/defaults/operating_system.rb").write rubygems_config
+    # Customize rubygems to look/install in the global gem directory
+    # instead of in the Cellar, making gems last across reinstalls
+    config_file = lib/"ruby/#{abi_version}/rubygems/defaults/operating_system.rb"
+    config_file.unlink if config_file.exist?
+    config_file.write rubygems_config
+
+    # Create the sitedir and vendordir that were skipped during install
+    ruby="#{bin}/ruby#{program_suffix}"
+    %w[sitearchdir vendorarchdir].each do |dir|
+      mkdir_p `#{ruby} -rrbconfig -e 'print RbConfig::CONFIG["#{dir}"]'`
+    end
+
+    # Create the version-specific bindir used by rubygems
+    mkdir_p "#{rubygems_bindir}"
   end
 
   def abi_version
     "2.0.0"
+  end
+
+  def program_suffix
+    build.with?("suffix") ? "20" : ""
+  end
+
+  def rubygems_bindir
+    "#{HOMEBREW_PREFIX}/lib/ruby/gems/#{abi_version}/bin"
   end
 
   def rubygems_config; <<-EOS.undent
@@ -119,17 +163,27 @@ class Ruby < Formula
       end
 
       def self.default_bindir
-        "#{HOMEBREW_PREFIX}/bin"
+        "#{rubygems_bindir}"
       end
 
       def self.ruby
-        "#{opt_bin}/ruby#{"20" if build.with? "suffix"}"
+        "#{opt_bin}/ruby#{program_suffix}"
       end
     end
     EOS
   end
 
+  def caveats; <<-EOS.undent
+    By default, binaries installed by gem will be placed into:
+      #{rubygems_bindir}
+
+    You may want to add this to your PATH.
+    EOS
+  end
+
   test do
-    system bin/"ruby", "--version"
+    hello_text = shell_output("#{bin}/ruby#{program_suffix} -e 'puts :hello'")
+    assert_equal "hello\n", hello_text
+    system "#{bin}/gem#{program_suffix}", "list", "--local"
   end
 end
