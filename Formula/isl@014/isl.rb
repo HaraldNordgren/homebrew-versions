@@ -1,5 +1,6 @@
 class Isl < Formula
   version "014"
+  desc "Integer Set Library for the polyhedral model"
   homepage "http://freecode.com/projects/isl"
   # Track gcc infrastructure releases.
   url "http://isl.gforge.inria.fr/isl-0.14.tar.bz2"
