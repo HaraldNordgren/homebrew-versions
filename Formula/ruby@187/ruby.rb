@@ -110,7 +110,7 @@ class Ruby < Formula
     end
 
     # Create the version-specific bindir used by rubygems
-    mkdir_p "#{rubygems_bindir}"
+    mkdir_p rubygems_bindir
   end
 
   def abi_version
