@@ -1,7 +1,7 @@
 class Automake < Formula
   version "112"
   homepage "https://www.gnu.org/software/automake/"
-  url "http://ftpmirror.gnu.org/automake/automake-1.12.6.tar.gz"
+  url "https://ftpmirror.gnu.org/automake/automake-1.12.6.tar.gz"
   mirror "https://ftp.gnu.org/gnu/automake/automake-1.12.6.tar.gz"
   sha256 "0cbe570db487908e70af7119da85ba04f7e28656b26f717df0265ae08defd9ef"
 
