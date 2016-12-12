@@ -9,13 +9,10 @@ class Mpfr < Formula
 
   bottle do
     cellar :any
-    sha256 "b567a28e0d55497325ab97f73e302414bd66e48068c8dbb1092d453704ffe523" => :yosemite
-    sha256 "3f195ad79022a35840e46f0726f623c932ad5ef72516a873615078f053867aef" => :mavericks
-    sha256 "ab7c5d3f5aa1adb76d27b66389c9aa65ee4a52c7c23d40dee30b8ca78653ca17" => :mountain_lion
-    sha1 "d146a7ec89d73a64906ed3fa930d1062b0cb5479" => :tiger_g3
-    sha1 "87ea4788e631dd447a92e78cc183093ecf4157be" => :tiger_altivec
-    sha1 "6ffec69dca10ac3cb40a6dc7d1221200eb7d888a" => :leopard_g3
-    sha1 "39c667af86e969336c904afb55ad7b25f81a4140" => :leopard_altivec
+    revision 1
+    sha256 "08e5aa9a8b8631afe6478ab7973a152316237cbddcb0f76ddaebebec99ee77b0" => :el_capitan
+    sha256 "bb6d912bd1688077a961a91ae12a94e372e339546df84295013473bb9882def5" => :yosemite
+    sha256 "8745f1ca353d9bd28c07ac4c602b2836ca6d39477fa8736baba55fc46ce66d85" => :mavericks
   end
 
   option "with-32-bit"
