@@ -2168,5 +2168,12 @@
     "file_without_extension": "play14",
     "original_filename": "play14.rb",
     "migrated_filename": "play.rb"
+  },
+  {
+    "classname_with_version": "Node5",
+    "package_at_version": "node@5",
+    "file_without_extension": "node5",
+    "original_filename": "node5.rb",
+    "migrated_filename": "node.rb"
   }
 ]
