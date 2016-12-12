@@ -26,9 +26,9 @@ class Gcc < Formula
   sha256 "41f549cac86b6e31a6491524b9e25920e4c4ad070ce6e94026800caf9a2110a7"
 
   bottle do
-    sha256 "3d1377ec7cc0ae2b8aaa84bd6be1de09082d52c58b0e373c29ae32f1881ab614" => :el_capitan
-    sha256 "9c0d901c15c27e46e8834b4647f908330e1307c1be09c9ed2aa91fc1aaf70c8b" => :yosemite
-    sha256 "562907dd9c463139ffc2e70f3f55c339946d2c3c82d743d798a922153a042100" => :mavericks
+    sha256 "08f0cc13f390e76c04a4a0e07a52b595ca4b03fa6dbe65db572be7ce333cc157" => :el_capitan
+    sha256 "70289d936d85c60b1a76dedcdce3833395e1a5d785a513a7a38bfbaec40ebe1a" => :yosemite
+    sha256 "c1f07dc4732b24ac4b83c7e3a352ed65633274926b7f1148e636e569e09856a9" => :mavericks
   end
 
   # GCC's Go compiler is not currently supported on Mac OS X.
