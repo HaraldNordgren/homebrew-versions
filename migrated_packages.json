@@ -2427,5 +2427,12 @@
     "file_without_extension": "scala211",
     "original_filename": "scala211.rb",
     "migrated_filename": "scala.rb"
+  },
+  {
+    "classname_with_version": "Eigen32",
+    "package_at_version": "eigen@32",
+    "file_without_extension": "eigen32",
+    "original_filename": "eigen32.rb",
+    "migrated_filename": "eigen.rb"
   }
 ]
