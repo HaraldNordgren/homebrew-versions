@@ -2,8 +2,8 @@ class Node < Formula
   version "012"
   desc "JavaScript runtime built on Chrome's V8 engine"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/download/release/v0.12.11/node-v0.12.11.tar.xz"
-  sha256 "ad36d2fee86171582b7a3c7470a0c565bd816dc02518e1b64aa5f21a0fdf86ce"
+  url "https://nodejs.org/download/release/v0.12.12/node-v0.12.12.tar.xz"
+  sha256 "5977adab4fec36abcc18053b1b8c1deac4c94016d7b19942a986291d58685db6"
   head "https://github.com/nodejs/node.git", :branch => "v0.12-staging"
 
   bottle do
@@ -41,7 +41,7 @@ class Node < Formula
     if build.with? "openssl"
       args << "--shared-openssl"
     else
-      args << "--without-ssl2" << "--without-ssl3"
+      args << "--without-ssl3"
     end
 
     system "./configure", *args
