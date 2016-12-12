@@ -1,5 +1,6 @@
 class Leptonica < Formula
   version "169"
+  desc "Image processing and image analysis library"
   homepage "http://www.leptonica.org/"
   url "http://www.leptonica.org/source/leptonica-1.69.tar.gz"
   sha256 "3eb7669dcda7e417f399bb3698414ea523270797dfd36c59b08ef37a3fe0a72d"
