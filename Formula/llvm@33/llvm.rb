@@ -73,7 +73,7 @@ class Llvm < Formula
 
     resource "clang-unwind-patch" do
       url "http://llvm.org/viewvc/llvm-project/cfe/trunk/lib/Headers/unwind.h?r1=172666&r2=189535&view=patch", :using => :nounzip
-      sha1 "b40f6dba4928add36945c50e5b89ca0988147cd2"
+      sha256 "3e54779e8764cd6c8c4547fbea23838d4af7f3da5eee214e361db4c13d715456"
     end
   end
 
