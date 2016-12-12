@@ -33,7 +33,9 @@ class Ruby < Formula
 
   def install
     args = %W[
-      --prefix=#{prefix} --enable-shared --disable-silent-rules
+      --prefix=#{prefix}
+      --enable-shared
+      --disable-silent-rules
       --with-sitedir=#{HOMEBREW_PREFIX}/lib/ruby/site_ruby
       --with-vendordir=#{HOMEBREW_PREFIX}/lib/ruby/vendor_ruby
     ]
