@@ -2,9 +2,9 @@ class Node < Formula
   version "4-lts"
   desc "JavaScript runtime built on Chrome's V8 engine"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v4.2.2/node-v4.2.2.tar.gz"
-  sha256 "00e709353435b436b5bbf5e62272ebb15fe801065422c4c2afe2b93456210cb1"
-  head "https://github.com/nodejs/node.git"
+  url "https://nodejs.org/dist/v4.2.3/node-v4.2.3.tar.gz"
+  sha256 "5008ade5feb4b089f59163f66bffddc113f27de5d78edf203e39435c2c5d554f"
+  head "https://github.com/nodejs/node.git", :branch => "v4.x"
 
   bottle do
     sha256 "359fa6c65b32804bc80f0d136c6aed5c43761628f50e43a6d9ea3b55c4d12033" => :el_capitan
@@ -40,6 +40,7 @@ class Node < Formula
     args = %W[--prefix=#{prefix} --without-npm]
     args << "--debug" if build.with? "debug"
     args << "--shared-openssl" if build.with? "openssl"
+
     if build.with? "full-icu"
       args << "--with-intl=full-icu"
     else
