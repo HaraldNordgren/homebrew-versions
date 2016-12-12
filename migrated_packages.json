@@ -2175,5 +2175,12 @@
     "file_without_extension": "node5",
     "original_filename": "node5.rb",
     "migrated_filename": "node.rb"
+  },
+  {
+    "classname_with_version": "Ffmpeg28",
+    "package_at_version": "ffmpeg@28",
+    "file_without_extension": "ffmpeg28",
+    "original_filename": "ffmpeg28.rb",
+    "migrated_filename": "ffmpeg.rb"
   }
 ]
