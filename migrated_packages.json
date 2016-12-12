@@ -2371,5 +2371,12 @@
     "file_without_extension": "grails31",
     "original_filename": "grails31.rb",
     "migrated_filename": "grails.rb"
+  },
+  {
+    "classname_with_version": "Gradle214",
+    "package_at_version": "gradle@214",
+    "file_without_extension": "gradle214",
+    "original_filename": "gradle214.rb",
+    "migrated_filename": "gradle.rb"
   }
 ]
