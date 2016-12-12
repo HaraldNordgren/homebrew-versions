@@ -2,6 +2,7 @@
 # 2.0.6 is provided for Snow Leopard compatibility.
 class Appledoc < Formula
   version "20"
+  desc "Objective-C API documentation generator"
   homepage "http://appledoc.gentlebytes.com/"
   url "https://github.com/tomaz/appledoc/archive/v2.0.6.tar.gz"
   sha256 "f62bed39a0e65eab4035ea82784e7a9347b3bfc7c424e6e855b8ff698628cc21"
