@@ -1,36 +1,35 @@
-require 'formula'
-
 class Rabbitmq < Formula
   version "30"
-  homepage 'http://www.rabbitmq.com'
-  url 'http://www.rabbitmq.com/releases/rabbitmq-server/v3.0.4/rabbitmq-server-generic-unix-3.0.4.tar.gz'
-  sha1 '5202b063404e703a21e8d72b20f171bc540ba933'
+  desc "Messaging broker"
+  homepage "http://www.rabbitmq.com"
+  url "http://www.rabbitmq.com/releases/rabbitmq-server/v3.0.4/rabbitmq-server-generic-unix-3.0.4.tar.gz"
+  sha256 "2920cc2ffdf65a645b8c8b06c9bbf5aa5d1b57373e07fc763314370cfa86f223"
 
-  conflicts_with 'rabbitmq'
+  conflicts_with "rabbitmq"
 
-  depends_on 'erlang'
-  depends_on 'simplejson' => :python if MacOS.version == :leopard
+  depends_on "erlang"
+  depends_on "simplejson" => :python if MacOS.version == :leopard
 
   def install
     # Install the base files
-    prefix.install Dir['*']
+    prefix.install Dir["*"]
 
     # Setup the lib files
-    (var+'lib/rabbitmq').mkpath
-    (var+'log/rabbitmq').mkpath
+    (var+"lib/rabbitmq").mkpath
+    (var+"log/rabbitmq").mkpath
 
     # Replace the SYS_PREFIX for things like rabbitmq-plugins
-    inreplace (sbin + 'rabbitmq-defaults'), 'SYS_PREFIX=${RABBITMQ_HOME}', "SYS_PREFIX=#{HOMEBREW_PREFIX}"
+    inreplace (sbin + "rabbitmq-defaults"), "SYS_PREFIX=${RABBITMQ_HOME}", "SYS_PREFIX=#{HOMEBREW_PREFIX}"
 
     # Set the RABBITMQ_HOME in rabbitmq-env
-    inreplace (sbin + 'rabbitmq-env'), 'RABBITMQ_HOME="${SCRIPT_DIR}/.."', "RABBITMQ_HOME=#{prefix}"
+    inreplace (sbin + "rabbitmq-env"), 'RABBITMQ_HOME="${SCRIPT_DIR}/.."', "RABBITMQ_HOME=#{prefix}"
 
     # Create the rabbitmq-env.conf file
-    rabbitmq_env_conf = etc+'rabbitmq/rabbitmq-env.conf'
+    rabbitmq_env_conf = etc+"rabbitmq/rabbitmq-env.conf"
     rabbitmq_env_conf.write rabbitmq_env unless rabbitmq_env_conf.exist?
 
     # Enable the management web UI and visualiser
-    enabled_plugins_path = etc+'rabbitmq/enabled_plugins'
+    enabled_plugins_path = etc+"rabbitmq/enabled_plugins"
     enabled_plugins_path.write enabled_plugins unless enabled_plugins_path.exist?
 
     # Extract rabbitmqadmin and install to sbin
@@ -39,9 +38,9 @@ class Rabbitmq < Formula
            "#{prefix}/plugins/rabbitmq_management-#{version}.ez",
            "rabbitmq_management-#{version}/priv/www/cli/rabbitmqadmin"
 
-    sbin.install 'rabbitmqadmin'
+    sbin.install "rabbitmqadmin"
 
-    (prefix+'etc/bash_completion.d/rabbitmqadmin.bash').write `#{sbin}/rabbitmqadmin --bash-completion`
+    (prefix+"etc/bash_completion.d/rabbitmqadmin.bash").write `#{sbin}/rabbitmqadmin --bash-completion`
   end
 
   def caveats; <<-EOS.undent
@@ -61,7 +60,7 @@ class Rabbitmq < Formula
     EOS
   end
 
-  plist_options :manual => 'rabbitmq-server'
+  plist_options :manual => "rabbitmq-server"
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
