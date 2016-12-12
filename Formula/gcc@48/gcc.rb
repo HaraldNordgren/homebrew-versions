@@ -1,5 +1,6 @@
 class Gcc < Formula
   version "48"
+  desc "GNU compiler collection"
   def arch
     if Hardware::CPU.type == :intel
       if MacOS.prefer_64_bit?
