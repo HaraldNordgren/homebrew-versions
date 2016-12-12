@@ -2077,5 +2077,12 @@
     "file_without_extension": "cassandra21",
     "original_filename": "cassandra21.rb",
     "migrated_filename": "cassandra.rb"
+  },
+  {
+    "classname_with_version": "ApacheSpark15",
+    "package_at_version": "apache-spark@15",
+    "file_without_extension": "apache-spark15",
+    "original_filename": "apache-spark15.rb",
+    "migrated_filename": "apache-spark.rb"
   }
 ]
