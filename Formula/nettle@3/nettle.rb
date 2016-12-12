@@ -1,5 +1,6 @@
 class Nettle < Formula
   version "3"
+  desc "Low-level cryptographic library"
   homepage "https://www.lysator.liu.se/~nisse/nettle/"
   url "http://ftpmirror.gnu.org/nettle/nettle-3.1.1.tar.gz"
   mirror "https://ftp.gnu.org/gnu/nettle/nettle-3.1.1.tar.gz"
