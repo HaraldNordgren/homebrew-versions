@@ -2,9 +2,12 @@ class Kibana < Formula
   version "43"
   desc "Analytics and search dashboard for Elasticsearch"
   homepage "https://www.elastic.co/products/kibana"
-  url "https://github.com/elastic/kibana.git", :tag => "v4.3.1", :revision => "d6e412dc2fa54666bf6ceb54a197508a4bc70baf"
-  head "https://github.com/elastic/kibana.git"
+  url "https://github.com/elastic/kibana.git",
+      :tag => "v4.3.1",
+      :revision => "d6e412dc2fa54666bf6ceb54a197508a4bc70baf"
   revision 1
+
+  head "https://github.com/elastic/kibana.git"
 
   bottle do
     sha256 "ee6bc72327bb31e78f4c32480d27dc73140bce8a1f3a36c725ffba1710c6a320" => :el_capitan
