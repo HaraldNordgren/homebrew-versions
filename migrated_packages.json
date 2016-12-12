@@ -2273,5 +2273,12 @@
     "file_without_extension": "bazel02",
     "original_filename": "bazel02.rb",
     "migrated_filename": "bazel.rb"
+  },
+  {
+    "classname_with_version": "Go16",
+    "package_at_version": "go@16",
+    "file_without_extension": "go16",
+    "original_filename": "go16.rb",
+    "migrated_filename": "go.rb"
   }
 ]
