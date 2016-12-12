@@ -5,6 +5,12 @@ class Mysql < Formula
   url "https://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.27.tar.gz"
   sha256 "8356bba23f3f6c0c2d4806110c41d1c4d6a4b9c50825e11c5be4bbee2b20b71d"
 
+  bottle do
+    sha256 "b2d6eea1c69123f013eb8aecf0947e6c5ee2e13478bc178ec0858754a062bb38" => :el_capitan
+    sha256 "4395032f58d2222e30fd193b49227d983d3ea3944b7dd1120d2dca1f7d6db3ec" => :yosemite
+    sha256 "dc0259e2c8707d6975d918b4f35e9129455afabe4577755395bbe1fe3aae8e61" => :mavericks
+  end
+
   option :universal
   option "with-tests", "Build with unit tests"
   option "with-embedded", "Build the embedded server"
