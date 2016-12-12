@@ -2364,5 +2364,12 @@
     "file_without_extension": "node6-lts",
     "original_filename": "node6-lts.rb",
     "migrated_filename": "node.rb"
+  },
+  {
+    "classname_with_version": "Grails31",
+    "package_at_version": "grails@31",
+    "file_without_extension": "grails31",
+    "original_filename": "grails31.rb",
+    "migrated_filename": "grails.rb"
   }
 ]
