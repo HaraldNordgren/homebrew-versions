@@ -1,15 +1,10 @@
 class Play < Formula
   version "13"
-  homepage "http://www.playframework.org/"
-  url "http://downloads.typesafe.com/play/1.3.1/play-1.3.1.zip"
-  sha256 "9dae87f659cca29cd0144ef58491b714072ccb786eef4ccfa7741da1a2301ec0"
+  homepage "https://www.playframework.org/"
+  url "https://github.com/playframework/play1/releases/download/1.3.2/play-1.3.2.zip"
+  sha256 "b88e99fa4ab64c4efe4f87adeb48522f6d5d0397397cd4d7fd1937b8ce51f44c"
 
-  bottle do
-    cellar :any
-    sha256 "341d8fb3a7d0ff51913fe9524c585560342e2705b7b291c25493125836da6890" => :yosemite
-    sha256 "e745f863eac2cf9de688c5a832f9d7cd6d07fcbc67147c9135ecbd41b6276e2d" => :mavericks
-    sha256 "d255f3f91e8394d3f71e275b92099c8d7c0e72554af4a2aacd4138d5aa5128fb" => :mountain_lion
-  end
+  bottle :unneeded
 
   conflicts_with "sox", :because => "Both install a `play` executable"
   conflicts_with "play12", :because => "Both install a `play` executable"
