@@ -3,9 +3,9 @@ class Node < Formula
   version "010"
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v0.10.40/node-v0.10.40.tar.gz"
-  sha256 "bae79c2fd959aebe1629af36077bebbb760128db753da226d2344cd91499149f"
-  revision 1
+  url "https://nodejs.org/dist/v0.10.41/node-v0.10.41.tar.gz"
+  sha256 "79f694e2a5c42543b75d0c69f6860499d7593136d0f6b59e7163b9e66fb2c995"
+  head "https://github.com/nodejs/node.git", :branch => "v0.10-staging"
 
   bottle do
     sha256 "bbf490a0c3320e14162283df0a74b3200e76feb0d83902702cecc9eb9fc6d56d" => :el_capitan
@@ -117,9 +117,8 @@ class Node < Formula
     path = testpath/"test.js"
     path.write "console.log('hello');"
 
-    output = `#{bin}/node #{path}`.strip
+    output = shell_output("#{bin}/node #{path}").strip
     assert_equal "hello", output
-    assert_equal 0, $?.exitstatus
 
     if build.with? "npm"
       # make sure npm can find node
