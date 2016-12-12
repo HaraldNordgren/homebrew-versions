@@ -1,8 +1,10 @@
 class Libpng < Formula
   version "12"
+  desc "Library for manipulating PNG images"
   homepage "http://www.libpng.org/pub/png/libpng.html"
-  url "https://downloads.sourceforge.net/project/libpng/libpng12/1.2.52/libpng-1.2.52.tar.xz"
-  sha256 "d4fb0fbf14057ad6d0319034188fc2aecddb493da8e3031b7b072ed28f510ec0"
+  url "ftp://ftp.simplesystems.org/pub/libpng/png/src/libpng12/libpng-1.2.54.tar.xz"
+  mirror "https://dl.bintray.com/homebrew/mirror/libpng-1.2.54.tar.xz"
+  sha256 "cf85516482780f2bc2c5b5073902f12b1519019d47bf473326c2018bdff1d272"
 
   bottle do
     cellar :any
