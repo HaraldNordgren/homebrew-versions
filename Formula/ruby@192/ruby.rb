@@ -2,6 +2,7 @@ require 'formula'
 
 class Ruby < Formula
   version "192"
+  desc "Powerful, clean, object-oriented scripting language"
   homepage 'http://www.ruby-lang.org/en/'
   url 'http://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-p330.tar.bz2'
   sha256 '6d3487ea8a86ad0fa78a8535078ff3c7a91ca9f99eff0a6a08e66c6e6bf2040f'
