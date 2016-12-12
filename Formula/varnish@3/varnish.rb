@@ -1,20 +1,19 @@
-require 'formula'
-
 class Varnish < Formula
   version "3"
-  homepage 'http://www.varnish-cache.org/'
-  url 'http://repo.varnish-cache.org/source/varnish-3.0.5.tar.gz'
-  sha1 '2f3eae44cc44d263fe9513b856f49707a64cc840'
+  desc "High-performance HTTP accelerator"
+  homepage "http://www.varnish-cache.org/"
+  url "http://repo.varnish-cache.org/source/varnish-3.0.5.tar.gz"
+  sha256 "302fd6afc771524ca3912f5d945ab197a55762385c012b2054df7d86bf7ae2b7"
 
-  depends_on 'pkg-config' => :build
-  depends_on 'pcre'
+  depends_on "pkg-config" => :build
+  depends_on "pcre"
 
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--localstatedir=#{var}"
-    system "make install"
-    (var+'varnish').mkpath
+    system "make", "install"
+    (var+"varnish").mkpath
   end
 
   def plist; <<-EOS.undent
