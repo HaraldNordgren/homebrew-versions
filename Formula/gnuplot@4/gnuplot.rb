@@ -6,6 +6,7 @@ end
 
 class Gnuplot < Formula
   version "4"
+  desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info"
   url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/4.6.6/gnuplot-4.6.6.tar.gz"
   sha256 "1f19596fd09045f22225afbfec11fa91b9ad1d95b9f48406362f517d4f130274"
