@@ -1,14 +1,13 @@
-require "formula"
-
 class JbossAs < Formula
+  desc "JBoss Application Server"
   homepage "http://www.jboss.org/jbossas"
   url "https://downloads.sf.net/project/jboss/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA.zip"
-  sha1 "be05d9e4774c60cc7473e2fdd0b1fff228ef7b38"
   version "5.1.0GA"
+  sha256 "be93bcb8f1ff03d7e64c98f2160a2415602268d84f44fb78cddb26303a8cbd3f"
 
   def install
     rm_f Dir["bin/*.bat"]
-    libexec.install Dir['*']
+    libexec.install Dir["*"]
   end
 
   def caveats; <<-EOS.undent
