@@ -274,7 +274,8 @@ class Llvm < Formula
   end
 
   test do
-    # test for sed errors since some llvm makefiles assume that sed understands '\n' which is true for gnu sed and not for bsd sed
+    # test for sed errors since some llvm makefiles assume that sed
+    # understands '\n' which is true for gnu sed and not for bsd sed.
     assert_no_match /PATH\)n/, (lib/"llvm-3.7/share/llvm/cmake/LLVMConfig.cmake").read
     system "#{bin}/llvm-config-#{ver}", "--version"
   end
