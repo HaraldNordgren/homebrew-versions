@@ -2,9 +2,9 @@ class Gnupg < Formula
   version "21"
   desc "GNU Privacy Guard: a free PGP replacement"
   homepage "https://www.gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.9.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.9.tar.bz2"
-  sha256 "1cb7633a57190beb66f9249cb7446603229b273d4d89331b75c652fa4a29f7b6"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.1.10.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnupg/gnupg-2.1.10.tar.bz2"
+  sha256 "93bd58d81771a4fa488566e5d2e13b1fd7afc86789401eb41731882abfd26cf9"
 
   bottle do
     revision 1
@@ -24,6 +24,7 @@ class Gnupg < Formula
   option "with-gpgsplit", "Additionally install the gpgsplit utility"
 
   depends_on "pkg-config" => :build
+  depends_on "sqlite" => :build if MacOS.version == :mavericks
   depends_on "npth"
   depends_on "gnutls"
   depends_on "homebrew/fuse/encfs" => :optional
@@ -35,6 +36,7 @@ class Gnupg < Formula
   depends_on "libusb-compat" => :recommended
   depends_on "readline" => :optional
   depends_on "gettext"
+  depends_on "adns"
 
   conflicts_with "gnupg2",
         :because => "GPG2.1.x is incompatible with the 2.0.x branch."
@@ -78,8 +80,6 @@ class Gnupg < Formula
       s.gsub! "PACKAGE_TARNAME='gnupg'", "PACKAGE_TARNAME='gnupg2'"
     end
 
-    inreplace "tools/gpgkey2ssh.c", "gpg --list-keys", "gpg2 --list-keys"
-
     system "./configure", *args
 
     system "make"
@@ -88,10 +88,7 @@ class Gnupg < Formula
 
     bin.install "tools/gpgsplit" => "gpgsplit2" if build.with? "gpgsplit"
 
-    # Conflicts with a manpage from the 1.x formula, and
-    # gpg-zip isn't installed by this formula anyway
-    rm man1/"gpg-zip.1"
-    # Move more man conflict out of 1.x's way.
+    # Move man files that conflict with 1.x.
     mv share/"doc/gnupg2/FAQ", share/"doc/gnupg2/FAQ21"
     mv share/"doc/gnupg2/examples/gpgconf.conf", share/"doc/gnupg2/examples/gpgconf21.conf"
     mv share/"info/gnupg.info", share/"info/gnupg21.info"
