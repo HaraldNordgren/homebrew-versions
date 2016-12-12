@@ -3,8 +3,8 @@ class Node < Formula
   version "010"
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v0.10.46/node-v0.10.46.tar.xz"
-  sha256 "9b0e6079fc3282491028d29ae019fc7ba8de187dc3acda22a5cfd7d145cbffd9"
+  url "https://nodejs.org/dist/v0.10.47/node-v0.10.47.tar.xz"
+  sha256 "335bdf4db702885a8acaf2c9f241c70cabd62497361da81aca65c8e8a8e7ff09"
   head "https://github.com/nodejs/node.git", branch: "v0.10-staging"
 
   bottle do
@@ -19,7 +19,7 @@ class Node < Formula
   option "without-npm", "npm will not be installed"
   option "without-completion", "npm bash completion will not be installed"
 
-  depends_on python: :build
+  depends_on :python => :build
   depends_on "openssl" => :optional
 
   fails_with :llvm do
@@ -49,19 +49,18 @@ class Node < Formula
 
       # make sure npm can find node
       ENV.prepend_path "PATH", bin
-
-      # make sure user prefix settings in $HOME are ignored
-      ENV["HOME"] = buildpath/".brew_home"
-
       # set log level temporarily for npm's `make install`
       ENV["NPM_CONFIG_LOGLEVEL"] = "verbose"
-
       # unset prefix temporarily for npm's `make install`
       ENV.delete "NPM_CONFIG_PREFIX"
 
       cd buildpath/"npm_install" do
         system "./configure", "--prefix=#{libexec}/npm"
         system "make", "install"
+        # `package.json` has relative paths to the npm_install directory.
+        # This copies back over the vanilla `package.json` that is expected.
+        # https://github.com/Homebrew/homebrew/issues/46131#issuecomment-157845008
+        cp buildpath/"npm_install/package.json", libexec/"npm/lib/node_modules/npm"
         # Remove manpage symlinks from the buildpath, they are breaking bottle
         # creation. The real manpages are living in libexec/npm/lib/node_modules/npm/man/
         # https://github.com/Homebrew/homebrew/pull/47081#issuecomment-165280470
@@ -97,8 +96,8 @@ class Node < Formula
     ["man1", "man3", "man5", "man7"].each do |man|
       # Dirs must exist first: https://github.com/Homebrew/homebrew/issues/35969
       mkdir_p HOMEBREW_PREFIX/"share/man/#{man}"
-      rm_f Dir[HOMEBREW_PREFIX/"share/man/#{man}/{npm.,npm-,npmrc.}*"]
-      ln_sf Dir[libexec/"npm/lib/node_modules/npm/man/#{man}/npm*"], HOMEBREW_PREFIX/"share/man/#{man}"
+      rm_f Dir[HOMEBREW_PREFIX/"share/man/#{man}/{npm.,npm-,npmrc.,package.json.}*"]
+      ln_sf Dir[libexec/"npm/lib/node_modules/npm/man/#{man}/{npm,package.json}*"], HOMEBREW_PREFIX/"share/man/#{man}"
     end
 
     npm_root = node_modules/"npm"
