@@ -2182,5 +2182,12 @@
     "file_without_extension": "ffmpeg28",
     "original_filename": "ffmpeg28.rb",
     "migrated_filename": "ffmpeg.rb"
+  },
+  {
+    "classname_with_version": "Docker110",
+    "package_at_version": "docker@110",
+    "file_without_extension": "docker110",
+    "original_filename": "docker110.rb",
+    "migrated_filename": "docker.rb"
   }
 ]
