@@ -70,9 +70,10 @@ class Llvm < Formula
   end
 
   bottle do
-    sha256 "65de864917d3ddc598477848994ada3e31bbfd4e6519ccc881c4220492d89c3c" => :el_capitan
-    sha256 "396a1931e357ae6a922cec5e6c23e0e9ee43da0e9b0827a7f513a99beacb3900" => :yosemite
-    sha256 "9051f74ee214b9af7ebbf1444fd49fe25ef6eeca3f83d256b2d916c59e22ce6f" => :mavericks
+    revision 1
+    sha256 "060e162e9cbb3c335f31c03ac42c0593f4608d67381bed349b91bef6a2416129" => :el_capitan
+    sha256 "7b694a2c5e948d8872813dcd41ef3fb51b175bb15029be1f8c973f72b53dcff2" => :yosemite
+    sha256 "9277457adaf839b15d8403f428ddf773c3bb57b3c82908b915656f8cdb4f876b" => :mavericks
   end
 
   head do
