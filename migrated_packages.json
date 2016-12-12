@@ -1944,5 +1944,12 @@
     "file_without_extension": "elasticsearch17",
     "original_filename": "elasticsearch17.rb",
     "migrated_filename": "elasticsearch.rb"
+  },
+  {
+    "classname_with_version": "Gradle28",
+    "package_at_version": "gradle@28",
+    "file_without_extension": "gradle28",
+    "original_filename": "gradle28.rb",
+    "migrated_filename": "gradle.rb"
   }
 ]
