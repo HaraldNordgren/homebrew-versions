@@ -2,8 +2,8 @@ class Mysql < Formula
   version "56"
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/5.6/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.27.tar.gz"
-  sha256 "8356bba23f3f6c0c2d4806110c41d1c4d6a4b9c50825e11c5be4bbee2b20b71d"
+  url "https://cdn.mysql.com/Downloads/MySQL-5.6/mysql-5.6.29.tar.gz"
+  sha256 "6ac85b75b2dfa8c232725dda25469df37bf4e48b408cc0978d0dfc34c25a817f"
 
   bottle do
     sha256 "b2d6eea1c69123f013eb8aecf0947e6c5ee2e13478bc178ec0858754a062bb38" => :el_capitan
