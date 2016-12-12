@@ -273,7 +273,7 @@ class Gdal < Formula
     ENV["ARCHFLAGS"] = "-arch #{MacOS.preferred_arch}"
 
     # Fix hardcoded mandir: http://trac.osgeo.org/gdal/ticket/5092
-    inreplace "configure", /^mandir='\$\{prefix\}\/man'$/, ""
+    inreplace "configure", %r{^mandir='\$\{prefix\}\/man'$}, ""
 
     # These libs are statically linked in vendored libkml and libkml formula
     inreplace "configure", " -lminizip -luriparser", "" if build.with? "libkml"
