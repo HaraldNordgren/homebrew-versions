@@ -1,16 +1,10 @@
 class Go < Formula
   desc "Go programming environment (1.4)"
   homepage "https://golang.org"
-  url "https://storage.googleapis.com/golang/go1.4.2.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.4.2.src.tar.gz"
-  version "1.4.2"
-  sha256 "299a6fd8f8adfdce15bc06bde926e7b252ae8e24dd5b16b7d8791ed79e7b5e9b"
-
-  bottle do
-    sha256 "3fc0e4a72ea5e73da9b6c758da93c23a7ee07659f42a7caf379c2308064be615" => :yosemite
-    sha256 "61bf4a9a6c6105fa2589d94945cedc22b5d05cf9ff0821bdc3308337d3d4106f" => :mavericks
-    sha256 "6fc04d44d580a1e8c3b2689e4f403b417ccf65e258c40b8cf79ac2d0387552a7" => :mountain_lion
-  end
+  url "https://storage.googleapis.com/golang/go1.4.3.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.4.3.src.tar.gz"
+  version "1.4.3"
+  sha256 "9947fc705b0b841b5938c48b22dc33e9647ec0752bae66e50278df4f23f64959"
 
   option "with-cc-all", "Build with cross-compilers and runtime support for all supported platforms"
   option "with-cc-common", "Build with cross-compilers and runtime support for darwin, linux and windows"
