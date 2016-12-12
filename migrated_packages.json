@@ -1958,5 +1958,12 @@
     "file_without_extension": "mysql56",
     "original_filename": "mysql56.rb",
     "migrated_filename": "mysql.rb"
+  },
+  {
+    "classname_with_version": "Mariadb100",
+    "package_at_version": "mariadb@100",
+    "file_without_extension": "mariadb100",
+    "original_filename": "mariadb100.rb",
+    "migrated_filename": "mariadb.rb"
   }
 ]
