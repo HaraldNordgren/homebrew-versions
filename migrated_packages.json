@@ -2231,5 +2231,12 @@
     "file_without_extension": "grails25",
     "original_filename": "grails25.rb",
     "migrated_filename": "grails.rb"
+  },
+  {
+    "classname_with_version": "ErlangR19",
+    "package_at_version": "erlang@r19",
+    "file_without_extension": "erlang-r19",
+    "original_filename": "erlang-r19.rb",
+    "migrated_filename": "erlang.rb"
   }
 ]
