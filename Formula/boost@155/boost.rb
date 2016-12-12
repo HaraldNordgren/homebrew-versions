@@ -24,6 +24,7 @@ end
 
 class Boost < Formula
   version "155"
+  desc "Collection of portable C++ source libraries"
   homepage "http://www.boost.org"
   revision 1
 
