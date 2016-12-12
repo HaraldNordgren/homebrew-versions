@@ -2,9 +2,8 @@ class Ruby < Formula
   version "20"
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p647.tar.bz2"
-  sha256 "3c3782e313d1ec3ed06c104eafd133cc54ff5183b991786ece9e957fd6cf1cb9"
-  revision 1
+  url "https://cache.ruby-lang.org/pub/ruby/2.0/ruby-2.0.0-p648.tar.bz2"
+  sha256 "087ad4dec748cfe665c856dbfbabdee5520268e94bb81a1d8565d76c3cc62166"
 
   bottle do
     sha256 "e5ac524fff38ddf23a075cff3cdd7b1985c46aa094e5955cb659daba9872c0c6" => :el_capitan
