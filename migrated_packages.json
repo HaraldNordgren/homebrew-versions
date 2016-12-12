@@ -2252,5 +2252,12 @@
     "file_without_extension": "arangodb2",
     "original_filename": "arangodb2.rb",
     "migrated_filename": "arangodb.rb"
+  },
+  {
+    "classname_with_version": "Docker111",
+    "package_at_version": "docker@111",
+    "file_without_extension": "docker111",
+    "original_filename": "docker111.rb",
+    "migrated_filename": "docker.rb"
   }
 ]
