@@ -2217,5 +2217,19 @@
     "file_without_extension": "solr55",
     "original_filename": "solr55.rb",
     "migrated_filename": "solr.rb"
+  },
+  {
+    "classname_with_version": "Grails24",
+    "package_at_version": "grails@24",
+    "file_without_extension": "grails24",
+    "original_filename": "grails24.rb",
+    "migrated_filename": "grails.rb"
+  },
+  {
+    "classname_with_version": "Grails25",
+    "package_at_version": "grails@25",
+    "file_without_extension": "grails25",
+    "original_filename": "grails25.rb",
+    "migrated_filename": "grails.rb"
   }
 ]
