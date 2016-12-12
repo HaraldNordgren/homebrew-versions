@@ -24,6 +24,7 @@ class Gcc < Formula
   homepage "https://gcc.gnu.org"
   url "ftp://gcc.gnu.org/pub/gcc/snapshots/6-20160110/gcc-6-20160110.tar.bz2"
   sha256 "943ed6c5ecb2fcd1c98e450815fb235a4dc00dcd0299ae985f41e14bdaf0653b"
+  revision 1
 
   bottle do
     sha256 "8210c5b0da02b8d570d1a0ccdae142514a64870453c244395a57efdf4adbe604" => :el_capitan
@@ -33,12 +34,12 @@ class Gcc < Formula
 
   # GCC's Go compiler is not currently supported on Mac OS X.
   # See: https://gcc.gnu.org/bugzilla/show_bug.cgi?id=46986
-  option "with-fortran", "Build the gfortran compiler"
   option "with-java", "Build the gcj compiler"
   option "with-all-languages", "Enable all compilers and languages, except Ada"
   option "with-nls", "Build with native language support (localization)"
   option "with-profiled-build", "Make use of profile guided optimization when bootstrapping GCC"
   option "with-jit", "Build the jit compiler"
+  option "without-fortran", "Build without the gfortran compiler"
   # enabling multilib on a host that can"t run 64-bit results in build failures
   option "without-multilib", "Build without multilib support" if MacOS.prefer_64_bit?
 
