@@ -1,9 +1,10 @@
 class ApacheSpark < Formula
+  desc "Engine for large-scale data processing"
   homepage "https://spark.apache.org/"
-  head "https://github.com/apache/spark.git"
   url "https://d3kbcqa49mib13.cloudfront.net/spark-1.2.1-bin-hadoop2.4.tgz"
   version "1.2.1"
   sha256 "8e618cf67b3090acf87119a96e5e2e20e51f6266c44468844c185122b492b454"
+  head "https://github.com/apache/spark.git"
 
   bottle :unneeded
 
@@ -15,6 +16,6 @@ class ApacheSpark < Formula
   end
 
   test do
-    system "#{bin}/spark-shell <<<'sc.parallelize(1 to 1000).count()'"
+    pipe_output("#{bin}/spark-shell", "sc.parallelize(1 to 1000).count()")
   end
 end
