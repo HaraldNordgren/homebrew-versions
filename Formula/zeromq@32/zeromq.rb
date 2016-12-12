@@ -1,5 +1,6 @@
 class Zeromq < Formula
   version "32"
+  desc "High-performance, asynchronous messaging library"
   homepage "http://www.zeromq.org/"
   url "http://download.zeromq.org/zeromq-3.2.5.tar.gz"
   sha256 "09653e56a466683edb2f87ee025c4de55b8740df69481b9d7da98748f0c92124"
