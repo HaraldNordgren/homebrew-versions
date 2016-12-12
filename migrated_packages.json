@@ -2406,5 +2406,12 @@
     "file_without_extension": "logstash24",
     "original_filename": "logstash24.rb",
     "migrated_filename": "logstash.rb"
+  },
+  {
+    "classname_with_version": "Postgresql95",
+    "package_at_version": "postgresql@95",
+    "file_without_extension": "postgresql95",
+    "original_filename": "postgresql95.rb",
+    "migrated_filename": "postgresql.rb"
   }
 ]
