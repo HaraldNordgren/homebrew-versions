@@ -2091,5 +2091,12 @@
     "file_without_extension": "go15",
     "original_filename": "go15.rb",
     "migrated_filename": "go.rb"
+  },
+  {
+    "classname_with_version": "Llvm38",
+    "package_at_version": "llvm@38",
+    "file_without_extension": "llvm38",
+    "original_filename": "llvm38.rb",
+    "migrated_filename": "llvm.rb"
   }
 ]
