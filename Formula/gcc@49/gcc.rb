@@ -28,6 +28,13 @@ class Gcc < Formula
 
   head "svn://gcc.gnu.org/svn/gcc/branches/gcc-4_9-branch"
 
+  bottle do
+    revision 2
+    sha256 "d4acfd460a951db15d3fff08d4a4f0346110fb41b68f1da567fcb4a82851af5a" => :el_capitan
+    sha256 "894a639b7540df45c6b802b209c0657efcf0f20e883a752c488d2d7cacd17499" => :yosemite
+    sha256 "edf66b0d492b66a9c177939a36f7cd9f44d9b52506c78b2868d3701cf0d9d18f" => :mavericks
+  end
+
   if MacOS.version >= :yosemite
     # Fixes build with Xcode 7.
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=66523
