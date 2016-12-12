@@ -6,6 +6,7 @@ class Openssl < Formula
   mirror "https://dl.bintray.com/homebrew/mirror/openssl-1.0.1t.tar.gz"
   mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-1.0.1t.tar.gz"
   sha256 "4a6ee491a2fdb22e519c76fdc2a628bb3cec12762cd456861d207996c8a07088"
+  revision 1
 
   bottle do
     sha256 "8598c9e50ff7615620273f05121cda5799471e5052809972b06650862010e94e" => :el_capitan
@@ -108,7 +109,6 @@ class Openssl < Formula
 
   def post_install
     keychains = %w[
-      /Library/Keychains/System.keychain
       /System/Library/Keychains/SystemRootCertificates.keychain
     ]
 
@@ -118,7 +118,7 @@ class Openssl < Formula
     )
 
     valid_certs = certs.select do |cert|
-      IO.popen("openssl x509 -inform pem -checkend 0 -noout", "w") do |openssl_io|
+      IO.popen("#{bin}/openssl x509 -inform pem -checkend 0 -noout", "w") do |openssl_io|
         openssl_io.write(cert)
         openssl_io.close_write
       end
