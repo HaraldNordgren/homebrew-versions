@@ -2105,5 +2105,12 @@
     "file_without_extension": "qt55",
     "original_filename": "qt55.rb",
     "migrated_filename": "qt.rb"
+  },
+  {
+    "classname_with_version": "AndroidNdkR10e",
+    "package_at_version": "android-ndk@r10e",
+    "file_without_extension": "android-ndk-r10e",
+    "original_filename": "android-ndk-r10e.rb",
+    "migrated_filename": "android-ndk.rb"
   }
 ]
