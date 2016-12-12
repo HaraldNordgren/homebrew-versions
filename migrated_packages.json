@@ -2315,5 +2315,12 @@
     "file_without_extension": "apache-spark16",
     "original_filename": "apache-spark16.rb",
     "migrated_filename": "apache-spark.rb"
+  },
+  {
+    "classname_with_version": "Logstash23",
+    "package_at_version": "logstash@23",
+    "file_without_extension": "logstash23",
+    "original_filename": "logstash23.rb",
+    "migrated_filename": "logstash.rb"
   }
 ]
