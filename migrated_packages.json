@@ -2133,5 +2133,12 @@
     "file_without_extension": "kibana44",
     "original_filename": "kibana44.rb",
     "migrated_filename": "kibana.rb"
+  },
+  {
+    "classname_with_version": "Rebar3",
+    "package_at_version": "rebar@3",
+    "file_without_extension": "rebar3",
+    "original_filename": "rebar3.rb",
+    "migrated_filename": "rebar.rb"
   }
 ]
