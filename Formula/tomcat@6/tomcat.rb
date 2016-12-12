@@ -2,17 +2,17 @@ class Tomcat < Formula
   version "6"
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-6/v6.0.44/bin/apache-tomcat-6.0.44.tar.gz"
-  sha256 "aab792322e75c6502675120933cbc519cfb59ac8d192f4fa103371a335708224"
+  url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-6/v6.0.45/bin/apache-tomcat-6.0.45.tar.gz"
+  sha256 "8f9bd3e02f1e7798ca8f99f3254594688307ced3e7325dfb10f336750d82482d"
 
   keg_only "Some scripts that are installed conflict with other software."
 
   option "with-fulldocs", "Install full documentation locally"
 
   resource "fulldocs" do
-    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-6/v6.0.44/bin/apache-tomcat-6.0.44-fulldocs.tar.gz"
-    version "6.0.44"
-    sha256 "baddc7066915ac05a0facc5fe1b90f31717021392960e15d87c5a1c8be13b5dd"
+    url "https://www.apache.org/dyn/closer.cgi?path=/tomcat/tomcat-6/v6.0.45/bin/apache-tomcat-6.0.45-fulldocs.tar.gz"
+    version "6.0.45"
+    sha256 "aa1cbef0b73047425174731e1bea5567eacd6cbb7f9d7cd2c2495ba38fca2109"
   end
 
   def install
