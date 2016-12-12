@@ -6,9 +6,9 @@ class Bind < Formula
   sha256 "6a489f98dffaf31cfd8b572aa5cc345e8d775758488a4541f2f0c974c8090a07"
 
   bottle do
-    sha256 "3dfc859b1d7feb9f34cf54a733a923e09940d80158574e38cea8fa155f43c83d" => :yosemite
-    sha256 "0324fd5d0a415b96de3ee9e16d8ec99e2d4dd5367031a1c4152bbaab413cdea9" => :mavericks
-    sha256 "02da332c661a612961ca5dceb9334db247caa5fb4d78864397ddb3f982d218f3" => :mountain_lion
+    sha256 "051a690471486490cd8db121068e53a53aea9518736e37f4f25c27e2d252f7e1" => :el_capitan
+    sha256 "7eae6446fc9d55d0e7a7899a4af14a2177daca945162b8b8d55b891491d09130" => :yosemite
+    sha256 "745144684b980b78bd12abf3ccc7ba47eca662069488b45bef1fcf7b64e9a97c" => :mavericks
   end
 
   depends_on "openssl"
