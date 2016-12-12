@@ -1,8 +1,8 @@
 class Jenkins < Formula
   version "lts"
   homepage "http://jenkins-ci.org/#stable"
-  url "http://mirrors.jenkins-ci.org/war-stable/1.625.1/jenkins.war"
-  sha256 "e5134146d398f00712c19c69bc84a594509505eec2ba6930f8df41689debfbcb"
+  url "http://mirrors.jenkins-ci.org/war-stable/1.625.2/jenkins.war"
+  sha256 "ea061e63dc2970d37d5eab13aefe93f7d983a94729a8e9a89576dfa3bfed01d4"
 
   depends_on :java => "1.6+"
 
