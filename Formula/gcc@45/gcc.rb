@@ -20,10 +20,11 @@ class Gcc < Formula
     `uname -r`.chomp
   end
 
+  desc "GNU compiler collection"
   homepage "https://gcc.gnu.org"
   url "http://ftpmirror.gnu.org/gcc/gcc-4.5.4/gcc-4.5.4.tar.bz2"
   mirror "https://ftp.gnu.org/gnu/gcc/gcc-4.5.4/gcc-4.5.4.tar.bz2"
-  sha1 "cb692e6ddd1ca41f654e2ff24b1b57f09f40e211"
+  sha256 "eef3f0456db8c3d992cbb51d5d32558190bc14f3bc19383dd93acc27acc6befc"
 
   bottle do
     sha256 "16c2a3e56e2da8ec6b38b36c54112d7c56bc05f71168fb867f586cb190c5fef7" => :yosemite
@@ -59,13 +60,13 @@ class Gcc < Formula
   # Fix libffi for ppc, from MacPorts
   patch :p0 do
     url "https://trac.macports.org/export/110576/trunk/dports/lang/gcc45/files/ppc_fde_encoding.diff"
-    sha1 "49e335d085567467155ea6512ffa959a18eab0ef"
+    sha256 "9c5f6fd30d089e97e0364af322272bb06f3d107f357d2b621503ebfbbb4a5af7"
   end
 
   # Handle OS X deployment targets correctly (GCC PR target/63810 <https://gcc.gnu.org/bugzilla/show_bug.cgi?id=63810>).
   patch :p0 do
     url "https://trac.macports.org/export/129382/trunk/dports/lang/gcc45/files/macosx-version-min.patch"
-    sha1 "79a3314759a33059cd6e3a078fdb3f5ee957d2e6"
+    sha256 "9083143d2c60fbd89d33354710381590da770973746dd6849e18835f449510bc"
   end
 
   fails_with :llvm
@@ -168,7 +169,7 @@ class Gcc < Formula
       system "make", "install"
 
       # `make install` neglects to transfer an essential plugin header file.
-      Pathname.new(Dir[prefix.join *%w[** plugin include config]].first).install "../gcc/config/darwin-sections.def" if MacOS.version > :tiger
+      Pathname.new(Dir[prefix.join "**", "plugin", "include", "config"].first).install "../gcc/config/darwin-sections.def" if MacOS.version > :tiger
     end
 
     # Handle conflicts between GCC formulae.
