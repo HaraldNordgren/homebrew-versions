@@ -5,6 +5,12 @@ class Mariadb < Formula
   url "https://mirrors.ocf.berkeley.edu/debian/pool/main/m/mariadb-10.0/mariadb-10.0_10.0.22.orig.tar.gz"
   sha256 "9e17f4aaccb7069a874555cca254974d0f0103f0ad5e2434acab6aa353dafc7b"
 
+  bottle do
+    sha256 "9c7708fa9341ea3706d6347db70defeed2de0089ec374f35a9ac9e166388478c" => :el_capitan
+    sha256 "d05ccfe74464c335919f82615a29b4611ce49a82a6a3776cc5e289b7e8851cd8" => :yosemite
+    sha256 "a7091c09b92d93905bf7f8ab4779ea412b14ad8a6c2a8752b854a58441c73a53" => :mavericks
+  end
+
   option :universal
   option "with-tests", "Keep test when installing"
   option "with-bench", "Keep benchmark app when installing"
