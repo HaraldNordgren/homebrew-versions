@@ -2343,5 +2343,12 @@
     "file_without_extension": "solr54",
     "original_filename": "solr54.rb",
     "migrated_filename": "solr.rb"
+  },
+  {
+    "classname_with_version": "Varnish4",
+    "package_at_version": "varnish@4",
+    "file_without_extension": "varnish4",
+    "original_filename": "varnish4.rb",
+    "migrated_filename": "varnish.rb"
   }
 ]
