@@ -4,7 +4,7 @@ class Node < Formula
   homepage "https://nodejs.org/"
   url "https://nodejs.org/dist/v4.2.3/node-v4.2.3.tar.gz"
   sha256 "5008ade5feb4b089f59163f66bffddc113f27de5d78edf203e39435c2c5d554f"
-  head "https://github.com/nodejs/node.git", :branch => "v4.x"
+  head "https://github.com/nodejs/node.git", :branch => "v4.x-staging"
 
   bottle do
     sha256 "5beaa482a93403a36315e1d2109862e2ace4e4f3af7e510233e8d9ed74cf6d7f" => :el_capitan
