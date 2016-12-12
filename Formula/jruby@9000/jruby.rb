@@ -8,7 +8,6 @@ class Jruby < Formula
   depends_on :java => "1.7+"
 
   conflicts_with "jruby", :because => "Differing version of the same formula"
-  conflicts_with "jruby168", :because => "Differing version of the same formula"
   conflicts_with "jruby1721", :because => "Differing version of the same formula"
 
   def install
