@@ -2063,5 +2063,12 @@
     "file_without_extension": "kibana43",
     "original_filename": "kibana43.rb",
     "migrated_filename": "kibana.rb"
+  },
+  {
+    "classname_with_version": "Logstash21",
+    "package_at_version": "logstash@21",
+    "file_without_extension": "logstash21",
+    "original_filename": "logstash21.rb",
+    "migrated_filename": "logstash.rb"
   }
 ]
