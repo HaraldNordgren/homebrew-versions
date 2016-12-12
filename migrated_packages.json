@@ -1965,5 +1965,12 @@
     "file_without_extension": "mariadb100",
     "original_filename": "mariadb100.rb",
     "migrated_filename": "mariadb.rb"
+  },
+  {
+    "classname_with_version": "Llvm37",
+    "package_at_version": "llvm@37",
+    "file_without_extension": "llvm37",
+    "original_filename": "llvm37.rb",
+    "migrated_filename": "llvm.rb"
   }
 ]
