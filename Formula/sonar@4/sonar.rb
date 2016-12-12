@@ -5,9 +5,9 @@ class Sonar < Formula
   sha1 "755d93b58d8fe88f4e7e99eb11930254128bc5c1"
 
   bottle do
-    sha1 "e2107c08b2317a7bb0623c2362e09e1e67e42501" => :yosemite
-    sha1 "9b645db49f27913c9edd85e1772e9fab85210986" => :mavericks
-    sha1 "b1072a188f79703046a120ae35bc0534c5b9f2c6" => :mountain_lion
+    sha256 "c3a82451cb70a5411fc7c617d468637286ba21920de10ebe8a72e1ecdee329dd" => :yosemite
+    sha256 "48d0c098e215a2ef51c66ac3dcaad608edde67d83ee4d625b49f96112e42fb85" => :mavericks
+    sha256 "3263ac8ab0dbaa64f42bf9638cbae51b5bc30ecfb724111f8351498b951f9b68" => :mountain_lion
   end
 
   def install

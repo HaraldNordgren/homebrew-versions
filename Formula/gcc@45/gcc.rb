@@ -26,9 +26,9 @@ class Gcc < Formula
   sha1 "cb692e6ddd1ca41f654e2ff24b1b57f09f40e211"
 
   bottle do
-    sha1 "1e2e710d2d20b6ba378b7b4e3d211fb482e73ff7" => :yosemite
-    sha1 "16a25ceb27a579ac02209a8056a13de268a63e40" => :mavericks
-    sha1 "fe4459e2e4874d4f4be687acef73fa92dd2eb821" => :mountain_lion
+    sha256 "16c2a3e56e2da8ec6b38b36c54112d7c56bc05f71168fb867f586cb190c5fef7" => :yosemite
+    sha256 "51b73412c9628a593e765105a098ed1500b04574145391f3f93972e54d5b1b05" => :mavericks
+    sha256 "06806e0a4aa703b0cacb4a3e10b4c8738d3d97535c6dd52796ec5a85eee0638d" => :mountain_lion
   end
 
   option "with-fortran", "Build the gfortran compiler"

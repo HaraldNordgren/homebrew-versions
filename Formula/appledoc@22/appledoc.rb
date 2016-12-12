@@ -10,9 +10,9 @@ class Appledoc < Formula
 
   bottle do
     revision 1
-    sha1 "e21eff6c8e1d59dda1aaaf4e052b46342c046a11" => :yosemite
-    sha1 "1e21c233ab7e4ec4783f32d08b22553fa82baddf" => :mavericks
-    sha1 "5f2f551c1ac6c2dd86ba9a9f98806262513849da" => :mountain_lion
+    sha256 "8ce8785d092cd3cf22ad0266ba51c7cb514e381a6481305572db170a2a5b5f8e" => :yosemite
+    sha256 "3ff1135e32ec900932270ce5353baf906a85c86a20c1bc6ef3b93c4d50439d89" => :mavericks
+    sha256 "a1b3d3a41cc2080dc2bf9e4d3907166e994d0c22dcf0ad323e243184f54fce09" => :mountain_lion
   end
 
   keg_only :provided_by_osx, <<-EOS.undent
