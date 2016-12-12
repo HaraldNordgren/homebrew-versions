@@ -5,6 +5,8 @@ class ApacheSpark < Formula
   version "1.3.1"
   sha256 "a25aaf58cfb3c64e3c77bdf9dde1a61247846d60519dd28b18d60d162d19c79a"
 
+  bottle :unneeded
+
   def install
     # Rename beeline to distinguish it from hive's beeline
     mv "bin/beeline", "bin/spark-beeline"
