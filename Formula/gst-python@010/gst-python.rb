@@ -1,7 +1,7 @@
 class GstPython < Formula
   version "010"
   homepage "http://gstreamer.freedesktop.org/"
-  url "http://gstreamer.freedesktop.org/src/gst-python/gst-python-0.10.22.tar.bz2"
+  url "https://gstreamer.freedesktop.org/src/gst-python/gst-python-0.10.22.tar.bz2"
   sha256 "8f26f519a5bccd770864317e098e5e307fc5ad1201eb96329634b6508b253178"
 
   bottle do
