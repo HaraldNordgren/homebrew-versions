@@ -5,12 +5,7 @@ class Tomcat < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=tomcat/tomcat-7/v7.0.65/bin/apache-tomcat-7.0.65.tar.gz"
   sha256 "ef0edb1f560702adc4096097ddfba038086d62da77d0b247d927fd326bc637e9"
 
-  bottle do
-    cellar :any
-    sha256 "9de99ef0c276d781b7f0221c4869af47f5cddf7cbb234a1496254149810a6bc1" => :yosemite
-    sha256 "9afff974b90c8c52beaf6b6f91b529fb0b241c6af64b31c358db4a4ad204999a" => :mavericks
-    sha256 "24ef38275d081c6b405ee2b45cf6e56ef7910402e9a1464a5e614de2127be066" => :mountain_lion
-  end
+  bottle :unneeded
 
   option "with-fulldocs", "Install full documentation locally"
 
