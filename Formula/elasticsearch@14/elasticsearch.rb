@@ -1,15 +1,11 @@
 class Elasticsearch < Formula
   version "14"
+  desc "Distributed real-time search & analytics engine for the cloud"
   homepage "https://www.elastic.co/products/elasticsearch"
   url "https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-1.4.5.tar.gz"
   sha256 "dc28aa9e441cbc3282ecc9cb498bea219355887b102aac872bdf05d5977356e2"
 
-  bottle do
-    cellar :any
-    sha256 "d2a1df0938267bcff1cfae6341392ec2d4869809e7adf868e8b3d54eb0908481" => :yosemite
-    sha256 "1d18d3bf86a1b6e17a9612d0178e12f70a68fffd0eddd0c956964226d48ef3b0" => :mavericks
-    sha256 "f3bb1bfc49b1a56ddfa485c8c032d3b39beb70cf0ed9df20c69d3dbff8a2abd2" => :mountain_lion
-  end
+  bottle :unneeded
 
   depends_on :java => "1.7+"
 
@@ -59,10 +55,6 @@ class Elasticsearch < Formula
       # Replace paths to use libexec instead of lib
       s.gsub!(%r{\$ES_HOME/lib/}, "$ES_CLASSPATH/")
     end
-
-    # Move config files into etc
-    (etc/"elasticsearch").install Dir[prefix/"config/*"]
-    (prefix/"config").rmtree
   end
 
   def post_install
