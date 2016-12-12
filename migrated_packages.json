@@ -2294,5 +2294,12 @@
     "file_without_extension": "spidermonkey45",
     "original_filename": "spidermonkey45.rb",
     "migrated_filename": "spidermonkey.rb"
+  },
+  {
+    "classname_with_version": "Zeromq40",
+    "package_at_version": "zeromq@40",
+    "file_without_extension": "zeromq40",
+    "original_filename": "zeromq40.rb",
+    "migrated_filename": "zeromq.rb"
   }
 ]
