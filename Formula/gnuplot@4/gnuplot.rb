@@ -1,48 +1,33 @@
-class LuaRequirement < Requirement
-  fatal true
-  default_formula "lua"
-  satisfy { which "lua" }
-end
-
 class Gnuplot < Formula
   version "4"
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info"
-  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/4.6.6/gnuplot-4.6.6.tar.gz"
-  sha256 "1f19596fd09045f22225afbfec11fa91b9ad1d95b9f48406362f517d4f130274"
+  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/4.6.7/gnuplot-4.6.7.tar.gz"
+  sha256 "26d4d17a00e9dcf77a4e64a28a3b2922645b8bbfe114c0afd2b701ac91235980"
 
-  bottle do
-    sha256 "231af7bcc0ba62d137d2a191274bbf8030633e8612c773746ae157f0d305a624" => :yosemite
-    sha256 "5489c26f250a2d45b7d14c29f047c04a526775edb0d183a580e2d6678a49dec1" => :mavericks
-    sha256 "443d876966452eb42a1cf851d3d7cd4ab8c92056383f975a5c533ad4c94c9d27" => :mountain_lion
-  end
-
-  option "with-pdf", "Build the PDF terminal using pdflib-lite"
+  option "with-pdflib-lite", "Build the PDF terminal using pdflib-lite"
   option "with-wxmac", "Build the wxWidgets terminal using pango"
-  option "with-qt", "Build the Qt4 terminal"
   option "with-cairo", "Build the Cairo based terminals"
   option "without-lua", "Build without the lua/TikZ terminal"
-  option "with-nogd", "Build without gd support"
-  option "with-tests", "Verify the build with make check (1 min)"
+  option "with-test", "Verify the build with make check (1 min)"
   option "without-emacs", "Do not build Emacs lisp files"
-  option "with-latex", "Build with LaTeX support"
+  option "with-tex", "Build with LaTeX support"
   option "with-aquaterm", "Build with AquaTerm support"
   option "with-x11", "Build with X11 support"
 
   depends_on "pkg-config" => :build
-  depends_on LuaRequirement if build.with? "lua"
+  depends_on "lua" => :recommended
+  depends_on "gd" => :recommended
   depends_on "readline"
   depends_on "libpng"
   depends_on "jpeg"
   depends_on "libtiff"
   depends_on "fontconfig"
   depends_on "pango" if (build.with? "cairo") || (build.with? "wxmac")
-  depends_on :x11 => :optional
   depends_on "pdflib-lite" => :optional
-  depends_on "gd" => :recommended
   depends_on "wxmac" => :optional
-  depends_on "qt" => :optional
-  depends_on :tex if build.with? "latex"
+  depends_on :tex => :optional
+  depends_on :x11 => :optional
 
   def install
     if build.with? "aquaterm"
@@ -68,41 +53,30 @@ class Gnuplot < Formula
     ]
 
     args << "--with-pdf=#{pdflib}" if build.with? "pdflib-lite"
-    args << (build.with? "gd" ? "--with-gd=#{gd}" : "--without-gd")
+    args << (build.with?("gd") ? "--with-gd=#{gd}" : "--without-gd")
 
     if build.without? "wxmac"
       args << "--disable-wxwidgets"
       args << "--without-cairo" if build.without? "cairo"
     end
 
-    args << "--enable-qt"             if build.with? "qt"
-    args << "--without-lua"           if build.with? "lua"
-    args << "--without-lisp-files"    if build.without? "emacs"
-    args << (build.with? "aquaterm" ? "--with-aquaterm" : "--without-aquaterm")
-    args << (build.with? "x11" ? "--with-x" : "--without-x")
+    args << "--without-lua" if build.without? "lua"
+    args << (build.with?("emacs") ? "--with-lispdir=#{elisp}" : "--without-lisp-files")
+    args << (build.with?("aquaterm") ? "--with-aquaterm" : "--without-aquaterm")
+    args << (build.with?("x11") ? "--with-x" : "--without-x")
+    args << (build.with?("tex") ? "--with-latex" : "--without-latex")
 
-    if build.with? "latex"
-      args << "--with-latex"
-      args << "--with-tutorial"
-    else
-      args << "--without-latex"
-      args << "--without-tutorial"
-    end
+    # From latest gnuplot formula on core:
+    # > The tutorial requires the deprecated subfigure TeX package installed
+    # > or it halts in the middle of the build for user-interactive resolution.
+    # > Per upstream: "--with-tutorial is horribly out of date."
+    args << "--without-tutorial"
 
     system "./configure", *args
     ENV.j1 # or else emacs tries to edit the same file with two threads
     system "make"
-    system "make", "check" if build.with? "tests"
+    system "make", "check" if build.with? "test"
     system "make", "install"
-  end
-
-  test do
-    system "#{bin}/gnuplot", "-e", <<-EOS.undent
-        set terminal png;
-        set output "#{testpath}/image.png";
-        plot sin(x);
-    EOS
-    assert (testpath/"image.png").exist?
   end
 
   def caveats
@@ -114,5 +88,14 @@ class Gnuplot < Formula
         reinstall Gnuplot.
       EOS
     end
+  end
+
+  test do
+    system "#{bin}/gnuplot", "-e", <<-EOS.undent
+        set terminal png;
+        set output "#{testpath}/image.png";
+        plot sin(x);
+    EOS
+    assert (testpath/"image.png").exist?
   end
 end
