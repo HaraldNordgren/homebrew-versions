@@ -2336,5 +2336,12 @@
     "file_without_extension": "gsl1",
     "original_filename": "gsl1.rb",
     "migrated_filename": "gsl.rb"
+  },
+  {
+    "classname_with_version": "Solr54",
+    "package_at_version": "solr@54",
+    "file_without_extension": "solr54",
+    "original_filename": "solr54.rb",
+    "migrated_filename": "solr.rb"
   }
 ]
