@@ -2,9 +2,9 @@ class Node < Formula
   version "012"
   desc "JavaScript runtime built on Chrome's V8 engine"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v0.12.7/node-v0.12.7.tar.gz"
-  sha256 "b23d64df051c9c969b0c583f802d5d71de342e53067127a5061415be7e12f39d"
-  head "https://github.com/nodejs/node.git", :branch => "v0.12"
+  url "https://nodejs.org/dist/v0.12.8/node-v0.12.8.tar.gz"
+  sha256 "e0c96a6702978e2ed7f031315bebeb86b042e2c80e66d99af8ad864dc0e56436"
+  head "https://github.com/nodejs/node.git", :branch => "v0.12-staging"
 
   bottle do
     sha256 "d2e27e5926da5d1db2e1ba0651d2750febe9f669c096ee177b86b388eacedafd" => :el_capitan
@@ -29,8 +29,8 @@ class Node < Formula
   end
 
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-2.14.4.tgz"
-    sha256 "c8b602de5d51f956aa8f9c34d89be38b2df3b7c25ff6588030eb8224b070db27"
+    url "https://registry.npmjs.org/npm/-/npm-2.14.9.tgz"
+    sha256 "ca3aa0f94931ec2259fd6d498140540767ebbed68c05be431030a2f3601c8107"
   end
 
   def install
@@ -128,9 +128,8 @@ class Node < Formula
     path = testpath/"test.js"
     path.write "console.log('hello');"
 
-    output = `#{bin}/node #{path}`.strip
+    output = shell_output("#{bin}/node #{path}").strip
     assert_equal "hello", output
-    assert_equal 0, $?.exitstatus
 
     if build.with? "npm"
       # make sure npm can find node
