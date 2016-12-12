@@ -3,8 +3,8 @@ class Node < Formula
   version "010"
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v0.10.42/node-v0.10.42.tar.gz"
-  sha256 "ebc1d53698f80c5a7b0b948e1108d7858f93d2d9ebf4541c12688d85704de105"
+  url "https://nodejs.org/dist/v0.10.43/node-v0.10.43.tar.xz"
+  sha256 "6c5185cbfad3538484c9d97eec0110b5cd5826126f15b776015dfee1f51cd32a"
   head "https://github.com/nodejs/node.git", :branch => "v0.10-staging"
 
   bottle do
@@ -38,7 +38,7 @@ class Node < Formula
     if build.with? "openssl"
       args << "--shared-openssl"
     else
-      args << "--without-ssl2" << "--without-ssl3"
+      args << "--without-ssl3"
     end
 
     system "./configure", *args
