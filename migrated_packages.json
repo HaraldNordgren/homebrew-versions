@@ -2210,5 +2210,12 @@
     "file_without_extension": "ansible20",
     "original_filename": "ansible20.rb",
     "migrated_filename": "ansible.rb"
+  },
+  {
+    "classname_with_version": "Solr55",
+    "package_at_version": "solr@55",
+    "file_without_extension": "solr55",
+    "original_filename": "solr55.rb",
+    "migrated_filename": "solr.rb"
   }
 ]
