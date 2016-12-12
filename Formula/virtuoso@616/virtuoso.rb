@@ -1,5 +1,6 @@
 class Virtuoso < Formula
   version "616"
+  desc "High-performance object-relational SQL database"
   homepage "http://virtuoso.openlinksw.com/wiki/main/"
   url "https://downloads.sourceforge.net/project/virtuoso/virtuoso/6.1.6/virtuoso-opensource-6.1.6.tar.gz"
   sha256 "c6bfa6817b3dad5f87577b68f4cf554d1bfbff48178a734084ac3dcbcea5a037"
