@@ -27,11 +27,6 @@ class BoostPython < Formula
     depends_on "boost@159"
   end
 
-  fails_with :llvm do
-    build 2335
-    cause "Dropped arguments to functions when linking with boost"
-  end
-
   def install
     ENV.universal_binary if build.universal?
 
