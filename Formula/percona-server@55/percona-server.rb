@@ -35,11 +35,6 @@ class PerconaServer < Formula
   conflicts_with "mysql-cluster",
     :because => "percona-server55 and mysql-cluster install the same binaries."
 
-  fails_with :llvm do
-    build 2334
-    cause "https://github.com/mxcl/homebrew/issues/issue/144"
-  end
-
   # Where the database files should be located. Existing installs have them
   # under var/percona, but going forward they will be under var/msyql to be
   # shared with the mysql and mariadb formulae.
