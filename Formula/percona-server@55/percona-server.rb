@@ -43,10 +43,6 @@ class PerconaServer < Formula
   end
 
   def install
-    # Build without compiler or CPU specific optimization flags to facilitate
-    # compilation of gems and other software that queries `mysql-config`.
-    ENV.minimal_optimization
-
     # Make sure that data directory exists
     (var/destination).mkpath
 
