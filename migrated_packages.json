@@ -2448,5 +2448,12 @@
     "file_without_extension": "kubernetes-cli14",
     "original_filename": "kubernetes-cli14.rb",
     "migrated_filename": "kubernetes-cli.rb"
+  },
+  {
+    "classname_with_version": "Mongodb32",
+    "package_at_version": "mongodb@32",
+    "file_without_extension": "mongodb32",
+    "original_filename": "mongodb32.rb",
+    "migrated_filename": "mongodb.rb"
   }
 ]
