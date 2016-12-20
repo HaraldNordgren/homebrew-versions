@@ -25,10 +25,6 @@ class Ruby < Formula
   depends_on "openssl"
   depends_on :x11 if build.with? "tcltk"
 
-  fails_with :llvm do
-    build 2326
-  end
-
   resource "rubygems" do
     url "https://rubygems.org/rubygems/rubygems-2.5.0.tgz"
     sha256 "a39e95acb86f52fdca38b1484b2eed61a7f76551119079d7a9f8c67c5be78831"
