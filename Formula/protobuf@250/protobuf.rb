@@ -19,10 +19,6 @@ class Protobuf < Formula
 
   depends_on :python => :optional
 
-  fails_with :llvm do
-    build 2334
-  end
-
   def install
     # Don't build in debug mode. See:
     # https://github.com/Homebrew/homebrew/issues/9279
