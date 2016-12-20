@@ -153,7 +153,6 @@ class Llvm < Formula
 
   # Apple's libstdc++ is too old to build LLVM
   fails_with :gcc
-  fails_with :llvm
 
   def install
     # Apple's libstdc++ is too old to build LLVM
