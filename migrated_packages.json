@@ -2441,5 +2441,12 @@
     "file_without_extension": "kubernetes-cli13",
     "original_filename": "kubernetes-cli13.rb",
     "migrated_filename": "kubernetes-cli.rb"
+  },
+  {
+    "classname_with_version": "KubernetesCli14",
+    "package_at_version": "kubernetes-cli@14",
+    "file_without_extension": "kubernetes-cli14",
+    "original_filename": "kubernetes-cli14.rb",
+    "migrated_filename": "kubernetes-cli.rb"
   }
 ]
