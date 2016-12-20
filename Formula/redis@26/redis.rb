@@ -12,11 +12,6 @@ class Redis < Formula
     sha256 "4d936a5010e9b50f1c9c347192f11e0b8e365a1948455f6b27415d1a28e35b50" => :mountain_lion
   end
 
-  fails_with :llvm do
-    build 2334
-    cause "Fails with 'reference out of range from _linenoise'"
-  end
-
   def install
     # Architecture isn't detected correctly on 32bit Snow Leopard without help
     ENV["OBJARCH"] = MacOS.prefer_64_bit? ? "-arch x86_64" : "-arch i386"
