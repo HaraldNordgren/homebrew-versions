@@ -14,10 +14,6 @@ class Bind < Formula
   depends_on "openssl"
 
   def install
-    ENV.libxml2
-    # libxml2 appends one inc dir to CPPFLAGS but bind ignores CPPFLAGS
-    ENV.append "CFLAGS", ENV.cppflags
-
     system "./configure", "--prefix=#{prefix}",
                           "--enable-threads",
                           "--enable-ipv6",
