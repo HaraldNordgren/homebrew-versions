@@ -13,7 +13,6 @@ class Postgresql < Formula
 
   revision 1
 
-  option "32-bit"
   option "without-perl", "Build without Perl support"
   option "without-tcl", "Build without Tcl support"
   option "with-dtrace", "Build with DTrace support"
@@ -67,10 +66,6 @@ class Postgresql < Formula
 
     args << "--enable-dtrace" if build.with? "dtrace"
     args << "--with-uuid=e2fs"
-
-    if build.build_32_bit?
-      ENV.append ["CFLAGS", "LDFLAGS"], "-arch #{Hardware::CPU.arch_32_bit}"
-    end
 
     system "./configure", *args
     system "make", "install-world"
