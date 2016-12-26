@@ -711,4 +711,4 @@ matrix:
   - env: FORMULA=zeromq@405
     osx_image: xcode8.2
 script:
-- ruby scripts/build_formula.rb $FORMULA
+- ruby tests/build_formula.rb $FORMULA
