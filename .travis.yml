@@ -8,8 +8,6 @@ branches:
 os: osx
 matrix:
   include:
-  - env: FORMULA=allegro@4
-    osx_image: xcode8.2
   - env: FORMULA=allegro@5
     osx_image: xcode8.2
   - env: FORMULA=android-ndk@r10c
