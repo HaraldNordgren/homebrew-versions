@@ -1,1405 +1,2099 @@
 ---
-language: ruby
 notifications:
   email: false
 branches:
   only:
   - master
-os: osx
 matrix:
   include:
-  - env: FORMULA=allegro@5
+  - language: ruby
+    env: FORMULA=allegro@5
+    os: osx
     osx_image: xcode8.2
     before_script: &1
     - brew unlink automake
     - brew unlink autoconf
     - brew unlink maven
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=android-ndk@r10c
+  - language: ruby
+    env: FORMULA=android-ndk@r10c
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=android-ndk@r10d
+  - language: ruby
+    env: FORMULA=android-ndk@r10d
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=android-ndk@r10e
+  - language: ruby
+    env: FORMULA=android-ndk@r10e
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=android-ndk@r11c
+  - language: ruby
+    env: FORMULA=android-ndk@r11c
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=android-ndk@r12b
+  - language: ruby
+    env: FORMULA=android-ndk@r12b
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=android-ndk@r9d
+  - language: ruby
+    env: FORMULA=android-ndk@r9d
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=ansible@14
+  - language: ruby
+    env: FORMULA=ansible@14
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=ansible@18
+  - language: ruby
+    env: FORMULA=ansible@18
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=ansible@19
+  - language: ruby
+    env: FORMULA=ansible@19
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=ansible@20
+  - language: ruby
+    env: FORMULA=ansible@20
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=antlr@2
+  - language: ruby
+    env: FORMULA=antlr@2
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=antlr@3
+  - language: ruby
+    env: FORMULA=antlr@3
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=apache-spark@121
+  - language: ruby
+    env: FORMULA=apache-spark@121
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=apache-spark@131
+  - language: ruby
+    env: FORMULA=apache-spark@131
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=apache-spark@141
+  - language: ruby
+    env: FORMULA=apache-spark@141
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=apache-spark@15
+  - language: ruby
+    env: FORMULA=apache-spark@15
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=apache-spark@16
+  - language: ruby
+    env: FORMULA=apache-spark@16
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=appledoc@22
+  - language: ruby
+    env: FORMULA=appledoc@22
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=arangodb@2
+  - language: ruby
+    env: FORMULA=arangodb@2
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=astyle@204
+  - language: ruby
+    env: FORMULA=astyle@204
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=autoconf@213
+  - language: ruby
+    env: FORMULA=autoconf@213
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=autoconf@264
+  - language: ruby
+    env: FORMULA=autoconf@264
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=automake@112
+  - language: ruby
+    env: FORMULA=automake@112
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=bash-completion@2
+  - language: ruby
+    env: FORMULA=bash-completion@2
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=bazel@02
+  - language: ruby
+    env: FORMULA=bazel@02
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=berkeley-db@4
+  - language: ruby
+    env: FORMULA=berkeley-db@4
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=bind@99
+  - language: ruby
+    env: FORMULA=bind@99
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=bison@27
+  - language: ruby
+    env: FORMULA=bison@27
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=boost-python@159
+  - language: ruby
+    env: FORMULA=boost-python@159
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=boost@149
+  - language: ruby
+    env: FORMULA=boost@149
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=boost@150
+  - language: ruby
+    env: FORMULA=boost@150
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=boost@155
+  - language: ruby
+    env: FORMULA=boost@155
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=boost@159
+  - language: ruby
+    env: FORMULA=boost@159
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=boost@160
+  - language: ruby
+    env: FORMULA=boost@160
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=boot2docker@133
+  - language: ruby
+    env: FORMULA=boot2docker@133
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=boot2docker@141
+  - language: ruby
+    env: FORMULA=boot2docker@141
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=boot2docker@162
+  - language: ruby
+    env: FORMULA=boot2docker@162
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=camlp5@606
+  - language: ruby
+    env: FORMULA=camlp5@606
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=cassandra@0.6
+  - language: ruby
+    env: FORMULA=cassandra@0.6
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=cassandra@10
+  - language: ruby
+    env: FORMULA=cassandra@10
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=cassandra@12
+  - language: ruby
+    env: FORMULA=cassandra@12
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=cassandra@20
+  - language: ruby
+    env: FORMULA=cassandra@20
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=cassandra@21
+  - language: ruby
+    env: FORMULA=cassandra@21
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=cassandra@22
+  - language: ruby
+    env: FORMULA=cassandra@22
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=clang-format@38
+  - language: ruby
+    env: FORMULA=clang-format@38
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=clojure@14
+  - language: ruby
+    env: FORMULA=clojure@14
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=cloog-ppl@015
+  - language: ruby
+    env: FORMULA=cloog-ppl@015
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=cloog@018
+  - language: ruby
+    env: FORMULA=cloog@018
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=cmake@28
+  - language: ruby
+    env: FORMULA=cmake@28
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=cmake@30
+  - language: ruby
+    env: FORMULA=cmake@30
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=cmake@31
+  - language: ruby
+    env: FORMULA=cmake@31
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=coq@83
+  - language: ruby
+    env: FORMULA=coq@83
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=cvsps@2
+  - language: ruby
+    env: FORMULA=cvsps@2
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=docker@110
+  - language: ruby
+    env: FORMULA=docker@110
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=docker@111
+  - language: ruby
+    env: FORMULA=docker@111
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=docker@133
+  - language: ruby
+    env: FORMULA=docker@133
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=docker@141
+  - language: ruby
+    env: FORMULA=docker@141
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=docker@150
+  - language: ruby
+    env: FORMULA=docker@150
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=docker@162
+  - language: ruby
+    env: FORMULA=docker@162
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=docker@171
+  - language: ruby
+    env: FORMULA=docker@171
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=doxygen@1831
+  - language: ruby
+    env: FORMULA=doxygen@1831
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=drush@4
+  - language: ruby
+    env: FORMULA=drush@4
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=drush@5
+  - language: ruby
+    env: FORMULA=drush@5
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=duplicity@06
+  - language: ruby
+    env: FORMULA=duplicity@06
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=eigen@2
+  - language: ruby
+    env: FORMULA=eigen@2
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=eigen@32
+  - language: ruby
+    env: FORMULA=eigen@32
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=elasticsearch@0.20
+  - language: ruby
+    env: FORMULA=elasticsearch@0.20
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=elasticsearch@090
+  - language: ruby
+    env: FORMULA=elasticsearch@090
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=elasticsearch@11
+  - language: ruby
+    env: FORMULA=elasticsearch@11
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=elasticsearch@12
+  - language: ruby
+    env: FORMULA=elasticsearch@12
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=elasticsearch@13
+  - language: ruby
+    env: FORMULA=elasticsearch@13
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=elasticsearch@14
+  - language: ruby
+    env: FORMULA=elasticsearch@14
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=elasticsearch@17
+  - language: ruby
+    env: FORMULA=elasticsearch@17
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=elasticsearch@20
+  - language: ruby
+    env: FORMULA=elasticsearch@20
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=elasticsearch@21
+  - language: ruby
+    env: FORMULA=elasticsearch@21
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=elasticsearch@22
+  - language: ruby
+    env: FORMULA=elasticsearch@22
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=elasticsearch@23
+  - language: ruby
+    env: FORMULA=elasticsearch@23
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=elasticsearch@24
+  - language: ruby
+    env: FORMULA=elasticsearch@24
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=erlang@r13
+  - language: ruby
+    env: FORMULA=erlang@r13
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=erlang@r14
+  - language: ruby
+    env: FORMULA=erlang@r14
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=erlang@r15
+  - language: ruby
+    env: FORMULA=erlang@r15
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=erlang@r16
+  - language: ruby
+    env: FORMULA=erlang@r16
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=erlang@r17
+  - language: ruby
+    env: FORMULA=erlang@r17
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=erlang@r18
+  - language: ruby
+    env: FORMULA=erlang@r18
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=erlang@r19
+  - language: ruby
+    env: FORMULA=erlang@r19
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=ffmpeg@28
+  - language: ruby
+    env: FORMULA=ffmpeg@28
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=freetds@091
+  - language: ruby
+    env: FORMULA=freetds@091
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gawk@3
+  - language: ruby
+    env: FORMULA=gawk@3
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gcc@43
+  - language: ruby
+    env: FORMULA=gcc@43
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gcc@44
+  - language: ruby
+    env: FORMULA=gcc@44
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gcc@45
+  - language: ruby
+    env: FORMULA=gcc@45
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gcc@46
+  - language: ruby
+    env: FORMULA=gcc@46
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gcc@47
+  - language: ruby
+    env: FORMULA=gcc@47
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gcc@48
+  - language: ruby
+    env: FORMULA=gcc@48
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gcc@49
+  - language: ruby
+    env: FORMULA=gcc@49
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gcc@5
+  - language: ruby
+    env: FORMULA=gcc@5
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gcc@6
+  - language: ruby
+    env: FORMULA=gcc@6
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gdal@111
+  - language: ruby
+    env: FORMULA=gdal@111
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gecode@373
+  - language: ruby
+    env: FORMULA=gecode@373
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gegl@02
+  - language: ruby
+    env: FORMULA=gegl@02
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=giflib@5
+  - language: ruby
+    env: FORMULA=giflib@5
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=git-tf@2.0.2
+  - language: ruby
+    env: FORMULA=git-tf@2.0.2
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=glfw@2
+  - language: ruby
+    env: FORMULA=glfw@2
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=glfw@3
+  - language: ruby
+    env: FORMULA=glfw@3
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gmp@4
+  - language: ruby
+    env: FORMULA=gmp@4
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gnupg@2
+  - language: ruby
+    env: FORMULA=gnupg@2
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gnupg@21
+  - language: ruby
+    env: FORMULA=gnupg@21
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gnuplot@4
+  - language: ruby
+    env: FORMULA=gnuplot@4
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gnutls@3
+  - language: ruby
+    env: FORMULA=gnutls@3
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gnutls@34
+  - language: ruby
+    env: FORMULA=gnutls@34
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=go@12
+  - language: ruby
+    env: FORMULA=go@12
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=go@13
+  - language: ruby
+    env: FORMULA=go@13
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=go@14
+  - language: ruby
+    env: FORMULA=go@14
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=go@15
+  - language: ruby
+    env: FORMULA=go@15
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=go@16
+  - language: ruby
+    env: FORMULA=go@16
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gradle@110
+  - language: ruby
+    env: FORMULA=gradle@110
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gradle@112
+  - language: ruby
+    env: FORMULA=gradle@112
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gradle@16
+  - language: ruby
+    env: FORMULA=gradle@16
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gradle@18
+  - language: ruby
+    env: FORMULA=gradle@18
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gradle@20
+  - language: ruby
+    env: FORMULA=gradle@20
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gradle@21
+  - language: ruby
+    env: FORMULA=gradle@21
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gradle@214
+  - language: ruby
+    env: FORMULA=gradle@214
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gradle@221
+  - language: ruby
+    env: FORMULA=gradle@221
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gradle@24
+  - language: ruby
+    env: FORMULA=gradle@24
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gradle@26
+  - language: ruby
+    env: FORMULA=gradle@26
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gradle@27
+  - language: ruby
+    env: FORMULA=gradle@27
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gradle@28
+  - language: ruby
+    env: FORMULA=gradle@28
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=grails@13
+  - language: ruby
+    env: FORMULA=grails@13
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=grails@137
+  - language: ruby
+    env: FORMULA=grails@137
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=grails@20
+  - language: ruby
+    env: FORMULA=grails@20
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=grails@21
+  - language: ruby
+    env: FORMULA=grails@21
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=grails@22
+  - language: ruby
+    env: FORMULA=grails@22
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=grails@223
+  - language: ruby
+    env: FORMULA=grails@223
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=grails@224
+  - language: ruby
+    env: FORMULA=grails@224
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=grails@23
+  - language: ruby
+    env: FORMULA=grails@23
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=grails@24
+  - language: ruby
+    env: FORMULA=grails@24
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=grails@25
+  - language: ruby
+    env: FORMULA=grails@25
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=grails@31
+  - language: ruby
+    env: FORMULA=grails@31
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gsl@1
+  - language: ruby
+    env: FORMULA=gsl@1
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gsl@114
+  - language: ruby
+    env: FORMULA=gsl@114
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gst-ffmpeg@010
+  - language: ruby
+    env: FORMULA=gst-ffmpeg@010
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gst-plugins-bad@010
+  - language: ruby
+    env: FORMULA=gst-plugins-bad@010
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gst-plugins-base@010
+  - language: ruby
+    env: FORMULA=gst-plugins-base@010
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gst-plugins-good@010
+  - language: ruby
+    env: FORMULA=gst-plugins-good@010
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gst-plugins-ugly@010
+  - language: ruby
+    env: FORMULA=gst-plugins-ugly@010
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gst-python@010
+  - language: ruby
+    env: FORMULA=gst-python@010
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gst-rtsp@010
+  - language: ruby
+    env: FORMULA=gst-rtsp@010
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=gstreamer@010
+  - language: ruby
+    env: FORMULA=gstreamer@010
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=guile@18
+  - language: ruby
+    env: FORMULA=guile@18
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=hadoop@0202
+  - language: ruby
+    env: FORMULA=hadoop@0202
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=hadoop@121
+  - language: ruby
+    env: FORMULA=hadoop@121
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=hadoop@25
+  - language: ruby
+    env: FORMULA=hadoop@25
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=hadoop@252
+  - language: ruby
+    env: FORMULA=hadoop@252
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=hdf@4
+  - language: ruby
+    env: FORMULA=hdf@4
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=hive@010
+  - language: ruby
+    env: FORMULA=hive@010
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=hive@011
+  - language: ruby
+    env: FORMULA=hive@011
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=hive@12
+  - language: ruby
+    env: FORMULA=hive@12
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=imagemagick-ruby@186
+  - language: ruby
+    env: FORMULA=imagemagick-ruby@186
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=influxdb@08
+  - language: ruby
+    env: FORMULA=influxdb@08
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=isl@011
+  - language: ruby
+    env: FORMULA=isl@011
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=isl@012
+  - language: ruby
+    env: FORMULA=isl@012
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=isl@014
+  - language: ruby
+    env: FORMULA=isl@014
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=jboss-as@5
+  - language: ruby
+    env: FORMULA=jboss-as@5
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=jboss-forge@1
+  - language: ruby
+    env: FORMULA=jboss-forge@1
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=jenkins@lts
+  - language: ruby
+    env: FORMULA=jenkins@lts
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=jetty@76
+  - language: ruby
+    env: FORMULA=jetty@76
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=jetty@8
+  - language: ruby
+    env: FORMULA=jetty@8
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=jpeg@6b
+  - language: ruby
+    env: FORMULA=jpeg@6b
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=jpeg@9
+  - language: ruby
+    env: FORMULA=jpeg@9
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=jruby@168
+  - language: ruby
+    env: FORMULA=jruby@168
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=jruby@1721
+  - language: ruby
+    env: FORMULA=jruby@1721
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=jruby@9000
+  - language: ruby
+    env: FORMULA=jruby@9000
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=json-c@010
+  - language: ruby
+    env: FORMULA=json-c@010
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=jython@253
+  - language: ruby
+    env: FORMULA=jython@253
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=kafka@080
+  - language: ruby
+    env: FORMULA=kafka@080
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=kafka@090
+  - language: ruby
+    env: FORMULA=kafka@090
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=kettle@54
+  - language: ruby
+    env: FORMULA=kettle@54
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=kibana@41
+  - language: ruby
+    env: FORMULA=kibana@41
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=kibana@42
+  - language: ruby
+    env: FORMULA=kibana@42
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=kibana@43
+  - language: ruby
+    env: FORMULA=kibana@43
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=kibana@44
+  - language: ruby
+    env: FORMULA=kibana@44
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=kubernetes-cli@13
+  - language: ruby
+    env: FORMULA=kubernetes-cli@13
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=kubernetes-cli@14
+  - language: ruby
+    env: FORMULA=kubernetes-cli@14
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=ledger@26
+  - language: ruby
+    env: FORMULA=ledger@26
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=leptonica@169
+  - language: ruby
+    env: FORMULA=leptonica@169
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=libcouchbase@1
+  - language: ruby
+    env: FORMULA=libcouchbase@1
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=libdvdcss@12
+  - language: ruby
+    env: FORMULA=libdvdcss@12
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=libgee@08
+  - language: ruby
+    env: FORMULA=libgee@08
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=libidn@2
+  - language: ruby
+    env: FORMULA=libidn@2
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=libmongoclient@legacy
+  - language: ruby
+    env: FORMULA=libmongoclient@legacy
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=libmpc@08
+  - language: ruby
+    env: FORMULA=libmpc@08
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=libotr@4
+  - language: ruby
+    env: FORMULA=libotr@4
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=libpng@12
+  - language: ruby
+    env: FORMULA=libpng@12
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=libpqxx@3
+  - language: ruby
+    env: FORMULA=libpqxx@3
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=libuv@0
+  - language: ruby
+    env: FORMULA=libuv@0
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=libxc@21
+  - language: ruby
+    env: FORMULA=libxc@21
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=libxml@278
+  - language: ruby
+    env: FORMULA=libxml@278
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=llvm-gcc@28
+  - language: ruby
+    env: FORMULA=llvm-gcc@28
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=llvm@31
+  - language: ruby
+    env: FORMULA=llvm@31
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=llvm@32
+  - language: ruby
+    env: FORMULA=llvm@32
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=llvm@33
+  - language: ruby
+    env: FORMULA=llvm@33
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=llvm@34
+  - language: ruby
+    env: FORMULA=llvm@34
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=llvm@35
+  - language: ruby
+    env: FORMULA=llvm@35
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=llvm@36
+  - language: ruby
+    env: FORMULA=llvm@36
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=llvm@37
+  - language: ruby
+    env: FORMULA=llvm@37
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=llvm@38
+  - language: ruby
+    env: FORMULA=llvm@38
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=log4cplus@10
+  - language: ruby
+    env: FORMULA=log4cplus@10
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=logstash@21
+  - language: ruby
+    env: FORMULA=logstash@21
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=logstash@22
+  - language: ruby
+    env: FORMULA=logstash@22
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=logstash@23
+  - language: ruby
+    env: FORMULA=logstash@23
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=logstash@24
+  - language: ruby
+    env: FORMULA=logstash@24
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=lua@51
+  - language: ruby
+    env: FORMULA=lua@51
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=lua@52
+  - language: ruby
+    env: FORMULA=lua@52
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=lua@53
+  - language: ruby
+    env: FORMULA=lua@53
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=lz4r@117
+  - language: ruby
+    env: FORMULA=lz4r@117
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=mapnik@071
+  - language: ruby
+    env: FORMULA=mapnik@071
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=mapnik@2
+  - language: ruby
+    env: FORMULA=mapnik@2
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=mariadb@10
+  - language: ruby
+    env: FORMULA=mariadb@10
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=mariadb@100
+  - language: ruby
+    env: FORMULA=mariadb@100
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=maven@2
+  - language: ruby
+    env: FORMULA=maven@2
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=maven@30
+  - language: ruby
+    env: FORMULA=maven@30
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=maven@31
+  - language: ruby
+    env: FORMULA=maven@31
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=maven@32
+  - language: ruby
+    env: FORMULA=maven@32
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=mkvtoolnix@58
+  - language: ruby
+    env: FORMULA=mkvtoolnix@58
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=mongodb@24
+  - language: ruby
+    env: FORMULA=mongodb@24
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=mongodb@26
+  - language: ruby
+    env: FORMULA=mongodb@26
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=mongodb@30
+  - language: ruby
+    env: FORMULA=mongodb@30
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=mongodb@32
+  - language: ruby
+    env: FORMULA=mongodb@32
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=mono@3
+  - language: ruby
+    env: FORMULA=mono@3
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=mpfr@2
+  - language: ruby
+    env: FORMULA=mpfr@2
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=mysql@51
+  - language: ruby
+    env: FORMULA=mysql@51
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=mysql@55
+  - language: ruby
+    env: FORMULA=mysql@55
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=mysql@56
+  - language: ruby
+    env: FORMULA=mysql@56
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=nasm@21106
+  - language: ruby
+    env: FORMULA=nasm@21106
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=nettle@3
+  - language: ruby
+    env: FORMULA=nettle@3
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=nifi@021
+  - language: ruby
+    env: FORMULA=nifi@021
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=node@010
+  - language: ruby
+    env: FORMULA=node@010
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=node@012
+  - language: ruby
+    env: FORMULA=node@012
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=node@04
+  - language: ruby
+    env: FORMULA=node@04
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=node@06
+  - language: ruby
+    env: FORMULA=node@06
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=node@08
+  - language: ruby
+    env: FORMULA=node@08
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=node@4
+  - language: ruby
+    env: FORMULA=node@4
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=node@4-lts
+  - language: ruby
+    env: FORMULA=node@4-lts
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=node@5
+  - language: ruby
+    env: FORMULA=node@5
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=node@6-lts
+  - language: ruby
+    env: FORMULA=node@6-lts
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=nu@0
+  - language: ruby
+    env: FORMULA=nu@0
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=objective-caml@312
+  - language: ruby
+    env: FORMULA=objective-caml@312
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=open-mpi@16
+  - language: ruby
+    env: FORMULA=open-mpi@16
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=openjpeg@20
+  - language: ruby
+    env: FORMULA=openjpeg@20
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=openjpeg@21
+  - language: ruby
+    env: FORMULA=openjpeg@21
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=openssl@098
+  - language: ruby
+    env: FORMULA=openssl@098
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=openssl@100
+  - language: ruby
+    env: FORMULA=openssl@100
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=openssl@101
+  - language: ruby
+    env: FORMULA=openssl@101
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=pandoc-citeproc@05
+  - language: ruby
+    env: FORMULA=pandoc-citeproc@05
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=pandoc@1131
+  - language: ruby
+    env: FORMULA=pandoc@1131
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=percona-server@55
+  - language: ruby
+    env: FORMULA=percona-server@55
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=percona-server@56
+  - language: ruby
+    env: FORMULA=percona-server@56
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=perl@514
+  - language: ruby
+    env: FORMULA=perl@514
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=perl@516
+  - language: ruby
+    env: FORMULA=perl@516
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=perl@518
+  - language: ruby
+    env: FORMULA=perl@518
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=phantomjs@17
+  - language: ruby
+    env: FORMULA=phantomjs@17
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=phantomjs@182
+  - language: ruby
+    env: FORMULA=phantomjs@182
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=phantomjs@192
+  - language: ruby
+    env: FORMULA=phantomjs@192
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=phantomjs@198
+  - language: ruby
+    env: FORMULA=phantomjs@198
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=play@12
+  - language: ruby
+    env: FORMULA=play@12
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=play@13
+  - language: ruby
+    env: FORMULA=play@13
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=play@14
+  - language: ruby
+    env: FORMULA=play@14
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=play@22
+  - language: ruby
+    env: FORMULA=play@22
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=plowshare@3
+  - language: ruby
+    env: FORMULA=plowshare@3
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=postgis@15
+  - language: ruby
+    env: FORMULA=postgis@15
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=postgis@20
+  - language: ruby
+    env: FORMULA=postgis@20
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=postgresql@8
+  - language: ruby
+    env: FORMULA=postgresql@8
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=postgresql@9
+  - language: ruby
+    env: FORMULA=postgresql@9
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=postgresql@91
+  - language: ruby
+    env: FORMULA=postgresql@91
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=postgresql@92
+  - language: ruby
+    env: FORMULA=postgresql@92
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=postgresql@93
+  - language: ruby
+    env: FORMULA=postgresql@93
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=postgresql@94
+  - language: ruby
+    env: FORMULA=postgresql@94
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=postgresql@95
+  - language: ruby
+    env: FORMULA=postgresql@95
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=povray@36
+  - language: ruby
+    env: FORMULA=povray@36
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=ppl@011
+  - language: ruby
+    env: FORMULA=ppl@011
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=ppl@10
+  - language: ruby
+    env: FORMULA=ppl@10
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=protobuf@240a
+  - language: ruby
+    env: FORMULA=protobuf@240a
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=protobuf@241
+  - language: ruby
+    env: FORMULA=protobuf@241
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=protobuf@250
+  - language: ruby
+    env: FORMULA=protobuf@250
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=protobuf@260
+  - language: ruby
+    env: FORMULA=protobuf@260
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=python@24
+  - language: ruby
+    env: FORMULA=python@24
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=python@25
+  - language: ruby
+    env: FORMULA=python@25
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=python@26
+  - language: ruby
+    env: FORMULA=python@26
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=python@31
+  - language: ruby
+    env: FORMULA=python@31
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=python@32
+  - language: ruby
+    env: FORMULA=python@32
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=qt@52
+  - language: ruby
+    env: FORMULA=qt@52
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=qt@55
+  - language: ruby
+    env: FORMULA=qt@55
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=rabbitmq@30
+  - language: ruby
+    env: FORMULA=rabbitmq@30
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=raptor@1
+  - language: ruby
+    env: FORMULA=raptor@1
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=rebar@3
+  - language: ruby
+    env: FORMULA=rebar@3
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=redis@1310
+  - language: ruby
+    env: FORMULA=redis@1310
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=redis@24
+  - language: ruby
+    env: FORMULA=redis@24
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=redis@26
+  - language: ruby
+    env: FORMULA=redis@26
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=redis@28
+  - language: ruby
+    env: FORMULA=redis@28
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=riak@132
+  - language: ruby
+    env: FORMULA=riak@132
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=ruby@182
+  - language: ruby
+    env: FORMULA=ruby@182
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=ruby@186
+  - language: ruby
+    env: FORMULA=ruby@186
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=ruby@187
+  - language: ruby
+    env: FORMULA=ruby@187
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=ruby@192
+  - language: ruby
+    env: FORMULA=ruby@192
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=ruby@193
+  - language: ruby
+    env: FORMULA=ruby@193
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=ruby@20
+  - language: ruby
+    env: FORMULA=ruby@20
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=ruby@21
+  - language: ruby
+    env: FORMULA=ruby@21
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=ruby@22
+  - language: ruby
+    env: FORMULA=ruby@22
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=saxon@6
+  - language: ruby
+    env: FORMULA=saxon@6
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=scala@210
+  - language: ruby
+    env: FORMULA=scala@210
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=scala@211
+  - language: ruby
+    env: FORMULA=scala@211
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=scala@29
+  - language: ruby
+    env: FORMULA=scala@29
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=selenium-server-standalone@245
+  - language: ruby
+    env: FORMULA=selenium-server-standalone@245
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=solr@14
+  - language: ruby
+    env: FORMULA=solr@14
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=solr@36
+  - language: ruby
+    env: FORMULA=solr@36
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=solr@4
+  - language: ruby
+    env: FORMULA=solr@4
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=solr@54
+  - language: ruby
+    env: FORMULA=solr@54
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=solr@55
+  - language: ruby
+    env: FORMULA=solr@55
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=sonar@4
+  - language: ruby
+    env: FORMULA=sonar@4
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=spidermonkey@180
+  - language: ruby
+    env: FORMULA=spidermonkey@180
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=spidermonkey@45
+  - language: ruby
+    env: FORMULA=spidermonkey@45
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=squid@2
+  - language: ruby
+    env: FORMULA=squid@2
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=srtp@15
+  - language: ruby
+    env: FORMULA=srtp@15
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=subversion@16
+  - language: ruby
+    env: FORMULA=subversion@16
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=subversion@17
+  - language: ruby
+    env: FORMULA=subversion@17
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=subversion@18
+  - language: ruby
+    env: FORMULA=subversion@18
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=swig@2
+  - language: ruby
+    env: FORMULA=swig@2
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=swig@304
+  - language: ruby
+    env: FORMULA=swig@304
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=syncthing@010
+  - language: ruby
+    env: FORMULA=syncthing@010
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=thrift@090
+  - language: ruby
+    env: FORMULA=thrift@090
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=tomcat@6
+  - language: ruby
+    env: FORMULA=tomcat@6
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=tomcat@7
+  - language: ruby
+    env: FORMULA=tomcat@7
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=unison@232
+  - language: ruby
+    env: FORMULA=unison@232
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=unison@240
+  - language: ruby
+    env: FORMULA=unison@240
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=v8@315
+  - language: ruby
+    env: FORMULA=v8@315
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=valgrind@36
+  - language: ruby
+    env: FORMULA=valgrind@36
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=valgrind@38
+  - language: ruby
+    env: FORMULA=valgrind@38
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=varnish@3
+  - language: ruby
+    env: FORMULA=varnish@3
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=varnish@4
+  - language: ruby
+    env: FORMULA=varnish@4
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=vim@74
+  - language: ruby
+    env: FORMULA=vim@74
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=virtuoso@616
+  - language: ruby
+    env: FORMULA=virtuoso@616
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=vtk@5
+  - language: ruby
+    env: FORMULA=vtk@5
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=zeromq@22
+  - language: ruby
+    env: FORMULA=zeromq@22
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=zeromq@3
+  - language: ruby
+    env: FORMULA=zeromq@3
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=zeromq@32
+  - language: ruby
+    env: FORMULA=zeromq@32
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=zeromq@40
+  - language: ruby
+    env: FORMULA=zeromq@40
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
-  - env: FORMULA=zeromq@405
+  - language: ruby
+    env: FORMULA=zeromq@405
+    os: osx
     osx_image: xcode8.2
     before_script: *1
     script: travis_wait 50 ruby tests/build_formula.rb $FORMULA
