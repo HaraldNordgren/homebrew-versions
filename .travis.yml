@@ -10,703 +10,1051 @@ matrix:
   include:
   - env: FORMULA=allegro@5
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=android-ndk@r10c
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=android-ndk@r10d
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=android-ndk@r10e
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=android-ndk@r11c
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=android-ndk@r12b
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=android-ndk@r9d
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=ansible@14
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=ansible@18
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=ansible@19
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=ansible@20
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=antlr@2
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=antlr@3
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=apache-spark@121
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=apache-spark@131
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=apache-spark@141
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=apache-spark@15
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=apache-spark@16
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=appledoc@20
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=appledoc@21
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=appledoc@22
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=arangodb@2
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=astyle@204
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=autoconf@213
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=autoconf@264
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=automake@112
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=bash-completion@2
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=bazel@02
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=berkeley-db@4
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=bind@99
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=bison@27
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=boost-python@159
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=boost@149
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=boost@150
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=boost@155
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=boost@159
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=boost@160
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=boot2docker@133
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=boot2docker@141
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=boot2docker@162
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=camlp5@606
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=cassandra@0.6
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=cassandra@10
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=cassandra@12
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=cassandra@20
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=cassandra@21
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=cassandra@22
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=clang-format@38
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=clojure@14
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=cloog-ppl@015
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=cloog@018
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=cmake@28
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=cmake@30
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=cmake@31
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=coq@83
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=cvsps@2
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=docker@110
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=docker@111
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=docker@133
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=docker@141
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=docker@150
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=docker@162
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=docker@171
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=doxygen@1831
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=drush@4
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=drush@5
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=duplicity@06
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=eigen@2
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=eigen@32
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=elasticsearch@0.20
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=elasticsearch@090
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=elasticsearch@11
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=elasticsearch@12
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=elasticsearch@13
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=elasticsearch@14
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=elasticsearch@17
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=elasticsearch@20
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=elasticsearch@21
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=elasticsearch@22
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=elasticsearch@23
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=elasticsearch@24
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=erlang@r13
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=erlang@r14
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=erlang@r15
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=erlang@r16
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=erlang@r17
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=erlang@r18
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=erlang@r19
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=ffmpeg@28
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=freetds@091
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gawk@3
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gcc@43
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gcc@44
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gcc@45
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gcc@46
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gcc@47
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gcc@48
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gcc@49
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gcc@5
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gcc@6
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gdal@111
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gecode@373
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gegl@02
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=giflib@5
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=git-tf@2.0.2
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=glfw@2
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=glfw@3
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gmp@4
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gnupg@2
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gnupg@21
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gnuplot@4
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gnutls@3
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gnutls@34
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=go@12
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=go@13
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=go@14
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=go@15
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=go@16
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gradle@110
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gradle@112
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gradle@16
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gradle@18
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gradle@20
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gradle@21
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gradle@214
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gradle@221
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gradle@24
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gradle@26
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gradle@27
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gradle@28
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=grails@13
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=grails@137
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=grails@20
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=grails@21
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=grails@22
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=grails@223
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=grails@224
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=grails@23
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=grails@24
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=grails@25
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=grails@31
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gsl@1
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gsl@114
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gst-ffmpeg@010
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gst-plugins-bad@010
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gst-plugins-base@010
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gst-plugins-good@010
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gst-plugins-ugly@010
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gst-python@010
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gst-rtsp@010
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=gstreamer@010
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=guile@18
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=hadoop@0202
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=hadoop@121
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=hadoop@25
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=hadoop@252
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=hdf@4
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=hive@010
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=hive@011
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=hive@12
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=imagemagick-ruby@186
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=influxdb@08
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=isl@011
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=isl@012
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=isl@014
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=jboss-as@5
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=jboss-forge@1
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=jenkins@lts
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=jetty@76
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=jetty@8
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=jpeg@6b
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=jpeg@9
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=jruby@168
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=jruby@1721
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=jruby@9000
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=json-c@010
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=jython@253
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=kafka@080
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=kafka@090
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=kettle@54
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=kibana@41
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=kibana@42
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=kibana@43
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=kibana@44
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=kubernetes-cli@13
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=kubernetes-cli@14
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=ledger@26
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=leptonica@169
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=libcouchbase@1
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=libdvdcss@12
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=libgee@08
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=libidn@2
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=libmongoclient@legacy
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=libmpc@08
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=libotr@4
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=libpng@12
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=libpqxx@3
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=libuv@0
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=libxc@21
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=libxml@278
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=llvm-gcc@28
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=llvm@31
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=llvm@32
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=llvm@33
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=llvm@34
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=llvm@35
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=llvm@36
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=llvm@37
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=llvm@38
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=log4cplus@10
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=logstash@21
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=logstash@22
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=logstash@23
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=logstash@24
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=lua@51
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=lua@52
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=lua@53
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=lz4r@117
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=mapnik@071
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=mapnik@2
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=mariadb@10
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=mariadb@100
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=maven@2
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=maven@30
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=maven@31
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=maven@32
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=mkvtoolnix@58
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=mongodb@24
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=mongodb@26
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=mongodb@30
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=mongodb@32
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=mono@3
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=mpfr@2
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=mysql@51
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=mysql@55
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=mysql@56
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=nasm@21106
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=nettle@3
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=nifi@021
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=node@010
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=node@012
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=node@04
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=node@06
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=node@08
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=node@4
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=node@4-lts
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=node@5
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=node@6-lts
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=nu@0
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=objective-caml@312
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=open-mpi@16
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=openjpeg@20
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=openjpeg@21
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=openssl@098
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=openssl@100
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=openssl@101
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=pandoc-citeproc@05
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=pandoc@1131
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=percona-server@55
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=percona-server@56
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=perl@514
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=perl@516
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=perl@518
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=phantomjs@17
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=phantomjs@182
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=phantomjs@192
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=phantomjs@198
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=play@12
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=play@13
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=play@14
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=play@22
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=plowshare@3
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=postgis@15
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=postgis@20
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=postgresql@8
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=postgresql@9
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=postgresql@91
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=postgresql@92
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=postgresql@93
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=postgresql@94
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=postgresql@95
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=povray@36
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=ppl@011
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=ppl@10
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=protobuf@240a
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=protobuf@241
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=protobuf@250
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=protobuf@260
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=python@24
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=python@25
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=python@26
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=python@31
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=python@32
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=qt@52
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=qt@55
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=rabbitmq@30
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=raptor@1
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=rebar@3
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=redis@1310
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=redis@24
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=redis@26
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=redis@28
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=riak@132
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=ruby@182
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=ruby@186
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=ruby@187
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=ruby@192
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=ruby@193
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=ruby@20
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=ruby@21
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=ruby@22
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=saxon@6
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=scala@210
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=scala@211
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=scala@29
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=selenium-server-standalone@245
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=solr@14
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=solr@36
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=solr@4
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=solr@54
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=solr@55
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=sonar@4
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=spidermonkey@180
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=spidermonkey@45
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=squid@2
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=srtp@15
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=subversion@16
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=subversion@17
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=subversion@18
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=swig@2
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=swig@304
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=syncthing@010
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=thrift@090
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=tomcat@6
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=tomcat@7
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=unison@232
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=unison@240
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=v8@315
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=valgrind@36
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=valgrind@38
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=varnish@3
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=varnish@4
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=vim@74
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=virtuoso@616
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=vtk@5
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=zeromq@22
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=zeromq@3
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=zeromq@32
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=zeromq@40
     osx_image: xcode8.2
+    script: ruby tests/build_formula.rb $FORMULA
   - env: FORMULA=zeromq@405
     osx_image: xcode8.2
-script:
-- ruby tests/build_formula.rb $FORMULA
+    script: ruby tests/build_formula.rb $FORMULA
