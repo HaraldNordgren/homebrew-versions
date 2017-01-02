@@ -2455,5 +2455,12 @@
     "file_without_extension": "mongodb32",
     "original_filename": "mongodb32.rb",
     "migrated_filename": "mongodb.rb"
+  },
+  {
+    "classname_with_version": "Boost157",
+    "package_at_version": "boost@157",
+    "file_without_extension": "boost157",
+    "original_filename": "boost157.rb",
+    "migrated_filename": "boost.rb"
   }
 ]

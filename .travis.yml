@@ -3,6 +3,8 @@
 language: ruby
 notifications:
   email: false
+git:
+  depth: 10000
 branches:
   only:
   - master
@@ -244,6 +246,13 @@ matrix:
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/boost@155
+  - env: Formula=boost@157
+    os: osx
+    osx_image: xcode8.2
+    before_script:
+    - brew tap haraldnordgren/versions
+    - brew update
+    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/boost@157
   - env: Formula=boost@159
     os: osx
     osx_image: xcode8.2
@@ -713,7 +722,6 @@ matrix:
     os: osx
     osx_image: xcode8.2
     before_script:
-    - brew unlink gnupg2 gpg-agent dirmngr
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/gnupg@21
@@ -742,6 +750,7 @@ matrix:
     os: osx
     osx_image: xcode8.2
     before_script:
+    - brew unlink go
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/go@12
@@ -749,6 +758,7 @@ matrix:
     os: osx
     osx_image: xcode8.2
     before_script:
+    - brew unlink go
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/go@13
@@ -756,6 +766,7 @@ matrix:
     os: osx
     osx_image: xcode8.2
     before_script:
+    - brew unlink go
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/go@14
@@ -1178,7 +1189,7 @@ matrix:
     os: osx
     osx_image: xcode8.2
     before_script:
-    - brew cask install java
+    - brew cask reinstall java
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/kafka@080
@@ -1186,7 +1197,7 @@ matrix:
     os: osx
     osx_image: xcode8.2
     before_script:
-    - brew cask install java
+    - brew cask reinstall java
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/kafka@090
@@ -1667,7 +1678,6 @@ matrix:
     os: osx
     osx_image: xcode8.2
     before_script:
-    - brew unlink open-mpi
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/open-mpi@16
@@ -2201,6 +2211,7 @@ matrix:
     os: osx
     osx_image: xcode8.2
     before_script:
+    - brew unlink subversion
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/subversion@16
@@ -2208,6 +2219,7 @@ matrix:
     os: osx
     osx_image: xcode8.2
     before_script:
+    - brew unlink subversion
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/subversion@18
@@ -2605,6 +2617,13 @@ matrix:
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/boost@155
+  - env: Formula=boost@157
+    os: osx
+    osx_image: xcode8.1
+    before_script:
+    - brew tap haraldnordgren/versions
+    - brew update
+    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/boost@157
   - env: Formula=boost@159
     os: osx
     osx_image: xcode8.1
@@ -3074,7 +3093,6 @@ matrix:
     os: osx
     osx_image: xcode8.1
     before_script:
-    - brew unlink gnupg2 gpg-agent dirmngr
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/gnupg@21
@@ -3103,6 +3121,7 @@ matrix:
     os: osx
     osx_image: xcode8.1
     before_script:
+    - brew unlink go
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/go@12
@@ -3110,6 +3129,7 @@ matrix:
     os: osx
     osx_image: xcode8.1
     before_script:
+    - brew unlink go
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/go@13
@@ -3117,6 +3137,7 @@ matrix:
     os: osx
     osx_image: xcode8.1
     before_script:
+    - brew unlink go
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/go@14
@@ -3539,7 +3560,7 @@ matrix:
     os: osx
     osx_image: xcode8.1
     before_script:
-    - brew cask install java
+    - brew cask reinstall java
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/kafka@080
@@ -3547,7 +3568,7 @@ matrix:
     os: osx
     osx_image: xcode8.1
     before_script:
-    - brew cask install java
+    - brew cask reinstall java
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/kafka@090
@@ -4035,7 +4056,6 @@ matrix:
     os: osx
     osx_image: xcode8.1
     before_script:
-    - brew unlink open-mpi
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/open-mpi@16
@@ -4144,13 +4164,6 @@ matrix:
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/phantomjs@192
-  - env: Formula=phantomjs@198
-    os: osx
-    osx_image: xcode8.1
-    before_script:
-    - brew tap haraldnordgren/versions
-    - brew update
-    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/phantomjs@198
   - env: Formula=play@12
     os: osx
     osx_image: xcode8.1
@@ -4576,6 +4589,7 @@ matrix:
     os: osx
     osx_image: xcode8.1
     before_script:
+    - brew unlink subversion
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/subversion@16
@@ -4583,6 +4597,7 @@ matrix:
     os: osx
     osx_image: xcode8.1
     before_script:
+    - brew unlink subversion
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/subversion@17
@@ -4590,6 +4605,7 @@ matrix:
     os: osx
     osx_image: xcode8.1
     before_script:
+    - brew unlink subversion
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/subversion@18
@@ -5037,6 +5053,14 @@ matrix:
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/boost@155
+  - env: Formula=boost@157
+    os: osx
+    osx_image: xcode8
+    before_script:
+    - brew untap homebrew/versions
+    - brew tap haraldnordgren/versions
+    - brew update
+    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/boost@157
   - env: Formula=boost@159
     os: osx
     osx_image: xcode8
@@ -5494,22 +5518,6 @@ matrix:
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/gcc@43
-  - env: Formula=gcc@44
-    os: osx
-    osx_image: xcode8
-    before_script:
-    - brew untap homebrew/versions
-    - brew tap haraldnordgren/versions
-    - brew update
-    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/gcc@44
-  - env: Formula=gcc@45
-    os: osx
-    osx_image: xcode8
-    before_script:
-    - brew untap homebrew/versions
-    - brew tap haraldnordgren/versions
-    - brew update
-    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/gcc@45
   - env: Formula=gcc@46
     os: osx
     osx_image: xcode8
@@ -5518,14 +5526,6 @@ matrix:
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/gcc@46
-  - env: Formula=gcc@47
-    os: osx
-    osx_image: xcode8
-    before_script:
-    - brew untap homebrew/versions
-    - brew tap haraldnordgren/versions
-    - brew update
-    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/gcc@47
   - env: Formula=gcc@48
     os: osx
     osx_image: xcode8
@@ -5636,7 +5636,6 @@ matrix:
     os: osx
     osx_image: xcode8
     before_script:
-    - brew unlink gnupg2 gpg-agent dirmngr
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -5669,6 +5668,7 @@ matrix:
     os: osx
     osx_image: xcode8
     before_script:
+    - brew unlink go
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -5677,6 +5677,7 @@ matrix:
     os: osx
     osx_image: xcode8
     before_script:
+    - brew unlink go
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -5685,6 +5686,7 @@ matrix:
     os: osx
     osx_image: xcode8
     before_script:
+    - brew unlink go
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -5702,6 +5704,7 @@ matrix:
     os: osx
     osx_image: xcode8
     before_script:
+    - brew unlink go
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -6183,7 +6186,7 @@ matrix:
     os: osx
     osx_image: xcode8
     before_script:
-    - brew cask install java
+    - brew cask reinstall java
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -6192,7 +6195,7 @@ matrix:
     os: osx
     osx_image: xcode8
     before_script:
-    - brew cask install java
+    - brew cask reinstall java
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -6773,7 +6776,6 @@ matrix:
     os: osx
     osx_image: xcode8
     before_script:
-    - brew unlink open-mpi
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -6898,14 +6900,6 @@ matrix:
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/phantomjs@192
-  - env: Formula=phantomjs@198
-    os: osx
-    osx_image: xcode8
-    before_script:
-    - brew untap homebrew/versions
-    - brew tap haraldnordgren/versions
-    - brew update
-    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/phantomjs@198
   - env: Formula=play@12
     os: osx
     osx_image: xcode8
@@ -7390,6 +7384,7 @@ matrix:
     os: osx
     osx_image: xcode8
     before_script:
+    - brew unlink subversion
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -7398,6 +7393,7 @@ matrix:
     os: osx
     osx_image: xcode8
     before_script:
+    - brew unlink subversion
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -7406,6 +7402,7 @@ matrix:
     os: osx
     osx_image: xcode8
     before_script:
+    - brew unlink subversion
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -7875,6 +7872,14 @@ matrix:
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/boost@155
+  - env: Formula=boost@157
+    os: osx
+    osx_image: xcode7.3
+    before_script:
+    - brew untap homebrew/versions
+    - brew tap haraldnordgren/versions
+    - brew update
+    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/boost@157
   - env: Formula=boost@159
     os: osx
     osx_image: xcode7.3
@@ -8332,38 +8337,6 @@ matrix:
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/gcc@43
-  - env: Formula=gcc@44
-    os: osx
-    osx_image: xcode7.3
-    before_script:
-    - brew untap homebrew/versions
-    - brew tap haraldnordgren/versions
-    - brew update
-    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/gcc@44
-  - env: Formula=gcc@45
-    os: osx
-    osx_image: xcode7.3
-    before_script:
-    - brew untap homebrew/versions
-    - brew tap haraldnordgren/versions
-    - brew update
-    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/gcc@45
-  - env: Formula=gcc@46
-    os: osx
-    osx_image: xcode7.3
-    before_script:
-    - brew untap homebrew/versions
-    - brew tap haraldnordgren/versions
-    - brew update
-    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/gcc@46
-  - env: Formula=gcc@47
-    os: osx
-    osx_image: xcode7.3
-    before_script:
-    - brew untap homebrew/versions
-    - brew tap haraldnordgren/versions
-    - brew update
-    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/gcc@47
   - env: Formula=gcc@48
     os: osx
     osx_image: xcode7.3
@@ -8474,7 +8447,6 @@ matrix:
     os: osx
     osx_image: xcode7.3
     before_script:
-    - brew unlink gnupg2 gpg-agent dirmngr
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -8507,6 +8479,7 @@ matrix:
     os: osx
     osx_image: xcode7.3
     before_script:
+    - brew unlink go
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -8515,6 +8488,7 @@ matrix:
     os: osx
     osx_image: xcode7.3
     before_script:
+    - brew unlink go
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -8523,6 +8497,7 @@ matrix:
     os: osx
     osx_image: xcode7.3
     before_script:
+    - brew unlink go
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -8540,6 +8515,7 @@ matrix:
     os: osx
     osx_image: xcode7.3
     before_script:
+    - brew unlink go
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -9021,7 +8997,7 @@ matrix:
     os: osx
     osx_image: xcode7.3
     before_script:
-    - brew cask install java
+    - brew cask reinstall java
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -9030,7 +9006,7 @@ matrix:
     os: osx
     osx_image: xcode7.3
     before_script:
-    - brew cask install java
+    - brew cask reinstall java
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -9611,7 +9587,6 @@ matrix:
     os: osx
     osx_image: xcode7.3
     before_script:
-    - brew unlink open-mpi
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -9736,14 +9711,6 @@ matrix:
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/phantomjs@192
-  - env: Formula=phantomjs@198
-    os: osx
-    osx_image: xcode7.3
-    before_script:
-    - brew untap homebrew/versions
-    - brew tap haraldnordgren/versions
-    - brew update
-    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/phantomjs@198
   - env: Formula=play@12
     os: osx
     osx_image: xcode7.3
@@ -10228,6 +10195,7 @@ matrix:
     os: osx
     osx_image: xcode7.3
     before_script:
+    - brew unlink subversion
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -10236,6 +10204,7 @@ matrix:
     os: osx
     osx_image: xcode7.3
     before_script:
+    - brew unlink subversion
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -10244,6 +10213,7 @@ matrix:
     os: osx
     osx_image: xcode7.3
     before_script:
+    - brew unlink subversion
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -10713,6 +10683,14 @@ matrix:
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/boost@155
+  - env: Formula=boost@157
+    os: osx
+    osx_image: xcode6.4
+    before_script:
+    - brew untap homebrew/versions
+    - brew tap haraldnordgren/versions
+    - brew update
+    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/boost@157
   - env: Formula=boost@159
     os: osx
     osx_image: xcode6.4
@@ -11170,14 +11148,6 @@ matrix:
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/gcc@43
-  - env: Formula=gcc@44
-    os: osx
-    osx_image: xcode6.4
-    before_script:
-    - brew untap homebrew/versions
-    - brew tap haraldnordgren/versions
-    - brew update
-    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/gcc@44
   - env: Formula=gcc@45
     os: osx
     osx_image: xcode6.4
@@ -11210,14 +11180,6 @@ matrix:
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/gcc@48
-  - env: Formula=gcc@49
-    os: osx
-    osx_image: xcode6.4
-    before_script:
-    - brew untap homebrew/versions
-    - brew tap haraldnordgren/versions
-    - brew update
-    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/gcc@49
   - env: Formula=gcc@5
     os: osx
     osx_image: xcode6.4
@@ -11312,7 +11274,6 @@ matrix:
     os: osx
     osx_image: xcode6.4
     before_script:
-    - brew unlink gnupg2 gpg-agent dirmngr
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -11345,6 +11306,7 @@ matrix:
     os: osx
     osx_image: xcode6.4
     before_script:
+    - brew unlink go
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -11353,6 +11315,7 @@ matrix:
     os: osx
     osx_image: xcode6.4
     before_script:
+    - brew unlink go
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -11361,6 +11324,7 @@ matrix:
     os: osx
     osx_image: xcode6.4
     before_script:
+    - brew unlink go
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -11378,6 +11342,7 @@ matrix:
     os: osx
     osx_image: xcode6.4
     before_script:
+    - brew unlink go
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -11859,7 +11824,7 @@ matrix:
     os: osx
     osx_image: xcode6.4
     before_script:
-    - brew cask install java
+    - brew cask reinstall java
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -11868,7 +11833,7 @@ matrix:
     os: osx
     osx_image: xcode6.4
     before_script:
-    - brew cask install java
+    - brew cask reinstall java
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -12449,7 +12414,6 @@ matrix:
     os: osx
     osx_image: xcode6.4
     before_script:
-    - brew unlink open-mpi
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -13066,6 +13030,7 @@ matrix:
     os: osx
     osx_image: xcode6.4
     before_script:
+    - brew unlink subversion
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -13074,6 +13039,7 @@ matrix:
     os: osx
     osx_image: xcode6.4
     before_script:
+    - brew unlink subversion
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
@@ -13082,6 +13048,7 @@ matrix:
     os: osx
     osx_image: xcode6.4
     before_script:
+    - brew unlink subversion
     - brew untap homebrew/versions
     - brew tap haraldnordgren/versions
     - brew update
