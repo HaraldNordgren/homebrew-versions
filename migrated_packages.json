@@ -2462,5 +2462,12 @@
     "file_without_extension": "boost157",
     "original_filename": "boost157.rb",
     "migrated_filename": "boost.rb"
+  },
+  {
+    "classname_with_version": "Ruby23",
+    "package_at_version": "ruby@23",
+    "file_without_extension": "ruby23",
+    "original_filename": "ruby23.rb",
+    "migrated_filename": "ruby.rb"
   }
 ]

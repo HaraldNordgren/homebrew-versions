@@ -2102,6 +2102,13 @@ matrix:
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/ruby@22
+  - env: Formula=ruby@23
+    os: osx
+    osx_image: xcode8.2
+    before_script:
+    - brew tap haraldnordgren/versions
+    - brew update
+    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/ruby@23
   - env: Formula=saxon@6
     os: osx
     osx_image: xcode8.2
@@ -4480,6 +4487,13 @@ matrix:
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/ruby@22
+  - env: Formula=ruby@23
+    os: osx
+    osx_image: xcode8.1
+    before_script:
+    - brew tap haraldnordgren/versions
+    - brew update
+    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/ruby@23
   - env: Formula=saxon@6
     os: osx
     osx_image: xcode8.1
@@ -7260,6 +7274,14 @@ matrix:
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/ruby@22
+  - env: Formula=ruby@23
+    os: osx
+    osx_image: xcode8
+    before_script:
+    - brew untap homebrew/versions
+    - brew tap haraldnordgren/versions
+    - brew update
+    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/ruby@23
   - env: Formula=saxon@6
     os: osx
     osx_image: xcode8
@@ -10071,6 +10093,14 @@ matrix:
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/ruby@22
+  - env: Formula=ruby@23
+    os: osx
+    osx_image: xcode7.3
+    before_script:
+    - brew untap homebrew/versions
+    - brew tap haraldnordgren/versions
+    - brew update
+    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/ruby@23
   - env: Formula=saxon@6
     os: osx
     osx_image: xcode7.3
@@ -12906,6 +12936,14 @@ matrix:
     - brew tap haraldnordgren/versions
     - brew update
     script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/ruby@22
+  - env: Formula=ruby@23
+    os: osx
+    osx_image: xcode6.4
+    before_script:
+    - brew untap homebrew/versions
+    - brew tap haraldnordgren/versions
+    - brew update
+    script: travis_wait 50 ruby tests/build_formula.rb haraldnordgren/versions/ruby@23
   - env: Formula=saxon@6
     os: osx
     osx_image: xcode6.4
